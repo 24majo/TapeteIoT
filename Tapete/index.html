@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Teclas</title>
+</head>
+<body>
+	<script>
+		var correcta = 0
+		var arreglo_f = []
+		var opciones = document.getElementsByClassName("opcion")
+
+		window.addEventListener("keydown",(e)=>{
+		let tecla = e.key
+		
+			switch(tecla){
+			case 'ArrowUp':
+				/* for(var i = 0; i < arreglo_f.length; i++){
+					if(arreglo_f[i] == correcta){
+						console.log(e.key)
+						document.getElementsByClassName[0].style.backgroundColor = 'blue'
+						break
+					}
+
+					else{
+
+					}
+				} */
+
+				if(arreglo_f[0]== correcta){
+					document.getElementById("arr").style.backgroundColor = 'blue'
+				}
+				break;
+
+			case 'ArrowDown':
+				if(arreglo_f[1]== correcta){
+					document.getElementById("ab").style.backgroundColor = 'blue'
+				}
+				break;
+			case 'ArrowLeft':
+				if(arreglo_f[2]== correcta){
+					document.getElementById("izq").style.backgroundColor = 'blue'
+				}
+				break;
+			case 'ArrowRight':
+				if(arreglo_f[3]== correcta){
+					document.getElementById("der").style.backgroundColor = 'blue'
+				}
+				break;
+			default:
+				break;
+			}
+		})
+
+		function TRandom(){ // Función para darle valores booleanos a la tabla
+			var n = 1 // Variable de apoyo para que solo dé 9 numeros
+			var contar = 0 // Sirve para saber la cantidad de true que existen en la tabla
+			while(n<10){
+				var r = Math.random() < 0.5 // Generar valores booleanos aleatorios 
+				document.getElementById(n).innerHTML = r // Asignar el valor booleano random al ID de la tabla correspondiente
+				if(r) // Si el valor de la tabla es verdadero, se contabiliza
+					contar++
+				n+=1
+			}
+			correcta = contar
+			return contar
+		}
+
+		function OpRandom(){
+			var arreglo = [] // Arreglo de apoyo 
+			var aux = 0
+			var resultado = TRandom()
+			var ex = false
+			
+			while (arreglo.length < 4){
+				var existe = false
+				var n = Math.floor(Math.random() * 9)+1 // Valores random del 1 al 9
+				for(var i = 0; i <arreglo.length; i++){
+					if(arreglo[i] == n){
+						existe = true
+						break
+					}
+				}
+				if(!existe){
+					arreglo.push(n)
+					aux++
+				}
+			}
+			for(var i = 0; i <arreglo.length; i++){
+				if(arreglo[i] == resultado){
+					ex = true
+					break
+				}
+			}
+			if(!ex){
+				arreglo[3] = resultado
+			}
+
+			console.log("Cantidad true: ", resultado)
+			arreglo_f = arreglo
+			return arreglo
+		}
+
+		function Random(){
+			var opciones = document.getElementsByClassName("opcion")
+			var arreglo = OpRandom()
+			console.log("Arreglo: ", arreglo)
+
+			for(var i = 0; i < arreglo.length; i++){
+				opciones[i].innerHTML = arreglo[i]
+			} 
+		}
+
+		function respuesta(){
+			/* var aux = 0
+			var opciones = document.getElementsByClassName("opcion")
+			for(var i = 0; i < arreglo_f; i++){
+				if(arreglo_f[i] == correcta){
+					//document.getElementsByClassName[aux].style.backgroundColor = 'orange'
+					document.getElementById("ab").style.backgroundColor = 'red'
+					break
+				}
+				aux++
+			} */
+		}
+
+	</script>
+	<button onclick="Random()">Empezar</button>
+	
+	<table>
+		<tr>
+			<td><span id="1" class="numero"></span></td>
+			<td><span id="2" class="numero"></span></td>
+			<td><span id="3" class="numero"></span></td>
+		</tr>
+		<tr>
+			<td><span id="4" class="numero"></span></td>
+			<td><span id="5" class="numero"></span></td>
+			<td><span id="6" class="numero"></span></td>
+		</tr>
+		<tr>
+			<td><span id="7" class="numero"></span></td>
+			<td><span id="8" class="numero"></span></td>
+			<td><span id="9" class="numero"></span></td>
+		</tr>
+	</table>
+
+	<div class="opciones" id="opciones">
+		<span id="arr" class="opcion"></span>
+		<span id="ab" class="opcion"></span>
+		<span id="izq" class="opcion"></span>
+		<span id="der" class="opcion"></span>
+	</div>
+	<span id="cont" class="cont">Contador: </span>
+</body>
+</html>
