@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Letras</title>
+    </head>
+    <body>
+        <script>
+            const palabras = ["capa", "paleta", "perro", "cama", "gato", "flores"]
+            var respuesta = ""
+            var opciones = document.getElementsByClassName("opcion")
+
+            function palabra(){
+                var r = Math.floor(Math.random() * palabras.length)
+                respuesta = palabras[r]
+                document.getElementById("palabra").innerHTML = respuesta
+                var identificar = respuesta.split('') // Dividir cada letra de la palabra
+                var desorden = identificar.sort(function(){return Math.random()-0.5})
+                console.log("Nuevo: ", desorden)
+                var lineas = []
+
+                for(var i = 0; i < identificar.length; i++){
+                    lineas[i] = "_"
+                }
+
+                for(var i = 0; i < opciones.length; i++){
+                    opciones[i].innerHTML = identificar[i]
+                }
+                document.getElementById("linea").innerHTML = lineas
+            }
+
+     
+        </script>
+        <p>Completa la palabra con una imagen</p>
+        <span id="palabra"></span>
+        <br><br>
+        <span id="linea"></span>
+        <br><br>
+        <button onclick="palabra()">Empezar</button>
+        <br><br>
+        <div class="opciones">
+            <span id="arr" class="opcion"></span>
+            <span id="ab" class="opcion"></span>
+            <span id="izq" class="opcion"></span>
+            <span id="der" class="opcion"></span>
+        </div>
+    </body>
+</html>
