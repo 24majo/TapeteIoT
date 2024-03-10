@@ -12,17 +12,38 @@
             var respuesta = ""
             var opciones = document.getElementsByClassName("opcion")
 
+            window.addEventListener("keydown",(e)=>{
+            let tecla = e.key
+            
+                switch(tecla){
+                case 'ArrowUp':
+                    document.getElementById("arr").style.backgroundColor = 'blue'
+                    break;
+                case 'ArrowDown':
+                    document.getElementById("ab").style.backgroundColor = 'blue'
+                    break;
+                case 'ArrowLeft':
+                    document.getElementById("izq").style.backgroundColor = 'blue'
+                    break;
+                case 'ArrowRight':
+                    document.getElementById("der").style.backgroundColor = 'blue'
+                    break;
+                default:
+                    break;
+                }
+            })
+
             function palabra(){
                 var r = Math.floor(Math.random() * palabras.length)
                 respuesta = palabras[r]
                 document.getElementById("palabra").innerHTML = respuesta
                 var identificar = respuesta.split('') // Dividir cada letra de la palabra
-                var desorden = identificar.sort(function(){return Math.random()-0.5})
+                var desorden = identificar.sort(function(){return Math.random()-0.5}) // Desordenar los valores de arreglo
                 console.log("Nuevo: ", desorden)
-                var lineas = []
+                var lineas = [] 
 
                 for(var i = 0; i < identificar.length; i++){
-                    lineas[i] = "_"
+                    lineas[i] = "_" // Mostrar arreglo "vacío" con la cantidad de caracteres de la palabra
                 }
 
                 for(var i = 0; i < opciones.length; i++){
