@@ -11,6 +11,7 @@
             var palabras = ["capa", "paleta", "perro", "cama", "gato", "flores"]
             var respuesta = ""
             var opciones = document.getElementsByClassName("opcion")
+            var apoyo = [] // Arreglo de apoyo
 
             window.addEventListener("keydown",(e)=>{
             let tecla = e.key
@@ -49,9 +50,10 @@
                 for(var i = 0; i < opciones.length; i++){
                     opciones[i].innerHTML = identificar[i]
                 }
-                document.getElementById("linea").innerHTML = lineas
+                apoyo = identificar
+                console.log(apoyo)
+                document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
             }
-
      
         </script>
         <p>Completa la palabra con una imagen</p>
