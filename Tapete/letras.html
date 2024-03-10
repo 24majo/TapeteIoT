@@ -50,8 +50,10 @@
                 for(var i = 0; i < opciones.length; i++){
                     opciones[i].innerHTML = identificar[i]
                 }
-                apoyo = identificar
-                console.log(apoyo)
+
+                for(var i = 0; i < 4; i++){
+                    apoyo[i] = identificar[i]
+                }
                 document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
             }
      
