@@ -11,23 +11,40 @@
             var palabras = ["capa", "paleta", "perro", "cama", "gato", "flores"]
             var respuesta = ""
             var opciones = document.getElementsByClassName("opcion")
-            var apoyo = [] // Arreglo de apoyo
+            var apoyo = [] // Arreglo de apoyo para letras en circulos
+            var aux = 0
+            var circulos = 0
+            var lineas = [] 
+
+            function seleccion(){
+                if(apoyo[aux] == respuesta[aux]){
+                    opciones[circulos].style.backgroundColor = "green" 
+                    lineas[aux] = respuesta[aux]
+                    document.getElementById("linea").innerHTML = lineas
+                    console.log("caca")
+                    console.log(lineas)
+                }
+                aux++
+                circulos++
+                return aux
+            }
 
             window.addEventListener("keydown",(e)=>{
             let tecla = e.key
             
                 switch(tecla){
                 case 'ArrowUp':
-                    document.getElementById("arr").style.backgroundColor = 'blue'
+                    seleccion()
+                    //document.getElementById("arr").style.backgroundColor = 'blue'
                     break;
                 case 'ArrowDown':
-                    document.getElementById("ab").style.backgroundColor = 'blue'
+                    seleccion()
                     break;
                 case 'ArrowLeft':
-                    document.getElementById("izq").style.backgroundColor = 'blue'
+                    seleccion()
                     break;
                 case 'ArrowRight':
-                    document.getElementById("der").style.backgroundColor = 'blue'
+                    seleccion()
                     break;
                 default:
                     break;
@@ -40,8 +57,7 @@
                 document.getElementById("palabra").innerHTML = respuesta
                 var identificar = respuesta.split('') // Dividir cada letra de la palabra
                 var desorden = identificar.sort(function(){return Math.random()-0.5}) // Desordenar los valores de arreglo
-                console.log("Nuevo: ", desorden)
-                var lineas = [] 
+                
 
                 for(var i = 0; i < identificar.length; i++){
                     lineas[i] = "_" // Mostrar arreglo "vacío" con la cantidad de caracteres de la palabra
