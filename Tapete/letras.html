@@ -9,19 +9,17 @@
     <body>
         <script>
             var palabras = ["capa", "paleta", "perro", "pollo", "gato", "arbol"]
-            var respuesta = ""
+            var respuesta = "" // Se guarda una de las palabras que están en el arreglo
             var opciones = document.getElementsByClassName("opcion")
             var apoyo = [] // Arreglo de apoyo para letras en circulos
             var aux = 0
-            var lineas = [] 
+            var lineas = [] // Arreglo para dibujar las lineas y completar la palabra
 
             function seleccion(seleccion){
-                if(apoyo[seleccion] == respuesta[aux]){
-                    console.log(seleccion)
-                    opciones[seleccion].style.backgroundColor = "green" 
-                    lineas[aux] = respuesta[aux]
+                if(apoyo[seleccion] == respuesta[aux]){ // Al seleccionar una tecla, se compara si la letra seleccionada es la misma que la que se encuentra en la posición indicada por el auxiliar
+                    opciones[seleccion].style.backgroundColor = "green"
+                    lineas[aux] = respuesta[aux] // Se reemplaza el _ por la letra correcta
                     document.getElementById("linea").innerHTML = lineas
-                    console.log(lineas)
                 }
                 aux++
                 return aux
@@ -33,7 +31,6 @@
                 switch(tecla){
                 case 'ArrowUp':
                     seleccion(0)
-                    //document.getElementById("arr").style.backgroundColor = 'blue'
                     break;
                 case 'ArrowDown':
                     seleccion(1)
