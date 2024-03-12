@@ -43,22 +43,15 @@
             respuesta = palabras[r]
             document.getElementById("palabra").innerHTML = respuesta
             var identificar = respuesta.split(''); // Dividir cada letra de la palabra
-            var aux_vocal = []
 
             for(var i = 0; i < identificar.length; i++){
                 lineas[i] = identificar[i] // Aumentar el tamaño del arreglo de acuerdo a la longitud de la palabra aleatoria
                 for(var j = 0; j < vocales.length; j++){
                     if(identificar[i] == vocales[j]){ // Identificar las vocales que existen en una palabra
-                        //console.log(identificar[i])
                         lineas[i] = "_" // Si encuentra vocales, las reemplaza por un guion
                     }
                 }
             }
-
-            
-
-
-
             document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
         }
     </script>
