@@ -8,7 +8,7 @@
     </head>
     <body>
         <script>
-            var palabras = ["capa", "paleta", "perro", "pollo", "gato", "arbol"]
+            const palabras = ["capa", "paleta", "perro", "pollo", "gato", "arbol"]
             var respuesta = "" // Se guarda una de las palabras que están en el arreglo
             var opciones = document.getElementsByClassName("opcion")
             var apoyo = [] // Arreglo de apoyo para letras en circulos
@@ -50,22 +50,30 @@
                 var r = Math.floor(Math.random() * palabras.length)
                 respuesta = palabras[r]
                 document.getElementById("palabra").innerHTML = respuesta
-                var identificar = respuesta.split('') // Dividir cada letra de la palabra
-                var desorden = identificar.sort(function(){return Math.random()-0.5}) // Desordenar los valores de arreglo
                 
-
+                var identificar = respuesta.split(''); // Dividir cada letra de la palabra
+                var desorden = identificar
+                //desordenar()
+                
                 for(var i = 0; i < identificar.length; i++){
                     lineas[i] = "_" // Mostrar arreglo "vacío" con la cantidad de caracteres de la palabra
                 }
 
-                for(var i = 0; i < opciones.length; i++){
-                    opciones[i].innerHTML = identificar[i]
+                for(var i = 0; i < opciones.length; i++){ // Mostrar las letras aleatorias en las opciones
+                    opciones[i].style.backgroundColor = "black"
+                    opciones[i].innerHTML = desorden[i]
                 }
 
                 for(var i = 0; i < 4; i++){
-                    apoyo[i] = identificar[i]
+                    apoyo[i] = desorden[i]
                 }
+                
                 document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
+            }
+
+            function desordenar(){
+                let desorden = desorden.sort(function(){return Math.random()-0.5}) // Desordenar los valores de arreglo
+                return desorden
             }
      
         </script>
