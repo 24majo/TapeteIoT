@@ -1,6 +1,7 @@
 body{
     background-repeat: no-repeat;
-    background-position: auto;
-    background-size: 1330px 660px;
+    background-position: center top;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
