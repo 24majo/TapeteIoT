@@ -1,0 +1,29 @@
+.opciones{
+    position: relative;
+    right: -450px;
+    
+}
+.contador{
+    position: relative;
+    right: -1000px;
+    top: -530px;
+}
+
+h1{
+    position: relative;
+    right: -90px; 
+}
+
+button{
+    width: 10%;
+    height: 45px;
+    border-radius: 40px;
+    background: #65e5ab;
+    border: none;
+    font-size: 20px;
+    position: relative;
+    right: -250px;
+    top: 400px;
+}
+
+
