@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Vocales</title>
+</head>
+<body>
+
+    <script>
+        const palabras = ["capa", "paleta", "perro", "pollo", "gato", "arbol"]
+        const vocales = ["a", "e", "i", "o", "u"]
+        var respuesta = "" // Se guarda una de las palabras que están en el arreglo
+        var opciones = document.getElementsByClassName("opcion")
+        var apoyo = [] // Arreglo de apoyo para letras en circulos
+
+
+        window.addEventListener("keydown",(e)=>{
+        let tecla = e.key
+        
+            switch(tecla){
+            case 'ArrowUp':
+                seleccion(0)
+                break;
+            case 'ArrowDown':
+                seleccion(1)
+                break;
+            case 'ArrowLeft':
+                seleccion(2)
+                break;
+            case 'ArrowRight':
+                seleccion(3)
+                break;
+            default:
+                break;
+            }
+        })
+
+        function palabra(){
+            var lineas = [] // Arreglo para dibujar las lineas y completar la palabra
+            var r = Math.floor(Math.random() * palabras.length) // Elegir un numero aleatorio 
+            respuesta = palabras[r]
+            document.getElementById("palabra").innerHTML = respuesta
+            var identificar = respuesta.split(''); // Dividir cada letra de la palabra
+            var aux_vocal = []
+
+            for(var i = 0; i < identificar.length; i++){
+                lineas[i] = identificar[i] // Aumentar el tamaño del arreglo de acuerdo a la longitud de la palabra aleatoria
+                for(var j = 0; j < vocales.length; j++){
+                    if(identificar[i] == vocales[j]){ // Identificar las vocales que existen en una palabra
+                        //console.log(identificar[i])
+                        lineas[i] = "_" // Si encuentra vocales, las reemplaza por un guion
+                    }
+                }
+            }
+
+            
+
+
+
+            document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
+        }
+    </script>
+
+    <p>Completa la palabra con una imagen</p>
+    <span id="palabra"></span>
+    <br><br>
+    <span id="linea"></span>
+    <br><br>
+    <button onclick="palabra()">Empezar</button>
+    <br><br>
+    <div class="opciones">
+        <span id="arr" class="opcion"></span>
+        <span id="ab" class="opcion"></span>
+        <span id="izq" class="opcion"></span>
+        <span id="der" class="opcion"></span>
+    </div>
+</body>
+</html>
