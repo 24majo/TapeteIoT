@@ -25,15 +25,19 @@
         
             switch(tecla){
             case 'ArrowUp':
+                document.getElementById("arr").style.backgroundColor = 'blue'
                 seleccion(0)
                 break;
             case 'ArrowDown':
+                document.getElementById("ab").style.backgroundColor = 'blue'
                 seleccion(1)
                 break;
             case 'ArrowLeft':
+                document.getElementById("izq").style.backgroundColor = 'blue'
                 seleccion(2)
                 break;
             case 'ArrowRight':
+                document.getElementById("der").style.backgroundColor = 'blue'
                 seleccion(3)
                 break;
             default:
@@ -42,14 +46,12 @@
         })
 
         function palabra(){
-            var lineas = [] // Arreglo para dibujar las lineas y completar la palabra
             var r = Math.floor(Math.random() * palabras.length) // Elegir un numero aleatorio 
             respuesta = palabras[r]
             document.getElementById("palabra").innerHTML = respuesta
             var identificar = respuesta.split(''); // Dividir cada letra de la palabra
-            var arr_vocal = []
-            var aux_arr_vocal = 0
 
+            var lineas = [] // Arreglo para dibujar las lineas y completar la palabra
             for(var i = 0; i < identificar.length; i++){
                 lineas[i] = identificar[i] // Aumentar el tamaño del arreglo de acuerdo a la longitud de la palabra aleatoria
                 for(var j = 0; j < vocales.length; j++){
