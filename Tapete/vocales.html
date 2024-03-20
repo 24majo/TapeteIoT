@@ -14,7 +14,7 @@
         var respuesta = "" // Se guarda una de las palabras que están en el arreglo
         var opciones = document.getElementsByClassName("opcion")
         var apoyo = [] // Arreglo de apoyo para letras en circulos
-
+        
 
         window.addEventListener("keydown",(e)=>{
         let tecla = e.key
@@ -43,6 +43,8 @@
             respuesta = palabras[r]
             document.getElementById("palabra").innerHTML = respuesta
             var identificar = respuesta.split(''); // Dividir cada letra de la palabra
+            var arr_vocal = []
+            var aux_arr_vocal = 0
 
             for(var i = 0; i < identificar.length; i++){
                 lineas[i] = identificar[i] // Aumentar el tamaño del arreglo de acuerdo a la longitud de la palabra aleatoria
@@ -52,6 +54,11 @@
                     }
                 }
             }
+
+            
+
+            console.log(sin_repetir)
+
             document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
         }
     </script>
