@@ -1,0 +1,75 @@
+
+.opciones{
+	width: 30%;
+}
+
+.opcionArriba{
+	width: 80px;
+	height: 80px;
+	border: 1px solid  #000;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #000;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -1000px;
+}
+
+.opcionAbajo{
+	width: 80px;
+	height: 80px;
+	border: 1px solid  #000;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #000;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -1000px;
+    top: 110px;
+}
+
+.opcionIzquierda{
+	width: 80px;
+	height: 80px;
+	border: 1px solid  #000;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #000;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -900px;
+    top: -95px;
+}
+
+.opcionDerecha{
+	width: 80px;
+	height: 80px;
+	border: 1px solid  #000;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #000;
+	color: coral;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -1100px;
+    top: -190px;
+}
