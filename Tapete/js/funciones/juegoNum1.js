@@ -63,26 +63,22 @@ window.addEventListener("keyup",(e)=>{
     
 })
 
-function TRandom(){ // Función para darle valores booleanos a la tabla
-    var n = 1 // Variable de apoyo para que solo dé 9 numeros
-    var contar = 0 // Sirve para saber la cantidad de true que existen en la tabla
-    
-    while(n<10){
-        var r = Math.random() < 0.5 // Generar valores booleanos aleatorios 
-        document.getElementById(n).innerHTML = r // Asignar el valor booleano random al ID de la tabla correspondiente
-        if(r) // Si el valor de la tabla es verdadero, se contabiliza
-            contar++
-        n+=1
-    }
-    correcta = contar
-    return contar
+function Random(){
+    var arreglo = OpRandom()
+    console.log("Arreglo: ", arreglo)
+
+    for(var i = 0; i < arreglo.length; i++){
+        opciones[i].style.backgroundColor = "black" // Devolver color del circulo al original
+        opciones[i].innerHTML = arreglo[i]
+    } 
 }
 
-function OpRandom(){
+function OpRandom(){ // Asignar 4 números aleatorios a los círculos
     var arreglo = [] // Arreglo de apoyo 
     var aux = 0
-    var resultado = TRandom()
+    var resultado = Math.floor(Math.random() * 9)+1
     var ex = false
+    var imagen
     
     while (arreglo.length < 4){
         var existe = false
@@ -112,19 +108,31 @@ function OpRandom(){
         var num = Math.floor(Math.random() * 4)
         arreglo[num] = resultado
     }
-
-    //console.log("Cantidad true: ", resultado)
+    
+    imagen = document.getElementById("img")
+    imagen.src = "Visual/Material/Numeros/Juego1/" + resultado + ".jpg"
+    
     arreglo_f = arreglo
+    correcta = resultado
+    console.log("Respuesta: ", correcta)
     return arreglo
 }
 
-function Random(){
-    var opciones = document.getElementsByClassName("opcion")
-    var arreglo = OpRandom()
-    console.log("Arreglo: ", arreglo)
+/* function TRandom(){ // Función para darle valores booleanos a la tabla
+    var n = 1 // Variable de apoyo para que solo dé 9 numeros
+    var contar = 0 // Sirve para saber la cantidad de true que existen en la tabla
+    //var imagen = document.getElementById(n)
 
-    for(var i = 0; i < arreglo.length; i++){
-        opciones[i].style.backgroundColor = "black" // Devolver color del circulo al original
-        opciones[i].innerHTML = arreglo[i]
-    } 
-}
+    while(n<10){
+        var r = Math.random() < 0.5 // Generar valores booleanos aleatorios 
+        document.getElementById(n).innerHTML = r // Asignar el valor booleano random al ID de la tabla correspondiente
+        
+        if(r){
+            contar++ // Si el valor de la tabla es verdadero, se contabiliza
+            //imagen.src = "Visual/Material/Numeros/Juego1/1.jpg"
+        } 
+        n+=1
+    }
+    correcta = contar
+    return contar
+}*/
