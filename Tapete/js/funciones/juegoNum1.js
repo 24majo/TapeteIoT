@@ -1,7 +1,7 @@
 var correcta = 0
 var arreglo_f = []
 var opciones = document.getElementsByClassName("opcion") // Crea un "arreglo" con la cantidad de elementos con la misma clase
-var aciertos = 0
+
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
@@ -10,38 +10,57 @@ window.addEventListener("keydown",(e)=>{
         case 'ArrowUp':
             if(arreglo_f[0]== correcta){
                 document.getElementById("arr").style.backgroundColor = 'blue'
-                aciertos++
-                document.getElementById("cont").innerHTML = aciertos
             }
             break;
 
         case 'ArrowDown':
             if(arreglo_f[1]== correcta){
                 document.getElementById("ab").style.backgroundColor = 'blue'
-                aciertos++
-                document.getElementById("cont").innerHTML = aciertos
             }
             break;
 
         case 'ArrowLeft':
             if(arreglo_f[2]== correcta){
                 document.getElementById("izq").style.backgroundColor = 'blue'
-                aciertos++
-                document.getElementById("cont").innerHTML = aciertos
             }
             break;
 
         case 'ArrowRight':
             if(arreglo_f[3]== correcta){
                 document.getElementById("der").style.backgroundColor = 'blue'
-                aciertos++
-                document.getElementById("cont").innerHTML = aciertos
             }
             break;
 
         default:
             break;
     }
+})
+
+window.addEventListener("keyup",(e)=>{
+    let tecla = e.key
+    let repetir
+
+    switch(tecla){
+        case 'ArrowUp':
+            repetir = Random()
+            break;
+
+        case 'ArrowDown':
+            repetir = Random()
+            break;
+
+        case 'ArrowLeft':
+            repetir = Random()
+            break;
+
+        case 'ArrowRight':
+            repetir = Random()
+            break;
+
+        default:
+            break;
+    }
+    
 })
 
 function TRandom(){ // Función para darle valores booleanos a la tabla
@@ -94,7 +113,7 @@ function OpRandom(){
         arreglo[num] = resultado
     }
 
-    console.log("Cantidad true: ", resultado)
+    //console.log("Cantidad true: ", resultado)
     arreglo_f = arreglo
     return arreglo
 }
