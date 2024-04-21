@@ -78,7 +78,6 @@ function OpRandom(){ // Asignar 4 números aleatorios a los círculos
     var aux = 0
     var resultado = Math.floor(Math.random() * 9)+1
     var ex = false
-    var imagen
     
     while (arreglo.length < 4){
         var existe = false
@@ -109,7 +108,7 @@ function OpRandom(){ // Asignar 4 números aleatorios a los círculos
         arreglo[num] = resultado
     }
     
-    imagen = document.getElementById("img")
+    var imagen = document.getElementById("img")
     imagen.src = "Visual/Material/Numeros/Juego1/" + resultado + ".jpg"
     
     arreglo_f = arreglo
