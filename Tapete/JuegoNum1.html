@@ -17,20 +17,29 @@
 	</head>
 	
 	<body background="Visual/Fondos/FondoNumeros.jpg">
-		<br><br><br>
+		<br><br>
 		<font face="Century Gothic">
-			<button onclick="Random()"><b>Empezar</b></button>
+			<button class="btn" onclick="Random()"><b>Empezar</b></button>
 		</font>
 		
+		<a href="MenuSeleccion.html" class="btnInicio">
+				<img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+		</a>
+
+		<a href="JuegosNumeros.html" class="btnAtras">
+				<img src="Visual/Material/Iconos/Flecha.png" width="70px">
+		</a>
+	
 		
+		<br>
 		
 		<div>
 			<font face="Century Gothic">
 				<h1 class="font-weight-bold">¿Cuántas manzanas son?</h1>
 			</font>
-			
-			<img id='img' width="300" height="300">
-			
+		
+			<img class="imagen" id='img' width="300" height="300">
+			<br><br>
 			<div class="opciones">
 				<span id="arr" class="opcion"></span>
 				<span id="ab" class="opcion"></span>
