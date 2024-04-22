@@ -18,7 +18,7 @@ img{
 .contador{
     position: relative;
     right: -800px;
-    top: -820px;
+    top: -900px;
 }
 
 .opciones{
@@ -28,7 +28,7 @@ img{
 .opcion{
     width: 80px;
 	height: 80px;
-	border: 1px solid  #fb71ff;
+	border: 5px solid  #fb71ff;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
@@ -44,25 +44,25 @@ img{
 #arr{
 	position: relative;
     top: -350px;
-    right: -1000px;
+    right: -900px;
 }
 
 #ab{
 	position: relative;
-    right: -1000px;
-    top: -150px;
+    right: -900px;
+    top: -180px;
 }
 
 #izq{
 	position: relative;
-    right: -880px;
-    top: -400px;
+    right: -780px;
+    top: -450px;
 }
 
 #der{
 	position: relative;
-    right: -1120px;
-    top: -500px;
+    right: -1030px;
+    top: -570px;
 }
 
 h1{
@@ -75,6 +75,8 @@ button{
     height: 45px;
     border-radius: 40px;
     background: #65e5ab;
+    border: 1px solid  #65e5ab;
+    color: white;
     border: none;
     font-size: 20px;
     position: relative;
