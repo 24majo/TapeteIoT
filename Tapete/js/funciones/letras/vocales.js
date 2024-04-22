@@ -3,11 +3,6 @@ const vocales = ["a", "e", "i", "o", "u"]
 var respuesta = "" // Se guarda una de las palabras que están en el arreglo
 var opciones = document.getElementsByClassName("opcion")
 var apoyo = [] // Arreglo de apoyo para letras en circulos
-var aux = 0
-
-function seleccion(tecla){
-
-}
 
 window.addEventListener("keydown",(e)=>{
 let tecla = e.key
@@ -15,19 +10,15 @@ let tecla = e.key
     switch(tecla){
     case 'ArrowUp':
         document.getElementById("arr").style.backgroundColor = 'blue'
-        seleccion(0)
         break;
     case 'ArrowDown':
         document.getElementById("ab").style.backgroundColor = 'blue'
-        seleccion(1)
         break;
     case 'ArrowLeft':
         document.getElementById("izq").style.backgroundColor = 'blue'
-        seleccion(2)
         break;
     case 'ArrowRight':
         document.getElementById("der").style.backgroundColor = 'blue'
-        seleccion(3)
         break;
     default:
         break;
@@ -37,8 +28,10 @@ let tecla = e.key
 function palabra(){
     var r = Math.floor(Math.random() * palabras.length) // Elegir un numero aleatorio 
     respuesta = palabras[r]
-    document.getElementById("palabra").innerHTML = respuesta
-    var identificar = respuesta.split(''); // Dividir cada letra de la palabra
+    document.getElementById("palabra").innerHTML = respuesta // Mostrar la palabra en pantalla
+    var identificar = respuesta.split(''); // Separar cada letra de la palabra
+    let vocal_aux = [] // Auxiliar para guardar las vocales que existen en la palabra
+    let n = 0
 
     var lineas = [] // Arreglo para dibujar las lineas y completar la palabra
     for(var i = 0; i < identificar.length; i++){
@@ -46,9 +39,13 @@ function palabra(){
         for(var j = 0; j < vocales.length; j++){
             if(identificar[i] == vocales[j]){ // Identificar las vocales que existen en una palabra
                 lineas[i] = "_" // Si encuentra vocales, las reemplaza por un guion
+                vocal_aux[n] = identificar[i]
+                n++
             }
         }
     }
+
+    console.log(vocal_aux)
 
     document.getElementById("linea").innerHTML = lineas // Mostrar lineas en pantalla
 
