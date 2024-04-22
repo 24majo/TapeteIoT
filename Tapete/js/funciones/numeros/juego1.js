@@ -9,25 +9,25 @@ window.addEventListener("keydown",(e)=>{
     switch(tecla){
         case 'ArrowUp':
             if(arreglo_f[0]== correcta){
-                document.getElementById("arr").style.backgroundColor = 'blue'
+                document.getElementById("arr").style.backgroundColor = '#93278f'
             }
             break;
 
         case 'ArrowDown':
             if(arreglo_f[1]== correcta){
-                document.getElementById("ab").style.backgroundColor = 'blue'
+                document.getElementById("ab").style.backgroundColor = '#93278f'
             }
             break;
 
         case 'ArrowLeft':
             if(arreglo_f[2]== correcta){
-                document.getElementById("izq").style.backgroundColor = 'blue'
+                document.getElementById("izq").style.backgroundColor = '#93278f'
             }
             break;
 
         case 'ArrowRight':
             if(arreglo_f[3]== correcta){
-                document.getElementById("der").style.backgroundColor = 'blue'
+                document.getElementById("der").style.backgroundColor = '#93278f'
             }
             break;
 
@@ -68,7 +68,7 @@ function Random(){
     console.log("Arreglo: ", arreglo)
 
     for(var i = 0; i < arreglo.length; i++){
-        opciones[i].style.backgroundColor = "black" // Devolver color del circulo al original
+        opciones[i].style.backgroundColor = '#ff99ff' // Devolver color del circulo al original
         opciones[i].innerHTML = arreglo[i]
     } 
 }

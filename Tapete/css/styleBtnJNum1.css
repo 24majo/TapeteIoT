@@ -6,12 +6,12 @@
 .opcionArriba{
 	width: 80px;
 	height: 80px;
-	border: 1px solid  #000;
+	border: 1px solid  #fb71ff;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #000;
+	background-color: #ff99ff;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -23,12 +23,12 @@
 .opcionAbajo{
 	width: 80px;
 	height: 80px;
-	border: 1px solid  #000;
+	border: 1px solid  #fb71ff;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #000;
+	background-color: #ff99ff;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -41,12 +41,12 @@
 .opcionIzquierda{
 	width: 80px;
 	height: 80px;
-	border: 1px solid  #000;
+	border: 1px solid  #fb71ff;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #000;
+	background-color: #ff99ff;
 	color: white;
 	display: flex;
 	justify-content: center;
@@ -57,14 +57,14 @@
 }
 
 .opcionDerecha{
-	width: 80px;
-	height: 80px;
-	border: 1px solid  #000;
+	width: 100px;
+	height: 100px;
+	border: 1px solid  #fb71ff;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #000;
+	background-color: #ff99ff;
 	color: coral;
 	display: flex;
 	justify-content: center;
