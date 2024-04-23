@@ -9,25 +9,25 @@ window.addEventListener("keydown",(e)=>{
     switch(tecla){
         case 'ArrowUp':
             if(arreglo_f[0]== correcta){
-                document.getElementById("arr").style.backgroundColor = '#93278f'
+                document.getElementById("arr").style.backgroundColor = '#f958a5'
             }
             break;
 
         case 'ArrowDown':
             if(arreglo_f[1]== correcta){
-                document.getElementById("ab").style.backgroundColor = '#93278f'
+                document.getElementById("ab").style.backgroundColor = '#f958a5'
             }
             break;
 
         case 'ArrowLeft':
             if(arreglo_f[2]== correcta){
-                document.getElementById("izq").style.backgroundColor = '#93278f'
+                document.getElementById("izq").style.backgroundColor = '#f958a5'
             }
             break;
 
         case 'ArrowRight':
             if(arreglo_f[3]== correcta){
-                document.getElementById("der").style.backgroundColor = '#93278f'
+                document.getElementById("der").style.backgroundColor = '#f958a5'
             }
             break;
 
