@@ -40,7 +40,7 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
 }
 
 function validar(){
-
+    
 }
 
 window.addEventListener("keydown",(e)=>{
