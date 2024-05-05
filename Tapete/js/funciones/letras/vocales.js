@@ -6,7 +6,7 @@ function Inicio(){
     var respuesta = palabras[Math.floor(Math.random()*palabras.length)] // Elegir una palabra al azar
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
     document.getElementById("linea").innerHTML = guion // Mostrar la palabra incompleta
-    var arr_op = []
+    var arr_op = [] // Arreglo para mostrar las opciones
     opcion(arr_op, 0, respuesta)
 }
 
@@ -15,14 +15,15 @@ function opcion(arr_op, aux, respuesta){
 
         for (let i = 0; i < respuesta.length; i++){
             var a = respuesta.indexOf(vocales[i])
-            if(a != -1){
+            if(a != -1)
                 console.log(vocales[i])
-            }
+            
         }
 
         for (let i = 0; i < opciones.length; i++)
             opciones[i].innerHTML = arr_op[i]
     }
+
     else{
         let r = Math.floor(Math.random() * vocales.length)
         arr_op.push(vocales[r])
@@ -32,8 +33,6 @@ function opcion(arr_op, aux, respuesta){
         return opcion(result, aux, respuesta)
     }
 }
-
-
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
