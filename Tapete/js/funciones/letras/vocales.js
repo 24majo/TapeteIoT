@@ -11,17 +11,24 @@ function Inicio(){
 }
 
 function opcion(arr_op, aux, respuesta){ 
-    if(arr_op.length == 4){
+    
 
+    if(arr_op.length == 4){
         for (let i = 0; i < respuesta.length; i++){
             var a = respuesta.indexOf(vocales[i])
-            if(a != -1)
-                console.log(vocales[i])
-            
+            if(a != -1){
+                console.log("Vocal: ",vocales[i])
+                var e = arr_op.includes(vocales[i])
+                if(!e){
+                    let r = Math.floor(Math.random() * arr_op.length)
+                    arr_op.splice(r, 1, vocales[i])
+                }
+            }
         }
 
-        for (let i = 0; i < opciones.length; i++)
+        for (let i = 0; i < opciones.length; i++){
             opciones[i].innerHTML = arr_op[i]
+        }
     }
 
     else{
@@ -32,6 +39,10 @@ function opcion(arr_op, aux, respuesta){
         },aux++)
         return opcion(result, aux, respuesta)
     }
+}
+
+function palabra(){
+
 }
 
 window.addEventListener("keydown",(e)=>{
