@@ -3,45 +3,43 @@ const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
 
 function Inicio(){
-    var respuesta = palabras[Math.floor(Math.random()*palabras.length)] // Elegir una palabra al azar
+    var respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra al azar
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
     document.getElementById("linea").innerHTML = guion // Mostrar la palabra incompleta
-    var arr_op = [] // Arreglo para mostrar las opciones
+    var arr_op = [] // Arreglo para guardar las opciones
     opcion(arr_op, 0, respuesta)
 }
 
-function opcion(arr_op, aux, respuesta){ 
-    
-
-    if(arr_op.length == 4){
+function opcion(arr_op, aux, respuesta){ // Función recursiva
+    if(arr_op.length == 4){ // Si el arreglo llega a 4 opciones
         for (let i = 0; i < respuesta.length; i++){
-            var a = respuesta.indexOf(vocales[i])
-            if(a != -1){
-                console.log("Vocal: ",vocales[i])
-                var e = arr_op.includes(vocales[i])
-                if(!e){
+            var a = respuesta.indexOf(vocales[i]) // Se evalúa si la vocal en posicion existe en la respuesta
+            if(a != -1){ // Cuando es diferente de -1 significa que si existe
+                //console.log("Vocal: ",vocales[i])
+                var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
+                if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
                     let r = Math.floor(Math.random() * arr_op.length)
                     arr_op.splice(r, 1, vocales[i])
                 }
             }
         }
 
-        for (let i = 0; i < opciones.length; i++){
+        for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
             opciones[i].innerHTML = arr_op[i]
         }
     }
 
     else{
-        let r = Math.floor(Math.random() * vocales.length)
-        arr_op.push(vocales[r])
-        var result = arr_op.filter((item,index)=>{
+        let r = Math.floor(Math.random() * vocales.length) // Se eligen vocales aleatorias... 
+        arr_op.push(vocales[r]) //... para ponerlas como opciones
+        var result = arr_op.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
             return arr_op.indexOf(item) === index;
         },aux++)
-        return opcion(result, aux, respuesta)
+        return opcion(result, aux, respuesta) // Se retorna a la función para realizarlo hasta llegar a 4 opciones
     }
 }
 
-function palabra(){
+function validar(){
 
 }
 
