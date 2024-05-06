@@ -50,16 +50,16 @@ window.addEventListener("keydown",(e)=>{
     
         switch(tecla){
         case 'ArrowUp':
-            document.getElementById("arr").style.backgroundColor = 'blue'
+            console.log()
             break;
         case 'ArrowDown':
-            document.getElementById("ab").style.backgroundColor = 'blue'
+
             break;
         case 'ArrowLeft':
-            document.getElementById("izq").style.backgroundColor = 'blue'
+
             break;
         case 'ArrowRight':
-            document.getElementById("der").style.backgroundColor = 'blue'
+
             break;
         default:
             break;
