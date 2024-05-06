@@ -14,17 +14,42 @@
 </head>
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
 
-    <p>Completa la palabra con una imagen</p>
+    <Font face="Century Gothic">
+        <h1 class="titulo"><b>Completa la palabra</b></h1>
+    </Font>
     <img id="figura">
-    <span id="palabra"></span>
-    <br><br>
-    <span id="linea"></span>
-    <br><br>
-    <button onclick="Inicio()">Empezar</button>
-    <br><br>
-    <span id="arr" class="opcion"></span>
-    <span id="ab" class="opcion"></span>
-    <span id="izq" class="opcion"></span>
-    <span id="der" class="opcion"></span>
+
+    <div class="letras">
+        <font face="Century Gothic">
+            <span id="palabra"></span>
+            <span id="linea"></span>
+        
+        </font>
+    </div>
+    
+    <font face="Century Gothic">
+        <button class="btnIniciar" onclick="Inicio()"><b>Empezar</b></button>
+        <button class="btnReiniciar" onclick="Inicio()"><b>Reiniciar</b></button>
+    </font>
+    
+    <a href="MenuSeleccion.html" class="btnInicio">
+        <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+    </a>
+
+    <a href="JuegosNumeros.html" class="btnAtras">
+        <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+    </a>
+
+    <div>
+        <font face="MV Boli">
+            <span id="opcionArriba" class="opcion"></span>
+            <span id="opcionAbajo" class="opcion"></span>
+            <span id="opcionIzquierda" class="opcion"></span>
+            <span id="opcionDerecha" class="opcion"></span>
+        </font>
+    </div>
+    
+    <img class="imagen" id='img' width="300" height="300">
+
 </body>
 </html>
