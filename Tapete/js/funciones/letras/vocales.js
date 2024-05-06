@@ -18,8 +18,10 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
                 //console.log("Vocal: ",vocales[i])
                 var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
                 if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
+                    console.log("Antes: ", arr_op)
                     let r = Math.floor(Math.random() * arr_op.length)
                     arr_op.splice(r, 1, vocales[i])
+                    console.log("Después: ", arr_op)
                 }
             }
         }
