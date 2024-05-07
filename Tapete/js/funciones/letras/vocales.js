@@ -10,6 +10,14 @@ const objetos = {
 }
 
 function Inicio(){
+    var respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra al azar
+    var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
+    objetos.guion = guion
+    document.getElementById("linea").innerHTML = objetos.guion // Mostrar la palabra incompleta
+    opcion(arr_op = [], 0, respuesta)
+}
+
+function Reinicio(){
     contador = 0
     var respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra al azar
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
