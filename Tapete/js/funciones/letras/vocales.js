@@ -1,27 +1,37 @@
-const palabras = ["dulces", "helado", "perro", "pollo", "gato", "arbol", "manzana"]
+// "dulces", "helado", "perro", "pollo", "gato", "arbol", "manzana", 
+const palabras = ["dulces", "helado", "perro", "pollo", "gato", "manzana"]
 const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
+var contador = 0
+const objetos = {
+    resp: undefined,
+    opc_arr: [],
+    guion: undefined
+}
 
 function Inicio(){
+    contador = 0
     var respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra al azar
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
-    document.getElementById("linea").innerHTML = guion // Mostrar la palabra incompleta
-    var arr_op = [] // Arreglo para guardar las opciones
-    opcion(arr_op, 0, respuesta)
+    objetos.guion = guion
+    document.getElementById("linea").innerHTML = objetos.guion // Mostrar la palabra incompleta
+    opcion(arr_op = [], 0, respuesta)
 }
 
 function opcion(arr_op, aux, respuesta){ // Función recursiva
     if(arr_op.length == 4){ // Si el arreglo llega a 4 opciones
-        for (let i = 0; i < respuesta.length; i++){
-            var a = respuesta.indexOf(vocales[i]) // Se evalúa si la vocal en posicion existe en la respuesta
+        for (let i = 0; i <= respuesta.length; i++){
+            var a = respuesta.indexOf(vocales[i])
             if(a != -1){ // Cuando es diferente de -1 significa que si existe
-                //console.log("Vocal: ",vocales[i])
+                //vocal_a.push(vocales[i])
+                console.log("Vocal: ",vocales[i])
+                //console.log("i: ", i)
                 var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
                 if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
-                    console.log("Antes: ", arr_op)
+                    //console.log("Antes: ", arr_op)
                     let r = Math.floor(Math.random() * arr_op.length)
                     arr_op.splice(r, 1, vocales[i])
-                    console.log("Después: ", arr_op)
+                    //console.log("Después: ", arr_op)
                 }
             }
         }
@@ -29,6 +39,9 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
         for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
             opciones[i].innerHTML = arr_op[i]
         }
+        objetos.resp = respuesta
+        objetos.opc_arr = arr_op
+        console.log(objetos.opc_arr)
     }
 
     else{
@@ -36,35 +49,81 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
         arr_op.push(vocales[r]) //... para ponerlas como opciones
         var result = arr_op.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
             return arr_op.indexOf(item) === index;
-        },aux++)
-        return opcion(result, aux, respuesta) // Se retorna a la función para realizarlo hasta llegar a 4 opciones
+        })
+        return opcion(result, aux+1, respuesta) // Se retorna a la función para realizarlo hasta llegar a 4 opciones
     }
 }
 
-function validar(){
-    
+const replaceAt = (string, character, index) => {
+    return string.substring(0, index) + character + string.substring(index + character.length);
 }
+
+function validar(valor){
+    for(let i = 0; i < objetos.resp.length; i++){
+        if(objetos.resp[i] == objetos.opc_arr[valor]){
+            //console.log("letra seleccionada: ",objetos.opc_arr[valor])
+            objetos.guion = replaceAt(objetos.guion, objetos.opc_arr[valor], i)
+            //console.log("si")
+        }
+    }
+    document.getElementById("linea").innerHTML = objetos.guion
+
+    var e = objetos.guion.includes('_')
+    if(!e){
+        contador++
+        document.getElementById("contador").innerHTML = contador
+        console.log(contador)
+        Inicio()
+    }
+}
+
+
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
-    
-        switch(tecla){
+
+    switch(tecla){
+    case 'ArrowUp':
+        validar(0)
+        break;
+    case 'ArrowDown':
+        validar(1)
+        break;
+    case 'ArrowLeft':
+        validar(2)
+        break;
+    case 'ArrowRight':
+        validar(3)
+        break;
+    default:
+        break;
+    }
+})
+
+window.addEventListener("keyup",(e)=>{
+    let tecla = e.key
+
+    switch(tecla){
         case 'ArrowUp':
-            console.log()
+            opcion(arr_op = [], 0, objetos.resp)
             break;
+
         case 'ArrowDown':
-
+            opcion(arr_op = [], 0, objetos.resp)
             break;
+
         case 'ArrowLeft':
-
+            opcion(arr_op = [], 0, objetos.resp)
             break;
+
         case 'ArrowRight':
-
+            opcion(arr_op = [], 0, objetos.resp)
             break;
+
         default:
             break;
-        }
-    })
+    }
+})
 
 /*var respuesta = "" // Se guarda una de las palabras que están en el arreglo
 var opciones = document.getElementsByClassName("opcion")
