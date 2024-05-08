@@ -1,4 +1,3 @@
-// "dulces", "helado", "perro", "pollo", "gato", "arbol", "manzana", 
 const palabras = ["dulces", "helado", "perro", "pollo", "gato", "manzana"]
 const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
@@ -19,11 +18,7 @@ function Inicio(){
 
 function Reinicio(){
     contador = 0
-    var respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra al azar
-    var guion = respuesta.replace(/a|e|i|o|u/g, "_") // Reemplazar vocales por guion
-    objetos.guion = guion
-    document.getElementById("linea").innerHTML = objetos.guion // Mostrar la palabra incompleta
-    opcion(arr_op = [], 0, respuesta)
+    Inicio()
 }
 
 function opcion(arr_op, aux, respuesta){ // Función recursiva
@@ -84,8 +79,6 @@ function validar(valor){
         Inicio()
     }
 }
-
-
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
