@@ -1,10 +1,15 @@
 var correcta = 0
 var arreglo_f = []
 var opciones = document.getElementsByClassName("opcion") // Crea un "arreglo" con la cantidad de elementos con la misma clase
+contador = 0
 
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
         opciones[numero].style.backgroundColor = '#f958a5'
+        contador++
+        console.log(contador)
+        document.getElementById("cont").innerHTML = "Aciertos: " + contador
+
         //document.get("arr").style.backgroundColor = '#f958a5'
     }
 }
