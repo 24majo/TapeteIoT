@@ -1,11 +1,5 @@
 const palabras = ["dulces", "helado", "perro", "pollo", "gato", "manzana"]
 const vocales = ["a", "e", "i", "o", "u"]
-var respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
-var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
-objetos.guion = guion
-document.getElementById("linea").innerHTML = objetos.guion
-
-
 var opciones = document.getElementsByClassName("opcion")
 var contador = 0
 const objetos = {
@@ -15,6 +9,10 @@ const objetos = {
 }
 
 function Inicio(){
+    var respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
+    var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
+    objetos.guion = guion
+    document.getElementById("linea").innerHTML = objetos.guion
      // Mostrar la palabra incompleta
     opcion(arr_op = [], 0, respuesta)
 }
