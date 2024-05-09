@@ -26,7 +26,7 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -50px;
+    top: -300px;
     right: -1000px;
 }
 
@@ -45,7 +45,7 @@ body{
 	align-items: center;
 	position: relative;
     right: -1000px;
-    top: 80px;
+    top: -200px;
 }
 
 #opcionIzquierda{
@@ -63,7 +63,7 @@ body{
 	align-items: center;
 	position: relative;
     right: -900px;
-    top: -160px;
+    top: -430px;
 }
 
 #opcionDerecha{
@@ -81,7 +81,7 @@ body{
 	align-items: center;
 	position: relative;
     right: -1100px;
-    top: -270px;
+    top: -540px;
 }
 
 .btnIniciar{
@@ -121,15 +121,14 @@ body{
 .letras{
     position: relative;
     right: -200px;
-    top: 20px;
+    top: -80px;
     font-size: 80px;
 }
 
 .dibujo{
     position: relative;
     right: -270px;
-    top: 100px;
-
+    top: 200px;
 }
 
 .btnInicio{
