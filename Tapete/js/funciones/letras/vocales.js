@@ -76,7 +76,7 @@ function validar(valor){
         contador++
         document.getElementById("contador").innerHTML = contador
         console.log(contador)
-        Inicio()
+        //Inicio()
     }
 }
 
