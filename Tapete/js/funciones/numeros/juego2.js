@@ -2,9 +2,12 @@ var opciones = document.getElementsByClassName("opcion")
 var secuencia = []
 var adivinar = []
 var respuesta
+var result
+var op = []
+var contador = 0
 
 function Empezar(){
-    var num1 = Math.floor(Math.random() * 9+1)
+    var num1 = Math.floor(Math.random() * 2+1)
     console.log("Número inicial: ", num1)
     
     for(let i = 0; i < 10; i++){
@@ -18,9 +21,7 @@ function Empezar(){
         adivinar.splice(num2, 1, "_")
     }
     document.getElementById("linea").innerHTML = adivinar
-
     Acciones()
-
 }
 
 function Acciones(){
@@ -31,57 +32,62 @@ function Acciones(){
         }
     }
     console.log("Respuesta: ", respuesta)
-    //console.log("Opciones: ", arr_op)
+    op = Opcion(arreglo = [])
 
-    console.log(option_arr(arr_op = []))
+    console.log(op)
+
+    for(let i = 0; i < opciones.length; i++){
+        opciones[i].innerHTML = op[i]
+    }
 }
 
-function option_arr(arr_op){
-    for(let i = 0; i < 4; i++){
-        let r = Math.floor(Math.random() * secuencia.length)
-        arr_op.push(secuencia[r])
+function Opcion(arreglo){
+    if(arreglo.length == 4){
+        var res = arreglo.indexOf(respuesta)
+        if(res == -1){
+            let r = Math.floor(Math.random() * arreglo.length) 
+            arreglo.splice(r, 1, respuesta)
+        }
     }
-
-    var result = arr_op.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
-        return arr_op.indexOf(item) === index;
-    })
-
-    if(arr_op.length == 3){
-        console.log("caca")
-        arr_op.push(respuesta)
-        option_arr(arr_op)
+    else{
+        let r = Math.floor(Math.random() * secuencia.length) 
+        arreglo.push(secuencia[r])
+    
+        result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+            return arreglo.indexOf(item) === index;
+        })
+        Opcion(result)
     }
-
-    else if(arr_op < 4){
-        console.log("pop")
-        option_arr(arr_op)
-    }
-
     return result
 }
 
-
-function Opciones(numero){
-    
+function Opciones(num){
+    if(num == respuesta){
+        for(let i = 0; i < secuencia.length; i++){
+            if(adivinar[i] == "_"){
+                adivinar.splice(i, 1, respuesta)
+                break
+            }
+        }
+        document.getElementById("linea").innerHTML = adivinar
+    }
 }
-
-
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
 
     switch(tecla){
     case 'ArrowUp':
-        Opciones(0)
+        Opciones(op[0])
         break;
     case 'ArrowDown':
-        Opciones(1)
+        Opciones(op[1])
         break;
     case 'ArrowLeft':
-        Opciones(2)
+        Opciones(op[2])
         break;
     case 'ArrowRight':
-        Opciones(3)
+        Opciones(op[3])
         break;
     default:
         break;
@@ -93,15 +99,19 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
+            Acciones()
             break;
 
         case 'ArrowDown':
+            Acciones()
             break;
 
         case 'ArrowLeft':
+            Acciones()
             break;
 
         case 'ArrowRight':
+            Acciones()
             break;
 
         default:
