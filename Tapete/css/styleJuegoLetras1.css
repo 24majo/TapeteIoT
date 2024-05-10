@@ -94,7 +94,7 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 1050px;
+    right: 1000px;
     top: 450px;
 }
 
@@ -108,10 +108,16 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 850px;
+    right: 800px;
     top: 450px;
 }
 
+.palabraCompletar{
+    position: relative;
+    right: -200px;
+    top: -130px;
+    font-size: 80px;
+}
 
 .letras{
     position: relative;
