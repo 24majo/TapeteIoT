@@ -1,4 +1,4 @@
-const palabras = ["dulces", "helado", "perro", "pollo", "gato", "manzana"]
+const palabras = ["Tortuga", "Gato", "Perro", "Pollo"]
 const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
 var contador = 0
@@ -15,6 +15,8 @@ function Inicio(){
     document.getElementById("linea").innerHTML = objetos.guion
      // Mostrar la palabra incompleta
     opcion(arr_op = [], 0, respuesta)
+
+    document.getElementById('circulos').style.display='block';
 }
 
 function Reinicio(){
@@ -126,6 +128,10 @@ window.addEventListener("keyup",(e)=>{
             break;
     }
 })
+
+var imagen = document.getElementById("img")
+    imagen.src = "Visual/Material/Letras/Juego1/Animales/" + respuesta + ".png"
+    
 
 /*var respuesta = "" // Se guarda una de las palabras que están en el arreglo
 var opciones = document.getElementsByClassName("opcion")
