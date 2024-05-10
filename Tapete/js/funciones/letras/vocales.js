@@ -13,6 +13,7 @@ function Inicio(){
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
     objetos.guion = guion
     document.getElementById("linea").innerHTML = objetos.guion
+     // Mostrar la palabra incompleta
     opcion(arr_op = [], 0, respuesta)
 
     document.getElementById('circulos').style.display='block';
