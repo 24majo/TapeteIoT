@@ -24,3 +24,7 @@ def handle_button_press():
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(debug=True, host='0.0.0.0', port=5000)
+
+    # python server.py -para correr el servidor
+    # pip install Flask  -instalar
+    # pip install pyautogui -instalar
