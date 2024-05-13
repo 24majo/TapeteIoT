@@ -13,9 +13,7 @@ function Inicio(){
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
     objetos.guion = guion
     document.getElementById("linea").innerHTML = objetos.guion
-     // Mostrar la palabra incompleta
     opcion(arr_op = [], 0, respuesta)
-
     document.getElementById('circulos').style.display='block';
 }
 
@@ -29,15 +27,11 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
         for (let i = 0; i <= respuesta.length; i++){
             var a = respuesta.indexOf(vocales[i])
             if(a != -1){ // Cuando es diferente de -1 significa que si existe
-                //vocal_a.push(vocales[i])
                 console.log("Vocal: ",vocales[i])
-                //console.log("i: ", i)
                 var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
                 if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
-                    //console.log("Antes: ", arr_op)
                     let r = Math.floor(Math.random() * arr_op.length)
                     arr_op.splice(r, 1, vocales[i])
-                    //console.log("Después: ", arr_op)
                 }
             }
         }
@@ -67,19 +61,16 @@ const replaceAt = (string, character, index) => {
 function validar(valor){
     for(let i = 0; i < objetos.resp.length; i++){
         if(objetos.resp[i] == objetos.opc_arr[valor]){
-            //console.log("letra seleccionada: ",objetos.opc_arr[valor])
             objetos.guion = replaceAt(objetos.guion, objetos.opc_arr[valor], i)
-            //console.log("si")
         }
     }
     document.getElementById("linea").innerHTML = objetos.guion
-
     var e = objetos.guion.includes('_')
+    
     if(!e){
         contador++
         document.getElementById("contador").innerHTML = contador
         console.log(contador)
-        //Inicio()
     }
 }
 
