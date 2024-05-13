@@ -27,7 +27,6 @@ function opcion(arr_op, aux, respuesta){ // Función recursiva
         for (let i = 0; i <= respuesta.length; i++){
             var a = respuesta.indexOf(vocales[i])
             if(a != -1){ // Cuando es diferente de -1 significa que si existe
-                console.log("Vocal: ",vocales[i])
                 var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
                 if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
                     let r = Math.floor(Math.random() * arr_op.length)
@@ -69,8 +68,7 @@ function validar(valor){
     
     if(!e){
         contador++
-        document.getElementById("contador").innerHTML = contador
-        console.log(contador)
+        document.getElementById("contador").innerHTML = "Aciertos: " + contador
     }
 }
 

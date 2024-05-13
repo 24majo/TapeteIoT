@@ -1,9 +1,10 @@
 const palabras = ["tortuga", "perro", "pollo", "gato"]
-const letras = ['a','b','c','d','e','f','g','h','i','j','k','l', 'ñ','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+const letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var opciones = document.getElementsByClassName("opcion")
 var guion = ""
 var respuesta 
 var op = []
+var n = 0
 
 function Inicio(){
     respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
@@ -11,27 +12,30 @@ function Inicio(){
     guion = respuesta.replace(/./g, "_ ")
     document.getElementById("linea").innerHTML = guion
     opcion(op)
+
+    
 }
 
 function opcion(op){
     if(op.length == 4){
-        for(let i = 0; i <= respuesta.length; i++){
-            if(respuesta[i]=="_"){
-                
-            }
-        }
-        /*     var a = respuesta.indexOf(letras[i])
-            if(a != -1){
-                console.log("Letra: ", letras[i])
-                var e = op.includes(letras[i])
-
+        for(var i = 0; i < guion.length; i++){
+            var a = guion.charAt(i)
+            if(a == '_'){
+                var e = op.includes(respuesta[n]) 
                 if(!e){
                     let r = Math.floor(Math.random() * op.length)
-                    op.splice(r, 1, letras[i])
+                    op.splice(r, 1, respuesta[n])
+                    n++
+                    console.log(op)
+
+                    for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
+                        opciones[i].innerHTML = op[i]
+                    }
+
+                    break
                 }
             }
         }
-        console.log("Arreglo: ", op) */
     }
 
     else {
