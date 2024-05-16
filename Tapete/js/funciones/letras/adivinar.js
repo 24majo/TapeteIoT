@@ -3,17 +3,17 @@ const letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
 var opciones = document.getElementsByClassName("opcion")
 var guion = ""
 var respuesta 
-var op = []
 var n = 0
+var result
+var contador = 0
 
 function Inicio(){
+    contador = 0
     respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
     console.log("Respuesta: ",respuesta)
     guion = respuesta.replace(/./g, "_ ")
     document.getElementById("linea").innerHTML = guion
-    opcion(op)
-
-    
+    opcion(op = [])
 }
 
 function opcion(op){
@@ -29,9 +29,8 @@ function opcion(op){
                     console.log(op)
 
                     for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-                        opciones[i].innerHTML = op[i]
+                        opciones[i].innerHTML = result[i]
                     }
-
                     break
                 }
             }
@@ -41,15 +40,32 @@ function opcion(op){
     else {
         let r = Math.floor(Math.random() * letras.length) 
         op.push(letras[r]) 
-        var result = op.filter((item,index)=>{ 
+        result = op.filter((item,index)=>{ 
             return op.indexOf(item) === index;
         })
         return opcion(result)
     }
 }
 
+const replaceAt = (string, character, index) => {
+    return string.substring(0, index) + character + string.substring(index + character.length);
+}
+
 function validar(letra){
-    console.log(letra)
+    for(let i = 0; i < respuesta.length; i++){
+        if(respuesta[i] == letra){
+            guion = replaceAt(guion, letra, i*2)
+        }
+    }
+
+    document.getElementById("linea").innerHTML = guion
+    var e = guion.includes('_')
+
+    if(!e){
+        contador++
+        document.getElementById("contador").innerHTML = "Aciertos: " + contador
+        console.log("Contador: ", contador)
+    }
 }
 
 window.addEventListener("keydown",(e)=>{
@@ -57,16 +73,16 @@ window.addEventListener("keydown",(e)=>{
 
     switch(tecla){
     case 'ArrowUp':
-        validar(op[0])
+        validar(result[0])
         break;
     case 'ArrowDown':
-        validar(op[1])
+        validar(result[1])
         break;
     case 'ArrowLeft':
-        validar(op[2])
+        validar(result[2])
         break;
     case 'ArrowRight':
-        validar(op[3])
+        validar(result[3])
         break;
     default:
         break;
@@ -78,15 +94,19 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
+            opcion(op = [])
             break;
 
         case 'ArrowDown':
+            opcion(op = [])
             break;
 
         case 'ArrowLeft':
+            opcion(op = [])
             break;
 
         case 'ArrowRight':
+            opcion(op = [])
             break;
 
         default:
