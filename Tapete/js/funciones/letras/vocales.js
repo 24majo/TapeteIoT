@@ -9,6 +9,7 @@ const objetos = {
 }
 
 function Inicio(){
+    document.getElementById("btnIniciar").innerHTML = "Siguiente"
     var respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
     var imagen = document.getElementById("figura")
@@ -21,6 +22,7 @@ function Inicio(){
 
 function Reinicio(){
     contador = 0
+    document.getElementById("btnIniciar").innerHTML = "Empezar"
     document.getElementById("contador").innerHTML = "Aciertos: "
     Inicio()
 }
