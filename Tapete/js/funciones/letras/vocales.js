@@ -1,4 +1,4 @@
-const palabras = ["Tortuga", "Perro", "Pollo", "Gato"]
+const palabras = ["Cereza", "Chocolate", "Fresa", "Gato","Helado","Libro","Manzana", "Pastel", "Pelota", "Peluche","Pera","Perro","Pizza","Pollo","Tortuga"]
 const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
 var contador = 0
@@ -12,7 +12,7 @@ function Inicio(){
     var respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
     var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
     var imagen = document.getElementById("figura")
-    imagen.src = "Visual/Material/Letras/Juego1/Animales/" + respuesta + ".png"
+    imagen.src = "Visual/Material/Letras/Juego1/" + respuesta + ".png"
     objetos.guion = guion
     document.getElementById("linea").innerHTML = objetos.guion
     opcion(arr_op = [], 0, respuesta)
