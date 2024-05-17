@@ -5,26 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/StyleJuegoNum1.css">
-		<link rel="stylesheet" href="css/styleBtn2JNum1.css">
-		<link rel="stylesheet" href="css/styleBtnJNum1.css">
-		
+    <link rel="stylesheet" href="css/StyleJuegoNum2.css">
+
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.7.1.min.js"></script>
 		<script src="js/funciones/numeros/juego2.js"></script>
 
     <title>Completa la secuencia</title>
 </head>
-<body>
-    <h1>Completa la secuencia</h1>
+<body background="Visual/Fondos/FondoJuegos.jpg">
+
+  <nav class="titulo">
+    <Font face="Century Gothic">
+        <h1><b>Completa la secuencia</b></h1>
+    </Font>
+    
+    <a href="MenuSeleccion.html" class="btnInicio">
+        <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+    </a>
+    <a href="JuegosLetras.html" class="btnAtras">
+        <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+    </a>
+
+</nav>
+
+<div class="palabraCompletar">
+           
+  <font face="Century Gothic">
     <span class="linea" id="linea"></span>
-    <button id="btn" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-    <span id="count" class="count">Aciertos: </span>
-    <div class="opciones">
-      <span id="opcionArriba" class="opcion"></span>
-      <span id="opcionAbajo" class="opcion"></span>
-      <span id="opcionIzquierda" class="opcion"></span>
-      <span id="opcionDerecha" class="opcion"></span>
-    </div>
+  </font>
+</div>
+    
+<div class="letras">   
+  <font face="Century Gothic">
+    <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+  </font>
+  
+</div>
+    
+    <div id="circulos">
+      <font face="MV Boli">
+          <span id="opcionArriba" class="opcion"></span>
+          <span id="opcionAbajo" class="opcion"></span>
+          <span id="opcionIzquierda" class="opcion"></span>
+          <span id="opcionDerecha" class="opcion"></span>
+      </font>
+</div>
+
+<div>
+  <font face="Century Gothic">
+      <h3 id="count" class="count">Aciertos: </h3>
+  </font>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const palabras = ["tortuga", "perro", "pollo", "gato"]
+const palabras = ["cereza", "chocolate", "fresa", "gato","helado","libro","manzana", "pastel", "pelota", "peluche","pera","perro","pizza","pollo","tortuga"]
 const letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var opciones = document.getElementsByClassName("opcion")
 var guion = ""
@@ -11,11 +11,12 @@ function Inicio(){
     contador = 0
     respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
     var imagen = document.getElementById("figura")
-    imagen.src = "Visual/Material/Letras/Juego1/Animales/" + respuesta + ".png"
+    imagen.src = "Visual/Material/Letras/Juego2/" + respuesta + ".png"
     console.log("Respuesta: ",respuesta)
     guion = respuesta.replace(/./g, "_ ")
     document.getElementById("linea").innerHTML = guion
     opcion(op = [])
+    document.getElementById('circulos').style.display='block';
 }
 
 function opcion(op){

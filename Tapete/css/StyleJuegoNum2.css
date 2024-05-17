@@ -1,0 +1,149 @@
+body{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.titulo{
+    position: relative;
+    right: -130px;
+    top: 100px;
+}
+#opcionArriba{
+    width: 120px;
+	height: 120px;
+	border: 5px solid  #fb71ff;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #ff99ff;
+	color: #93278f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    top: -280px;
+    right: -900px;
+}
+
+#opcionAbajo{
+    width: 120px;
+	height: 120px;
+	border: 5px solid  #fb71ff;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #ff99ff;
+	color: #93278f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -890px;
+    top: -180px;
+}
+
+#opcionIzquierda{
+    width: 120px;
+	height: 120px;
+	border: 5px solid  #fb71ff;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #ff99ff;
+	color: #93278f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -780px;
+    top: -450px;
+}
+
+#opcionDerecha{
+    width: 120px;
+	height: 120px;
+	border: 5px solid  #fb71ff;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #ff99ff;
+	color: #93278f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -1010px;
+    top: -580px;
+}
+
+#btnIniciar{
+    width: 150px;
+    height: 45px;
+    border-radius: 40px;
+    background: #65e5ab;
+    border: 1px solid  #65e5ab;
+    color: white;
+    border: none;
+    font-size: 20px;
+    position: fixed;
+    right: 1000px;
+    top: 500px;
+}
+
+#btnReiniciar{
+    width: 150px;;
+    height: 45px;
+    border-radius: 40px;
+    background: #65e5ab;
+    border: 1px solid  #65e5ab;
+    color: white;
+    border: none;
+    font-size: 20px;
+    position: fixed;
+    right: 800px;
+    top: 500px;
+}
+
+.palabraCompletar{
+    position: relative;
+    right: -200px;
+    top: -190px;
+    font-size: 80px;
+}
+
+.letras{
+    position: relative;
+    right: -200px;
+    top: -500px;
+    font-size: 80px;
+}
+
+
+.btnInicio{
+    position: relative;
+    top: -120px;
+    right: 10px;
+}
+
+.btnAtras{
+    position: relative;
+    top: -120px;
+    right: -10px;
+}
+.contador{
+    position: relative;
+    right: -800px;
+    top: -900px;
+}
+
+#circulos{
+    display: none;
+}
