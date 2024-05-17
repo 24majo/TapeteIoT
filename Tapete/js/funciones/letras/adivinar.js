@@ -10,6 +10,8 @@ var contador = 0
 function Inicio(){
     contador = 0
     respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
+    var imagen = document.getElementById("figura")
+    imagen.src = "Visual/Material/Letras/Juego1/Animales/" + respuesta + ".png"
     console.log("Respuesta: ",respuesta)
     guion = respuesta.replace(/./g, "_ ")
     document.getElementById("linea").innerHTML = guion
