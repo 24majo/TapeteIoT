@@ -7,6 +7,8 @@ var op = []
 var contador = 0
 
 function Empezar(){
+    document.getElementById('aparecer').style.display='block';
+    
     var num1 = Math.floor(Math.random() * 2+1)
     console.log("Número inicial: ", num1)
     
@@ -22,6 +24,7 @@ function Empezar(){
     }
     document.getElementById("linea").innerHTML = adivinar
     Acciones()
+    
 }
 
 function Acciones(){
