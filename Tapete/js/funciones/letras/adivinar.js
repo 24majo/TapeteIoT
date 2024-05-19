@@ -8,7 +8,6 @@ var result
 var contador = 0
 
 function Inicio(){
-    contador = 0
     respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
     var imagen = document.getElementById("figura")
     imagen.src = "Visual/Material/Letras/Juego2/" + respuesta + ".png"
@@ -20,17 +19,19 @@ function Inicio(){
 }
 
 function opcion(op){
+
     if(op.length == 4){
         for(var i = 0; i < guion.length; i++){
             var a = guion.charAt(i)
             if(a == '_'){
                 var e = op.includes(respuesta[n]) 
+                console.log("N: ", n)
+                console.log("Respuesta[n]: ",respuesta[n])
                 if(!e){
                     let r = Math.floor(Math.random() * op.length)
                     op.splice(r, 1, respuesta[n])
                     n++
                     console.log(op)
-
                     for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
                         opciones[i].innerHTML = result[i]
                     }
@@ -38,7 +39,7 @@ function opcion(op){
                 }
             }
         }
-    }
+    } 
 
     else {
         let r = Math.floor(Math.random() * letras.length) 
@@ -65,6 +66,7 @@ function validar(letra){
     var e = guion.includes('_')
 
     if(!e){
+        n = 0
         contador++
         document.getElementById("contador").innerHTML = "Aciertos: " + contador
         console.log("Contador: ", contador)
