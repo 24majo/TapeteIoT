@@ -16,7 +16,6 @@ function Empezar(){
         secuencia[i] = num1 * (i+1)
         adivinar[i] = num1 * (i+1)
     }
-    console.log(secuencia)
 
     for(let i = 0; i < 4; i++){
         var num2 = Math.floor(Math.random() * 9+1)
@@ -36,8 +35,6 @@ function Acciones(){
     }
     console.log("Respuesta: ", respuesta)
     op = Opcion(arreglo = [])
-
-    console.log(op)
 
     for(let i = 0; i < opciones.length; i++){
         opciones[i].innerHTML = op[i]
@@ -73,6 +70,13 @@ function Opciones(num){
             }
         }
         document.getElementById("linea").innerHTML = adivinar
+
+        var e = adivinar.includes('_')
+        if(!e){
+            contador++
+            document.getElementById("contador").innerHTML = "Aciertos: " + contador
+            document.getElementById("btnIniciar").innerHTML = "Continuar"
+        }
     }
 }
 
