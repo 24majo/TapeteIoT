@@ -5,7 +5,7 @@ contador = 0
 
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
-        opciones[numero].style.backgroundColor = '#f958a5'
+        //opciones[numero].style.backgroundColor = '#f958a5'
         contador++
         document.getElementById("cont").innerHTML = "Aciertos: " + contador
     }
@@ -16,9 +16,11 @@ function Random(){
     console.log("Arreglo: ", arreglo)
 
     for(var i = 0; i < arreglo.length; i++){
-        opciones[i].style.backgroundColor = '#ff99ff' 
+        //opciones[i].style.backgroundColor = '#ff99ff' 
         opciones[i].innerHTML = arreglo[i]
     } 
+
+    document.getElementById('aparecer').style.display='block';
 }
 
 window.addEventListener("keydown",(e)=>{

@@ -15,72 +15,72 @@ body{
 #opcionArriba{
     width: 120px;
 	height: 120px;
-	border: 5px solid  #fb71ff;
+	border: 5px solid  #752828;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #ff99ff;
-	color: #93278f;
+	background-color: #d35959;
+	color: #ffffff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -50px;
-    right: -1000px;
+    top: -70px;
+    right: -980px;
 }
 
 #opcionAbajo{
     width: 120px;
 	height: 120px;
-	border: 5px solid  #fb71ff;
+	border: 5px solid  #67ab49;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #ff99ff;
-	color: #93278f;
+	background-color: #95e372;
+	color: #ffffff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1000px;
-    top: 50px;
+    right: -980px;
+    top: -70px;
 }
 
 #opcionIzquierda{
     width: 120px;
 	height: 120px;
-	border: 5px solid  #fb71ff;
+	border: 5px solid  #e2cd3c;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #ff99ff;
-	color: #93278f;
+	background-color: #f9ff5d;
+	color: #ffffff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -880px;
+    right: -850px;
     top: -210px;
 }
 
 #opcionDerecha{
     width: 120px;
 	height: 120px;
-	border: 5px solid  #fb71ff;
+	border: 5px solid  #3d7998;
 	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 50%;
 	cursor: pointer;
-	background-color: #ff99ff;
-	color: #93278f;
+	background-color: #75b6d7;
+	color: #ffffff;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1120px;
+    right: -1110px;
     top: -350px;
 }
 
@@ -116,7 +116,7 @@ body{
     position: relative;
     right: -100px;
     top: 100px;
-    font-size: 70px;
+    font-size: 62px;
 }
 
 .botones{
@@ -140,8 +140,8 @@ body{
 }
 .contador{
     position: relative;
-    right: 200px;
-    top: -100px;
+    right: -700px;
+    top: -150px;
 }
 
 #aparecer{

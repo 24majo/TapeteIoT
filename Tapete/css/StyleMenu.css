@@ -5,3 +5,20 @@ body{
     background-size: 100% 100%;
 }
 
+#imagen{
+    position: absolute;
+    right: 250px;
+    top: 50px;
+}
+
+#carta1{
+    position: relative;
+    right: 300px;
+    top: 80px;
+}
+
+#carta2{
+    position: absolute;
+    right: 450px;
+    top: 80px;
+}
