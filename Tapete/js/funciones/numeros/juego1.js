@@ -11,6 +11,12 @@ function apretar(numero){
     }
 }
 
+function Reiniciar(){
+    contador = 0
+    document.getElementById("cont").innerHTML = "Aciertos: " + contador
+    Random()
+}
+
 function Random(){
     var arreglo = OpRandom()
     console.log("Arreglo: ", arreglo)
