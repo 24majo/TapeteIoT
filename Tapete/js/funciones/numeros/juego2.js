@@ -6,6 +6,12 @@ var result
 var op = []
 var contador = 0
 
+function Reinicio(){
+    contador = 0
+    document.getElementById("contador").innerHTML = "Aciertos: " + contador
+    document.getElementById("btnIniciar").innerHTML = "Empezar"
+}
+
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
     

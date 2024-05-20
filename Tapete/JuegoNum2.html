@@ -1,54 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/StyleJuegoNum2.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/StyleJuegoNum2.css">
 
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery-3.7.1.min.js"></script>
-		<script src="js/funciones/numeros/juego2.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <script src="js/funciones/numeros/juego2.js"></script>
 
-    <title>Completa la secuencia</title>
-</head>
-<body background="Visual/Fondos/FondoJuegos.jpg">
+      <title>Completa la secuencia</title>
+  </head>
+  
+  <body background="Visual/Fondos/FondoJuegos.jpg">
 
-  <nav class="titulo">
-    <Font face="Century Gothic">
-        <h1><b>Completa la secuencia</b></h1>
-    </Font>
-    
-    <a href="MenuSeleccion.html" class="btnInicio">
-        <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-    </a>
-    <a href="JuegosNumeros.html" class="btnAtras">
-        <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-    </a>
+    <nav class="titulo">
+      <Font face="Century Gothic">
+          <h1><b>Completa la secuencia</b></h1>
+      </Font>
+      
+      <a href="MenuSeleccion.html" class="btnInicio">
+          <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+      </a>
+      <a href="JuegosNumeros.html" class="btnAtras">
+          <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+      </a>
 
-    <div>
+      <div>
+        <font face="Century Gothic">
+            <h3 id="contador" class="contador">Aciertos: </h3>
+        </font>
+      </div>
+    </nav>
+
+    <div class="numeroCompletar">
       <font face="Century Gothic">
-          <h3 id="contador" class="contador">Aciertos: </h3>
+        <span class="linea" id="linea"></span>
       </font>
     </div>
-</nav>
-
-<div class="numeroCompletar">
-           
-  <font face="Century Gothic">
-    <span class="linea" id="linea"></span>
-  </font>
-</div>
-    
-<div class="botones">   
-  <font face="Century Gothic">
-    <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-    <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-  </font>
-  
-</div>
-    
+      
+    <div class="botones">   
+      <font face="Century Gothic">
+        <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+        <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+      </font>
+    </div>
+      
     <div id="aparecer">
       <font face="MV Boli">
           <span id="opcionArriba" class="opcion"></span>
@@ -56,9 +55,6 @@
           <span id="opcionIzquierda" class="opcion"></span>
           <span id="opcionDerecha" class="opcion"></span>
       </font>
-</div>
-
-
-
-</body>
+    </div>
+  </body>
 </html>
