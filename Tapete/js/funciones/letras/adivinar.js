@@ -18,8 +18,15 @@ function Inicio(){
     document.getElementById('circulos').style.display='block';
 }
 
-function opcion(op){
+function Reinicio(){
+    n = 0
+    contador = 0
+    document.getElementById("contador").innerHTML = "Aciertos: " + contador
+    document.getElementById("btnIniciar").innerHTML = "Empezar"
+    Inicio()
+}
 
+function opcion(op){
     if(op.length == 4){
         for(var i = 0; i < guion.length; i++){
             var a = guion.charAt(i)
@@ -67,6 +74,7 @@ function validar(letra){
 
     if(!e){
         n = 0
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
         contador++
         document.getElementById("contador").innerHTML = "Aciertos: " + contador
         console.log("Contador: ", contador)
