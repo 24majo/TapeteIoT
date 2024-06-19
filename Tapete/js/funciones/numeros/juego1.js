@@ -2,6 +2,7 @@ var correcta = 0
 var arreglo_f = []
 var opciones = document.getElementsByClassName("opcion")
 contador = 0
+var error = 3
 
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
@@ -9,11 +10,24 @@ function apretar(numero){
         contador++
         document.getElementById("cont").innerHTML = "Aciertos: " + contador
     }
+
+    else{
+        error -= 1
+        document.getElementById("error").innerHTML = "Errores: " + error 
+
+        if(error == 0){
+            alert("Chin")
+            Random()
+        }
+    }
+
+    
 }
 
 function Reiniciar(){
     contador = 0
     document.getElementById("cont").innerHTML = "Aciertos: " + contador
+    document.getElementById("error").innerHTML = "Errores: 3"
     Random()
 }
 
