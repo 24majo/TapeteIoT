@@ -11,7 +11,7 @@
 		
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.7.1.min.js"></script>
-		<script src="js/funciones/numeros/juego1.js"></script>
+		
 	
 		<title>Selecciona el número</title>
 	</head>
@@ -33,7 +33,8 @@
 		<a href="JuegosNumeros.html" class="btnAtras">
 				<img src="Visual/Material/Iconos/Flecha.png" width="60px">
 		</a>
-	
+		
+		<progress id="barra" max="100" value="0"></progress>
 		
 		<br>
 		
@@ -44,6 +45,7 @@
 		
 			<img class="imagen" id='img' width="300" height="300">
 			<br><br>
+			
 			<b>
 				<div id="aparecer">
 					<font face="MV Boli">
@@ -52,23 +54,21 @@
 							<span id="ab" class="opcion"></span>
 							<span id="izq" class="opcion"></span>
 							<span id="der" class="opcion"></span>
-							
 						</div>
 					</font>
 				</div>
-				
 			</b>
-			
-			
 		</div>
 
 			<font face="Century Gothic">
 					<h3>
 						<div class="contador" >
-							<span id='cont' class="cont">Aciertos: 0</span>
+							<!--<span id='cont' class="cont">Aciertos: 0</span>
 							<br>
-							<span id="error" class="error">Errores: 3</span>
-							</div>
+							<span id="error" class="error">Errores: 3</span>-->
+							<div id="vida"></div>
+							<script src="js/funciones/numeros/juego1.js"></script>
+						</div>
 					</h3>
 			</font>
 		
