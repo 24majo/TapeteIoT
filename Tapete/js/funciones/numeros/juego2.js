@@ -5,17 +5,24 @@ var respuesta
 var result
 var op = []
 var contador = 0
+var error = 3
+var imagen = document.getElementById('vida');
+imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
 
 function Reinicio(){
     contador = 0
-    document.getElementById("contador").innerHTML = "Aciertos: " + contador
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
+    imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+    error = 3
+    //document.getElementById("contador").innerHTML = "Aciertos: " + contador
     document.getElementById("btnIniciar").innerHTML = "Empezar"
+    Empezar()
 }
 
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
-    
-    var num1 = Math.floor(Math.random() * 2+1)
+    var num1 = Math.floor(Math.random() * 9+1)
     console.log("Número inicial: ", num1)
     
     for(let i = 0; i < 10; i++){
@@ -75,13 +82,38 @@ function Opciones(num){
                 break
             }
         }
+        
+        
         document.getElementById("linea").innerHTML = adivinar
 
         var e = adivinar.includes('_')
         if(!e){
-            contador++
-            document.getElementById("contador").innerHTML = "Aciertos: " + contador
+            contador+=10
+            //alert("Ganaste")
+            //document.getElementById("contador").innerHTML = "Aciertos: " + contador
             document.getElementById("btnIniciar").innerHTML = "Continuar"
+            document.getElementById("barra").value = contador
+            document.getElementById("barra").innerHTML = contador
+
+            if(contador==100){
+                alert("Ganasteeeee, pero igual no tienes nada")
+            }
+        }
+    }
+    else{
+        error--
+        if(error == 2){
+            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
+        }
+
+        if(error == 1){
+            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/1.jpg" width="100">'
+        }
+
+        if(error == 0){
+            imagen.innerHTML = ""
+            alert("Perdiste, intenta de nuevo")
+            Reinicio()
         }
     }
 }

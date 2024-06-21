@@ -9,12 +9,13 @@
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
-      <script src="js/funciones/numeros/juego2.js"></script>
 
       <title>Completa la secuencia</title>
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
+
+    <progress id="barra" max="100" value="0"></progress>
 
     <nav class="titulo">
       <Font face="Century Gothic">
@@ -29,8 +30,11 @@
       </a>
 
       <div>
+        <div id="vida"></div>
+        <script src="js/funciones/numeros/juego2.js"></script>
+
         <font face="Century Gothic">
-            <h3 id="contador" class="contador">Aciertos: </h3>
+            <!--<h3 id="contador" class="contador">Aciertos: </h3> -->
         </font>
       </div>
     </nav>
