@@ -8,6 +8,7 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 // Circulos de opciones
 var opciones = document.getElementsByClassName("opcion")
+var op = []
 //Opciones de dificultad
 var radios = document.getElementsByName("dificultad")
 // Elementos generales
@@ -25,8 +26,7 @@ function Empezar(){
         //alert(valor)
         switch(valor){
             case 'facil':
-                Random(0,0)
-
+                Random(0,0)  
                 break
 
             case 'medio':
@@ -76,19 +76,82 @@ function Opcion(arreglo){
     return result
 }
 
+function RCorrecto(num){
+    if(num == resultado){
+        contador+=1
+        //alert("Vas bien", contador)
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+
+        if(contador == 10){
+            alert("Ganasteeeee, pero a qué costo?")
+        }
+    }
+    else{
+        //alert("menso")
+        error--
+        if(error == 2){
+            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
+        }
+
+        if(error == 1){
+            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/1.jpg" width="100">'
+        }
+
+        if(error == 0){
+            imagen.innerHTML = ""
+            alert("Perdiste, ni modo")
+            Reinicio()
+        }
+    }
+}
 
 function Reinicio(){
-    for (var i = 0; i < radios.length; i++) {
-        var niveles = radios[i];
-        niveles.checked = false;
+    var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
+    if (pregunta === true) {
+        window.alert('Conste');
+
+        for (var i = 0; i < radios.length; i++) {
+            var niveles = radios[i];
+            niveles.checked = false;
+        }
+        error = 3
+        contador = 0
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+        //Random()
+    } 
+    else { 
+        window.alert('Se te hace así');
     }
-    error = 3
-    contador = 0
-    document.getElementById("barra").value = contador
-    document.getElementById("barra").innerHTML = contador
 }
 
 window.addEventListener("keydown",(e)=>{
+    let tecla = e.key
+    switch(tecla){
+        case 'ArrowUp':
+            RCorrecto(op[0])
+            break;
+
+        case 'ArrowDown':
+            RCorrecto(op[1])
+            break;
+
+        case 'ArrowLeft':
+            RCorrecto(op[2])
+            break;
+
+        case 'ArrowRight':
+            RCorrecto(op[3])
+            break;
+
+        default:
+            break;
+    }
+})
+
+window.addEventListener("keyup",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
