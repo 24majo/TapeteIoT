@@ -71,15 +71,28 @@ function Opcion(arreglo){
     }
 
     else{
-        let r = Math.floor(Math.random() * (100-10)+10)
-        arreglo.push(r)
-    
-        result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
-            return arreglo.indexOf(item) === index;
-        })
-        Opcion(result)
+
+        if(valor == 'facil'){
+            let r = Math.floor(Math.random() * (100-10)+10)
+            arreglo.push(r)
+                
+            result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+                return arreglo.indexOf(item) === index;
+            })
+            Opcion(result)
+        }
+        else{
+            let r = Math.floor(Math.random() * (199-100)+100)
+            arreglo.push(r)
+                
+            result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+                return arreglo.indexOf(item) === index;
+            })
+            Opcion(result)
+        }
+        
     }
-    
+
     return result
 }
 
