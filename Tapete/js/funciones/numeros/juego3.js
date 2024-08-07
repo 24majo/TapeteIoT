@@ -74,7 +74,6 @@ function Opcion(arreglo){
         if(valor == 'facil'){
             var r = Math.floor(Math.random() * (100-10)+10)
         }
-
         else{
             if(valor == "medio") {
                 var r = Math.floor(Math.random() * (199-100)+100)
@@ -83,7 +82,6 @@ function Opcion(arreglo){
                 var r = Math.floor(Math.random() * (199-10)+10)
             }
         }
-
         arreglo.push(r)
                 
         result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
@@ -91,9 +89,7 @@ function Opcion(arreglo){
         })
         
         Opcion(result)
-        
     }
-
     return result
 }
 
