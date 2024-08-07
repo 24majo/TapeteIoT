@@ -26,23 +26,28 @@ function Empezar(){
         //alert(valor)
         switch(valor){
             case 'facil':
-                Random(0,0)  
+                num1 = Math.floor(Math.random() * (50-1)+1)
+                num2 = Math.floor(Math.random() * (50-1)+1)
+                Random(num1, num2)  
                 break
 
             case 'medio':
-
+                num1 = Math.floor(Math.random() * (100-50)+50)
+                num2 = Math.floor(Math.random() * (100-50)+50)
+                //alert("Num1: " + num1 + " num2: " + num2)
+                Random(num1, num2)  
                 break
             
             case 'dificil':
-
+                num1 = Math.floor(Math.random() * (100-10)+10)
+                num2 = Math.floor(Math.random() * (100-10)+10)
+                Random(num1, num2) 
                 break
         }
     }
 }
 
 function Random(num1, num2){
-    num1 = Math.floor(Math.random() * (100-10)+10)
-    num2 = Math.floor(Math.random() * (100-10)+10)
     //num1 = Math.round(num1 / 10) * 10
     //num2 = Math.round(num2 / 10) * 10
     resultado = num1 + num2
@@ -64,6 +69,7 @@ function Opcion(arreglo){
             arreglo.splice(r, 1, resultado)
         }
     }
+
     else{
         let r = Math.floor(Math.random() * (100-10)+10)
         arreglo.push(r)
@@ -73,6 +79,7 @@ function Opcion(arreglo){
         })
         Opcion(result)
     }
+    
     return result
 }
 
