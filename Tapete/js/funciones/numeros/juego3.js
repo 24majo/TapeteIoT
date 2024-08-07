@@ -65,31 +65,32 @@ function Opcion(arreglo){
     if(arreglo.length == 4){
         var res = arreglo.indexOf(resultado)
         if(res == -1){
-            let r = Math.floor(Math.random() * arreglo.length) 
+            var r = Math.floor(Math.random() * arreglo.length) 
             arreglo.splice(r, 1, resultado)
         }
     }
 
     else{
-
         if(valor == 'facil'){
-            let r = Math.floor(Math.random() * (100-10)+10)
-            arreglo.push(r)
-                
-            result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
-                return arreglo.indexOf(item) === index;
-            })
-            Opcion(result)
+            var r = Math.floor(Math.random() * (100-10)+10)
         }
+
         else{
-            let r = Math.floor(Math.random() * (199-100)+100)
-            arreglo.push(r)
-                
-            result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
-                return arreglo.indexOf(item) === index;
-            })
-            Opcion(result)
+            if(valor == "medio") {
+                var r = Math.floor(Math.random() * (199-100)+100)
+            }
+            else {
+                var r = Math.floor(Math.random() * (199-10)+10)
+            }
         }
+
+        arreglo.push(r)
+                
+        result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+            return arreglo.indexOf(item) === index;
+        })
+        
+        Opcion(result)
         
     }
 
