@@ -21,6 +21,9 @@ function Empezar(){
         alert("Selecciona algo ptm")
     }
     else{
+        for(let y = 0; y < 3; y++){
+            radios[y].disabled = true
+        }
         valor = document.querySelector('input[name="dificultad"]:checked').value
         document.getElementById('aparecer').style.display='block';
         //alert(valor)
@@ -128,6 +131,10 @@ function Reinicio(){
     var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
     if (pregunta === true) {
         window.alert('Conste');
+
+        for(let y = 0; y < 3; y++){
+            radios[y].disabled = false
+        }
 
         for (var i = 0; i < radios.length; i++) {
             var niveles = radios[i];
