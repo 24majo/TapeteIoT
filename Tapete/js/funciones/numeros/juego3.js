@@ -130,7 +130,7 @@ function RCorrecto(num){
 function Reinicio(){
     var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
     if (pregunta === true) {
-        window.alert('Conste');
+        window.alert('Conste we');
 
         for(let y = 0; y < 3; y++){
             radios[y].disabled = false
