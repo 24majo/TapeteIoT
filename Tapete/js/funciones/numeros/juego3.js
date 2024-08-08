@@ -42,8 +42,8 @@ function Empezar(){
                 break
             
             case 'dificil':
-                num1 = Math.floor(Math.random() * (100-10)+10)
-                num2 = Math.floor(Math.random() * (100-10)+10)
+                num1 = Math.floor(Math.random() * (100-1)+1)
+                num2 = Math.floor(Math.random() * (100-1)+1)
                 Random(num1, num2) 
                 break
         }
