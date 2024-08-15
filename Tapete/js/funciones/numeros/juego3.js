@@ -15,7 +15,6 @@ var radios = document.getElementsByName("dificultad")
 var resultado = 0
 var arreglo = []
 
-
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
         alert("Selecciona algo ptm")
@@ -26,7 +25,7 @@ function Empezar(){
         }
         valor = document.querySelector('input[name="dificultad"]:checked').value
         document.getElementById('aparecer').style.display='block';
-        //alert(valor)
+        
         switch(valor){
             case 'facil':
                 num1 = Math.floor(Math.random() * (50-1)+1)
@@ -87,7 +86,7 @@ function Opcion(arreglo){
         }
         arreglo.push(r)
                 
-        result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+        result = arreglo.filter((item,index)=>{ 
             return arreglo.indexOf(item) === index;
         })
         
@@ -96,7 +95,7 @@ function Opcion(arreglo){
     return result
 }
 
-function RCorrecto(num){
+function RCorrecto(num){ 
     if(num == resultado){
         contador+=1
         //alert("Vas bien", contador)
@@ -106,6 +105,22 @@ function RCorrecto(num){
 
         if(contador == 10){
             alert("Ganasteeeee, pero a qué costo?")
+            var pregunta = window.confirm('¿Deseas continuar a la siguiente difilcutad?');
+            if (pregunta === true) {
+                if(valor == 'facil'){
+                    valor = document.querySelector('#medio').checked = true
+                    Reiniciar()
+                }
+                else{
+                    if(valor == 'medio'){
+                        valor = document.querySelector('#dificil').checked = true
+                        Reiniciar()
+                    }
+                    else{
+                        alert("Ya ahora si ganaste todo, vete")
+                    }
+                }
+            }
         }
     }
     else{
@@ -122,9 +137,16 @@ function RCorrecto(num){
         if(error == 0){
             imagen.innerHTML = ""
             alert("Perdiste, ni modo")
-            Reinicio()
+            Reiniciar()
         }
     }
+}
+function Reiniciar(){
+    error = 3
+    contador = 0
+    imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
 }
 
 function Reinicio(){
@@ -135,16 +157,13 @@ function Reinicio(){
         for(let y = 0; y < 3; y++){
             radios[y].disabled = false
         }
-
+    
         for (var i = 0; i < radios.length; i++) {
             var niveles = radios[i];
             niveles.checked = false;
         }
-        error = 3
-        contador = 0
-        document.getElementById("barra").value = contador
-        document.getElementById("barra").innerHTML = contador
-        //Random()
+
+        Reiniciar()
     } 
     else { 
         window.alert('Se te hace así');
@@ -179,19 +198,19 @@ window.addEventListener("keyup",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            Random(0)
+            Empezar()
             break;
 
         case 'ArrowDown':
-            Random(1)
+            Empezar()
             break;
 
         case 'ArrowLeft':
-            Random(2)
+            Empezar()
             break;
 
         case 'ArrowRight':
-            Random(3)
+            Empezar()
             break;
 
         default:

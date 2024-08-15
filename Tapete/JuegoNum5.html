@@ -10,7 +10,7 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
 
-      <title>Suma de decenas</title>
+      <title>Completar decenas</title>
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
@@ -19,7 +19,8 @@
 
     <nav class="titulo">
         <Font face="Century Gothic">
-            <h1><b>Suma de decenas</b></h1>
+            <h1><b>Completar decenas</b></h1>
+            <p>¿Cuánto falta para completar la siguiente decena?</p>
         </Font>
       
         <a href="MenuSeleccion.html" class="btnInicio">
@@ -31,7 +32,8 @@
 
         <div>
             <div id="vida"></div>
-            <script src="js/funciones/numeros/juego3.js"></script>
+            <div id="ejercicio"></div>
+            <script src="js/funciones/numeros/juego5.js"></script>
         </div>
 
         <input type="radio" name="dificultad" id="facil" value="facil">Fácil
@@ -43,15 +45,6 @@
         Difícil: Revuelto
         -->
     </nav>
-    
-    <div class="numeroCompletar">
-        <font face="Century Gothic">
-            <span class="linea" id="linea_s"></span>
-            <br>
-            <span class="linea" id="linea_i"></span>
-            <br>
-        </font>
-    </div>
       
     <div class="botones">   
         <font face="Century Gothic">
@@ -68,6 +61,5 @@
             <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
-
   </body>
 </html>
