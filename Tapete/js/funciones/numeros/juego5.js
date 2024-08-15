@@ -18,7 +18,10 @@ var ejercicio = 0
 
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
-        alert("Selecciona algo ptm")
+        $.alert({
+            title: 'Advertencia',
+            content: 'Elige una dificultad para iniciar el juego',
+        });
     }
 
     else{

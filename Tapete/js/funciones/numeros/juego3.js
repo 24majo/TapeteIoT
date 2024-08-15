@@ -14,8 +14,7 @@ var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var resultado = 0
 var arreglo = []
-
-Ayuda()
+Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
@@ -23,7 +22,7 @@ function Empezar(){
             title: "Advertencia",
             text: "Elige una dificultad para inicar el juego",
             icon: "warning", 
-          })
+        })
     }
     else{
         for(let y = 0; y < 3; y++){
@@ -109,7 +108,7 @@ function RCorrecto(num){
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
 
-        if(contador == 1){
+        if(contador == 10){
             if(valor == "dificil"){
                 swal({
                     title: "¡Ganador!",
@@ -185,8 +184,44 @@ function RCorrecto(num){
 
         if(error == 0){
             imagen.innerHTML = ""
-            alert("Perdiste, ni modo")
-            Reiniciar()
+            swal({
+                title: "Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "warning",
+                buttons:  ["Reintentar", "Salir"] 
+            })
+            .then((reintento) => {
+                if (reintento) {
+                    location.href = "JuegosNumeros.html"
+                } 
+                else{
+                    swal({
+                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                        icon: "warning",
+                        buttons:  ["Mantener", "Cambiar"] 
+                    })
+                    .then((cambiar) => {
+                        if(cambiar){
+                            for(let y = 0; y < 3; y++){
+                                radios[y].disabled = false
+                            }
+                            for (var i = 0; i < radios.length; i++) {
+                                var niveles = radios[i];
+                                niveles.checked = false;
+                            }
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+
+
+                    
+                }
+            })
         }
     }
 }
@@ -196,6 +231,7 @@ function Reiniciar(){
     imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
+    Empezar()
 }
 
 function Reinicio(){

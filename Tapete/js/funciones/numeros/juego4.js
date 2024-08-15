@@ -14,10 +14,15 @@ var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var resultado = 0
 var arreglo = []
+Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
-        alert("Selecciona algo ptm")
+        swal({
+            title: "Advertencia",
+            text: "Elige una dificultad para inicar el juego",
+            icon: "warning", 
+        })
     }
 
     else{
@@ -92,27 +97,54 @@ function RCorrecto(num){
         document.getElementById("barra").innerHTML = contador
 
         if(contador == 10){
-            alert("Ganasteeeee, pero a qué costo?")
-            var pregunta = window.confirm('¿Deseas continuar a la siguiente difilcutad?');
-            if (pregunta === true) {
-                if(valor == 'facil'){
-                    valor = document.querySelector('#medio').checked = true
-                    Reiniciar()
-                }
-                else{
-                    if(valor == 'medio'){
-                        valor = document.querySelector('#dificil').checked = true
+            if(valor == "dificil"){
+                swal({
+                    title: "¡Ganador!",
+                    text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
+                    icon: "success",
+                    buttons:  ["Continuar", "Salir"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.href = "JuegosNumeros.html"
+                    } 
+                    else{
+                        for(let y = 0; y < 3; y++){
+                            radios[y].disabled = false
+                        }
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
-                    else{
-                        alert("Ya ahora si ganaste todo, vete")
-                    }
-                }
+                })
+            }
+
+            else{
+                swal({
+                    title: "¡Felicidades!",
+                    text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
+                    icon: "success",
+                    buttons: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        if(valor == 'facil'){
+                            valor = document.querySelector('#medio').checked = true
+                            Reiniciar()
+                        }
+
+                        else{
+                            if(valor == 'medio'){
+                                valor = document.querySelector('#dificil').checked = true
+                                Reiniciar()
+                            }
+                        }
+                    } 
+                })
             }
         }
     }
     else{
-        //alert("menso")
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
