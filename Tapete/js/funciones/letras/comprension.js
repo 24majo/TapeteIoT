@@ -26,6 +26,7 @@ var materiales = ["ramas", "troncos", "rocas"]
 var flores = ["flores", "mariposas", "animales"]
 var tiempo = ["amanecer", "atardecer", "anochecer"]
 
+
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 function Empezar(){
