@@ -217,9 +217,6 @@ function RCorrecto(num){
                             Reiniciar()
                         }
                     })
-
-
-                    
                 }
             })
         }

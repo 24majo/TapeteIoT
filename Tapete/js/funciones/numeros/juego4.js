@@ -156,31 +156,76 @@ function RCorrecto(num){
 
         if(error == 0){
             imagen.innerHTML = ""
-            alert("Perdiste, ni modo")
-            Reiniciar()
+            swal({
+                title: "Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "warning",
+                buttons:  ["Reintentar", "Salir"] 
+            })
+            .then((reintento) => {
+                if (reintento) {
+                    location.href = "JuegosNumeros.html"
+                } 
+                else{
+                    swal({
+                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                        icon: "warning",
+                        buttons:  ["Mantener", "Cambiar"] 
+                    })
+                    .then((cambiar) => {
+                        if(cambiar){
+                            for(let y = 0; y < 3; y++){
+                                radios[y].disabled = false
+                            }
+                            for (var i = 0; i < radios.length; i++) {
+                                var niveles = radios[i];
+                                niveles.checked = false;
+                            }
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+            })
         }
     }
 }
 
+function Reiniciar(){
+    error = 3
+    contador = 0
+    imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
+    Empezar()
+}
+
 function Reinicio(){
-    var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
-    if (pregunta === true) {
-        window.alert('Conste we');
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
 
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = false
-        }
-    
-        for (var i = 0; i < radios.length; i++) {
-            var niveles = radios[i];
-            niveles.checked = false;
-        }
-
-        Reiniciar()
-    } 
-    else { 
-        window.alert('Se te hace así');
-    }
+      .then((willDelete) => {
+        if (willDelete) {
+            for(let y = 0; y < 3; y++){
+                radios[y].disabled = false
+            }
+            for (var i = 0; i < radios.length; i++) {
+                var niveles = radios[i];
+                niveles.checked = false;
+            }
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        } 
+    });
 }
 
 window.addEventListener("keydown",(e)=>{
@@ -230,3 +275,8 @@ window.addEventListener("keyup",(e)=>{
             break;
     }
 })
+
+function Ayuda(){
+    swal("Tutorial", 
+        "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
+}
