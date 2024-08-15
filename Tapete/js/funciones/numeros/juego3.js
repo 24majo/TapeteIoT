@@ -15,9 +15,15 @@ var radios = document.getElementsByName("dificultad")
 var resultado = 0
 var arreglo = []
 
+Ayuda()
+
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
-        alert("Selecciona algo ptm")
+        swal({
+            title: "Advertencia",
+            text: "Elige una dificultad para inicar el juego",
+            icon: "warning", 
+          })
     }
     else{
         for(let y = 0; y < 3; y++){
@@ -103,28 +109,71 @@ function RCorrecto(num){
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
 
-        if(contador == 10){
-            alert("Ganasteeeee, pero a qué costo?")
-            var pregunta = window.confirm('¿Deseas continuar a la siguiente difilcutad?');
-            if (pregunta === true) {
-                if(valor == 'facil'){
-                    valor = document.querySelector('#medio').checked = true
-                    Reiniciar()
-                }
-                else{
-                    if(valor == 'medio'){
-                        valor = document.querySelector('#dificil').checked = true
+        if(contador == 1){
+            if(valor == "dificil"){
+                swal({
+                    title: "¡Ganador!",
+                    text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
+                    icon: "success",
+                    buttons:  ["Continuar", "Salir"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.href = "JuegosNumeros.html"
+                    } 
+                    else{
+                        for(let y = 0; y < 3; y++){
+                            radios[y].disabled = false
+                        }
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
-                    else{
-                        alert("Ya ahora si ganaste todo, vete")
-                    }
-                }
+                })
             }
+            else{
+                swal({
+                    title: "¡Felicidades!",
+                    text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
+                    icon: "success",
+                    buttons: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        if(valor == 'facil'){
+                            valor = document.querySelector('#medio').checked = true
+                            Reiniciar()
+                        }
+
+                        else{
+                            if(valor == 'medio'){
+                                valor = document.querySelector('#dificil').checked = true
+                                Reiniciar()
+                            }
+                        }
+                    } 
+                })
+            }
+
+            // var pregunta = window.confirm('¿Deseas continuar a la siguiente difilcutad?');
+            // if (pregunta === true) {
+            //     if(valor == 'facil'){
+            //         valor = document.querySelector('#medio').checked = true
+            //         Reiniciar()
+            //     }
+            //     else{
+            //         if(valor == 'medio'){
+            //             valor = document.querySelector('#dificil').checked = true
+            //             Reiniciar()
+            //         }
+            //         else{
+            //             alert("Ya ahora si ganaste todo, vete")
+            //         }
+            //     }
+            // }
         }
     }
     else{
-        //alert("menso")
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
@@ -150,24 +199,37 @@ function Reiniciar(){
 }
 
 function Reinicio(){
-    var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
-    if (pregunta === true) {
-        window.alert('Conste we');
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
 
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = false
-        }
+      .then((willDelete) => {
+        if (willDelete) {
+            for(let y = 0; y < 3; y++){
+                radios[y].disabled = false
+            }
+            for (var i = 0; i < radios.length; i++) {
+                var niveles = radios[i];
+                niveles.checked = false;
+            }
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        } 
+    });
     
-        for (var i = 0; i < radios.length; i++) {
-            var niveles = radios[i];
-            niveles.checked = false;
-        }
+    // var pregunta = window.confirm('Al reiniciar, se perderá el progreso actual');
+    // if (pregunta === true) {
+    //     window.alert('Conste we');
 
-        Reiniciar()
-    } 
-    else { 
-        window.alert('Se te hace así');
-    }
+        
+    // } 
+    // else { 
+    //     window.alert('Se te hace así');
+    // }
 }
 
 window.addEventListener("keydown",(e)=>{
@@ -217,3 +279,12 @@ window.addEventListener("keyup",(e)=>{
             break;
     }
 })
+
+function Ayuda(){
+    swal("Tutorial", 
+        "Realiza la suma de dos números y elige la opción correcta con los botones o las flechas del teclado.");
+    // $.dialog({
+    //     title: 'Tutorial',
+    //     content: 'Realiza la suma de dos números y elige la opción correcta con los botones o las flechas del teclado.',
+    // });
+}
