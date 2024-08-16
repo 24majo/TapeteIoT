@@ -1,7 +1,16 @@
+// Vidas
+var imagen = document.getElementById('vida');
+imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+var error = 3
+// Barra de progreso
+contador = 0
+document.getElementById("barra").value = contador
+document.getElementById("barra").innerHTML = contador
+
 const palabras = ["Cereza", "Chocolate", "Fresa", "Gato","Helado","Libro","Manzana", "Pastel", "Pelota", "Peluche","Pera","Perro","Pizza","Pollo","Tortuga"]
 const vocales = ["a", "e", "i", "o", "u"]
 var opciones = document.getElementsByClassName("opcion")
-var contador = 0
+
 const objetos = {
     resp: undefined,
     opc_arr: [],
@@ -21,9 +30,29 @@ function Inicio(){
 }
 
 function Reinicio(){
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+
+      .then((Reinicio) => {
+        if (Reinicio) {
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        } 
+    });
+}
+
+function Reiniciar(){
+    error = 3
     contador = 0
     document.getElementById("btnIniciar").innerHTML = "Empezar"
-    document.getElementById("contador").innerHTML = "Aciertos: "
+    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
     Inicio()
 }
 
@@ -63,17 +92,55 @@ const replaceAt = (string, character, index) => {
 }
 
 function validar(valor){
-    for(let i = 0; i < objetos.resp.length; i++){
+    for(var i = 0; i < objetos.resp.length; i++){
         if(objetos.resp[i] == objetos.opc_arr[valor]){
             objetos.guion = replaceAt(objetos.guion, objetos.opc_arr[valor], i)
+            break
+        }
+
+        else{
+            if(i == objetos.resp.length - 1){
+                //alert("Entra")
+                error--
+                if(error == 2){
+                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+                }
+        
+                if(error == 1){
+                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+                }
+        
+                if(error == 0){
+                    imagen.innerHTML = ""
+                    swal({
+                        title: "Oh no!",
+                        text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                        icon: "error",
+                        buttons:  ["Reintentar", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+            }
         }
     }
+
     document.getElementById("linea").innerHTML = objetos.guion
     var e = objetos.guion.includes('_')
     
     if(!e){
         contador++
-        document.getElementById("contador").innerHTML = "Aciertos: " + contador
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+        //document.getElementById("contador").innerHTML = "Aciertos: " + contador
     }
 }
 
@@ -123,5 +190,8 @@ window.addEventListener("keyup",(e)=>{
     }
 })
 
-
+function Ayuda(){
+    swal("Tutorial", 
+        "Elige la vocal correcta para completar la palabra.");
+}
 
