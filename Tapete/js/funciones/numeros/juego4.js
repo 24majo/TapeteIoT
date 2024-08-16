@@ -20,7 +20,7 @@ function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
         swal({
             title: "Advertencia",
-            text: "Elige una dificultad para inicar el juego",
+            text: "Elige una dificultad para iniciar el juego",
             icon: "warning", 
         })
     }
@@ -159,7 +159,7 @@ function RCorrecto(num){
             swal({
                 title: "Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "warning",
+                icon: "error",
                 buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
@@ -169,7 +169,7 @@ function RCorrecto(num){
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "warning",
+                        icon: "info",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
