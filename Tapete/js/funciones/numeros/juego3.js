@@ -1,6 +1,6 @@
 // Vidas
 var imagen = document.getElementById('vida');
-imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
 // Barra de progreso
 contador = 0
@@ -175,11 +175,11 @@ function RCorrecto(num){
     else{
         error--
         if(error == 2){
-            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
         if(error == 1){
-            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/1.jpg" width="100">'
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
         if(error == 0){
@@ -225,7 +225,7 @@ function RCorrecto(num){
 function Reiniciar(){
     error = 3
     contador = 0
-    imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     Empezar()

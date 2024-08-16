@@ -7,13 +7,13 @@ var op = []
 var contador = 0
 var error = 3
 var imagen = document.getElementById('vida');
-imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 function Reinicio(){
     contador = 0
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
-    imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     error = 3
     //document.getElementById("contador").innerHTML = "Aciertos: " + contador
     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -103,11 +103,11 @@ function Opciones(num){
     else{
         error--
         if(error == 2){
-            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/2.jpg" width="100">'
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
         if(error == 1){
-            imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/1.jpg" width="100">'
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
         if(error == 0){
