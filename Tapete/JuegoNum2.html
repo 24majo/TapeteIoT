@@ -10,6 +10,11 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
 
+      <!--Ventanas emergentes-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
       <title>Completa la secuencia</title>
   </head>
   
@@ -51,7 +56,8 @@
         <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
       </font>
     </div>
-      
+    <button id="Ayuda" onclick="Ayuda()"><b>?</b></button>
+
     <div id="aparecer">
       <font face="MV Boli">
           <span id="opcionArriba" class="opcion"></span>

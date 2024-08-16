@@ -9,15 +9,37 @@ var error = 3
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
-function Reinicio(){
+Ayuda()
+
+function Ayuda(){
+    swal("Tutorial", 
+        "Elige el numero siguiente al anterior de acuerdo con la secuencia presentada.");
+}
+
+function Reiniciar(){
     contador = 0
+    error = 3
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-    error = 3
-    //document.getElementById("contador").innerHTML = "Aciertos: " + contador
     document.getElementById("btnIniciar").innerHTML = "Empezar"
     Empezar()
+}
+
+function Reinicio(){
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((Reinicios) => {
+        if(Reinicios){
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        }
+    })
 }
 
 function Empezar(){
@@ -46,7 +68,7 @@ function Acciones(){
             break
         }
     }
-    console.log("Respuesta: ", respuesta)
+    //console.log("Respuesta: ", respuesta)
     op = Opcion(arreglo = [])
 
     for(let i = 0; i < opciones.length; i++){
@@ -82,13 +104,24 @@ function Opciones(num){
                 break
             }
         }
-        
-        
-        document.getElementById("linea").innerHTML = adivinar
 
+        document.getElementById("linea").innerHTML = adivinar
         var e = adivinar.includes('_')
+
         if(!e){
             contador+=10
+            
+            swal({
+                title: "¡Bien hecho! :D",
+                text: "Continuemos al siguiente ejercicio",
+                icon: "success",
+                button: "Continuar",
+            })
+            .then((Continuar) => {
+                if(Continuar){
+                    Empezar()
+                }
+            })
             //alert("Ganaste")
             //document.getElementById("contador").innerHTML = "Aciertos: " + contador
             document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -96,7 +129,20 @@ function Opciones(num){
             document.getElementById("barra").innerHTML = contador
 
             if(contador==100){
-                alert("Ganasteeeee, pero igual no tienes nada")
+                swal({
+                    title: "¡Bien hecho! :D",
+                    text: "Continuemos al siguiente ejercicio",
+                    icon: "success",
+                    buttons: ["Continuar", "Salir"],
+                })
+                .then((Continuar) => {
+                    if(Continuar){
+                        location.href = "JuegosNumeros.html"
+                    }
+                    else{
+                        Empezar()
+                    }
+                })
             }
         }
     }
@@ -112,8 +158,22 @@ function Opciones(num){
 
         if(error == 0){
             imagen.innerHTML = ""
-            alert("Perdiste, intenta de nuevo")
-            Reinicio()
+
+            swal({
+                title: "¡Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "error",
+                buttons: ["Reintentar", "Salir"]
+            })
+            .then((reintento) => {
+                if(reintento){
+                    location.href = "JuegosNumeros.html"
+                }
+                else{
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                }
+            })
         }
     }
 }
