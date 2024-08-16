@@ -1,6 +1,6 @@
 // Vidas
 var imagen = document.getElementById('vida');
-imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
 // Barra de progreso
 contador = 0
