@@ -9,12 +9,22 @@
 
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/query-3.7.1.min.js"></script>
-    <script src="js/funciones/letras/adivinar.js"></script>
+
+    <!--Ventanas emergentes-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Palabras</title>
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
+
+    <progress id="barra" max="10" value="0"></progress>
+
+    <div>
+        <div id="vida"></div>
+    </div>
    
     <nav class="titulo">
         <Font face="Century Gothic">
@@ -39,32 +49,26 @@
     <div class="palabraCompletar">
            
         <font face="Century Gothic">
-            <span id="palabra"></span>
             <span id="linea"></span>
         </font>
 
     </div>
     <div class="letras">
-            <font face="Century Gothic">
-                <button id="btnIniciar" onclick="Inicio()"><b>Empezar</b></button>
-                <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            </font>  
+        <font face="Century Gothic">
+            <button id="btnIniciar" onclick="Inicio()"><b>Empezar</b></button>
+            <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+        </font>  
     </div>
 
     <div id="circulos">
-            <font face="MV Boli">
-                <span id="opcionArriba" class="opcion"></span>
-                <span id="opcionAbajo" class="opcion"></span>
-                <span id="opcionIzquierda" class="opcion"></span>
-                <span id="opcionDerecha" class="opcion"></span>
-            </font>
-    </div>
-
-    <div>
-        <font face="Century Gothic">
-            <h3 id="contador" class="contador">Aciertos: </h3>
+        <font face="MV Boli">
+            <span id="opcionArriba" class="opcion"></span>
+            <span id="opcionAbajo" class="opcion"></span>
+            <span id="opcionIzquierda" class="opcion"></span>
+            <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
-    
+    <script src="js/funciones/letras/adivinar.js"></script>
 </body>
 </html>

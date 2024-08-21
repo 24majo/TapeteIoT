@@ -1,51 +1,99 @@
 const palabras = ["cereza", "chocolate", "fresa", "gato","helado","libro","manzana", "pastel", "pelota", "peluche","pera","perro","pizza","pollo","tortuga"]
 const letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var opciones = document.getElementsByClassName("opcion")
-var guion = ""
+//var guion = ""
+var guion = []
 var respuesta 
-var n = 0
 var result
-var contador = 0
-
-function Inicio(){
-    respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
-    var imagen = document.getElementById("figura")
-    imagen.src = "Visual/Material/Letras/Juego2/" + respuesta + ".png"
-    console.log("Respuesta: ",respuesta)
-    guion = respuesta.replace(/./g, "_ ")
-    document.getElementById("linea").innerHTML = guion
-    opcion(op = [])
-    document.getElementById('circulos').style.display='block';
-}
+// Vidas
+var vida = document.getElementById('vida');
+vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+var error = 3
+// Barra de progreso
+contador = 0
+document.getElementById("barra").value = contador
+document.getElementById("barra").innerHTML = contador
 
 function Reinicio(){
-    n = 0
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+
+      .then((Reiniciar) => {
+        if (Reiniciar) {
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        } 
+    });
+}
+
+function Reiniciar(){
+    error = 3
+    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    document.getElementById("contador").innerHTML = "Aciertos: " + contador
-    document.getElementById("btnIniciar").innerHTML = "Empezar"
+    guion = []
+    imagen = ""
+    document.getElementById("linea").innerHTML = guion
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
+    opciones = []
     Inicio()
+}
+
+function Inicio(){
+    guion = []
+    document.getElementById("linea").innerHTML = guion
+    respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra aleatoria
+    imagen = document.getElementById("figura") 
+    imagen.src = "Visual/Material/Letras/Juego2/" + respuesta + ".png"
+
+    for (var i = 0; i < respuesta.length; i++) {
+        guion[i] = "_";
+    }
+    document.getElementById("linea").innerHTML = guion.join(" ")
+
+    // guion = respuesta.replace(/./g, "_ ")
+    // document.getElementById("linea").innerHTML = guion
+    opcion(op = [])
+    document.getElementById('circulos').style.display='block'
 }
 
 function opcion(op){
     if(op.length == 4){
-        for(var i = 0; i < guion.length; i++){
-            var a = guion.charAt(i)
-            if(a == '_'){
-                var e = op.includes(respuesta[n]) 
-                console.log("N: ", n)
-                console.log("Respuesta[n]: ",respuesta[n])
-                if(!e){
-                    let r = Math.floor(Math.random() * op.length)
-                    op.splice(r, 1, respuesta[n])
-                    n++
-                    console.log(op)
-                    for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-                        opciones[i].innerHTML = result[i]
-                    }
-                    break
+        if(guion.indexOf("_") != -1) {
+            //alert(respuesta[guion.indexOf("_")])
+            var e = op.includes(respuesta[guion.indexOf("_")])
+            if(!e){
+                let r = Math.floor(Math.random() * op.length)
+                op.splice(r, 1, respuesta[guion.indexOf("_")])
+
+                for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
+                    opciones[i].innerHTML = result[i]
                 }
             }
         }
+
+        // for(var i = 0; i < guion.length; i++){
+        //     //var a = guion.charAt(i)
+        //     //if(a == '_'){
+        //     if(guion[i] == "_"){
+        //         var e = op.includes(respuesta[i]) 
+        //         //alert(respuesta[i])
+        //         if(!e){
+        //             let r = Math.floor(Math.random() * op.length)
+        //             op.splice(r, 1, respuesta[i])
+        //             n++
+        //             for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
+        //                 opciones[i].innerHTML = result[i]
+        //             }
+        //             break
+        //         }
+        //     }
+        // }
     } 
 
     else {
@@ -63,22 +111,30 @@ const replaceAt = (string, character, index) => {
 }
 
 function validar(letra){
-    for(let i = 0; i < respuesta.length; i++){
-        if(respuesta[i] == letra){
-            guion = replaceAt(guion, letra, i*2)
+    if(respuesta.indexOf(letra) != -1) {
+        for(var i = 0; i < respuesta.length; i++) {
+            if(respuesta[i]==letra){
+                guion[i] = letra;
+            }
         }
+        document.getElementById("linea").innerHTML = guion.join(" ")
     }
 
-    document.getElementById("linea").innerHTML = guion
-    var e = guion.includes('_')
+    // for(let i = 0; i < respuesta.length; i++){
+    //     if(respuesta[i] == letra){
+    //         guion = replaceAt(guion, letra, i)
+    //     }
+    // }
 
-    if(!e){
-        n = 0
-        document.getElementById("btnIniciar").innerHTML = "Continuar"
-        contador++
-        document.getElementById("contador").innerHTML = "Aciertos: " + contador
-        console.log("Contador: ", contador)
-    }
+    // document.getElementById("linea").innerHTML = guion
+    // var e = guion.includes('_')
+
+    // if(!e){
+    //     n = 0
+    //     document.getElementById("btnIniciar").innerHTML = "Continuar"
+    //     contador++
+    //     Inicio()
+    // }
 }
 
 window.addEventListener("keydown",(e)=>{
@@ -126,3 +182,8 @@ window.addEventListener("keyup",(e)=>{
             break;
     }
 })
+
+function Ayuda(){
+    swal("Tutorial", 
+"Completa la palabra con base en las opciones.")
+}
