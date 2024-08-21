@@ -66,34 +66,22 @@ function opcion(op){
     if(op.length == 4){
         if(guion.indexOf("_") != -1) {
             //alert(respuesta[guion.indexOf("_")])
+            //alert("Arreglo antes: "+op)
             var e = op.includes(respuesta[guion.indexOf("_")])
             if(!e){
                 let r = Math.floor(Math.random() * op.length)
                 op.splice(r, 1, respuesta[guion.indexOf("_")])
-
+                //alert("Arreglo después: "+op)
                 for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-                    opciones[i].innerHTML = result[i]
+                    opciones[i].innerHTML = op[i]
+                }
+            }
+            else{
+                for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
+                    opciones[i].innerHTML = op[i]
                 }
             }
         }
-
-        // for(var i = 0; i < guion.length; i++){
-        //     //var a = guion.charAt(i)
-        //     //if(a == '_'){
-        //     if(guion[i] == "_"){
-        //         var e = op.includes(respuesta[i]) 
-        //         //alert(respuesta[i])
-        //         if(!e){
-        //             let r = Math.floor(Math.random() * op.length)
-        //             op.splice(r, 1, respuesta[i])
-        //             n++
-        //             for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-        //                 opciones[i].innerHTML = result[i]
-        //             }
-        //             break
-        //         }
-        //     }
-        // }
     } 
 
     else {
