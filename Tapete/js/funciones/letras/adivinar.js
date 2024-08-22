@@ -1,7 +1,6 @@
 const palabras = ["cereza", "chocolate", "fresa", "gato","helado","libro","manzana", "pastel", "pelota", "peluche","pera","perro","pizza","pollo","tortuga"]
 const letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 var opciones = document.getElementsByClassName("opcion")
-//var guion = ""
 var guion = []
 var respuesta 
 var result
@@ -14,6 +13,8 @@ contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
+Ayuda()
+
 function Reinicio(){
     swal({
         title: "Reiniciar juego",
@@ -23,8 +24,8 @@ function Reinicio(){
         dangerMode: true,
       })
 
-      .then((Reiniciar) => {
-        if (Reiniciar) {
+    .then((Reinicia) => {
+        if (Reinicia) {
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -33,14 +34,13 @@ function Reinicio(){
 
 function Reiniciar(){
     error = 3
-    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+    vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
     guion = []
     imagen = ""
     document.getElementById("linea").innerHTML = guion
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
-    opciones = []
     Inicio()
 }
 
@@ -55,7 +55,6 @@ function Inicio(){
         guion[i] = "_";
     }
     document.getElementById("linea").innerHTML = guion.join(" ")
-
     // guion = respuesta.replace(/./g, "_ ")
     // document.getElementById("linea").innerHTML = guion
     opcion(op = [])
@@ -72,14 +71,9 @@ function opcion(op){
                 let r = Math.floor(Math.random() * op.length)
                 op.splice(r, 1, respuesta[guion.indexOf("_")])
                 //alert("Arreglo después: "+op)
-                for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-                    opciones[i].innerHTML = op[i]
-                }
             }
-            else{
-                for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-                    opciones[i].innerHTML = op[i]
-                }
+            for (let i = 0; i < opciones.length; i++){
+                opciones[i].innerHTML = op[i]
             }
         }
     } 
@@ -108,6 +102,35 @@ function validar(letra){
         document.getElementById("linea").innerHTML = guion.join(" ")
     }
 
+    else{
+        error--
+        if(error == 2){
+            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+        }
+
+        if(error == 1){
+            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+        }
+
+        if(error == 0){
+            vida.innerHTML = ""
+            swal({
+                title: "¡Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "error",
+                buttons:  ["Reintentar", "Salir"] 
+            })
+            .then((reintento) => {
+                if (reintento) {
+                    location.href = "JuegosLetras.html"
+                } 
+                else{
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                }
+            })
+        }
+    }
     // for(let i = 0; i < respuesta.length; i++){
     //     if(respuesta[i] == letra){
     //         guion = replaceAt(guion, letra, i)
@@ -115,19 +138,19 @@ function validar(letra){
     // }
 
     // document.getElementById("linea").innerHTML = guion
-    // var e = guion.includes('_')
+    var e = guion.includes('_') // Validar que la palabra se haya completado
 
-    // if(!e){
-    //     n = 0
-    //     document.getElementById("btnIniciar").innerHTML = "Continuar"
-    //     contador++
-    //     Inicio()
-    // }
+    if(!e){
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
+        contador++
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+        Inicio()
+    }
 }
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
-
     switch(tecla){
     case 'ArrowUp':
         validar(result[0])
@@ -153,19 +176,15 @@ window.addEventListener("keyup",(e)=>{
         case 'ArrowUp':
             opcion(op = [])
             break;
-
         case 'ArrowDown':
             opcion(op = [])
             break;
-
         case 'ArrowLeft':
             opcion(op = [])
             break;
-
         case 'ArrowRight':
             opcion(op = [])
             break;
-
         default:
             break;
     }
@@ -173,5 +192,5 @@ window.addEventListener("keyup",(e)=>{
 
 function Ayuda(){
     swal("Tutorial", 
-"Completa la palabra con base en las opciones.")
+"Completa la palabra de acuerdo con la imagen y las opciones mostradas.")
 }
