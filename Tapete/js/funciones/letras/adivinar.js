@@ -5,9 +5,9 @@ var guion = []
 var respuesta 
 var result
 // Vidas
+var error = 3
 var vida = document.getElementById('vida');
 vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-var error = 3
 // Barra de progreso
 contador = 0
 document.getElementById("barra").value = contador
