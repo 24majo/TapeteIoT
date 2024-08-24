@@ -1,16 +1,20 @@
 // Vidas
 var imagen = document.getElementById('vida');
-imagen.innerHTML = '<img src="Visual/Material/Numeros/Juego1/3.jpg" width="100">'
+imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
+
 // Barra de progreso
 contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
+
 // Circulos de opciones
 var opciones = document.getElementsByClassName("opcion")
 var op = []
+
 //Opciones de dificultad
 var radios = document.getElementsByName("dificultad")
+
 // Elementos generales
 var resultado = 0
 var arreglo = []
@@ -23,9 +27,10 @@ var emocion = ["asustada", "emocionada", "aturdida", "inquieta", "desconfiada"]
 var animal = ["los peces", "las ranas"]
 var construir = ["un puente", "un camino"]
 var materiales = ["ramas", "troncos", "rocas"]
-var flores = ["flores", "mariposas", "animales"]
+var flores2 = ["flores", "mariposas", "animales"]
 var tiempo = ["amanecer", "atardecer", "anochecer"]
 
+var res1, res2
 
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
@@ -48,7 +53,12 @@ function Empezar(){
         switch(valor){
             case 'facil':
                 document.getElementById("titulo").innerHTML = "El lugar especial"
-                document.getElementById("parrafo").innerHTML = "En una pradera vivían una vaca llamada Clara y un cordero llamado Tito. Clara era tranquila y siempre disfrutaba de los girasoles, mientras que Tito era aventurero y le encantaba explorar cada rincón. "
+                res1 = lugar[Math.floor(Math.random() * lugar.length)]
+                res2 = flores[Math.floor(Math.random() * flores.length)]
+                document.getElementById("parrafo").innerHTML = "En " + res1 + " vivían una vaca llamada Clara y un cordero llamado Tito. Clara era tranquila y siempre disfrutaba de "+ res2 +", mientras que Tito era aventurero y le encantaba explorar cada rincón. "
+                Pregunta()
+
+                
                 break
 
             case 'medio':
@@ -63,6 +73,49 @@ function Empezar(){
         }
     }
 }
+
+function Pregunta(){
+    if(Math.floor(Math.random() * 2) == 1){
+        document.getElementById("pregunta").innerHTML = "¿Qué flores le gustan a Clara?"
+    }
+    else{
+        document.getElementById("pregunta").innerHTML = "¿En qué lugar viven Clara y Tito?"
+    }
+    
+}
+
+window.addEventListener("keydown",(e)=>{
+    let tecla = e.key
+    switch(tecla){
+    case 'ArrowUp':
+        break;
+    case 'ArrowDown':
+        break;
+    case 'ArrowLeft':
+        break;
+    case 'ArrowRight':
+        break;
+    default:
+        break;
+    }
+})
+
+window.addEventListener("keyup",(e)=>{
+    let tecla = e.key
+
+    switch(tecla){
+        case 'ArrowUp':
+            break;
+        case 'ArrowDown':
+            break;
+        case 'ArrowLeft':
+            break;
+        case 'ArrowRight':
+            break;
+        default:
+            break;
+    }
+})
 
 function Ayuda(){
     swal("Tutorial", 
