@@ -106,7 +106,7 @@ function Completar(num){
 
 function Opcion(arreglo){
     if(arreglo.length == 4){
-        alert("res: " + respuesta)
+        //alert("res: " + respuesta)
         var res = arreglo.indexOf(respuesta)
         if(res == -1){
             var r = Math.floor(Math.random() * arreglo.length) 
@@ -195,7 +195,7 @@ function Validar(num){
         if(error == 0){
             imagen.innerHTML = ""
             swal({
-                title: "Oh no!",
+                title: "¡Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
                 icon: "error",
                 buttons:  ["Reintentar", "Salir"] 
