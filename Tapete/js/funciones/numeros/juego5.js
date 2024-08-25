@@ -94,6 +94,112 @@ function Opcion(arreglo){
     return result
 }
 
+function Validar(num){
+    if(num == resultado){
+        contador+=1
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+
+        if(contador == 10){
+            if(valor == "dificil"){
+                swal({
+                    title: "¡Ganador!",
+                    text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
+                    icon: "success",
+                    buttons:  ["Continuar", "Salir"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        location.href = "JuegosNumeros.html"
+                    } 
+                    else{
+                        for(let y = 0; y < 3; y++){
+                            radios[y].disabled = false
+                        }
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
+                })
+            }
+
+            else{
+                swal({
+                    title: "¡Felicidades!",
+                    text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
+                    icon: "success",
+                    buttons: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        if(valor == 'facil'){
+                            valor = document.querySelector('#medio').checked = true
+                            Reiniciar()
+                        }
+
+                        else{
+                            if(valor == 'medio'){
+                                valor = document.querySelector('#dificil').checked = true
+                                Reiniciar()
+                            }
+                        }
+                    } 
+                })
+            }
+        }
+    }
+    else{
+        error--
+        if(error == 2){
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+        }
+
+        if(error == 1){
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+        }
+
+        if(error == 0){
+            imagen.innerHTML = ""
+            swal({
+                title: "Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "error",
+                buttons:  ["Reintentar", "Salir"] 
+            })
+            .then((reintento) => {
+                if (reintento) {
+                    location.href = "JuegosNumeros.html"
+                } 
+                else{
+                    swal({
+                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                        icon: "info",
+                        buttons:  ["Mantener", "Cambiar"] 
+                    })
+                    .then((cambiar) => {
+                        if(cambiar){
+                            for(let y = 0; y < 3; y++){
+                                radios[y].disabled = false
+                            }
+                            for (var i = 0; i < radios.length; i++) {
+                                var niveles = radios[i];
+                                niveles.checked = false;
+                            }
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+            })
+        }
+    }
+}
+
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
