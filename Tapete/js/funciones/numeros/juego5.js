@@ -18,6 +18,39 @@ var ejercicio = 0
 
 Ayuda()
 
+function Reiniciar(){
+    error = 3
+    contador = 0
+    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+    document.getElementById("barra").value = contador
+    document.getElementById("barra").innerHTML = contador
+    Empezar()
+}
+
+function Reinicio(){
+    swal({
+        title: "Reiniciar juego",
+        text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+
+      .then((willDelete) => {
+        if (willDelete) {
+            for(let y = 0; y < 3; y++){
+                radios[y].disabled = false
+            }
+            for (var i = 0; i < radios.length; i++) {
+                var niveles = radios[i];
+                niveles.checked = false;
+            }
+            document.getElementById("btnIniciar").innerHTML = "Empezar"
+            Reiniciar()
+        } 
+    });
+}
+
 function Empezar(){
     if(!document.querySelector('input[name="dificultad"]:checked')){
         swal({
@@ -77,7 +110,7 @@ function Opcion(arreglo){
         var res = arreglo.indexOf(respuesta)
         if(res == -1){
             var r = Math.floor(Math.random() * arreglo.length) 
-            arreglo.splice(r, 1, resultado)
+            arreglo.splice(r, 1, respuesta)
         }
     }
 
@@ -95,8 +128,8 @@ function Opcion(arreglo){
 }
 
 function Validar(num){
-    if(num == resultado){
-        contador+=1
+    if(num == respuesta){
+        contador += 1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
