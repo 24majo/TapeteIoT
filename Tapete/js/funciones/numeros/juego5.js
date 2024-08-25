@@ -78,12 +78,14 @@ function Empezar(){
 
             case 'medio':
                 num = Math.floor(Math.random() * (99-51)+51)
+                decena = num - (num % 10) + 10
                 pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="100">'
                 Completar(num)  
                 break
             
             case 'dificil':
                 num = Math.floor(Math.random() * (99-1)+1)
+                decena = num - (num % 10) + 10
                 pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="100">'
                 Completar(num) 
                 break
