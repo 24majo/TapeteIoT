@@ -106,7 +106,7 @@ function Completar(num){
 
 function Opcion(arreglo){
     if(arreglo.length == 4){
-        alert("res: " + respuesta)
+        //alert("res: " + respuesta)
         var res = arreglo.indexOf(respuesta)
         if(res == -1){
             var r = Math.floor(Math.random() * arreglo.length) 
@@ -115,7 +115,7 @@ function Opcion(arreglo){
     }
 
     else{
-        var r = Math.floor(Math.random() * ((9-1)+1))
+        var r = Math.floor(Math.random() * ((10-1)+1))
         arreglo.push(r)
                 
         result = arreglo.filter((item,index)=>{
