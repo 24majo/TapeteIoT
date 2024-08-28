@@ -6,19 +6,42 @@ body{
 }
 
 #imagen{
-    position: absolute;
-    right: 250px;
-    top: 50px;
+    margin-top: 80px;
+    margin-left: 730px;
+    display: flex;
+    flex-wrap: wrap;   
 }
 
-#carta1{
-    position: relative;
-    right: 300px;
-    top: 80px;
+.card1{
+    margin-top: -10px;
+    margin-left: 60px;
+    
+}
+.boton1{
+    margin-top: 5px;
+    margin-left: 70px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-size: 25px;
+}
+ .titulo{
+    margin-top: -500px;
+    margin-left: 150px;
+    font-size: 45px;
+ }
+
+.card2{
+    margin-top: -10px;
+    margin-left: 60px;
 }
 
-#carta2{
-    position: absolute;
-    right: 450px;
-    top: 80px;
+.boton2{
+    margin-top: 5px;
+    margin-left: 70px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    font-size: 25px;
 }
+
