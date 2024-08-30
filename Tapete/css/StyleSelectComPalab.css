@@ -1,0 +1,53 @@
+body{
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.titulo{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 70px;
+    text-align: center;
+ }
+
+.btnVocales{
+    width: 380px;
+    height: 150px;
+    border-radius: 30px;
+    background: #662483;
+    border: none;
+    color: azure;
+    font-size: 80px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 280px; 
+}
+
+.btnLetras{
+    width: 380px;
+    height: 150px;
+    border-radius: 30px;
+    background: #009FE3;
+    border: none;
+    color: azure;
+    font-size: 80px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 70px; 
+}
+
+.btnInicio{
+    margin-top: 100px;
+    margin-left: 90px; 
+}
+
+.btnRegresar{
+    margin-top: 100px;
+    margin-left: 40px; 
+}
