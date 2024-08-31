@@ -6,7 +6,7 @@ body{
 }
 
 #imagen{
-    margin-top: 80px;
+    margin-top: 70px;
     margin-left: 730px;
     display: flex;
     flex-wrap: wrap;   
@@ -26,7 +26,7 @@ body{
     font-size: 25px;
 }
  .titulo{
-    margin-top: -530px;
+    margin-top: -550px;
     margin-left: 150px;
     font-size: 60px;
  }

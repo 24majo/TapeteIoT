@@ -10,7 +10,7 @@ body{
 .titulo{
     position: relative;
     right: -100px;
-    top: 10px;
+    top: 100px;
 }
 #opcionArriba{
     width: 120px;
@@ -26,8 +26,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -20px;
-    right: -890px;
+    top: -210px;
+    right: -840px;
 }
 
 #opcionAbajo{
@@ -44,8 +44,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -890px;
-    top: -10px;
+    right: -840px;
+    top: -200px;
 }
 
 #opcionIzquierda{
@@ -62,8 +62,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -750px;
-    top: -150px;
+    right: -700px;
+    top: -340px;
 }
 
 #opcionDerecha{
@@ -80,8 +80,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1030px;
-    top: -290px;
+    right: -980px;
+    top: -480px;
 }
 
 #btnIniciar{
@@ -111,11 +111,11 @@ body{
     top: 450px;
 }
 
-.numeroCompletar{
+.numSumas{
     position: relative;
-    right: -100px;
-    top: 40px;
-    font-size: 50px;
+    right: -300px;
+    top: -20px;
+    font-size: 80px;
 }
 
 .botones{
@@ -128,13 +128,13 @@ body{
 
 .btnInicio{
     position: relative;
-    top: -60px;
+    top: 30px;
     right: -170px;
 }
 
 .btnAtras{
     position: relative;
-    top: -60px;
+    top: 40px;
     right: -180px;
 }
 
@@ -161,6 +161,6 @@ body{
 }
 
 .vidas{
-    margin-top: -50px;
-    margin-left: 900px;
+    margin-top: -10px;
+    margin-left: 850px;
 }

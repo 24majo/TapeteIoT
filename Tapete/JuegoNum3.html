@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/StyleJuegoNum2.css">
+      <link rel="stylesheet" href="css/StyleJuegoNum3.css">
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -14,45 +14,63 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-      <title>Suma de decenas</title>
+      <title>Suma</title>
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
 
-    <progress id="barra" max="10" value="0"></progress>
+    
 
-    <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1><b>Suma de decenas</b></h1>
-        </Font>
-      
-        <a href="MenuSeleccion.html" class="btnInicio">
-            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-        </a>
-        <a href="JuegosNumeros.html" class="btnAtras">
-            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a>
-
+    <nav>
+        <div class="titulo">
+            <Font face="Century Gothic">
+                <h1><b>Realiza las siguientes sumas</b></h1>
+          </Font>
+          </div>
+        
+          <div style="margin-top: -130px; margin-left: 330px;">
+            <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
+          </div>
+         
+           <a href="MenuSeleccion.html" class="btnInicio">
+              <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+          </a>
+          <a href="JuegosNumeros.html" class="btnAtras">
+              <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+          </a>
+        
+          <br><br>
+          <progress style="height: 80px; margin-left: 820px; margin-top: -50px" id="barra" max="10" value="0"></progress>
+          <!--
+          <div style="margin-left: 750px; margin-top: -50px">
+            <progress style="height: 80px; width:280px;"  id="barra" max="100" value="0"></progress>
+            </div>
+          -->
+            
+          
         <div>
-            <div id="vida"></div>
+            <div id="vida" class="vidas"></div>
             <script src="js/funciones/numeros/juego3.js"></script>
         </div>
 
-        <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-        <input type="radio" name="dificultad" id="medio" value="medio">Medio
-        <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-        <!--
-        Fácil: Números del 1 al 49
-        Medio: Números del 50 al 99
-        Difícil: Revuelto
+        <div>
+            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
+            <input type="radio" name="dificultad" id="medio" value="medio">Medio
+            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
+            <!--
+            Fácil: Números del 1 al 49
+            Medio: Números del 50 al 99
+            Difícil: Revuelto
         -->
+        </div>
+        
     </nav>
     
-    <div class="numeroCompletar">
+    <div class="numSumas">
         <font face="Century Gothic">
             <span class="linea" id="linea_s"></span>
             <br>
-            <span class="linea" id="linea_i"></span>
+            <span class="linea" id="linea_i" style="margin: -40px;"></span>
             <br>
         </font>
     </div>
@@ -61,7 +79,6 @@
         <font face="Century Gothic">
             <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </font>
     </div>
       

@@ -9,7 +9,7 @@ body{
 
 .titulo{
     position: relative;
-    right: -100px;
+    right: -230px;
     top: 10px;
 }
 #opcionArriba{
@@ -26,8 +26,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -20px;
-    right: -890px;
+    top: -280px;
+    right: -1100px;
 }
 
 #opcionAbajo{
@@ -44,8 +44,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -890px;
-    top: -10px;
+    right: -950px;
+    top: -280px;
 }
 
 #opcionIzquierda{
@@ -62,8 +62,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -750px;
-    top: -150px;
+    right: -1100px;
+    top: -420px;
 }
 
 #opcionDerecha{
@@ -80,8 +80,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1030px;
-    top: -290px;
+    right: -1250px;
+    top: -560px;
 }
 
 #btnIniciar{
@@ -94,8 +94,8 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 950px;
-    top: 450px;
+    right: 750px;
+    top: 500px;
 }
 
 #btnReiniciar{
@@ -107,15 +107,15 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 750px;
-    top: 450px;
+    right: 450px;
+    top: 500px;
 }
 
-.numeroCompletar{
+.numRestas{
     position: relative;
-    right: -100px;
-    top: 40px;
-    font-size: 50px;
+    right: -400px;
+    top: -20px;
+    font-size: 80px;
 }
 
 .botones{
@@ -128,27 +128,25 @@ body{
 
 .btnInicio{
     position: relative;
-    top: -60px;
-    right: -170px;
+    top: -120px;
+    right: -200px;
 }
 
 .btnAtras{
     position: relative;
-    top: -60px;
-    right: -180px;
+    top: -120px;
+    right: -230px;
 }
 
-.contador{
+.radioDificultad{
     position: relative;
-    right: -700px;
-    top: -150px;
+    margin-right: -40px;
+    margin-top: 150px;
 }
 
 #aparecer{
     display: none;
 }
-
-
 
 .btnAyuda{
     width: 45px;;
@@ -157,10 +155,9 @@ body{
     background: #662483;
     color: white;
     font-size: 40px;
-    
 }
 
 .vidas{
-    margin-top: -50px;
-    margin-left: 900px;
+    margin-top: -10px;
+    margin-left: 1050px;
 }

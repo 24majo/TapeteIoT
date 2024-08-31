@@ -27,7 +27,7 @@ body{
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    margin-top: -1050px;
+    margin-top: -950px;
     margin-left: 700px;
        
 }
@@ -43,12 +43,12 @@ body{
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    margin-top: -1050px;
+    margin-top: -1000px;
     margin-left: 700px;
 }
 
 .titulo{
-    margin-top: 90px;
+    margin-top: 50px;
     margin-left: 130px;
     font-size: 45px;
  }

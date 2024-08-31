@@ -19,15 +19,26 @@
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
+   
+    <br><br>
+    <div style="margin-left: 800px; margin-top: -30px">
+      <progress style="height: 80px; width:280px;"  id="barra" max="100" value="0"></progress>
+    </div>
+  
+    
+    <nav >
 
-    <progress id="barra" max="100" value="0"></progress>
-
-    <nav class="titulo">
-      <Font face="Century Gothic">
+      <div class="titulo">
+        <Font face="Century Gothic">
           <h1><b>Completa la secuencia</b></h1>
       </Font>
+      </div>
       
-      <a href="MenuSeleccion.html" class="btnInicio">
+      <div style="margin-top: -130px; margin-left: 330px;">
+        <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
+      </div>
+     
+       <a href="MenuSeleccion.html" class="btnInicio">
           <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
       </a>
       <a href="JuegosNumeros.html" class="btnAtras">
@@ -35,29 +46,29 @@
       </a>
 
       <div>
-        <div id="vida"></div>
+        <div id="vida" class="vidas"  ></div>
         <script src="js/funciones/numeros/juego2.js"></script>
+      </div>
 
+      <div>
+        
+      </div>
+      <div class="botones">   
         <font face="Century Gothic">
-            <!--<h3 id="contador" class="contador">Aciertos: </h3> -->
+          <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Iniciar</b></button>
+          <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
         </font>
       </div>
     </nav>
 
     <div class="numeroCompletar">
-      <font face="Century Gothic">
-        <span class="linea" id="linea"></span>
-      </font>
+      <div>
+        <font face="Century Gothic">
+          <span class="linea" id="linea"></span>
+        </font>
+      </div>
     </div>
       
-    <div class="botones">   
-      <font face="Century Gothic">
-        <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-        <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-      </font>
-    </div>
-    <button id="Ayuda" onclick="Ayuda()"><b>?</b></button>
-
     <div id="aparecer">
       <font face="MV Boli">
           <span id="opcionArriba" class="opcion"></span>

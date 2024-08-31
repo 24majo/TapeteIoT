@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/StyleJuegoNum2.css">
+      <link rel="stylesheet" href="css/StyleJuegoNum4.css">
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -15,17 +15,22 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-      <title>Resta de decenas</title>
+      <title>Restas</title>
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
+    
+        <progress style="height: 80px; margin-left: 1020px; margin-top: 20px" id="barra" max="10" value="0"></progress>
 
-    <progress id="barra" max="10" value="0"></progress>
+      
 
-    <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1><b>Resta de decenas</b></h1>
-        </Font>
+    <nav >
+        <div class="titulo">
+            <Font face="Century Gothic">
+                <h1><b>Realiza las siguientes restas</b></h1>
+            </Font>
+        </div>
+        
       
         <a href="MenuSeleccion.html" class="btnInicio">
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
@@ -34,26 +39,37 @@
             <img src="Visual/Material/Iconos/Flecha.png" width="60px">
         </a>
 
-        <div>
-            <div id="vida"></div>
-            <script src="js/funciones/numeros/juego4.js"></script>
-
-            <font face="Century Gothic">
-                <!--<h3 id="contador" class="contador">Aciertos: </h3> -->
-            </font>
+        <div style="margin-top: -180px; margin-left: 410px;">
+            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div>
+        
 
+        <div>
+            <div id="vida" class="vidas"></div>
+            <script src="js/funciones/numeros/juego4.js"></script>
+        </div>
+      
+    </nav>
+
+   
+    <div class="radioDificultad" style="margin-left: 200px; margin-top: 50px;">
         <input type="radio" name="dificultad" id="facil" value="facil">Fácil
         <input type="radio" name="dificultad" id="medio" value="medio">Medio
         <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-        <!--
-        Fácil: Números del 1 al 49
-        Medio: Números del 50 al 99
-        Difícil: Revuelto
-        -->
-    </nav>
+    </div>
+    <!--
+    <div style="margin-top: -180px; margin-left: 530px;">
+        <input type="radio" name="dificultad" id="facil" value="facil">Fácil
+        <input type="radio" name="dificultad" id="medio" value="medio">Medio
+        <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
+    </div>
+
+    Fácil: Números del 1 al 49
+    Medio: Números del 50 al 99
+    Difícil: Revuelto
+    -->
     
-    <div class="numeroCompletar">
+    <div class="numRestas">
         <font face="Century Gothic">
             <span class="linea" id="linea_s"></span>
             <br>
@@ -66,7 +82,6 @@
         <font face="Century Gothic">
             <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </font>
     </div>
       
