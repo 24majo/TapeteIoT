@@ -20,9 +20,13 @@
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
     
-        <progress style="height: 80px; margin-left: 1020px; margin-top: 20px" id="barra" max="10" value="0"></progress>
+    <div style="margin-left: 750px; margin-top: 20px">
+        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+    </div>
 
-      
+    <div id="vida" class="vidas">
+            <script src="js/funciones/numeros/juego4.js"></script>
+    </div>
 
     <nav >
         <div class="titulo">
@@ -30,28 +34,21 @@
                 <h1><b>Realiza las siguientes restas</b></h1>
             </Font>
         </div>
-        
-      
-        <a href="MenuSeleccion.html" class="btnInicio">
-            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-        </a>
-        <a href="JuegosNumeros.html" class="btnAtras">
-            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a>
 
-        <div style="margin-top: -180px; margin-left: 410px;">
+        <div class="btnMenus">
+            <a href="MenuSeleccion.html" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+            <a href="JuegosNumeros.html" class="btnAtras">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
+        </div>
+
+        <div style="margin-top: -60px; margin-left: 300px;">
             <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div>
-        
-
-        <div>
-            <div id="vida" class="vidas"></div>
-            <script src="js/funciones/numeros/juego4.js"></script>
-        </div>
-      
     </nav>
 
-   
     <div class="radioDificultad" style="margin-left: 200px; margin-top: 50px;">
         <input type="radio" name="dificultad" id="facil" value="facil">Fácil
         <input type="radio" name="dificultad" id="medio" value="medio">Medio
@@ -85,7 +82,7 @@
         </font>
     </div>
       
-    <div id="aparecer">
+    <div class="btnOpciones" id="aparecer">
         <font face="MV Boli">
             <span id="opcionArriba" class="opcion"></span>
             <span id="opcionAbajo" class="opcion"></span>

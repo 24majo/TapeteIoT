@@ -9,8 +9,8 @@ body{
 
 .titulo{
     position: relative;
-    right: -100px;
-    top: 100px;
+    margin-left: 110px;
+    margin-top: -10px;
 }
 #opcionArriba{
     width: 120px;
@@ -94,8 +94,7 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 950px;
-    top: 450px;
+    margin-left:100px;
 }
 
 #btnReiniciar{
@@ -107,35 +106,46 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 750px;
-    top: 450px;
-}
-
-.numSumas{
-    position: relative;
-    right: -300px;
-    top: -20px;
-    font-size: 80px;
+    margin-left:300px;
 }
 
 .botones{
     position: relative;
-    right: -200px;
-    top: -500px;
+    margin-left: 650px;
+    margin-top: 120px;
     font-size: 80px;
 }
 
+.numSumas{
+    position: relative;
+    margin-left: 300px;
+    margin-top: 20px;
+    font-size: 80px;
+}
 
 .btnInicio{
     position: relative;
-    top: 30px;
-    right: -170px;
+    margin-left: 70px;
 }
 
 .btnAtras{
     position: relative;
-    top: 40px;
-    right: -180px;
+    margin-left: 30px;
+}
+
+.btnMenus{
+    margin-top: -60px;
+    margin-left: 40px;
+}
+
+.btnAyuda{
+    width: 45px;;
+    height: 65px;
+    border-radius:15px;
+    background: #662483;
+    color: white;
+    font-size: 40px;
+    
 }
 
 .contador{
@@ -148,19 +158,12 @@ body{
     display: none;
 }
 
-
-
-.btnAyuda{
-    width: 45px;;
-    height: 65px;
-    border-radius:15px;
-    background: #662483;
-    color: white;
-    font-size: 40px;
-    
-}
-
 .vidas{
     margin-top: -10px;
     margin-left: 850px;
+}
+
+.btnOpciones{
+    margin-top: -140px;
+    margin-left: 10px;
 }

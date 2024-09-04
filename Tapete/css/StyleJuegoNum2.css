@@ -94,8 +94,7 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 950px;
-    top: 450px;
+    margin-left: 50px;
 }
 
 #btnReiniciar{
@@ -107,35 +106,30 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 750px;
-    top: 450px;
+    margin-left: 250px;
+}
+
+.botones{
+    margin-left: 100px;
+    margin-top: 350px;
+    font-size: 80px;
 }
 
 .numeroCompletar{
     position: relative;
     right: -100px;
-    top: 40px;
+    margin-top: -300px;
     font-size: 50px;
 }
 
-.botones{
-    position: relative;
-    right: -200px;
-    top: -500px;
-    font-size: 80px;
-}
 
-
-.btnInicio{
-    position: relative;
-    top: -60px;
-    right: -170px;
+.btnMenus{
+    margin-top: -60px;
+    margin-left: 120px;
 }
 
 .btnAtras{
-    position: relative;
-    top: -60px;
-    right: -180px;
+    margin-left: 30px;
 }
 
 .contador{
@@ -148,19 +142,21 @@ body{
     display: none;
 }
 
-
-
 .btnAyuda{
     width: 45px;;
     height: 65px;
     border-radius:15px;
     background: #662483;
     color: white;
-    font-size: 40px;
-    
+    font-size: 40px;    
 }
 
 .vidas{
-    margin-top: -50px;
+    margin-top: 10px;
     margin-left: 900px;
+}
+
+.btnOpciones{
+    margin-top: -20px;
+    margin-left: 40px;
 }

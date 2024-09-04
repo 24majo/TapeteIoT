@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/StyleJuegoNum2.css">
+      <link rel="stylesheet" href="css/StyleJuegoNum5.css">
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -20,50 +20,70 @@
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
 
-    <progress id="barra" max="10" value="0"></progress>
+    <div style="margin-left: 750px; margin-top: 20px">
+        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+    </div>
+    
+    <div class="vidas" id="vida"></div>
 
-    <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1><b>Completar decenas</b></h1>
-        </Font>
-      
-        <a href="MenuSeleccion.html" class="btnInicio">
-            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-        </a>
-        <a href="JuegosNumeros.html" class="btnAtras">
-            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a>
-
-        <div>
-            <div id="vida"></div>
-            <div id="pecera"></div>
-            <script src="js/funciones/numeros/juego5.js"></script>
+    <nav >
+        <div class="titulo">
+            <Font face="Century Gothic">
+                <p><b>Completa la decena</b></p>
+            </Font>
         </div>
 
-        <div>
-            <img src="Visual/Material/Numeros/Juego5/1.jpg" width="100" alt=""> × 1
-            <img src="Visual/Material/Numeros/Juego5/10.jpg" width="100" alt=""> × 10
+        
+
+        <div class="btnMenus">
+            
+            <a href="MenuSeleccion.html" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+            <a href="JuegosNumeros.html" class="btnAtras">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
+            
+        </div>
+        
+        <div style="margin-top: -180px;"> 
+            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div>
 
-        <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-        <input type="radio" name="dificultad" id="medio" value="medio">Medio
-        <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
+        <div class="radioDificultad">
+            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
+            <input type="radio" name="dificultad" id="medio" value="medio">Medio
+            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
+        </div>
+        
         <!--
         Fácil: Números del 1 al 49
         Medio: Números del 50 al 99
         Difícil: Revuelto
         -->
+        <div class="peces">
+            <img src="Visual/Material/Numeros/Juego5/PezUnidad.png" width="80" alt=""> × 1
+            <img src="Visual/Material/Numeros/Juego5/PezDecena.png" width="80" alt=""> × 10
+        </div>
     </nav>
       
+    <section>
+        <div class="dibujo">
+            <div id="pecera"></div>
+            <script src="js/funciones/numeros/juego5.js"></script>
+        </div>
+    </section>
+
+
     <div class="botones">   
         <font face="Century Gothic">
             <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+            
         </font>
     </div>
       
-    <div id="aparecer">
+    <div class="btnOpciones" id="aparecer">
         <font face="MV Boli">
             <span id="opcionArriba" class="opcion"></span>
             <span id="opcionAbajo" class="opcion"></span>

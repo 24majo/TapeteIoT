@@ -19,7 +19,14 @@
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
 
-    
+    <div style="margin-left: 750px; margin-top: 20px">
+        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+    </div>
+
+    <div id="vida" class="vidas">
+        <script src="js/funciones/numeros/juego3.js"></script>
+    </div>
+
 
     <nav>
         <div class="titulo">
@@ -28,30 +35,18 @@
           </Font>
           </div>
         
-          <div style="margin-top: -130px; margin-left: 330px;">
+          <div style="margin-top: -140px; margin-left: 330px;">
             <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
+          </div> 
+          <div class="btnMenus">
+            <a href="MenuSeleccion.html" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+            <a href="JuegosNumeros.html" class="btnAtras">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
           </div>
-         
-           <a href="MenuSeleccion.html" class="btnInicio">
-              <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-          </a>
-          <a href="JuegosNumeros.html" class="btnAtras">
-              <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-          </a>
-        
-          <br><br>
-          <progress style="height: 80px; margin-left: 820px; margin-top: -50px" id="barra" max="10" value="0"></progress>
-          <!--
-          <div style="margin-left: 750px; margin-top: -50px">
-            <progress style="height: 80px; width:280px;"  id="barra" max="100" value="0"></progress>
-            </div>
-          -->
-            
-          
-        <div>
-            <div id="vida" class="vidas"></div>
-            <script src="js/funciones/numeros/juego3.js"></script>
-        </div>
+           
 
         <div>
             <input type="radio" name="dificultad" id="facil" value="facil">Fácil
@@ -82,7 +77,7 @@
         </font>
     </div>
       
-    <div id="aparecer">
+    <div class="btnOpciones" id="aparecer">
         <font face="MV Boli">
             <span id="opcionArriba" class="opcion"></span>
             <span id="opcionAbajo" class="opcion"></span>

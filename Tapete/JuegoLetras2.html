@@ -20,44 +20,50 @@
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
 
-    <progress id="barra" max="10" value="0"></progress>
-
-    <div>
+    <div style="margin-left: 810px; margin-top: 30px">
+        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+    </div>
+    
+    <div class="vidas">
         <div id="vida"></div>
     </div>
    
-    <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1><b>Adivina la palabra</b></h1>
-        </Font>
+    <nav >
+        <div class="titulo">
+            <Font face="Century Gothic">
+                <p><b>Adivina la palabra</b></p>
+            </Font>
+        </div>
         
-        <a href="MenuSeleccion.html" class="btnInicio">
-            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-        </a>
-        <a href="JuegosLetras.html" class="btnAtras">
-            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a>
-  
+        <div class="btnMenus">
+            <a href="MenuSeleccion.html" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+            <a href="SelectComPalab.html" class="btnAtras">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
+            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+        </div>
+     
     </nav>
 
     <section>
         <article class="dibujo">
-            <img class="imagen" id='figura' width="200px" height="200px">
+            <img class="imagen" id='figura' width="250px" height="250px">
         </article>
     </section>
 
     <div class="palabraCompletar">
-           
         <font face="Century Gothic">
             <span id="linea"></span>
         </font>
-
     </div>
+
     <div class="letras">
         <font face="Century Gothic">
             <button id="btnIniciar" onclick="Inicio()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+            
         </font>  
     </div>
 

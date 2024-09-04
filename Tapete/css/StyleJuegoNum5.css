@@ -9,12 +9,10 @@ body{
 
 .titulo{
     position: relative;
-    right: -130px;
-    margin-top: -30px;
-    font-size: 50px;
+    margin-left: 100px;
+    margin-top: -40px;
+    font-size: 40px;
 }
-
-
 #opcionArriba{
     width: 120px;
 	height: 120px;
@@ -29,11 +27,29 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -270px;
-    right: -900px;
+    top: -280px;
+    right: -1100px;
 }
 
 #opcionAbajo{
+    width: 120px;
+	height: 120px;
+    border: 5px solid  #A5942B;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+	cursor: pointer;
+    background-color: #E2CD3C;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    right: -950px;
+    top: -280px;
+}
+
+#opcionIzquierda{
     width: 120px;
 	height: 120px;
 	border: 5px solid  #67ab49;
@@ -47,26 +63,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -900px;
-    top: -260px;
-}
-
-#opcionIzquierda{
-    width: 120px;
-	height: 120px;
-	border: 5px solid  #A5942B;
-	font-size: 50px;
-	margin-bottom: 20px;
-	border-radius: 50%;
-	cursor: pointer;
-	background-color: #E2CD3C;
-	color: #ffffff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-    right: -760px;
-    top: -400px;
+    right: -1100px;
+    top: -420px;
 }
 
 #opcionDerecha{
@@ -83,8 +81,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1040px;
-    top: -540px;
+    right: -1250px;
+    top: -560px;
 }
 
 #btnIniciar{
@@ -97,8 +95,7 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 1000px;
-    top: 500px;
+    margin-left: 150px;
 }
 
 #btnReiniciar{
@@ -106,48 +103,34 @@ body{
     height: 45px;
     border-radius: 40px;
     background: #65e5ab;
-    border: 1px solid  #65e5ab;
     color: white;
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 800px;
-    top: 500px;
+    margin-left: 350px;
 }
 
-.palabraCompletar{
-    position: relative;
-    right: -200px;
-    margin-top: -360px;
+
+.botones{
+    margin-top: 100px;
+    margin-left: 580px;
     font-size: 80px;
 }
 
-.letras{
-    position: relative;
-    right: -200px;
-    margin-top: 230px;
-    font-size: 90px;
-}
-
-.dibujo{
-    position: relative;
-    right: -250px;
-    margin-top: 130px;
-}
-
 .btnMenus{
-    position: relative;
-    margin-top: -160px;
-    right: -130px;
+    margin-top: -20px;
+    margin-left: -90px;
 }
-
 .btnInicio{
-    margin-top: 100px;
+    position: relative;
+    top: -120px;
+    right: -200px;
 }
 
 .btnAtras{
-margin-left: 10px;
-margin-top: 10px;
+    position: relative;
+    top: -120px;
+    right: -230px;
 }
 
 .btnAyuda{
@@ -157,21 +140,39 @@ margin-top: 10px;
     background: #662483;
     color: white;
     font-size: 40px;
-    margin-left: 20px;
+    margin-left: 300px;
 }
 
-
-.contador{
+.radioDificultad{
     position: relative;
-    right: -800px;
-    top: -900px;
+    margin-right: 40px;
+    margin-top: 100px;
 }
 
-#circulos{
+#aparecer{
     display: none;
 }
 
 .vidas{
-    margin-top: -20px;
-    margin-left: 900px;
+    margin-top: -10px;
+    margin-left: 850px;
+}
+
+.dibujo{
+    margin-left: 120px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.peces{
+    margin-top: -60px;
+    margin-left: 220px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btnOpciones{
+    margin-top: -60px;
+    margin-left: -250px;
 }

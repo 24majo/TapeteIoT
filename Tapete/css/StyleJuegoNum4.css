@@ -9,8 +9,8 @@ body{
 
 .titulo{
     position: relative;
-    right: -230px;
-    top: 10px;
+    margin-left: 110px;
+    margin-top: -40px;
 }
 #opcionArriba{
     width: 120px;
@@ -26,8 +26,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    top: -280px;
-    right: -1100px;
+    top: -210px;
+    right: -840px;
 }
 
 #opcionAbajo{
@@ -44,8 +44,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -950px;
-    top: -280px;
+    right: -840px;
+    top: -200px;
 }
 
 #opcionIzquierda{
@@ -62,8 +62,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1100px;
-    top: -420px;
+    right: -700px;
+    top: -340px;
 }
 
 #opcionDerecha{
@@ -80,8 +80,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    right: -1250px;
-    top: -560px;
+    right: -980px;
+    top: -480px;
 }
 
 #btnIniciar{
@@ -94,8 +94,7 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 750px;
-    top: 500px;
+    margin-left:100px;
 }
 
 #btnReiniciar{
@@ -107,45 +106,36 @@ body{
     border: none;
     font-size: 20px;
     position: fixed;
-    right: 450px;
-    top: 500px;
-}
-
-.numRestas{
-    position: relative;
-    right: -400px;
-    top: -20px;
-    font-size: 80px;
+    margin-left:300px;
 }
 
 .botones{
     position: relative;
-    right: -200px;
-    top: -500px;
+    margin-left: 650px;
+    margin-top: 120px;
     font-size: 80px;
 }
 
+.numRestas{
+    position: relative;
+    margin-left: 300px;
+    margin-top: -20px;
+    font-size: 80px;
+}
 
 .btnInicio{
     position: relative;
-    top: -120px;
-    right: -200px;
+    margin-left: 70px;
 }
 
 .btnAtras{
     position: relative;
-    top: -120px;
-    right: -230px;
+    margin-left: 30px;
 }
 
-.radioDificultad{
-    position: relative;
-    margin-right: -40px;
-    margin-top: 150px;
-}
-
-#aparecer{
-    display: none;
+.btnMenus{
+    margin-top: -120px;
+    margin-left: 40px;
 }
 
 .btnAyuda{
@@ -155,9 +145,25 @@ body{
     background: #662483;
     color: white;
     font-size: 40px;
+    
+}
+
+.contador{
+    position: relative;
+    right: -700px;
+    top: -150px;
+}
+
+#aparecer{
+    display: none;
 }
 
 .vidas{
     margin-top: -10px;
-    margin-left: 1050px;
+    margin-left: 850px;
+}
+
+.btnOpciones{
+    margin-top: -140px;
+    margin-left: 10px;
 }
