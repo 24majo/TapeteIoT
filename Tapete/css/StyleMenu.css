@@ -5,6 +5,24 @@ body{
     background-size: 100% 100%;
 }
 
+.personaje{
+    position: relative;
+    margin-top: 70px;
+    height: 500px;
+    width: 375px;
+    background-image: url(../Visual/Material/Animaciones/MenuInicio/Saludar.png);
+    animation-name: saludar;
+    animation-duration: 1s;
+    animation-timing-function: steps(4);
+    animation-iteration-count: infinite;
+    margin-left: 730px;
+}
+
+@keyframes saludar {
+    from{background-position-x: 0px;}
+    to{background-position-x: -1508px;}
+}
+
 #imagen{
     margin-top: 70px;
     margin-left: 730px;
