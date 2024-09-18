@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>Uso de S, C y Z</title>
+    <title>Uso de B y V</title>
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
@@ -22,7 +22,7 @@
    
     <nav class="titulo">
         <Font face="Century Gothic">
-            <h1><b>Uso de C, S y Z</b></h1>
+            <h1><b>Uso de B y V</b></h1>
         </Font>
         
         <a href="MenuSeleccion.html" class="btnInicio">
@@ -35,7 +35,6 @@
 
     <div>
         <div id="vida"></div>
-        <script src="js/funciones/letras/scz.js"></script>
     </div>
 
     <input type="radio" name="dificultad" id="facil" value="facil">Fácil
@@ -45,18 +44,14 @@
     <section>
         <article class="dibujo">
             <img class="imagen" id='figura' width="200px" height="200px">
+            <div id="linea"></div>
         </article>
     </section>
 
-    <div class="palabraCompletar">
-        <font face="Century Gothic">
-            <span id="linea"></span>
-        </font>
-    </div>
 
     <div class="letras">
         <font face="Century Gothic">
-            <button id="btnIniciar" onclick="Inicio()"><b>Empezar</b></button>
+            <button id="btnIniciar" onclick="Empezar()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
             <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </font>  
@@ -68,5 +63,7 @@
             <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
+    <script src="js/funciones/letras/bv.js"></script>
+
 </body>
 </html>

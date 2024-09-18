@@ -56,7 +56,7 @@ function Empezar(){
         swal({
             title: "Advertencia",
             text: "Elige una dificultad para iniciar el juego",
-            icon: "Visual/Material/Iconos/pollo.jpg", 
+            icon: "Visual/Material/Iconos/jake.gif", 
         })
     }
 
