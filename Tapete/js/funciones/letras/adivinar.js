@@ -4,6 +4,7 @@ var opciones = document.getElementsByClassName("opcion")
 var guion = []
 var respuesta 
 var result
+var palabras2 = palabras
 // Vidas
 var error = 3
 var vida = document.getElementById('vida');
@@ -19,9 +20,9 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
+        icon: "warning", // En este apartado se puede poner la ruta de las imágenes
+        buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
+        dangerMode: true, // Botón rojo
       })
 
     .then((Reinicia) => {
@@ -33,6 +34,7 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    palabras2 = palabras
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -47,41 +49,44 @@ function Reiniciar(){
 function Inicio(){
     guion = []
     document.getElementById("linea").innerHTML = guion
-    respuesta = palabras[Math.floor(Math.random() * palabras.length)] // Elegir una palabra aleatoria
+    respuesta = palabras[Math.floor(Math.random() * palabras2.length)] // Elegir una palabra aleatoria
+    var repetida = palabras2.indexOf(respuesta) // Identificar en el arreglo la respuesta
+    palabras2.splice(repetida, 1) // Eliminar la respuesta del arreglo para evitar repetirse
     imagen = document.getElementById("figura") 
     imagen.src = "Visual/Material/Letras/Juego2/" + respuesta + ".png"
 
-    for (var i = 0; i < respuesta.length; i++) {
+    for (var i = 0; i < respuesta.length; i++) { // Se dibujan guiones con base en la longitud de la respuesta
         guion[i] = "_";
     }
-    document.getElementById("linea").innerHTML = guion.join(" ")
+
+    document.getElementById("linea").innerHTML = guion.join(" ") // Se dibuja un espacio entre cada guion
     // guion = respuesta.replace(/./g, "_ ")
     // document.getElementById("linea").innerHTML = guion
-    opcion(op = [])
+    opcion(op = []) // Función de opciones para colocarlos en los círculos
     document.getElementById('circulos').style.display='block'
 }
 
-function opcion(op){
+function opcion(op){ // Función recursiva para rellenar el arreglo hasta llegar a 4
     if(op.length == 4){
-        if(guion.indexOf("_") != -1) {
+        if(guion.indexOf("_") != -1) { // Toma el primer guion que encuentre en la palabra
             //alert(respuesta[guion.indexOf("_")])
             //alert("Arreglo antes: "+op)
-            var e = op.includes(respuesta[guion.indexOf("_")])
-            if(!e){
+            var e = op.includes(respuesta[guion.indexOf("_")]) // Evaluar si el arreglo incluye letras de la palabra
+            if(!e){ // Si no encuentra
                 let r = Math.floor(Math.random() * op.length)
-                op.splice(r, 1, respuesta[guion.indexOf("_")])
+                op.splice(r, 1, respuesta[guion.indexOf("_")]) // Elegir una posición aleatoria de las opciones para reemplazarla por la nueva letra
                 //alert("Arreglo después: "+op)
             }
             for (let i = 0; i < opciones.length; i++){
-                opciones[i].innerHTML = op[i]
+                opciones[i].innerHTML = op[i] // Se muestran las opciones en los círculos
             }
         }
     } 
 
     else {
-        let r = Math.floor(Math.random() * letras.length) 
-        op.push(letras[r]) 
-        result = op.filter((item,index)=>{ 
+        let r = Math.floor(Math.random() * letras.length) // Se elige una letra aleatoria que se encuentra en el arreglo
+        op.push(letras[r])  // Se agrega en las opciones
+        result = op.filter((item,index)=>{ // Filtro para determinar si una letra elegida ya está en el arreglo y evitar duplicidad
             return op.indexOf(item) === index;
         })
         return opcion(result)
@@ -102,8 +107,8 @@ function validar(letra){
         document.getElementById("linea").innerHTML = guion.join(" ")
     }
 
-    else{
-        error--
+    else{ // Evaluacion de fallos y disminución de vidas
+        error-- 
         if(error == 2){
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
@@ -140,12 +145,42 @@ function validar(letra){
     // document.getElementById("linea").innerHTML = guion
     var e = guion.includes('_') // Validar que la palabra se haya completado
 
-    if(!e){
-        document.getElementById("btnIniciar").innerHTML = "Continuar"
-        contador++
-        document.getElementById("barra").value = contador
-        document.getElementById("barra").innerHTML = contador
-        Inicio()
+    if(!e){ // Si la palabra ya no tiene guiones, significa que ha ganado
+        swal({
+            title: "Felicidades",
+            text: "Continuemos. Sigue así",
+            icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        })
+
+        .then((continuacion) => {
+            if (continuacion) {
+                document.getElementById("btnIniciar").innerHTML = "Continuar"
+                contador++
+                document.getElementById("barra").value = contador
+                document.getElementById("barra").innerHTML = contador
+
+                if(contador == 10){
+                    swal({
+                        title: "Felicidades",
+                        text: "¿Quieres salir del juego o volver a intentarlo?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Volver a jugar", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+                else{
+                    Inicio()
+                }
+            } 
+        })
     }
 }
 
@@ -191,6 +226,9 @@ window.addEventListener("keyup",(e)=>{
 })
 
 function Ayuda(){
-    swal("Tutorial", 
-"Completa la palabra de acuerdo con la imagen y las opciones mostradas.")
+    swal({
+        title: "Tutorial",
+        text: "Completa la palabra de acuerdo con la imagen. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
 }
