@@ -4,7 +4,7 @@ body{
     background-attachment: fixed;
     background-size: 100% 100%;
 }
-
+/* Animacion personaje */
 .personaje{
     position: relative;
     margin-top: 70px;
@@ -17,7 +17,7 @@ body{
     animation-iteration-count: infinite;
     margin-left: 730px;
 }
-
+/* Declaracion de la animacion */
 @keyframes saludar {
     from{background-position-x: 0px;}
     to{background-position-x: -1508px;}
@@ -30,11 +30,14 @@ body{
     flex-wrap: wrap;   
 }
 
+/* Para posicionar las card de bootstrap */
 .card1{
     margin-top: -10px;
     margin-left: 60px;
     
 }
+
+cambiar ciertos atributos
 .boton1{
     margin-top: 5px;
     margin-left: 70px;

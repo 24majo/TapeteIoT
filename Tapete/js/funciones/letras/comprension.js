@@ -20,15 +20,16 @@ var resultado = 0
 var arreglo = []
 
 // Variables de lectura
-var lugar = ["una pradera", "un sendero", "un bosque", "una granja"]
-var flores = ["los girasoles", "las rosas", "los tulipanes", "los narcisos"]
-var lugar2 = ["las montañas", "los matorrales", "los árboles", "las hierbas"]
-var emocion = ["asustada", "emocionada", "aturdida", "inquieta", "desconfiada"]
-var animal = ["los peces", "las ranas"]
-var construir = ["un puente", "un camino"]
-var materiales = ["ramas", "troncos", "rocas"]
-var flores2 = ["flores", "mariposas", "animales"]
-var tiempo = ["amanecer", "atardecer", "anochecer"]
+var profesion = ["un molinero", "un carpintero", "un herrero", "un panadero"]
+var hijo = ["hijo menor", "hijo mayor", "unico hijo", "segundo hijo"]
+var animalCaza = ["conejos", "aves", "ratones", "liebres"]
+var nombreMarques = ["Carabás", "emocionada", "aturdida", "inquieta", "desconfiada"]
+var lugar = ["los peces", "las ranas"]
+var invitacion = ["un puente", "un camino"]
+var criaturaMagica = ["ramas", "troncos", "rocas"]
+var lugar2 = ["flores", "mariposas", "animales"]
+var lugarfiesta = ["amanecer", "atardecer", "anochecer"]
+var casaGato = ["amanecer", "atardecer", "anochecer"]
 
 var res1, res2
 
@@ -52,9 +53,9 @@ function Empezar(){
 
         switch(valor){
             case 'facil':
-                document.getElementById("titulo").innerHTML = "El lugar especial"
-                res1 = lugar[Math.floor(Math.random() * lugar.length)]
-                res2 = flores[Math.floor(Math.random() * flores.length)]
+                document.getElementById("titulo").innerHTML = "El gato con botas"
+                res1 = profesion[Math.floor(Math.random() * profesion.length)]
+                res2 = hijo[Math.floor(Math.random() * hijo.length)]
                 document.getElementById("parrafo").innerHTML = "En " + res1 + " vivían una vaca llamada Clara y un cordero llamado Tito. Clara era tranquila y siempre disfrutaba de "+ res2 +", mientras que Tito era aventurero y le encantaba explorar cada rincón. "
                 Pregunta()
 
@@ -79,7 +80,7 @@ function Pregunta(){
         document.getElementById("pregunta").innerHTML = "¿Qué flores le gustan a Clara?"
     }
     else{
-        document.getElementById("pregunta").innerHTML = "¿En qué lugar viven Clara y Tito?"
+        document.getElementById("pregunta").innerHTML = "¿En qué profesion viven Clara y Tito?"
     }
     
 }
