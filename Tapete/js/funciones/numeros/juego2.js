@@ -1,6 +1,7 @@
 var opciones = document.getElementsByClassName("opcion")
 var secuencia = []
 var adivinar = []
+var numeros = [1,2,3,4,5,6,7,8,9]
 var respuesta
 var result
 var op = []
@@ -12,11 +13,15 @@ imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 Ayuda()
 
 function Ayuda(){
-    swal("Tutorial", 
-        "Elige el numero siguiente al anterior de acuerdo con la secuencia presentada.");
+    swal({
+        title: "Tutorial",
+        text: "Elige el número siguiente al anterior de acuerdo con la secuencia presentada por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
 }
 
 function Reiniciar(){
+    numeros = [1,2,3,4,5,6,7,8,9]
     contador = 0
     error = 3
     document.getElementById("barra").value = contador
@@ -44,8 +49,16 @@ function Reinicio(){
 
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
-    var num1 = Math.floor(Math.random() * 9+1)
-    console.log("Número inicial: ", num1)
+    var num1 = numeros[Math.floor(Math.random() * numeros.length)]
+    // alert("Numero: "+num1)
+    var repetida = numeros.indexOf(num1)
+    if(repetida != -1){
+        numeros.splice(repetida, 1)
+    }
+    else{
+        Empezar()
+    }
+    // alert("Nuevo: " + numeros)
     
     for(let i = 0; i < 10; i++){
         secuencia[i] = num1 * (i+1)
@@ -109,7 +122,7 @@ function Opciones(num){
         var e = adivinar.includes('_')
 
         if(!e){
-            contador+=10
+            contador+=1
             
             swal({
                 title: "¡Bien hecho! :D",
@@ -128,7 +141,7 @@ function Opciones(num){
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
 
-            if(contador==100){
+            if(contador==9){
                 swal({
                     title: "¡Bien hecho! :D",
                     text: "Continuemos al siguiente ejercicio",
@@ -140,7 +153,7 @@ function Opciones(num){
                         location.href = "JuegosNumeros.html"
                     }
                     else{
-                        Empezar()
+                        Empezar() 
                     }
                 })
             }
