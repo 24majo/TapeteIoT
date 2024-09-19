@@ -20,16 +20,16 @@ var resultado = 0
 var arreglo = []
 
 // Variables de lectura
-var profesion = ["un molinero", "un carpintero", "un herrero", "un panadero"]
+var profesion = ["molinero", "carpintero", "herrero", "panadero"]
 var hijo = ["hijo menor", "hijo mayor", "unico hijo", "segundo hijo"]
 var animalCaza = ["conejos", "aves", "ratones", "liebres"]
-var nombreMarques = ["Carabás", "emocionada", "aturdida", "inquieta", "desconfiada"]
-var lugar = ["los peces", "las ranas"]
-var invitacion = ["un puente", "un camino"]
-var criaturaMagica = ["ramas", "troncos", "rocas"]
-var lugar2 = ["flores", "mariposas", "animales"]
-var lugarfiesta = ["amanecer", "atardecer", "anochecer"]
-var casaGato = ["amanecer", "atardecer", "anochecer"]
+var nombreMarques = ["Carabás", "Alcarás", "Caravela", "Barabás", "Garabás"]
+var lugar = ["río", "arroyo","laguna", "lago", "manantial"]
+var invitacion = ["carruaje", "palacio", "castillo", "carroza"]
+var criaturaMagica = ["un ogro", "una bruja", "un hechizero", "un duende"]
+var lugar2 = ["tierras", "praderas", "sembradios", "bosques"]
+var lugarfiesta = ["bosque", "palacio", "lago", "castillo"]
+var casaGato = ["palacio", "hacienda", "castillo", "mansión"]
 
 var res1, res2
 
@@ -56,7 +56,7 @@ function Empezar(){
                 document.getElementById("titulo").innerHTML = "El gato con botas"
                 res1 = profesion[Math.floor(Math.random() * profesion.length)]
                 res2 = hijo[Math.floor(Math.random() * hijo.length)]
-                document.getElementById("parrafo").innerHTML = "En " + res1 + " vivían una vaca llamada Clara y un cordero llamado Tito. Clara era tranquila y siempre disfrutaba de "+ res2 +", mientras que Tito era aventurero y le encantaba explorar cada rincón. "
+                document.getElementById("parrafo").innerHTML = "Un " + res1 + " dejó a su "+ res2 + " un gato como herencia. Aunque decepcionado, el joven pensó que el gato era inútil. Sin embargo, el gato habló y prometió hacer de su dueño un hombre rico si le conseguía unas botas y un saco."
                 Pregunta()
 
                 
@@ -77,10 +77,10 @@ function Empezar(){
 
 function Pregunta(){
     if(Math.floor(Math.random() * 2) == 1){
-        document.getElementById("pregunta").innerHTML = "¿Qué flores le gustan a Clara?"
+        document.getElementById("pregunta").innerHTML = "¿Qué oficio tenía el padre?"
     }
     else{
-        document.getElementById("pregunta").innerHTML = "¿En qué profesion viven Clara y Tito?"
+        document.getElementById("pregunta").innerHTML = "¿A quién le dejó de herencia al gato?"
     }
     
 }
