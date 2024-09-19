@@ -134,7 +134,7 @@ function RCorrecto(num){
                 swal({
                     title: "¡Felicidades!",
                     text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
                     buttons: true,
                 })
                 .then((willDelete) => {
@@ -195,33 +195,50 @@ function RCorrecto(num){
                     location.href = "JuegosNumeros.html"
                 } 
                 else{
-                    swal({
-                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
-                        buttons:  ["Mantener", "Cambiar"] 
-                    })
-                    .then((cambiar) => {
-                        if(cambiar){
-                            for(let y = 0; y < 3; y++){
-                                radios[y].disabled = false
+                    if(valor == "facil"){
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
+
+                    else{
+                        swal({
+                            title: "¿Deseas reintentar el nivel o bajar la dificultad?",
+                            icon: "info",
+                            buttons:  ["Mantener", "Cambiar"] 
+                        })
+                        .then((cambiar) => {
+                            if(cambiar){
+                                // for(let y = 0; y < 3; y++){
+                                //     radios[y].disabled = false
+                                // }
+                                // for (var i = 0; i < radios.length; i++) {
+                                //     var niveles = radios[i];
+                                //     niveles.checked = false;
+                                // }
+
+                                if(valor == 'dificil'){
+                                    valor = document.querySelector('#medio').checked = true
+                                }
+
+                                if(valor == 'medio'){
+                                    valor = document.querySelector('#facil').checked = true
+                                }
+
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-                            for (var i = 0; i < radios.length; i++) {
-                                var niveles = radios[i];
-                                niveles.checked = false;
+                            else{
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
+                        })
+                    }
                 }
             })
         }
     }
 }
+
 function Reiniciar(){
     error = 3
     contador = 0
@@ -314,8 +331,11 @@ window.addEventListener("keyup",(e)=>{
 })
 
 function Ayuda(){
-    swal("Tutorial", 
-        "Realiza la suma de dos números y elige la opción correcta con los botones o las flechas del teclado.");
+    swal({
+        title: "Tutorial",
+        text: "Realiza la suma de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
     // $.dialog({
     //     title: 'Tutorial',
     //     content: 'Realiza la suma de dos números y elige la opción correcta con los botones o las flechas del teclado.',
