@@ -10,13 +10,18 @@ document.getElementById("barra").innerHTML = contador
 var opciones = document.getElementsByClassName("opcion")
 var op = []
 //Opciones de dificultad
-var radios = document.getElementsByName("dificultad")
+//var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var pecera = document.getElementById("pecera")
 var respuesta = ""
 var ejercicio = 0
 
 Ayuda()
+
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+    //alert(valor)
+}
 
 function Reiniciar(){
     error = 3
@@ -38,13 +43,13 @@ function Reinicio(){
 
       .then((willDelete) => {
         if (willDelete) {
-            for(let y = 0; y < 3; y++){
-                radios[y].disabled = false
-            }
-            for (var i = 0; i < radios.length; i++) {
-                var niveles = radios[i];
-                niveles.checked = false;
-            }
+            // for(let y = 0; y < 3; y++){
+            //     radios[y].disabled = false
+            // }
+            // for (var i = 0; i < radios.length; i++) {
+            //     var niveles = radios[i];
+            //     niveles.checked = false;
+            // }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -52,51 +57,55 @@ function Reinicio(){
 }
 
 function Empezar(){
-    if(!document.querySelector('input[name="dificultad"]:checked')){
-        swal({
-            title: "Advertencia",
-            text: "Elige una dificultad para iniciar el juego",
-            icon: "Visual/Material/Iconos/jake.gif", 
-        })
-    }
+    // if(!document.querySelector('input[name="dificultad"]:checked')){
+    //     swal({
+    //         title: "Advertencia",
+    //         text: "Elige una dificultad para iniciar el juego",
+    //         icon: "Visual/Material/Iconos/jake.gif", 
+    //     })
+    // }
 
-    else{
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = true
-        }
-        valor = document.querySelector('input[name="dificultad"]:checked').value
-        document.getElementById('aparecer').style.display='block';
+    // else{
+    //     for(let y = 0; y < 3; y++){
+    //         radios[y].disabled = true
+    //     }
+    //     valor = document.querySelector('input[name="dificultad"]:checked').value
+    document.getElementById('aparecer').style.display='block';
+    
+    switch(valor){
+        case 'facil':
+            num = Math.floor(Math.random() * (50-1)+1)
+            // decena = num - (num % 10) + 10
+            // alert("Decena: " + decena)
+            pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+            //alert("num: " + num)
+            Completar(num)  
+            break
+
+        case 'medio':
+            num = Math.floor(Math.random() * (99-51)+51)
+            // decena = num - (num % 10) + 10
+            // alert("Decena: " + decena)
+            pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+            Completar(num)  
+            break
         
-        switch(valor){
-            case 'facil':
-                num = Math.floor(Math.random() * (50-1)+1)
-                decena = num - (num % 10) + 10
-                pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
-                //alert("num: " + num)
-                Completar(num)  
-                break
-
-            case 'medio':
-                num = Math.floor(Math.random() * (99-51)+51)
-                decena = num - (num % 10) + 10
-                pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
-                Completar(num)  
-                break
-            
-            case 'dificil':
-                num = Math.floor(Math.random() * (99-1)+1)
-                decena = num - (num % 10) + 10
-                pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
-                Completar(num) 
-                break
-        }
+        case 'dificil':
+            num = Math.floor(Math.random() * (99-1)+1)
+            // decena = num - (num % 10) + 10
+            // alert("Decena: " + decena)
+            pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+            Completar(num) 
+            break
     }
+    //}
 }
 
 function Completar(num){
     decena = num - (num % 10) + 10
-    //alert(decena)
+    //alert("Decena: "+decena)
     respuesta = decena - num
+    //alert("Respuesta: " + respuesta)
     
     op = Opcion(arreglo = [])
 
@@ -108,7 +117,7 @@ function Completar(num){
 
 function Opcion(arreglo){
     if(arreglo.length == 4){
-        //alert("res: " + respuesta)
+        //alert("respuesta en opciones: " + respuesta)
         var res = arreglo.indexOf(respuesta)
         if(res == -1){
             var r = Math.floor(Math.random() * arreglo.length) 
@@ -130,6 +139,7 @@ function Opcion(arreglo){
 }
 
 function Validar(num){
+    //alert("Numero de respuesta: " + num)
     if(num == respuesta){
         contador += 1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -150,9 +160,9 @@ function Validar(num){
                         location.href = "JuegosNumeros.html"
                     } 
                     else{
-                        for(let y = 0; y < 3; y++){
-                            radios[y].disabled = false
-                        }
+                        // for(let y = 0; y < 3; y++){
+                        //     radios[y].disabled = false
+                        // }
                         document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
@@ -169,13 +179,17 @@ function Validar(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
-                            valor = document.querySelector('#medio').checked = true
+                            valor = 'medio'
+                            //alert(valor)
+                            //valor = document.querySelector('#medio').checked = true
                             Reiniciar()
                         }
 
                         else{
                             if(valor == 'medio'){
-                                valor = document.querySelector('#dificil').checked = true
+                                valor = 'dificil'
+                                //alert(valor)
+                                //valor = document.querySelector('#dificil').checked = true
                                 Reiniciar()
                             }
                         }
@@ -214,16 +228,26 @@ function Validar(num){
                     })
                     .then((cambiar) => {
                         if(cambiar){
-                            for(let y = 0; y < 3; y++){
-                                radios[y].disabled = false
+                            // for(let y = 0; y < 3; y++){
+                            //     radios[y].disabled = false
+                            // }
+                            // for (var i = 0; i < radios.length; i++) {
+                            //     var niveles = radios[i];
+                            //     niveles.checked = false;
+                            // }
+
+                            if(valor == 'dificil'){
+                                valor = "medio"
                             }
-                            for (var i = 0; i < radios.length; i++) {
-                                var niveles = radios[i];
-                                niveles.checked = false;
+
+                            if(valor == 'medio'){
+                                valor = "facil"
                             }
+
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
                         }
+
                         else{
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
@@ -242,11 +266,11 @@ window.addEventListener("keydown",(e)=>{
             Validar(op[0])
             break;
 
-        case 'ArrowDown':
+        case 'ArrowLeft':
             Validar(op[1])
             break;
 
-        case 'ArrowLeft':
+        case 'ArrowDown':
             Validar(op[2])
             break;
 
@@ -284,7 +308,9 @@ window.addEventListener("keyup",(e)=>{
 })
 
 function Ayuda(){
-    swal("Tutorial",
-        "Identifica la cantidad de peces que se encuentran en la pecera. Deberás sumarlos para identificar cuanto falta para la siguiente decena."
-    );
+    swal({
+        title: "Tutorial",
+        text: "Identifica la cantidad de peces que se encuentran en la pecera. Deberás sumarlos para identificar cuanto falta para la siguiente decena. \nElige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
 }
