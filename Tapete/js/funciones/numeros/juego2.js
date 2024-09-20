@@ -153,7 +153,7 @@ function Opciones(num){
                         location.href = "JuegosNumeros.html"
                     }
                     else{
-                        Empezar() 
+                        Reiniciar() 
                     }
                 })
             }
