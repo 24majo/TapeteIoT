@@ -10,48 +10,56 @@ document.getElementById("barra").innerHTML = contador
 var opciones = document.getElementsByClassName("opcion")
 var op = []
 //Opciones de dificultad
-var radios = document.getElementsByName("dificultad")
+var valorBoton
+    //var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var resultado = 0
 var arreglo = []
+
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
-function Empezar(){
-    if(!document.querySelector('input[name="dificultad"]:checked')){
-        swal({
-            title: "Advertencia",
-            text: "Elige una dificultad para iniciar el juego",
-            icon: "warning", 
-        })
-    }
-    else{
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = true
-        }
-        valor = document.querySelector('input[name="dificultad"]:checked').value
-        document.getElementById('aparecer').style.display='block';
-        
-        switch(valor){
-            case 'facil':
-                num1 = Math.floor(Math.random() * (50-1)+1)
-                num2 = Math.floor(Math.random() * (50-1)+1)
-                Random(num1, num2)  
-                break
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+    //alert(valor)
+    //document.getElementById('mostrarValor').textContent = valor ? valor : 'No se recibió ningún valor';
+}
 
-            case 'medio':
-                num1 = Math.floor(Math.random() * (100-50)+50)
-                num2 = Math.floor(Math.random() * (100-50)+50)
-                //alert("Num1: " + num1 + " num2: " + num2)
-                Random(num1, num2)  
-                break
-            
-            case 'dificil':
-                num1 = Math.floor(Math.random() * (100-1)+1)
-                num2 = Math.floor(Math.random() * (100-1)+1)
-                Random(num1, num2) 
-                break
-        }
+function Empezar(){
+    // if(!document.querySelector('input[name="dificultad"]:checked')){
+    //     swal({
+    //         title: "Advertencia",
+    //         text: "Elige una dificultad para iniciar el juego",
+    //         icon: "warning", 
+    //     })
+    // }
+    //else{
+        // for(let y = 0; y < 3; y++){
+        //     radios[y].disabled = true
+        // }
+        // valor = document.querySelector('input[name="dificultad"]:checked').value
+    document.getElementById('aparecer').style.display='block';
+    
+    switch(valor){
+        case 'facil':
+            num1 = Math.floor(Math.random() * (50-1)+1)
+            num2 = Math.floor(Math.random() * (50-1)+1)
+            Random(num1, num2)  
+            break
+
+        case 'medio':
+            num1 = Math.floor(Math.random() * (100-50)+50)
+            num2 = Math.floor(Math.random() * (100-50)+50)
+            //alert("Num1: " + num1 + " num2: " + num2)
+            Random(num1, num2)  
+            break
+        
+        case 'dificil':
+            num1 = Math.floor(Math.random() * (100-1)+1)
+            num2 = Math.floor(Math.random() * (100-1)+1)
+            Random(num1, num2) 
+            break
     }
+    //}
 }
 
 function Random(num1, num2){
@@ -140,13 +148,13 @@ function RCorrecto(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
-                            valor = document.querySelector('#medio').checked = true
+                            valor = "medio"
                             Reiniciar()
                         }
 
                         else{
                             if(valor == 'medio'){
-                                valor = document.querySelector('#dificil').checked = true
+                                valor = "dificil"
                                 Reiniciar()
                             }
                         }
@@ -217,11 +225,11 @@ function RCorrecto(num){
                                 // }
 
                                 if(valor == 'dificil'){
-                                    valor = document.querySelector('#medio').checked = true
+                                    valor = "medio"
                                 }
 
                                 if(valor == 'medio'){
-                                    valor = document.querySelector('#facil').checked = true
+                                    valor = "facil"
                                 }
 
                                 document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -259,13 +267,13 @@ function Reinicio(){
 
       .then((willDelete) => {
         if (willDelete) {
-            for(let y = 0; y < 3; y++){
-                radios[y].disabled = false
-            }
-            for (var i = 0; i < radios.length; i++) {
-                var niveles = radios[i];
-                niveles.checked = false;
-            }
+            // for(let y = 0; y < 3; y++){
+            //     radios[y].disabled = false
+            // }
+            // for (var i = 0; i < radios.length; i++) {
+            //     var niveles = radios[i];
+            //     niveles.checked = false;
+            // }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
