@@ -34,11 +34,18 @@
     
           <article>
             <font face="Century Gothic">
-                <button class="btnFacil"><b>Fácil</b></button>
-                <button class="btnMedio"><b>Medio</b></button>
-                <button class="btnDificil"><b>Difícil</b></button>
+                <button class="btnFacil" value="facil" onclick="valor(this.value)"><b>Fácil</b></button>
+                <button class="btnMedio" value="medio" onclick="valor(this.value)"><b>Medio</b></button>
+                <button class="btnDificil" value="dificil" onclick="valor(this.value)"><b>Difícil</b></button>
             </font>
           </article>
+
+          <script>
+            function valor(dato) {
+                localStorage.setItem('valorBoton', dato);
+                window.location.href = './JuegoNum4.html';
+            }
+        </script>
     
 </body>
 </html>

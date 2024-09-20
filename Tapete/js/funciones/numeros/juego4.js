@@ -10,49 +10,55 @@ document.getElementById("barra").innerHTML = contador
 var opciones = document.getElementsByClassName("opcion")
 var op = []
 //Opciones de dificultad
-var radios = document.getElementsByName("dificultad")
+//var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var resultado = 0
 var arreglo = []
+
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+    alert(valor)
+}
+
 function Empezar(){
-    if(!document.querySelector('input[name="dificultad"]:checked')){
-        swal({
-            title: "Advertencia",
-            text: "Elige una dificultad para iniciar el juego",
-            icon: "warning", 
-        })
+    // if(!document.querySelector('input[name="dificultad"]:checked')){
+    //     swal({
+    //         title: "Advertencia",
+    //         text: "Elige una dificultad para iniciar el juego",
+    //         icon: "warning", 
+    //     })
+    // }
+
+    // else{
+    //     for(let y = 0; y < 3; y++){
+    //         radios[y].disabled = true
+    //     }
+    //     valor = document.querySelector('input[name="dificultad"]:checked').value
+    document.getElementById('aparecer').style.display='block';
+
+    switch(valor){
+        case 'facil':
+            num1 = Math.floor(Math.random() * (50-1)+1)
+            num2 = Math.floor(Math.random() * (num1-1)+1)
+            Random(num1, num2)  
+            break
+
+        case 'medio':
+            num1 = Math.floor(Math.random() * (100-50)+50)
+            num2 = Math.floor(Math.random() * (num1-50)+50)
+            Random(num1, num2)  
+            break
+        
+        case 'dificil':
+            num1 = Math.floor(Math.random() * (100-1)+1)
+            num2 = Math.floor(Math.random() * (num1-1)+1)
+            //alert("Num1: " + num1 + " num2: " + num2)
+            Random(num1, num2) 
+            break
     }
-
-    else{
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = true
-        }
-        valor = document.querySelector('input[name="dificultad"]:checked').value
-        document.getElementById('aparecer').style.display='block';
-
-        switch(valor){
-            case 'facil':
-                num1 = Math.floor(Math.random() * (50-1)+1)
-                num2 = Math.floor(Math.random() * (num1-1)+1)
-                Random(num1, num2)  
-                break
-
-            case 'medio':
-                num1 = Math.floor(Math.random() * (100-50)+50)
-                num2 = Math.floor(Math.random() * (num1-50)+50)
-                Random(num1, num2)  
-                break
-            
-            case 'dificil':
-                num1 = Math.floor(Math.random() * (100-1)+1)
-                num2 = Math.floor(Math.random() * (num1-1)+1)
-                //alert("Num1: " + num1 + " num2: " + num2)
-                Random(num1, num2) 
-                break
-        }
-    }
+    // }
 }
 
 function Random(num1, num2){
@@ -129,13 +135,15 @@ function RCorrecto(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
-                            valor = document.querySelector('#medio').checked = true
+                            valor = 'medio'
+                            //valor = document.querySelector('#medio').checked = true
                             Reiniciar()
                         }
 
                         else{
                             if(valor == 'medio'){
-                                valor = document.querySelector('#dificil').checked = true
+                                valor = 'dificil'
+                                //valor = document.querySelector('#dificil').checked = true
                                 Reiniciar()
                             }
                         }
@@ -174,13 +182,22 @@ function RCorrecto(num){
                     })
                     .then((cambiar) => {
                         if(cambiar){
-                            for(let y = 0; y < 3; y++){
-                                radios[y].disabled = false
+                            // for(let y = 0; y < 3; y++){
+                            //     radios[y].disabled = false
+                            // }
+                            // for (var i = 0; i < radios.length; i++) {
+                            //     var niveles = radios[i];
+                            //     niveles.checked = false;
+                            // }
+
+                            if(valor == 'dificil'){
+                                valor = "medio"
                             }
-                            for (var i = 0; i < radios.length; i++) {
-                                var niveles = radios[i];
-                                niveles.checked = false;
+
+                            if(valor == 'medio'){
+                                valor = "facil"
                             }
+                            
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
                         }
@@ -215,13 +232,13 @@ function Reinicio(){
 
       .then((willDelete) => {
         if (willDelete) {
-            for(let y = 0; y < 3; y++){
-                radios[y].disabled = false
-            }
-            for (var i = 0; i < radios.length; i++) {
-                var niveles = radios[i];
-                niveles.checked = false;
-            }
+            // for(let y = 0; y < 3; y++){
+            //     radios[y].disabled = false
+            // }
+            // for (var i = 0; i < radios.length; i++) {
+            //     var niveles = radios[i];
+            //     niveles.checked = false;
+            // }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -277,6 +294,11 @@ window.addEventListener("keyup",(e)=>{
 })
 
 function Ayuda(){
-    swal("Tutorial", 
-        "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
+    swal({
+        title: "Tutorial",
+        text: "Realiza la resta de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
+    // swal("Tutorial", 
+    //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
 }
