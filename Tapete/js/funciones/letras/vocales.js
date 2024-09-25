@@ -1,4 +1,4 @@
-import swal from './node_modules/sweetalert2';
+import Swal from './node_modules/sweetalert2/dist/sweetalert2.all.js';
 // Vidas
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
