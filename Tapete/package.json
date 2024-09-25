@@ -1,10 +1,6 @@
 {
   "dependencies": {
-<<<<<<< HEAD
-    "sweetalert": "^2.1.2"
-=======
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.14.1"
->>>>>>> cea0e301395bdee96f52460ca061b94621ab070f
   }
 }
