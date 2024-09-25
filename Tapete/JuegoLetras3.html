@@ -18,7 +18,7 @@
 
         
         <!-- Barra de progreso, atributos -->
-        <div style="margin-left: 750px; margin-top: 20px">
+        <div style="margin-left: 790px; margin-top: 20px">
             <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
         </div>
 
@@ -27,11 +27,13 @@
             <div class="vidas" id="vida"></div>
         </div>
     
-        <nav class="titulo">
-            <Font face="Century Gothic">
-                <h1>Lee la lectura y contesta la preguntas</h1>
-            </Font>
-          
+        <nav >
+            <div class="titulo">
+                <Font face="Century Gothic">
+                    <h2>Lee la lectura y contesta la preguntas</h2>
+                </Font>
+            </div>
+            
             <div class="btnMenus">
                 <a href="MenuSeleccion.html" class="btnInicio">
                     <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
@@ -40,7 +42,7 @@
                     <img src="Visual/Material/Iconos/Flecha.png" width="60px">
                 </a>
             </div>
-            <div style="margin-top: -60px;"> 
+            <div style="margin-top: -70px;"> 
                 <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
             </div>
            
@@ -49,49 +51,58 @@
                 <input type="radio" name="dificultad" id="medio" value="medio">Medio
                 <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
             </div>
-            
         </nav>
 
         <article>
-            <section class="">
+
+            <div class="tituloCuento">
                 <font face="Century Gothic">
-                    <p style="font-size: 25px; width: 480px; text-align: justify; 
-                    margin-left: 100px;" 
-                    id="parrafo"></p>
+                    <span id="titulo"></span>
                 </font>
+            </div>
+
+            <div class="botones">
+                <font face="Century Gothic">
+                    <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+                    <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+                </font>
+            </div>
+
+            <section class="parrafo">
+                <font face="Century Gothic">
+                    <p id="parrafo"></p>
+                </font>
+        </section>
+
+        <section >
+            <font face="Century Gothic">
+                
+            </font>
         </section>
 
         </article>
         
 
     <aside>
-        <div class="pregunta"></div>
-        <font face="Century Gothic">
-            <span class="titulo" id="titulo"></span>
-            <br>
-            <span class="pregunta" id="pregunta"></span>
-            <br>
-            <p class="parrafo" id="parrafo"></p>
-        </font>
-    </div>
-    
+        <div class="pregunta">
+            <font face="Century Gothic">
+                <span  id="pregunta"></span>
+                <!-- <p class="parrafo" id="parrafo"></p> -->
+            </font>
+        </div>
+  
+        <div class="btnOpciones" id="aparecer">
+            <font face="MV Boli">
+                <span id="opcionArriba" class="opcion"></span>
+                <span id="opcionAbajo" class="opcion"></span>
+                <span id="opcionIzquierda" class="opcion"></span>
+                <span id="opcionDerecha" class="opcion"></span>
+            </font>
+        </div>
+
     </aside>
-        
-    <div class="btnOpciones" id="aparecer">
-        <font face="MV Boli">
-            <span id="opcionArriba" class="opcion"></span>
-            <span id="opcionAbajo" class="opcion"></span>
-            <span id="opcionIzquierda" class="opcion"></span>
-            <span id="opcionDerecha" class="opcion"></span>
-        </font>
-    </div>
             <footer>
-                <div class="botones">   
-                    <font face="Century Gothic">
-                        <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-                        <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-                    </font>
-                </div>
+                
             </footer>
 
             <script src="js/funciones/letras/comprension.js"></script>
