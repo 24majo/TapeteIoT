@@ -1,4 +1,3 @@
-import swal from './node_modules/sweetalert2';
 // Vidas
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -137,41 +136,11 @@ function validar(valor){
     var e = objetos.guion.includes('_')
     
     if(!e){
-        swal({
-            title: "Felicidades",
-            text: "Continuemos. Sigue así",
-            icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
-        })
-
-        .then((continuacion) => {
-            if (continuacion) {
-                document.getElementById("btnIniciar").innerHTML = "Continuar"
-                contador++
-                document.getElementById("barra").value = contador
-                document.getElementById("barra").innerHTML = contador
-
-                if(contador == 10){
-                    swal({
-                        title: "Felicidades",
-                        text: "¿Quieres salir del juego o volver a intentarlo?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
-                        buttons:  ["Volver a jugar", "Salir"] 
-                    })
-                    .then((reintento) => {
-                        if (reintento) {
-                            location.href = "JuegosLetras.html"
-                        } 
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
-                }
-                else{
-                    Inicio()
-                }
-            } 
-        })
+        contador++
+        document.getElementById("btnIniciar").innerHTML = "Continuar"
+        document.getElementById("barra").value = contador
+        document.getElementById("barra").innerHTML = contador
+        //document.getElementById("contador").innerHTML = "Aciertos: " + contador
     }
 }
 
