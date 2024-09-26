@@ -7,7 +7,7 @@ contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 // Elementos generales
-const palabras = ["Cereza", "Chocolate", "Fresa", "Gato","Helado","Libro","Manzana", "Pastel", "Pelota", "Peluche","Pera","Perro","Pizza","Pollo","Tortuga"]
+const palabras = ["cereza", "chocolate", "fresa", "gato","helado","libro","manzana", "pastel", "pelota", "peluche","pera","perro","pizza","pollo","tortuga"]
 var palabras2 = palabras// Variable para eliminar las palabras del arreglo y evitar que se repitan
 const vocales = ["a","e","i","o","u"]
 var opciones = document.getElementsByClassName("opcion")

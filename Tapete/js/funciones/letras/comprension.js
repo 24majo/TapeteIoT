@@ -33,6 +33,11 @@ var casaGato = ["palacio", "hacienda", "castillo", "mansión"]
 
 var res1, res2
 
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+    alert(valor)
+}
+
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 function Empezar(){
