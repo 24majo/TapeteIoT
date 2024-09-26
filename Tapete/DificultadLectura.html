@@ -28,15 +28,23 @@
     
         <div class="titulo">
             <font face="Century Gothic">
-              <p><b>Selecciona la dificultad</b></p>
+                <p><b>Selecciona la dificultad</b></p>
             </font>
-          </div>
+        </div>
     
-          <article>
+        <article>
             <font face="Century Gothic">
-                <button class="btnFacil"><b>Fácil</b></button>
-                <button class="btnMedio"><b>Medio</b></button>
-                <button class="btnDificil"><b>Difícil</b></button>
+                <button class="btnFacil modo" onclick="valor(this.value)" value="facil"><b>Fácil</b></button>
+                <button class="btnMedio modo" onclick="valor(this.value)" value="medio"><b>Medio</b></button>
+                <button class="btnDificil modo" onclick="valor(this.value)" value="dificil"><b>Difícil</b></button>
             </font>
+        </article>
+
+        <script>
+            function valor(dato) {
+                localStorage.setItem('valorBoton', dato);
+                window.location.href = './JuegoLetras3.html';
+            }
+        </script>
 </body>
 </html>
