@@ -6,8 +6,6 @@
 	
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/StyleJuegoNum1.css">
-		<link rel="stylesheet" href="css/styleBtn2JNum1.css">
-		<link rel="stylesheet" href="css/styleBtnJNum1.css">
 		
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.7.1.min.js"></script>
@@ -16,60 +14,72 @@
 	</head>
 	
 	<body background="Visual/Fondos/FondoJuegos.jpg">
-		<br><br>
-		<font face="Century Gothic">
-			<button class="btn" onclick="Random()"><b>Empezar</b></button>
-		</font>
 
-		<font face="Century Gothic">
-			<button class="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-		</font>
-		
-		<a href="MenuSeleccion.html" class="btnInicio">
-				<img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-		</a>
+		<nav>
+			<div style="margin-left: 800px; margin-top: 40px">
+				<progress style="height: 80px; width:280px;"  id="barra" max="9" value="0"></progress>
+			  </div>
 
-		<a href="JuegosNumeros.html" class="btnAtras">
-				<img src="Visual/Material/Iconos/Flecha.png" width="60px">
-		</a>
-		
-		<br>
-		
-		<progress id="barra" max="100" value="0"></progress>
-		
-		<div>
-			<font face="Century Gothic">
-				<h1 class="font-weight-bold">¿Cuántas peces hay en la pecera?</h1>
-			</font>
-		
-			<img class="imagen" id='img' width="300" height="300">
-			<br><br>
+			  <div id="vida" class="vidas"></div>	
+
+			  <div class="btnMenus">
+				<a href="MenuSeleccion.html" class="btnInicio"></a>
+					<img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+				</a>
+
+				<a href="JuegosNumeros.html" class="btnAtras">
+					<img src="Visual/Material/Iconos/Flecha.png" width="60px">
+				</a>
+			</div>
+
+			<div  style="margin-top: -68px; margin-left: 300px;">
+				<button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
+			</div>
+
+			<div class="titulo">
+				<font face="Century Gothic">
+					<h1 class="font-weight-bold">¿Cuántas peces hay en la pecera?</h1>
+				</font>
+			</div>
+			<div class="peces">
+				<img src="Visual/Material/Numeros/Juego5/PezUnidad.png" width="80" alt=""> × 1
+				<img src="Visual/Material/Numeros/Juego5/PezDecena.png" width="80" alt=""> × 10
+			</div>
 			
-			<b>
-				<div id="aparecer">
-					<font face="MV Boli">
-						<div class="opciones">
-							<span id="arr" class="opcion"></span>
-							<span id="ab" class="opcion"></span>
-							<span id="izq" class="opcion"></span>
-							<span id="der" class="opcion"></span>
-						</div>
-					</font>
-				</div>
-			</b>
-		</div>
-
-			<font face="Century Gothic">
-					<h3>
-						<div class="contador" >
-							<!--<span id='cont' class="cont">Aciertos: 0</span>
-							<br>
-							<span id="error" class="error">Errores: 3</span>-->
-							<div id="vida"></div>
-							<script src="js/funciones/numeros/juego1.js"></script>
-						</div>
-					</h3>
-			</font>
+		</nav>
 		
+
+		<article>
+			<section class="botones">
+				<font face="Century Gothic">
+					<button class="btnIniciar" onclick="Random()"><b>Empezar</b></button>
+					<button class="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+				</font>
+			</section>
+				
+			<section>
+				<img class="imagen" id='img' width="400">
+			</section>
+		</article>
+	
+		<aside>
+			<div class="btnOpciones">
+				<b>
+					<div id="aparecer">
+						<font face="MV Boli">
+							<div class="opciones">
+								<span id="arr" class="opcion"></span>
+								<span id="ab" class="opcion"></span>
+								<span id="izq" class="opcion"></span>
+								<span id="der" class="opcion"></span>
+							</div>
+						</font>
+					</div>
+				</b>
+			</div>
+		</aside>
+		
+
+		<script src="js/funciones/numeros/juego1.js"></script>
 	</body>
 </html>
