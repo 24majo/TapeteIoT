@@ -212,7 +212,7 @@ body{
 }
 
 #salto {
-    animation: brincar 2s steps(22) 3600;
+    animation: brincar 2s steps(22) 1;
   }
 
 .polloCaida{
@@ -234,7 +234,7 @@ body{
 }
 
 #caer {
-    animation: caida 2s steps(31) 3600;
+    animation: caida 2s steps(31) 1;
   }
 
 /* Esta clase oculta las animaciones */
