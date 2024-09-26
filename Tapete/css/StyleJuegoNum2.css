@@ -111,14 +111,14 @@ body{
 
 .botones{
     margin-left: 100px;
-    margin-top: 350px;
+    margin-top: 380px;
     font-size: 80px;
 }
 
 .numeroCompletar{
     position: relative;
-    right: -100px;
-    margin-top: -300px;
+    margin-left: 100px;
+    margin-top: -350px;
     font-size: 50px;
 }
 
@@ -157,6 +157,86 @@ body{
 }
 
 .btnOpciones{
-    margin-top: -20px;
+    margin-top: -300px;
     margin-left: 40px;
 }
+
+.imagenPollo{
+    margin-top: -220px;
+    margin-left: 100px;
+    
+}
+
+/* Contiene las propiedades imagen para la animación */
+.polloEspera{
+    position: relative;
+    margin-top: -20px;
+    height: 300px;
+    width: 420px;
+    background-image: url(../Visual/Material/Animaciones/Secuencia/espera.png);
+    /* animation-name: esperar; 
+    animation-duration: 2s;
+    animation-timing-function: steps(13);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+/* Aquí toma el inicio de la imagen y el pixel final para realizar la animación */
+@keyframes esperar {
+    from{background-position-x: 0px;}
+    to{background-position-x: -5435px;}
+}
+
+/*Contiene su duración y el tiempo de ejecución además del no.cuadros de la animación */
+#espera {
+    animation: esperar 2s steps(13) 3600;
+  } 
+
+  .polloSalto{
+    position: relative;
+    margin-top: -20px;
+    height: 300px;
+    width: 420px;
+    background-image: url(../Visual/Material/Animaciones/Secuencia/salto.png);
+    /* animation-name: brincar; */
+    /* animation-duration: 2s; */
+    /* animation-timing-function: steps(22);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+@keyframes brincar {
+    from{background-position-x: 0px;}
+    to{background-position-x: -9196px;}
+}
+
+#salto {
+    animation: brincar 2s steps(22) 3600;
+  }
+
+.polloCaida{
+    position: relative;
+    margin-top: -20px;
+    height: 300px;
+    width: 400px;
+    background-image: url(../Visual/Material/Animaciones/Secuencia/caida.png);
+    /* animation-name: caida; */
+    /* animation-duration: 2s;
+    animation-timing-function: steps(31);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+@keyframes caida {
+    from{background-position-x: 0px;}
+    to{background-position-x: -12958px;}
+}
+
+#caer {
+    animation: caida 2s steps(31) 3600;
+  }
+
+/* Esta clase oculta las animaciones */
+  .desaparecer {
+    display: none;
+  }
