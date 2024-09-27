@@ -111,7 +111,6 @@ function Opcion(arreglo){
 
 function Opciones(num){
     if(num == respuesta){
-        SaltoPollo()
         for(let i = 0; i < secuencia.length; i++){
             if(adivinar[i] == "_"){
                 adivinar.splice(i, 1, respuesta)
@@ -159,6 +158,7 @@ function Opciones(num){
                 })
             }
         }
+        SaltoPollo()
     }
     else{
         error--
@@ -279,10 +279,4 @@ function CaidaPollo(){
   
       espera.classList.remove("desaparecer"); 
     }, { once: true });
-}
-
-function EsperaPollo(){
-    const salto = document.getElementById("salto");
-    const espera = document.getElementById("espera");
-    const caer = document.getElementById("caer");
 }
