@@ -9,13 +9,13 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
-const palabras = ["libro"]
-//const palabras = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "víbora"]
+const op_palabras = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+var palabras = op_palabras
 var opciones = document.getElementsByClassName("opcion")
 var respuesta
 var arreglo = ["b", "v"]
 
-Ayuda()
+//Ayuda()
 
 function Reinicio(){
     swal({
@@ -28,13 +28,6 @@ function Reinicio(){
 
       .then((willDelete) => {
         if (willDelete) {
-            for(let y = 0; y < 3; y++){
-                radios[y].disabled = false
-            }
-            for (var i = 0; i < radios.length; i++) {
-                var niveles = radios[i];
-                niveles.checked = false;
-            }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -42,6 +35,7 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    palabras = op_palabras
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -53,46 +47,111 @@ function Reiniciar(){
 }
 
 function Empezar(){
-    if(!document.querySelector('input[name="dificultad"]:checked')){
+    switch(valor){
+        case 'facil':
+            respuesta = palabras[Math.floor(Math.random() * palabras.length)]
+            var repetida = palabras.indexOf(respuesta)
+            palabras.splice(repetida, 1)
+            //alert(palabras)
+            document.getElementById("linea").innerHTML = respuesta
+            imagen = document.getElementById('figura') 
+            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
+            
+            if(respuesta.includes('b') == true || respuesta.includes('v') == true){
+                document.getElementById("linea").innerHTML = respuesta.replaceAll(/b|v/g, "_")
+            }
+
+            for(let i = 0; i < arreglo.length; i++){
+                opciones[i].innerHTML = arreglo[i]
+            }
+            
+            document.getElementById('aparecer').style.display='block';
+            break
+
+        case 'medio':
+
+            break
+        
+        case 'dificil':
+
+            break
+    }
+}
+
+function Comprobar(letra){
+    if(respuesta.includes(letra)) {
+        for(var i = 0; i < respuesta.length; i++) {
+            if(respuesta[i]==letra){
+                respuesta[i] == letra
+                break
+            }
+        }
+        document.getElementById("linea").innerHTML = respuesta
         swal({
-            title: "Advertencia",
-            text: "Elige una dificultad para iniciar el juego",
-            icon: "Visual/Material/Iconos/pollo.jpg", 
+            title: "Felicidades",
+            text: "Continuemos. Sigue así",
+            icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        })
+
+        .then((continuacion) => {
+            if (continuacion) {
+                document.getElementById("btnIniciar").innerHTML = "Continuar"
+                contador++
+                document.getElementById("barra").value = contador
+                document.getElementById("barra").innerHTML = contador
+
+                if(contador == 10){
+                    swal({
+                        title: "Felicidades",
+                        text: "¿Quieres salir del juego o volver a intentarlo?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Volver a jugar", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+                else{
+                    Empezar()
+                }
+            } 
         })
     }
-
+    
     else{
-        for(let y = 0; y < 3; y++){
-            radios[y].disabled = true
+        error-- 
+        if(error == 2){
+            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
-        for(let i = 0; i < opciones.length; i++){
-            opciones[i].innerHTML = arreglo[i]
+        if(error == 1){
+            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
-        valor = document.querySelector('input[name="dificultad"]:checked').value
-        //document.getElementById('aparecer').style.display='block';
-
-        switch(valor){
-            case 'facil':
-                respuesta = palabras[Math.floor(Math.random() * palabras.length)]
-                document.getElementById("linea").innerHTML = respuesta
-                imagen = document.getElementById('figura') 
-                imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
-                if(respuesta.includes('b') == true || respuesta.includes('v') == true){
-                    document.getElementById("linea").innerHTML = respuesta.replaceAll(/b|v/g, "_")
+        if(error == 0){
+            vida.innerHTML = ""
+            swal({
+                title: "¡Oh no!",
+                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+                icon: "error",
+                buttons:  ["Reintentar", "Salir"] 
+            })
+            .then((reintento) => {
+                if (reintento) {
+                    location.href = "JuegosLetras.html"
+                } 
+                else{
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
                 }
-                break
-
-            case 'medio':
-
-                break
-            
-            case 'dificil':
-
-                break
+            })
         }
-        //document.getElementById('aparecer').style.display='block';
     }
 }
 
@@ -100,10 +159,12 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
     case 'ArrowLeft':
-        
+        //alert(arreglo[0])
+        Comprobar(arreglo[0])
         break;
     case 'ArrowRight':
-        
+        //alert(arreglo[1])
+        Comprobar(arreglo[1])
         break;
     default:
         break;
@@ -114,11 +175,11 @@ window.addEventListener("keyup",(e)=>{
     let tecla = e.key
 
     switch(tecla){
-        case 'ArrowLeft':
-            
-            break;
         case 'ArrowRight':
-            
+            //Empezar()
+            break;
+        case 'ArrowLeft':
+            //Empezar()
             break;
         default:
             break;
@@ -126,6 +187,13 @@ window.addEventListener("keyup",(e)=>{
 })
 
 function Ayuda(){
-    swal("Tutorial", 
-        "Completa la palabra con la letra correcta.");
+    swal({
+        title: "Tutorial",
+        text: "Completa la palabra con la letra correcta.\n Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+    })
+}
+
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
 }

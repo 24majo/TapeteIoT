@@ -1,0 +1,77 @@
+:root{
+    --color-barra-lateral: white;
+    --color-texto: black;
+    --color-texto-menu: rgb(134,136,144);
+    --color-boton: black;
+    --color-boton-texto: white;
+}
+
+.barra-lateral{
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    padding: 20px 15px;
+    background-color: var(--color-barra-lateral);
+    transition: width 0.5s ease; /* Animación de abrir y cerrar */
+}
+
+.mini-barra{
+    width: 80px;
+}
+
+.barra-lateral span{
+    font-size: 18px;
+    text-align: left;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.barra-lateral span.oculto{
+    opacity: 0;
+    width: 0;
+}
+
+.barra-lateral .nombre-pagina{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.barra-lateral .nombre-pagina .menu{
+    min-width: 50px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.barra-lateral .nombre-pagina span{
+    font-size: 25px;
+    margin-left: 5px;
+    transition: opacity 0.5s ease;
+}
+
+.barra-lateral .nombre-pagina span.oculto{
+    opacity: 0;
+}
+
+
+
+
+/* Diseño de botón */
+
+.barra-lateral .boton{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+}
+
+.barra-lateral .boton .inicio{
+    min-width: 50px;
+    font-size: 25px;
+}
