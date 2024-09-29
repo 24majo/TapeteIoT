@@ -190,7 +190,7 @@ body{
 
 /*Contiene su duración y el tiempo de ejecución además del no.cuadros de la animación */
 #espera {
-    animation: esperar 2s steps(13) 3600;
+    animation: esperar 2s steps(13) 86400;
   } 
 
   .polloSalto{
