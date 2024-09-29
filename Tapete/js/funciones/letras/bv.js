@@ -9,11 +9,23 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
-const op_palabras = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
-var palabras = op_palabras
+const palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa"]
+var palabras
 var opciones = document.getElementsByClassName("opcion")
 var respuesta
-var arreglo = ["b", "v"]
+var arreglo = []
+var num_ejercicio = 0, num_opcion = 0
+var palabras_d =[
+    {
+        frase: "Las vacas pueden volar.",
+        valores: ["vacas", "volar"]
+    },
+    {
+        frase: "Las abejas saben bailar.",
+        valores: ["abejas", "bailar"]
+    }
+]
 
 //Ayuda()
 
@@ -35,7 +47,7 @@ function Reinicio(){
 }
 
 function Reiniciar(){
-    palabras = op_palabras
+    palabras = palabras_f
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -49,6 +61,8 @@ function Reiniciar(){
 function Empezar(){
     switch(valor){
         case 'facil':
+            arreglo = ["b", "v"]
+            palabras = palabras_f
             respuesta = palabras[Math.floor(Math.random() * palabras.length)]
             var repetida = palabras.indexOf(respuesta)
             palabras.splice(repetida, 1)
@@ -69,11 +83,57 @@ function Empezar(){
             break
 
         case 'medio':
-
+            
             break
         
         case 'dificil':
+            arr_res = palabras_d[num_ejercicio].valores
+            respuesta = arr_res[num_opcion]
+            alert(respuesta)
 
+            if(num_opcion == 0){
+                arr_res.forEach(valor => {
+                    palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replaceAll(valor, "_______");
+                });
+            }
+            
+            document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
+
+            if(respuesta.includes("b")){
+                var palabra = respuesta.replace("b", "v");
+                
+                if(arreglo.length == 2){
+                    arreglo[0] = palabra
+                    arreglo[1] = respuesta
+                }
+                else{
+                    arreglo.push(palabra)
+                    arreglo.push(respuesta)
+                }
+            }
+            else if(respuesta.includes("v")){
+                var palabra = respuesta.replace("v", "b");
+                if(arreglo.length == 2){
+                    arreglo[0] = respuesta
+                    arreglo[1] = palabra
+                }
+                else{
+                    arreglo.push(respuesta)
+                    arreglo.push(palabra)
+                }
+                
+            }
+
+            alert(arreglo)
+
+            for (let i = 0; i < opciones.length; i++){
+                    opciones[i].innerHTML = arreglo[i] // Se muestran las opciones en los círculos
+            }
+
+            document.getElementById('aparecer').style.display='block';
+            // if(palabras_d[num_ejercicio].frase.includes(arr_res[0]) && palabras_d[num_ejercicio].frase.includes(arr_res[1])){
+            //     document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase.replaceAll(/arr_res[0]|arr_res[1]/g, "_")
+            // }
             break
     }
 }
@@ -86,9 +146,29 @@ function Comprobar(letra){
                 break
             }
         }
-        document.getElementById("linea").innerHTML = respuesta
+
+        switch(valor){
+            case 'facil':
+                document.getElementById("linea").innerHTML = respuesta
+                break
+
+            case 'medio':
+                break
+
+            case 'dificil':
+                palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replace("_______", respuesta)
+                document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
+                num_opcion++
+
+                if(num_opcion > 1){
+                    num_ejercicio++
+                    num_opcion = 0
+                }
+                break
+        }
+        
         swal({
-            title: "Felicidades",
+            title: "¡Muy bien!",
             text: "Continuemos. Sigue así",
             icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
         })
@@ -176,10 +256,10 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            //Empezar()
+            Empezar()
             break;
         case 'ArrowLeft':
-            //Empezar()
+            Empezar()
             break;
         default:
             break;
@@ -194,6 +274,8 @@ function Ayuda(){
     })
 }
 
-window.onload = function() {
-    valor = localStorage.getItem('valorBoton');
-}
+valor = "dificil"
+
+// window.onload = function() {
+//     valor = localStorage.getItem('valorBoton');
+// }
