@@ -17,7 +17,7 @@
 <body>
     <body background="Visual/Fondos/FondoDificultadDecenas.jpg"></body>
 
-<br><br><br>
+    <br><br><br>
     <nav>
         <a href="MenuSeleccion.html" class="btnInicio">
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
@@ -30,24 +30,24 @@
 
     <div class="titulo">
         <font face="Century Gothic">
-          <p><b>Selecciona la dificultad</b></p>
+            <p><b>Selecciona la dificultad</b></p>
         </font>
-      </div>
+    </div>
 
-      <article>
+    <article>
         <font face="Century Gothic">
             <button class="btnFacil modo" value="facil" onclick="valor(this.value)"><b>Fácil</b></button>
             <button class="btnMedio modo" value="medio" onclick="valor(this.value)"><b>Medio</b></button>
             <button class="btnDificil modo" value="dificil" onclick="valor(this.value)"><b>Difícil</b></button>
         </font>
-      </article>
+    </article>
 
-        <script>
-            function valor(dato) {
-                localStorage.setItem('valorBoton', dato);
-                window.location.href = './JuegoNum5.html';
-            }
-        </script>
+    <script>
+        function valor(dato) {
+            localStorage.setItem('valorBoton', dato);
+            window.location.href = './JuegoNum5.html';
+        }
+    </script>
     
 </body>
 </html>

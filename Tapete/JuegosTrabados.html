@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleccionar juego</title>
+</head>
+<body>
+
+    <br><br><br>
+    <nav>
+        <a href="MenuSeleccion.html" class="btnInicio">
+            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+        </a>
+
+        <a href="JuegosLetras.html" class="btnRegresar">
+            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+        </a>
+    </nav>
+
+    <div class="titulo">
+        <font face="Century Gothic">
+            <p><b>Selecciona el modo de juego</b></p>
+        </font>
+    </div>
+
+    <article>
+        <font face="Century Gothic">
+            <button onclick="valor(this.value)" value="b"><b>bl | br</b></button>
+            <button onclick="valor(this.value)" value="c"><b>cl | cr</b></button>
+            <button onclick="valor(this.value)" value="f"><b>fl | fr</b></button>
+            <button onclick="valor(this.value)" value="g"><b>gl | gr</b></button>
+            <button onclick="valor(this.value)" value="p"><b>pl | pr</b></button>
+            <button onclick="valor(this.value)" value="t"><b>tl | tr</b></button>
+        </font>
+    </article>
+
+    <script>
+        function valor(dato) {
+            localStorage.setItem('valorBoton', dato);
+            window.location.href = './JuegoLetras8.html';
+        }
+    </script>
+</body>
+</html>
