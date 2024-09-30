@@ -10,10 +10,10 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 const palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
-const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa"]
-var palabras
+const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+var palabras = []
 var opciones = document.getElementsByClassName("opcion")
-var respuesta
+var respuesta, respuesta_m = []
 var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
@@ -24,10 +24,42 @@ var palabras_d =[
     {
         frase: "Las abejas saben bailar.",
         valores: ["abejas", "bailar"]
+    },
+    {
+        frase:"Las liebres evolucionan.",
+        valores: ["liebres", "evolucionan"]
+    },
+    {
+        frase:"El tiburón es carnívoro.",
+        valores: ["tiburón", "carnívoro"]
+    },
+    {
+        frase:"La lombríz tiene fiebre.",
+        valores: ["lombríz", "fiebre"]
+    },
+    {
+        frase:"El búho voltea sus patas.",
+        valores: ["búho", "voltea"]
+    },
+    {
+        frase:"La ballena quiere viajar.",
+        valores: ["ballena", "viajar"]
+    },
+    {
+        frase:"El venado se está balanceando.",
+        valores: ["venado", "balanceando"]
+    },
+    {
+        frase:"El cuervo no puede barrer.",
+        valores: ["cuervo", "barrer"]
+    },
+    {
+        frase:"El borrego necesita brillar.",
+        valores: ["borrego", "brillar"]
     }
 ]
 
-//Ayuda()
+Ayuda()
 
 function Reinicio(){
     swal({
@@ -47,7 +79,7 @@ function Reinicio(){
 }
 
 function Reiniciar(){
-    palabras = palabras_f
+    palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -55,6 +87,8 @@ function Reiniciar(){
     document.getElementById("linea").innerHTML = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
+    num_ejercicio = 0
+    num_opcion = 0
     Empezar()
 }
 
@@ -83,20 +117,38 @@ function Empezar(){
             break
 
         case 'medio':
+            arreglo = ["b", "v"]
+            palabras = palabras_m
+
+            if(!respuesta_m.includes("_")){
+                respuesta = palabras[Math.floor(Math.random() * palabras.length)]
+                var repetida = palabras.indexOf(respuesta)
+                palabras.splice(repetida, 1)
+
+                if(respuesta.includes('b') == true || respuesta.includes('v') == true){
+                    respuesta_m = respuesta.replaceAll(/b|v/g, "_")
+                    document.getElementById("linea").innerHTML = respuesta_m
+                }
+            }
+
+            for(let i = 0; i < arreglo.length; i++){
+                opciones[i].innerHTML = arreglo[i]
+            }
             
+            document.getElementById('aparecer').style.display='block';
             break
         
         case 'dificil':
             arr_res = palabras_d[num_ejercicio].valores
             respuesta = arr_res[num_opcion]
-            alert(respuesta)
+            //alert(respuesta)
 
             if(num_opcion == 0){
                 arr_res.forEach(valor => {
                     palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replaceAll(valor, "_______");
                 });
             }
-            
+
             document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
 
             if(respuesta.includes("b")){
@@ -111,6 +163,7 @@ function Empezar(){
                     arreglo.push(respuesta)
                 }
             }
+
             else if(respuesta.includes("v")){
                 var palabra = respuesta.replace("v", "b");
                 if(arreglo.length == 2){
@@ -121,10 +174,9 @@ function Empezar(){
                     arreglo.push(respuesta)
                     arreglo.push(palabra)
                 }
-                
             }
 
-            alert(arreglo)
+            //alert(arreglo)
 
             for (let i = 0; i < opciones.length; i++){
                     opciones[i].innerHTML = arreglo[i] // Se muestran las opciones en los círculos
@@ -135,6 +187,26 @@ function Empezar(){
             //     document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase.replaceAll(/arr_res[0]|arr_res[1]/g, "_")
             // }
             break
+    }
+}
+
+function ComprobarM(letra){
+    if(respuesta.includes(letra)) {
+        for(var i = 0; i < respuesta.length; i++){
+            if(respuesta[i]==letra){
+                respuesta_m = respuesta_m.replace("_", letra)
+                break
+            }
+        }
+        document.getElementById("linea").innerHTML = respuesta_m
+
+        if(!respuesta_m.includes("_")){
+            Felicidades()
+        }
+    }
+
+    else{
+        Fallo()
     }
 }
 
@@ -150,9 +222,7 @@ function Comprobar(letra){
         switch(valor){
             case 'facil':
                 document.getElementById("linea").innerHTML = respuesta
-                break
-
-            case 'medio':
+                Felicidades()
                 break
 
             case 'dificil':
@@ -160,79 +230,86 @@ function Comprobar(letra){
                 document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
                 num_opcion++
 
-                if(num_opcion > 1){
+                if(num_opcion > 1 && num_ejercicio < 10){
                     num_ejercicio++
                     num_opcion = 0
+                    Felicidades()
                 }
                 break
         }
-        
-        swal({
-            title: "¡Muy bien!",
-            text: "Continuemos. Sigue así",
-            icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
-        })
-
-        .then((continuacion) => {
-            if (continuacion) {
-                document.getElementById("btnIniciar").innerHTML = "Continuar"
-                contador++
-                document.getElementById("barra").value = contador
-                document.getElementById("barra").innerHTML = contador
-
-                if(contador == 10){
-                    swal({
-                        title: "Felicidades",
-                        text: "¿Quieres salir del juego o volver a intentarlo?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
-                        buttons:  ["Volver a jugar", "Salir"] 
-                    })
-                    .then((reintento) => {
-                        if (reintento) {
-                            location.href = "JuegosLetras.html"
-                        } 
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
-                }
-                else{
-                    Empezar()
-                }
-            } 
-        })
     }
     
     else{
-        error-- 
-        if(error == 2){
-            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
-        }
-
-        if(error == 1){
-            vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
-        }
-
-        if(error == 0){
-            vida.innerHTML = ""
-            swal({
-                title: "¡Oh no!",
-                text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "error",
-                buttons:  ["Reintentar", "Salir"] 
-            })
-            .then((reintento) => {
-                if (reintento) {
-                    location.href = "JuegosLetras.html"
-                } 
-                else{
-                    document.getElementById("btnIniciar").innerHTML = "Empezar"
-                    Reiniciar()
-                }
-            })
-        }
+        Fallo()
     }
+}
+
+function Fallo(){
+    error-- 
+    if(error == 2){
+        vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+    }
+
+    if(error == 1){
+        vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+    }
+
+    if(error == 0){
+        vida.innerHTML = ""
+        swal({
+            title: "¡Oh no!",
+            text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
+            icon: "error",
+            buttons:  ["Reintentar", "Salir"] 
+        })
+        .then((reintento) => {
+            if (reintento) {
+                location.href = "JuegosLetras.html"
+            } 
+            else{
+                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                Reiniciar()
+            }
+        })
+    }
+}
+
+function Felicidades(){
+    swal({
+        title: "¡Muy bien!",
+        text: "Continuemos. Sigue así",
+        icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+    })
+
+    .then((continuacion) => {
+        if (continuacion) {
+            document.getElementById("btnIniciar").innerHTML = "Continuar"
+            contador++
+            document.getElementById("barra").value = contador
+            document.getElementById("barra").innerHTML = contador
+
+            if(contador == 10){
+                swal({
+                    title: "Felicidades",
+                    text: "¿Quieres salir del juego o volver a intentarlo?",
+                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                    buttons:  ["Volver a jugar", "Salir"] 
+                })
+                .then((reintento) => {
+                    if (reintento) {
+                        location.href = "JuegosLetras.html"
+                    } 
+                    else{
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
+                })
+            }
+            else{
+                Empezar()
+            }
+        } 
+    })
 }
 
 window.addEventListener("keydown",(e)=>{
@@ -240,11 +317,21 @@ window.addEventListener("keydown",(e)=>{
     switch(tecla){
     case 'ArrowLeft':
         //alert(arreglo[0])
-        Comprobar(arreglo[0])
+        if(valor == 'medio'){
+            ComprobarM(arreglo[0])
+        }
+        else{
+            Comprobar(arreglo[0])
+        }
         break;
     case 'ArrowRight':
         //alert(arreglo[1])
-        Comprobar(arreglo[1])
+        if(valor == 'medio'){
+            ComprobarM(arreglo[1])
+        }
+        else{
+            Comprobar(arreglo[1])
+        }
         break;
     default:
         break;
@@ -274,8 +361,6 @@ function Ayuda(){
     })
 }
 
-valor = "dificil"
-
-// window.onload = function() {
-//     valor = localStorage.getItem('valorBoton');
-// }
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+}
