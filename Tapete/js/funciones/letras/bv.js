@@ -10,7 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 const palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
-const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+//const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+const palabras_m = ["víbora"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -191,12 +192,43 @@ function Empezar(){
 }
 
 function ComprobarM(letra){
+    alert("Respuesta: " + respuesta)
+    // var pos = respuesta.indexOf(letra)
+    // if(pos != -1){
+    //     alert(pos)
+    //     if(respuesta_m[pos] == "_"){
+    //         respuesta_m = respuesta_m.replace("_", letra)
+    //         document.getElementById("linea").innerHTML = respuesta_m
+    //     }
+    //     else{
+    //         alert("No ta")
+    //     }
+    // }
     if(respuesta.includes(letra)) {
         for(var i = 0; i < respuesta.length; i++){
-            if(respuesta[i]==letra){
-                respuesta_m = respuesta_m.replace("_", letra)
+            //alert("i: " + i)
+            if(respuesta_m[i] == "_"){
+                if(respuesta[i] == letra){
+                    respuesta_m = respuesta_m.replace("_", letra)
+                    break
+                }
+
+                else{
+                    Fallo()
+                    break
+                }
                 break
             }
+            // if(respuesta[i]==letra){
+            //     alert("Respuesta[i]: " + respuesta[i])
+            //     alert("Respuesta(m)[i]: " + respuesta_m[i])
+            //     respuesta_m = respuesta_m.replace("_", letra)
+            //     break
+            // }
+            // else{
+            //     alert("Fallo")
+            //     Fallo()
+            // }
         }
         document.getElementById("linea").innerHTML = respuesta_m
 
