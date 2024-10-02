@@ -44,6 +44,8 @@ function Empezar(){
             num1 = Math.floor(Math.random() * (50-1)+1)
             num2 = Math.floor(Math.random() * (50-1)+1)
             Random(num1, num2)  
+            // imagen.innerHTML = '<img src="Visual/Material/Recursos/SemaforoFacil.png" width="100">'
+            // document.getElementById("dificultad").textContent = "Fácil";
             break
 
         case 'medio':

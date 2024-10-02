@@ -23,7 +23,7 @@ body{
     font-weight: bold;
     cursor: pointer;
     outline: none;
-    margin-top: 0px;
+    margin-top: 10px;
     margin-left: 160px; 
 }
 
@@ -31,7 +31,7 @@ body{
     width: 200px;
     height: 80px;
     border-radius: 20px;
-    background: #ff5f5f;
+    background: #5ab611 ;
     border: none;
     color: azure;
     font-size: 50px;
@@ -91,7 +91,7 @@ body{
     width: 200px;
     height: 80px;
     border-radius: 20px;
-    background: #79e11e;
+    background:  #900C3F;
     border: none;
     color: azure;
     font-size: 50px;

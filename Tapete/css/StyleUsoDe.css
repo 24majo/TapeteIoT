@@ -35,7 +35,7 @@ body{
     width: 200px;
     height: 80px;
     border-radius: 20px;
-    background: #ff5b5b;
+    background: #e6c300 ;
     border: none;
     color: azure;
     font-size: 50px;
@@ -65,7 +65,7 @@ body{
     width: 200px;
     height: 80px;
     border-radius: 20px;
-    background: #F9B233;
+    background: #900C3F ;
     border: none;
     color: azure;
     font-size: 50px;
@@ -76,35 +76,6 @@ body{
     margin-left: 70px; 
 }
 
-.btnP{
-    width: 200px;
-    height: 80px;
-    border-radius: 20px;
-    background: #ff88e6;
-    border: none;
-    color: azure;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    margin-top: 50px;
-    margin-left: 400px; 
-}
-
-.btnT{
-    width: 200px;
-    height: 80px;
-    border-radius: 20px;
-    background: #79e11e;
-    border: none;
-    color: azure;
-    font-size: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    margin-top: 50px;
-    margin-left: 150px; 
-}
 
 .btnInicio{
     margin-top: 100px;
