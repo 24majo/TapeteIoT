@@ -1,0 +1,117 @@
+body{
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.titulo{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 55px;
+    text-align: center;
+ }
+
+ .botones{
+    margin-top: 10px;
+ }
+
+.btnC{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #662483;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 0px;
+    margin-left: 160px; 
+}
+
+.btnB{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #ff5b5b;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 70px; 
+}
+
+.btnR{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #009FE3;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 70px; 
+}
+
+.btnY{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #F9B233;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 70px; 
+}
+
+.btnP{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #ff88e6;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 400px; 
+}
+
+.btnT{
+    width: 200px;
+    height: 80px;
+    border-radius: 20px;
+    background: #79e11e;
+    border: none;
+    color: azure;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    margin-top: 50px;
+    margin-left: 150px; 
+}
+
+.btnInicio{
+    margin-top: 100px;
+    margin-left: 90px; 
+}
+
+.btnRegresar{
+    margin-top: 100px;
+    margin-left: 40px; 
+}

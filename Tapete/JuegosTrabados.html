@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleccionar juego</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleSilabasTrabadas.css">
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/query-3.7.1.min.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Selección silaba trabada</title>
 </head>
-<body>
+<body background="Visual/Fondos/FondoDificultad2.jpg">
 
     <br><br><br>
     <nav>
@@ -20,18 +28,18 @@
 
     <div class="titulo">
         <font face="Century Gothic">
-            <p><b>Selecciona el modo de juego</b></p>
+            <p><b>Selecciona un conjunto de sílabas</b></p>
         </font>
     </div>
 
     <article>
         <font face="Century Gothic">
-            <button onclick="valor(this.value)" value="b"><b>bl | br</b></button>
-            <button onclick="valor(this.value)" value="c"><b>cl | cr</b></button>
-            <button onclick="valor(this.value)" value="f"><b>fl | fr</b></button>
-            <button onclick="valor(this.value)" value="g"><b>gl | gr</b></button>
-            <button onclick="valor(this.value)" value="p"><b>pl | pr</b></button>
-            <button onclick="valor(this.value)" value="t"><b>tl | tr</b></button>
+            <button class="btnB" onclick="valor(this.value)" value="b"><b>bl | br</b></button>
+            <button class="btnC" onclick="valor(this.value)" value="c"><b>cl | cr</b></button>
+            <button class="btnF" onclick="valor(this.value)" value="f"><b>fl | fr</b></button>
+            <button class="btnG" onclick="valor(this.value)" value="g"><b>gl | gr</b></button>
+            <button class="btnP" onclick="valor(this.value)" value="p"><b>pl | pr</b></button>
+            <button class="btnT" onclick="valor(this.value)" value="t"><b>tl | tr</b></button>
         </font>
     </article>
 

@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/StyleDificultadMenu.css">
+    <link rel="stylesheet" href="css/StyleUsoDe.css">
     
     <script src="js/bootstrap.min.js"></script>
     <script src="js/query-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>Menú dificultad decenas</title>
+    <title>Selección silaba trabada</title>
 </head>
-
-<body>
-    <body background="Visual/Fondos/FondoDificultad1.jpg"></body>
+<body background="Visual/Fondos/FondoDificultad4.jpg">
 
     <br><br><br>
     <nav>
@@ -23,31 +21,33 @@
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
         </a>
 
-        <a href="JuegosNumeros.html" class="btnRegresar">
+        <a href="JuegosLetras.html" class="btnRegresar">
             <img src="Visual/Material/Iconos/Flecha.png" width="60px">
         </a>
     </nav>
 
     <div class="titulo">
         <font face="Century Gothic">
-            <p><b>Selecciona la dificultad</b></p>
+            <p><b>Selecciona las letras que quieras practicar</b></p>
         </font>
     </div>
 
     <article>
         <font face="Century Gothic">
-            <button class="btnFacil modo" value="facil" onclick="valor(this.value)"><b>Fácil</b></button>
-            <button class="btnMedio modo" value="medio" onclick="valor(this.value)"><b>Medio</b></button>
-            <button class="btnDificil modo" value="dificil" onclick="valor(this.value)"><b>Difícil</b></button>
+            <div class="botones">
+                <button class="btnC" onclick="valor(this.value)" value="#"><b>C|S|Z</b></button>
+                <button class="btnB" onclick="valor(this.value)" value="#"><b>B|V</b></button>
+                <button class="btnR" onclick="valor(this.value)" value="#"><b>R|RR</b></button>
+                <button class="btnY" onclick="valor(this.value)" value="#"><b>Y|LL</b></button>
+            </div>
         </font>
     </article>
 
-    <script>
+    <!-- <script>
         function valor(dato) {
             localStorage.setItem('valorBoton', dato);
-            window.location.href = './JuegoNum5.html';
+            window.location.href = './JuegoLetras8.html';
         }
-    </script>
-    
+    </script> -->
 </body>
 </html>
