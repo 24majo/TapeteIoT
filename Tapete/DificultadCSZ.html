@@ -22,7 +22,7 @@
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
         </a>
 
-        <a href="JuegosNumeros.html" class="btnRegresar">
+        <a href="JuegosLetras.html" class="btnRegresar">
             <img src="Visual/Material/Iconos/Flecha.png" width="60px">
         </a>
     </nav>
@@ -37,14 +37,18 @@
 
       <article>
         <font face="Century Gothic">
-            <button class="btnFacil"><b>Fácil</b></button>
-            <button class="btnMedio"><b>Medio</b></button>
-            <button class="btnDificil"><b>Difícil</b></button>
+            <button class="btnFacil modo" value="facil" onclick="valor(this.value)"><b>Fácil</b></button>
+            <button class="btnMedio modo" value="medio" onclick="valor(this.value)"><b>Medio</b></button>
+            <button class="btnDificil modo" value="dificil" onclick="valor(this.value)"><b>Difícil</b></button>
         </font>
         
       </article>
 
-  
-    
+        <script>
+            function valor(dato) {
+                localStorage.setItem('valorBoton', dato);
+                window.location.href = './JuegoLetras7.html';
+            }
+        </script>
 </body>
 </html>

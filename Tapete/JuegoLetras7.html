@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleJuegoLetras6.css">
+
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/query-3.7.1.min.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Uso de C, S y Z</title>
+</head>
+
+<body background="Visual/Fondos/FondoJuegos.jpg"> 
+    <progress id="barra" max="10" value="0"></progress>
+   
+    <nav class="titulo">
+        <Font face="Century Gothic">
+            <h1><b>Uso de C, S y Z</b></h1>
+        </Font>
+        
+        <a href="MenuSeleccion.html" class="btnInicio">
+            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+        </a>
+        <a href="JuegosLetras.html" class="btnAtras">
+            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+        </a>
+    </nav>
+
+    <div>
+        <div id="vida"></div>
+    </div>
+
+    <section>
+        <article class="dibujo">
+            <img class="imagen" id='figura' width="200px" height="200px">
+            <div id="linea"></div>
+        </article>
+    </section>
+
+
+    <div class="letras">
+        <font face="Century Gothic">
+            <button id="btnIniciar" onclick="Empezar()"><b>Empezar</b></button>
+            <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+        </font>  
+    </div>
+
+    <div id="circulos">
+        <font face="MV Boli">
+            <span id="opcionIzquierda" class="opcion"></span>
+            <span id="opcionAbajo" class="opcion"></span>
+            <span id="opcionDerecha" class="opcion"></span>
+        </font>
+    </div>
+    <script src="js/funciones/letras/c-s-z.js"></script>
+
+</body>
+</html>
