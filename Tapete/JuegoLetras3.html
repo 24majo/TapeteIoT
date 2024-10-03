@@ -10,19 +10,45 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <script src="js/funciones/letras/comprension.js"></script>
+      <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Comprensión lectora</title>
 </head>
+
 <body>
     <body background="Visual/Fondos/FondoJuegos.jpg">
         <!-- Barra de progreso, atributos -->
         <div style="margin-left: 790px; margin-top: 20px">
             <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
-        </div>
+    <!-- Barra de progreso, atributos -->
+    <div style="margin-left: 750px; margin-top: 20px">
+        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+    </div>
 
-        <!-- Vidas -->
-        <div>
-            <div class="vidas" id="vida"></div>
+    <!-- Vidas -->
+    <div>
+        <div class="vidas" id="vida"></div>
+    </div>
+
+    <nav class="titulo">
+        <Font face="Century Gothic">
+            <h1>Lee la lectura y contesta la preguntas</h1>
+        </Font>
+        
+        <div class="btnMenus">
+            <a href="MenuSeleccion.html" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+            <a href="JuegosNumeros.html" class="btnAtras">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
+     </div>
+
+        <div style="margin-top: -60px;"> 
+            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div>
     
         <nav >
@@ -93,5 +119,53 @@
         </div>
     </aside>
     <script src="js/funciones/letras/comprension.js"></script>
+=======
+        <!-- <div class="radioDificultad">
+            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
+            <input type="radio" name="dificultad" id="medio" value="medio">Medio
+            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
+        </div> -->
+    </nav>
+
+    <article>
+        <section class="">
+            <font face="Century Gothic">
+                <p style="font-size: 25px; width: 480px; text-align: justify; 
+                margin-left: 100px;" 
+                id="parrafo"></p>
+            </font>
+        </section>
+    </article>
+
+    <aside>
+        <div class="pregunta"></div>
+            <font face="Century Gothic">
+                <span class="titulo" id="titulo"></span>
+                <br>
+                <span class="pregunta" id="pregunta"></span>
+                <br>
+                <p class="parrafo" id="parrafo"></p>
+            </font>
+        </div>
+    </aside>
+        
+    <div class="btnOpciones" id="aparecer">
+        <font face="MV Boli">
+            <span id="opcionArriba" class="opcion"></span>
+            <span id="opcionAbajo" class="opcion"></span>
+            <span id="opcionIzquierda" class="opcion"></span>
+            <span id="opcionDerecha" class="opcion"></span>
+        </font>
+    </div>
+
+    <footer>
+        <div class="botones">   
+            <font face="Century Gothic">
+                <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+                <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+            </font>
+        </div>
+    </footer>
+
 </body>
 </html>

@@ -341,4 +341,3 @@ function Ayuda(){
         icon: "Visual/Material/Animaciones/Generales/teclado.gif"
     })
 }
-
