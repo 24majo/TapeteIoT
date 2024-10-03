@@ -10,8 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 const palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
-//const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
-const palabras_m = ["víbora"]
+const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+//const palabras_m = ["víbora"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -192,7 +192,7 @@ function Empezar(){
 }
 
 function ComprobarM(letra){
-    alert("Respuesta: " + respuesta)
+    //alert("Respuesta: " + respuesta)
     // var pos = respuesta.indexOf(letra)
     // if(pos != -1){
     //     alert(pos)
@@ -375,10 +375,12 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            Empezar()
+            if(valor == 'dificil')
+                Empezar()
             break;
         case 'ArrowLeft':
-            Empezar()
+            if(valor == 'dificil')
+                Empezar()
             break;
         default:
             break;
