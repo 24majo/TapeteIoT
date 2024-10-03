@@ -184,16 +184,16 @@ function CuadrosOp(result, aux){
 //         })
 //         return CuadrosOp(result)
 }
-var profesion = ["molinero", "carpintero", "herrero", "panadero"]
-var hijo = ["hijo menor", "hijo mayor", "unico hijo", "segundo hijo"]
-var animalCaza = ["conejos", "aves", "ratones", "liebres"]
-var nombreMarques = ["Carabás", "Alcarás", "Caravela", "Barabás", "Garabás"]
-var lugar = ["río", "arroyo","laguna", "lago", "manantial"]
-var invitacion = ["carruaje", "palacio", "castillo", "carroza"]
-var criaturaMagica = ["un ogro", "una bruja", "un hechizero", "un duende"]
-var lugar2 = ["tierras", "praderas", "sembradios", "bosques"]
-var lugarfiesta = ["bosque", "palacio", "lago", "castillo"]
-var casaGato = ["palacio", "hacienda", "castillo", "mansión"]
+// var profesion = ["molinero", "carpintero", "herrero", "panadero"]
+// var hijo = ["hijo menor", "hijo mayor", "unico hijo", "segundo hijo"]
+// var animalCaza = ["conejos", "aves", "ratones", "liebres"]
+// var nombreMarques = ["Carabás", "Alcarás", "Caravela", "Barabás", "Garabás"]
+// var lugar = ["río", "arroyo","laguna", "lago", "manantial"]
+// var invitacion = ["carruaje", "palacio", "castillo", "carroza"]
+// var criaturaMagica = ["un ogro", "una bruja", "un hechizero", "un duende"]
+// var lugar2 = ["tierras", "praderas", "sembradios", "bosques"]
+// var lugarfiesta = ["bosque", "palacio", "lago", "castillo"]
+// var casaGato = ["palacio", "hacienda", "castillo", "mansión"]
 
 var res1, res2
 
@@ -203,45 +203,45 @@ window.onload = function() {
 
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
-function Empezar(){
-    // if(!document.querySelector('input[name="dificultad"]:checked')){
-    //     swal({
-    //         title: "Advertencia",
-    //         text: "Elige una dificultad para iniciar el juego",
-    //         icon: "warning", 
-    //     })
-    // } 
+// function Empezar(){
+//     // if(!document.querySelector('input[name="dificultad"]:checked')){
+//     //     swal({
+//     //         title: "Advertencia",
+//     //         text: "Elige una dificultad para iniciar el juego",
+//     //         icon: "warning", 
+//     //     })
+//     // } 
 
-    // else{
-        // for(let y = 0; y < 3; y++){
-        //     radios[y].disabled = true
-        // }
-        // valor = document.querySelector('input[name="dificultad"]:checked').value
-    document.getElementById('aparecer').style.display='block';
+//     // else{
+//         // for(let y = 0; y < 3; y++){
+//         //     radios[y].disabled = true
+//         // }
+//         // valor = document.querySelector('input[name="dificultad"]:checked').value
+//     document.getElementById('aparecer').style.display='block';
 
-    switch(valor){
-        case 'facil':
-            document.getElementById("titulo").innerHTML = "El gato con botas"
-            res1 = profesion[Math.floor(Math.random() * profesion.length)]
-            res2 = hijo[Math.floor(Math.random() * hijo.length)]
-            document.getElementById("parrafo").innerHTML = "Un " + res1 + " dejó a su "+ res2 + " un gato como herencia. Aunque decepcionado, el joven pensó que el gato era inútil. Sin embargo, el gato habló y prometió hacer de su dueño un hombre rico si le conseguía unas botas y un saco."
-            Pregunta()
+//     switch(valor){
+//         case 'facil':
+//             document.getElementById("titulo").innerHTML = "El gato con botas"
+//             res1 = profesion[Math.floor(Math.random() * profesion.length)]
+//             res2 = hijo[Math.floor(Math.random() * hijo.length)]
+//             document.getElementById("parrafo").innerHTML = "Un " + res1 + " dejó a su "+ res2 + " un gato como herencia. Aunque decepcionado, el joven pensó que el gato era inútil. Sin embargo, el gato habló y prometió hacer de su dueño un hombre rico si le conseguía unas botas y un saco."
+//             Pregunta()
 
             
-            break
+//             break
 
-        case 'medio':
-            document.getElementById("titulo").innerHTML = "Soldadito de plomo"
-            document.getElementById("parrafo").innerHTML = "2.1"
-            break
+//         case 'medio':
+//             document.getElementById("titulo").innerHTML = "Soldadito de plomo"
+//             document.getElementById("parrafo").innerHTML = "2.1"
+//             break
         
-        case 'dificil':
-            document.getElementById("titulo").innerHTML = "El patito feo"
-            document.getElementById("parrafo").innerHTML = "3.1"
-            break
-    }
-    // }
-}
+//         case 'dificil':
+//             document.getElementById("titulo").innerHTML = "El patito feo"
+//             document.getElementById("parrafo").innerHTML = "3.1"
+//             break
+//     }
+//     // }
+// }
 
 
 
