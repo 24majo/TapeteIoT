@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Barra Lateral -->
+    <link rel="stylesheet" href="css/BarraLateral.css">
     <title>Sílabas trabadas</title>
 </head>
 
 <body>
+
+    <div class="barra-lateral">
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+        <button class="boton" onclick="location.href = 'JuegosLetras.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Regresar</span>
+        </button>
+
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="Visual/Material/Iconos/ayuda.png" alt="" width="50px" id="ayuda" style="cursor: pointer;">
+                        <span>Ayuda</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
     <table>
         <thead>
             <tr>
@@ -18,39 +49,39 @@
         </thead>
         <tbody>
             <tr>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
             </tr>
             <tr>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
             </tr>
             <tr>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
             </tr>
             <tr></tr>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
             </tr>
             <tr>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="1" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
-                <td><img class="2" src="" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="1" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
+                <td><img class="2" src="" width="50px" alt=""></td>
             </tr>
         </tbody>
     </table>
 </body>
 
-
+    <script src="js/Barra.js"></script>
     <script src="js/funciones/letras/trabadas.js"></script>
 </html>
