@@ -54,12 +54,12 @@ var preguntas_f = [
     { 
         nivel:7, 
         p:"¿A quién engañó el gato?",
-        res1: ["un ogro", "una bruja", "un hechizero", "un duende"]
+        res1: ["un ogro", "una bruja", "un hechicero", "un duende"]
     },
     { 
         nivel:8, 
         p:"¿De qué era propietario?",
-        res2: ["tierras", "praderas", "sembradios", "bosques"]
+        res2: ["tierras", "praderas", "sembradíos", "bosques"]
     },
     { 
         nivel:9, 
