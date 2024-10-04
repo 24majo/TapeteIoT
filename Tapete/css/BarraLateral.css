@@ -72,6 +72,7 @@ body{
 /* Diseño de botón */
 
 .barra-lateral .boton{
+    margin-top: 10px;
     width: 100%;
     height: 45px;
     display: flex;
