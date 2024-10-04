@@ -5,7 +5,10 @@ var numeros = [1,2,3,4,5,6,7,8,9]
 var respuesta
 var result
 var op = []
-var contador = 0
+// Barra de progreso
+contador = 0
+document.getElementById("barra").value = contador
+document.getElementById("barra").innerHTML = contador
 var error = 3
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -122,8 +125,10 @@ function Opciones(num){
         var e = adivinar.includes('_')
 
         if(!e){
-            contador+=1
-            
+            contador++
+            document.getElementById("barra").value = contador
+            document.getElementById("barra").innerHTML = contador
+
             swal({
                 title: "¡Bien hecho! :D",
                 text: "Continuemos al siguiente ejercicio",
@@ -132,21 +137,20 @@ function Opciones(num){
             })
             .then((Continuar) => {
                 if(Continuar){
+                    document.getElementById("btnIniciar").innerHTML = "Continuar"
                     Empezar()
                 }
             })
             //alert("Ganaste")
             //document.getElementById("contador").innerHTML = "Aciertos: " + contador
-            document.getElementById("btnIniciar").innerHTML = "Continuar"
-            document.getElementById("barra").value = contador
-            document.getElementById("barra").innerHTML = contador
+            
 
             if(contador==9){
                 swal({
-                    title: "¡Bien hecho! :D",
-                    text: "Continuemos al siguiente ejercicio",
+                    title: "¡Felicidades! :D",
+                    text: "Has completado todas las secuencias. \n ¿Deseas reintentar el juego o salir?",
                     icon: "success",
-                    buttons: ["Continuar", "Salir"],
+                    buttons: ["Reintentar", "Salir"],
                 })
                 .then((Continuar) => {
                     if(Continuar){

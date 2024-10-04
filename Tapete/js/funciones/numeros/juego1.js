@@ -11,11 +11,11 @@ Ayuda()
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
         //opciones[numero].style.backgroundColor = '#f958a5'
-        contador+=10
+        contador++
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
 
-        if(contador == 100){
+        if(contador == 10){
             swal({
                 title: "¡Ganador!",
                 text: "Has superado la prueba. ¿Deseas salir o reiniciar el juego?",
