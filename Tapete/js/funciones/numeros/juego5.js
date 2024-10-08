@@ -15,12 +15,21 @@ var op = []
 var pecera = document.getElementById("pecera")
 var respuesta = ""
 var ejercicio = 0
+var semaforo = document.getElementById('semaforo')
 
 Ayuda()
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
     //alert(valor)
+    if(valor == 'facil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+
+    if(valor == 'medio')
+        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+
+    if(valor == 'dificil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
 }
 
 function Reiniciar(){
