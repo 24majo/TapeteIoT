@@ -6,6 +6,8 @@
 	
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/StyleJuegoNum1.css">
+		<!-- Barra Lateral -->
+		<link rel="stylesheet" href="css/BarraLateral.css">
 		
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.7.1.min.js"></script>
@@ -14,6 +16,32 @@
 	</head>
 	
 	<body background="Visual/Fondos/FondoJuegos.jpg">
+
+		<div class="barra-lateral">
+			<div class="nombre-pagina">
+				<img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+				<span>DiDit</span>
+			</div>
+			<button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+				<img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+				<span>Inicio</span>
+			</button>
+	
+			<button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+				<img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+				<span>Menú de números</span>
+			</button>
+	
+			<!-- <button class="boton" onclick="location.href = 'JuegosTrabados.html'">
+				<img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
+				<span>Cambiar modo</span>
+			</button> -->
+			
+			<button class="boton" onclick="Ayuda()">
+				<img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
+				<span>Ayuda</span>
+			</button>
+		</div>
 
 		<nav>
 			<div style="margin-left: 800px; margin-top: 40px">
@@ -24,17 +52,17 @@
 
 			  <div class="btnMenus">
 				
-				<a href="MenuSeleccion.html" class="btnInicio">
+				<!-- <a href="MenuSeleccion.html" class="btnInicio">
 					<img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
 				</a>
 				<a href="JuegosNumeros.html" class="btnAtras">
 					<img src="Visual/Material/Iconos/Flecha.png" width="60px">
-				</a>
+				</a> -->
 			</div>
 
-			<div style="margin-top: -68px; margin-left: 300px;">
+			<!-- <div style="margin-top: -68px; margin-left: 300px;">
 				<button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
-			</div>
+			</div> -->
 
 			<div class="titulo">
 				<font face="Century Gothic">
@@ -79,7 +107,7 @@
 			</div>
 		</aside>
 		
-
+		<script src="js/Barra.js"></script>
 		<script src="js/funciones/numeros/juego1.js"></script>
 	</body>
 </html>

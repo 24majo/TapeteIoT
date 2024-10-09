@@ -16,6 +16,7 @@ var op = []
 var radios = document.getElementsByName("dificultad")
 
 // Elementos generales
+var semaforo = document.getElementById('semaforo')
 var resp1 = "", resp2 = "", arr_datos1, arr_datos2
 var num_parrafo = 0, aux = 0
 
@@ -515,4 +516,12 @@ function Ayuda(){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
+    if(valor == 'facil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+
+    if(valor == 'medio')
+        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+
+    if(valor == 'dificil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
 }

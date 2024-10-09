@@ -9,6 +9,7 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
+var semaforo = document.getElementById('semaforo')
 const palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
 const palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
 var palabras = []
@@ -366,4 +367,12 @@ function Ayuda(){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
+    if(valor == 'facil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+
+    if(valor == 'medio')
+        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+
+    if(valor == 'dificil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
 }

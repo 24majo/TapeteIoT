@@ -15,14 +15,25 @@ var valorBoton
 // Elementos generales
 var resultado = 0
 var arreglo = []
+var semaforo = document.getElementById('semaforo')
 
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
     //alert(valor)
-    //document.getElementById('mostrarValor').textContent = valor ? valor : 'No se recibió ningún valor';
+
+    if(valor == 'facil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+
+    if(valor == 'medio')
+        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+
+    if(valor == 'dificil')
+        semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
 }
+
+
 
 function Empezar(){
     // if(!document.querySelector('input[name="dificultad"]:checked')){
