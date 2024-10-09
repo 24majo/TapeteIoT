@@ -108,6 +108,49 @@ var preguntas_m = [
     }
 ]
 
+var preguntas_d = [
+    {
+        p:"¿Cómo estaba el día en que nació el patito?",
+        res1: ["soleado", "brillante", "nublado", "gris", "cálido", "despejado", "claro", "radiante"]
+    },
+    {
+        p:"¿Cómo era el patito feo?",
+        res2: ["grande y torpe", "enorme y lento", "alto y despistado", "robusto y torpe", "grande y despistado", "gris y desalineado", "grande y gris", "desalineado y grande", "desproporcionado y torpe", "desproporcionado y despistado"]
+    },
+    {
+        p:"¿En dónde se escondió el patito feo?",
+        res1: ["laguna congelada", "estanque helado", "charca fría", "pantano helado", "lago congelado", "frío río", "río congelado", "fría laguna", "charca congelada", "frío lago"]
+    },
+    {
+        p:"¿Quién encontró al patito feo?",
+        res2: ["Una anciana", "Un anciano", "Una campesina", "Un campesino", "Una abuela", "Un abuelo", "Una aldeana", "Un aldeano", "Una niña", "Un niño"]
+    },
+    {
+        p:"¿En dónde se escondió el patito feo?",
+        res1: ["en un matorral", "en la maleza", "en un arbusto", "entre las hierbas", "entre lirios", "entre cañas", "entre el pasto", "entre las plantas"]
+    },
+    {
+        p:"¿Cómo miraron los cisnes al patito feo?",
+        res2: ["curiosidad", "interés", "atención", "inquietud", "extrañeza", "entusiasmo", "fascinación", "aprecio"]
+    },
+    {
+        p:"¿En qué se había transformado el patito feo?",
+        res1: ["cisne blanco y elegante", "cisne blanco y hermoso", "cisne blanco y bello", "cisne blanco y refinado", "cisne blanco y sofisticado", "cisne bello y hermoso", "cisne elegante y sofisticado", "cisne hermoso y elegante"]
+    },
+    {
+        p:"¿Cómo le hicieron sentir los demás cisnes al patito?",
+        res2: ["amado", "aceptado", "querido", "valorado", "estimado", "apreciado", "respetado", "considerado"]
+    },
+    {
+        p:"¿Qué sintió el patito feo?",
+        res1: ["libertad y felicidad", "entusiasmo y alegría", "gozo y alegría", "calidez y dicha", "determinación y plenitud", "gozo y calidez", "plenitud y felicidad", "entusiasmo y regocijo", "bienestar y felicidad", "euforia y calidez"]
+    },
+    {
+        p:"¿Cómo vivió su vida el patito feo?",
+        res2: ["plena y feliz", "entusiasta y cálida", "con dicha y felicidad", "plena y felicidad", "con bienestar y amor", "amorosa y feliz", "con dicha y amor", "con entusiasmo y alegría", "llena de alegría", "llena de amor"]
+    }
+]
+
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
 
@@ -348,10 +391,12 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             }
 
                             if(valor == 'medio'){
                                 valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             }
                             
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -415,12 +460,14 @@ function Felicidades(){
                         else{
                             if(valor == 'facil'){
                                 valor = 'medio'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
                             }
 
                             else{
                                 if(valor == 'medio'){
                                     valor = 'dificil'
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
                                 }
                             }
