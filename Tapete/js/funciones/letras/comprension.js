@@ -175,6 +175,9 @@ function Empezar(){
         case 'dificil':
             preguntas = preguntas_d
             document.getElementById("titulo").innerHTML = "El patito feo"
+            Opciones()
+            Parrafos(resp1, resp2, num_parrafo)
+            Pregunta()
             break
     }
 }
