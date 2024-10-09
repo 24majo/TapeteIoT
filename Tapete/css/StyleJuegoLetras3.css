@@ -183,3 +183,8 @@ body{
     text-align: justify; 
     width: 480px; 
 }
+
+.semaforo{
+    margin-top: -100px;
+    margin-left: 510px;
+}

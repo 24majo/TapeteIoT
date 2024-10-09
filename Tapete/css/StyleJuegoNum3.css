@@ -112,14 +112,14 @@ body{
 .botones{
     position: relative;
     margin-left: 650px;
-    margin-top: 120px;
+    margin-top: 100px;
     font-size: 80px;
 }
 
 .numSumas{
     position: relative;
     margin-left: 300px;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 80px;
 }
 
@@ -164,11 +164,11 @@ body{
 }
 
 .btnOpciones{
-    margin-top: -140px;
+    margin-top: -160px;
     margin-left: 10px;
 }
 
-.dificultad{
-    margin-top: 60px;
+.semaforo{
+    margin-top: -100px;
     margin-left: 510px;
 }

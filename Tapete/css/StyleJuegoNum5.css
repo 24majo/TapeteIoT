@@ -113,13 +113,13 @@ body{
 
 
 .botones{
-    margin-top: 10px;
+    margin-top: -20px;
     margin-left: 580px;
     font-size: 80px;
 }
 
 .btnMenus{
-    margin-top: -20px;
+    margin-top: -10px;
     margin-left: -90px;
 }
 .btnInicio{
@@ -167,13 +167,17 @@ body{
 }
 
 .peces{
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left: 220px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .btnOpciones{
-    margin-top: -50px;
+    margin-top: -60px;
     margin-left: -250px;
+}
+.semaforo{
+    margin-top: -100px;
+    margin-left: 510px;
 }

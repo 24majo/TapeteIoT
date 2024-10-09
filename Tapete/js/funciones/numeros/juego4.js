@@ -72,8 +72,30 @@ function Empezar(){
 
 function Random(num1, num2){
     resultado = num1 - num2
-    document.getElementById("linea_s").innerHTML = num1
-    document.getElementById("linea_i").innerHTML = "-" + num2
+    if(num1<=9){
+        document.getElementById("linea_l").innerHTML = "-"
+        document.getElementById("linea_s").innerHTML = "0"+num1
+    }else{
+        document.getElementById("linea_l").innerHTML = "-"
+        document.getElementById("linea_s").innerHTML = num1
+    }if(num2<=9){
+        document.getElementById("linea_i").innerHTML = "0"+num2
+        document.getElementById("linea_l").innerHTML = "-"
+    }else{
+        document.getElementById("linea_l").innerHTML = "-"
+        document.getElementById("linea_i").innerHTML =  num2
+    }if(num1<=9 && num2<=9){
+        document.getElementById("linea_s").innerHTML = "0"+num1
+        document.getElementById("linea_l").innerHTML = "-"
+        document.getElementById("linea_i").innerHTML = "0"+num2
+    }if(num1>9 && num2<=9){
+        document.getElementById("linea_s").innerHTML = num1
+        document.getElementById("linea_i").innerHTML = "0"+num2
+    }if(num2>9 && num1<=9){
+        document.getElementById("linea_s").innerHTML = "0"+num1
+        document.getElementById("linea_l").innerHTML = "-"
+        document.getElementById("linea_i").innerHTML = num2
+    }
 
     op = Opcion(arreglo = [])
 
