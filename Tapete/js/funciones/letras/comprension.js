@@ -153,7 +153,7 @@ var preguntas_d = [
 
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
-
+    //alert(valor)
     switch(valor){
         case 'facil':
             preguntas = preguntas_f
@@ -246,7 +246,7 @@ function Parrafos(res1, res2, num_parrafo){
         case 'medio':
             parrafo_m = [
                 {pa: "Había una vez un soldadito de plomo que tenía una sola pierna, pues fue el último de una serie y no alcanzó el plomo para darle dos. A pesar de esto, siempre mantenía la cabeza alta y el corazón valiente, luciendo elegante su uniforme color " + res1 +". Vivía en la habitación de un niño, junto con otros juguetes, pero lo que más amaba era una bailarina de "+ res2 +". Ella también se mantenía en un solo pie, lo que hacía que el soldadito sintiera que tenían algo en común."},
-                {pa: "Un día, el soldadito cayó accidentalmente por la ventana y aterrizó en la calle. Fue arrastrado por la corriente de agua de una tormenta hasta una alcantarilla, donde fue atrapado por "+ res1 +" niños que lo colocaron en un barco de papel. El barco navegó por las aguas turbulentas hasta que finalmente fue tragado por un pez enorme. Sin embargo, el soldadito, con su espíritu "+ res2 +", siguió firme, esperando su destino con valor."},
+                {pa: "Un día, el soldadito cayó accidentalmente por la ventana y aterrizó en la calle. Fue arrastrado por la corriente de agua de una tormenta hasta una alcantarilla, donde fue atrapado por "+ res1 +" que lo colocaron en un barco de papel. El barco navegó por las aguas turbulentas hasta que finalmente fue tragado por un pez enorme. Sin embargo, el soldadito, con su espíritu "+ res2 +", siguió firme, esperando su destino con valor."},
                 {pa: "El pez fue atrapado por un pescador y, sorprendentemente, vendido por el "+ res1 +", en el mismo mercado donde vivía el soldadito. El pescado llegó a la cocina de la casa del niño, y cuando lo abrieron, encontraron al soldadito de plomo en su interior. El niño volvió a colocar al soldadito en su lugar en la "+ res2 +", junto a la bailarina, lo que hizo que sintiera que su valentía había sido recompensada."},
                 {pa: "Un día, mientras el soldado contemplaba a la bailarina, una ráfaga de viento sopló en la habitación y llevó a la bailarina hacia la chimenea encendida " + res1 + " de la habitación. El soldadito, con su coraje inquebrantable, " + res2 + ", decidido a seguirla donde fuera. Ambos cayeron en las llamas, pero justo antes de ser consumidos, el soldadito pudo ver cómo la bailarina mantenía su mirada en él."},
                 {pa: "Al día siguiente, " + res1 +" entre las cenizas, se encontró un pequeño corazón de plomo, lo único que quedaba del soldadito, y "+ res2 +" de la bailarina. Aunque se habían desvanecido, su historia de amor y valentía quedó en la memoria de todos, recordando que, aunque pequeños y frágiles, el coraje y el amor pueden superar cualquier adversidad."},
@@ -397,7 +397,7 @@ function Fallo(){
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             }
 
-                            if(valor == 'medio'){
+                            else if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             }
@@ -810,4 +810,3 @@ function Reiniciar(){
 //         document.getElementById("barra").innerHTML = contador
 //     }
 // }
-
