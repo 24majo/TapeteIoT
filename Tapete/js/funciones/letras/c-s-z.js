@@ -10,13 +10,12 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-const palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
-const palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
-var palabras = []
+var palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+var palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
 var arreglo = []
-var num_ejercicio = 0, num_opcion = 0
+var num_ejercicio = 0, num_opcion = 0, palabras
 var palabras_d =[
     {
         frase: "El príncipe perdió su zapato.",
@@ -31,8 +30,8 @@ var palabras_d =[
         valores: ["cabeza", "sol"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"La sirena se comió la manzana envenenada.",
+        valores: ["sirena", "manzana"]
     },
     {
         frase:".",
@@ -80,15 +79,13 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    if(valor == 'facil')
+        palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+
+    if(valor == 'medio')
+        palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+
     document.getElementById("linea").innerHTML = "" 
-    if(valor == 'facil'){
-        palabras = palabras_f
-    }
-
-    if (valor == "medio"){
-        palabras = palabras_m
-    }
-
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -97,6 +94,7 @@ function Reiniciar(){
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
     num_opcion = 0
+    respuesta_m = []
     Empezar()
 }
 
@@ -126,7 +124,6 @@ function Empezar(){
         case 'medio':
             arreglo = ["c", "s", "z"]
             palabras = palabras_m
-
             if(!respuesta_m.includes("_")){
                 respuesta = palabras[Math.floor(Math.random() * palabras.length)]
                 var repetida = palabras.indexOf(respuesta)
@@ -306,8 +303,17 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
+                    palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                     palabras = palabras_f
-                    alert(palabras)
+                    alert("Original: " + palabras_f)
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                }
+
+                if (valor == 'medio'){
+                    palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+                    palabras = palabras_m
+                    alert("Original: " + palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
                     Reiniciar()
                 }
@@ -322,14 +328,16 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
                                 palabras = palabras_m
-                                alert(palabras)
                             }
 
-                            if(valor == 'medio'){
+                            else if(valor == 'medio'){
                                 valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                                 palabras = palabras_f
-                                alert(palabras)
                             }
                             
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -374,6 +382,7 @@ function Felicidades(){
                         } 
                         else{
                             valor == 'facil'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             Reiniciar()
                         }
                     })
@@ -393,12 +402,14 @@ function Felicidades(){
                         else{
                             if(valor == 'facil'){
                                 valor = 'medio'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
                             }
 
                             else{
                                 if(valor == 'medio'){
                                     valor = 'dificil'
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
                                 }
                             }
