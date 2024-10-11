@@ -17,6 +17,7 @@ var radios = document.getElementsByName("dificultad")
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
+var img_cuento = document.getElementById('cuento')
 var aux_res = 0, resp1 = "", resp2 = "", arr_datos1, arr_datos2, arr_opciones = []
 var num_parrafo = 0, aux = 0
 
@@ -346,14 +347,22 @@ Ayuda() // Tutorial al abrir la pestaña por primera vez
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    if(valor == 'facil')
+    if(valor == 'facil'){
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+        img_cuento.src = "Visual/Material/Letras/Juego3/GatoConBotas.png"
+    }
+        
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+        img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
+    }
+        
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+        img_cuento.src = "Visual/Material/Letras/Juego3/PatitoFeo.png"
+    }
 }
 
 function Fallo(){
@@ -395,11 +404,13 @@ function Fallo(){
                             if(valor == 'dificil'){
                                 valor = "medio"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
                             }
 
                             else if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                img_cuento.src = "Visual/Material/Letras/Juego3/GatoConBotas.png"
                             }
                             
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -464,6 +475,7 @@ function Felicidades(){
                             if(valor == 'facil'){
                                 valor = 'medio'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
                                 Reiniciar()
                             }
 
@@ -471,6 +483,7 @@ function Felicidades(){
                                 if(valor == 'medio'){
                                     valor = 'dificil'
                                     semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+                                    img_cuento.src = "Visual/Material/Letras/Juego3/PatitoFeo.png"
                                     Reiniciar()
                                 }
                             }
