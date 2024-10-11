@@ -29,75 +29,79 @@
         <div class="vidas" id="vida"></div>
     </div>
 
-    <img id="semaforo" alt=""  width="100">
+    <img  class="semaforo" id="semaforo" alt=""  width="100">
+    <div class="botones">
+        <font face="Century Gothic">
+            <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+            <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+        </font>
+    </div>
+    
 
     <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1>Lee la lectura y contesta la preguntas</h1>
-        </Font>
-        
-        <div class="btnMenus">
-            <a href="MenuSeleccion.html" class="btnInicio">
-                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-            </a>
-            <a href="DificultadLectura.html"  class="btnAtras">
-                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-            </a>
-     </div>
-
-        <div style="margin-top: -60px;"> 
-            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+        <div class="titulo">
+            <Font face="Century Gothic">
+                <h1>Lee la siguiente lectura y responde</h1>
+            </Font>
         </div>
-
-        <img id="cuento" alt="" width="400">
+        
+        <div  class="btnMenus">
+            <a href="MenuSeleccion.html">
+                <img src="Visual/Material/Iconos/MenuInicio.png" class="btnInicio" width="70px">
+            </a>
+            <a href="DificultadLectura.html" >
+                <img src="Visual/Material/Iconos/Flecha.png" class="btnAtras" width="60px">
+            </a>  
+            <button style="margin-top: 10px;" id="btnAyuda" class="btnAyuda" onclick="Ayuda()"><b>?</b></button>  
+        </div>
     
             <!-- <div class="radioDificultad">
                 <input type="radio" name="dificultad" id="facil" value="facil">Fácil
                 <input type="radio" name="dificultad" id="medio" value="medio">Medio
                 <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
             </div> -->
+
+            <div class="pregunta">
+                <font face="Century Gothic">
+                    <span  id="pregunta"></span>
+                </font>
+            </div>
+    
         </nav>
+        <main>
+            <article>
 
-        <article>
+                <div class="tituloCuento">
+                    <font face="Century Gothic">
+                        <span id="titulo"></span>
+                    </font>
+                </div>
 
-            <div class="tituloCuento">
-                <font face="Century Gothic">
-                    <span id="titulo"></span>
-                </font>
-            </div>
+                <div class="btnOpciones" id="aparecer">
+                    <div style="margin-top: 100px;">
+                        <font face="MV Boli">
+                            <span id="opcionArriba" class="opcion"></span>
+                            <span id="opcionAbajo" class="opcion"></span>
+                            <span id="opcionIzquierda" class="opcion"></span>
+                            <span id="opcionDerecha" class="opcion"></span>
+                        </font>
+                    </div>
+                    
+                    <img class="dibujo" id="cuento" alt="" width="200">
+                </div>
 
-            <div class="botones">
-                <font face="Century Gothic">
-                    <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-                    <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-                </font>
-            </div>
+                <section class="parrafo">
+                    <font face="Century Gothic">
+                        <p id="parrafo"></p>
+                    </font>
+                </section>
+            </article>
+        </main>
 
-            <section class="parrafo">
-                <font face="Century Gothic">
-                    <p id="parrafo"></p>
-                </font>
-            </section>
-        </article>
-        
-
-    <aside>
-        <div class="pregunta">
-            <font face="Century Gothic">
-                <span  id="pregunta"></span>
-                <!-- <p class="parrafo" id="parrafo"></p> -->
-            </font>
-        </div>
-  
-        <div class="btnOpciones" id="aparecer">
-            <font face="MV Boli">
-                <span id="opcionArriba" class="opcion"></span>
-                <span id="opcionAbajo" class="opcion"></span>
-                <span id="opcionIzquierda" class="opcion"></span>
-                <span id="opcionDerecha" class="opcion"></span>
-            </font>
-        </div>
-    </aside>
+        <footer class="botones">
+            
+        </footer>
+            
     <script src="js/funciones/letras/comprension.js"></script>
 
         <!-- <div class="radioDificultad">
