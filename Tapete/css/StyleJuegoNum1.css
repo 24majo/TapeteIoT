@@ -10,7 +10,7 @@ body{
 .titulo{
     position: relative;
     margin-left: 100px;
-    margin-top: 5px;
+    margin-top: -100px;
 }
 
 .opcion{
@@ -28,9 +28,10 @@ body{
 .imagen{
     position: relative;
     margin-left: 190px;
-    margin-top: 90px;
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
+    z-index: -100;
 }
 
 .btnMenus{
@@ -112,7 +113,7 @@ body{
 
 .botones{
     margin-left: 80px;
-    margin-top: -200px;
+    margin-top: -190px;
     font-size: 80px;
 }
 
@@ -150,13 +151,13 @@ body{
 
 .vidas{
     margin-top: -10px;
-    margin-left: 900px;
+    margin-left: 950px;
     display: flex;
     flex-wrap: wrap;
 }
 
 .peces{
-    margin-top:-10px;
+    margin-top:30px;
     margin-left: 280px;
     display: flex;
     flex-wrap: wrap;
