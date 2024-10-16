@@ -69,10 +69,10 @@ function Empezar(){
     respuesta = palabras[Math.floor(Math.random() * palabras.length)]
     var repetida = palabras.indexOf(respuesta)
     palabras.splice(repetida, 1)
-    //alert(respuesta)
+    // alert(respuesta)
+    // alert(palabras)
     imagen.src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
     document.getElementById("prueba").innerHTML = respuesta
-    Evaluar()
 }
 
 function Comprobar(arreglo){
@@ -86,7 +86,6 @@ function Comprobar(arreglo){
             tabla2[t2].src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
             t2++
         }
-        
         Felicidades()
     }
 
@@ -136,21 +135,18 @@ function Reiniciar(){
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    palabras = []
     respuesta = ""
-    document.getElementById("linea").innerHTML = ""
+    document.getElementById("prueba").innerHTML = respuesta
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
-    num_ejercicio = 0
-    num_opcion = 0
 
     for(var i = 0; i < tabla1.length; i++){
         tabla1[i].src = ""
-    }
-
-    for(var i = 0; i < tabla2.length; i++){
         tabla2[i].src = ""
     }
+    
+    t1 = 0
+    t2 = 0
 
     ValoresTabla()
     Empezar()
