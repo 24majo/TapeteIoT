@@ -215,14 +215,7 @@ function ComprobarM(letra){
         for(var i = 0; i < respuesta.length; i++){
             if(respuesta_m[i] == "_"){
                 if(respuesta[i] == letra){
-                    if(respuesta[i] == 'l'){
-                        respuesta_m = respuesta_m.replaceAll("_", letra)
-                        break
-                    }
-                    else{
-                        respuesta_m = respuesta_m.replace("_", letra)
-                        break
-                    }
+                    respuesta_m = respuesta_m.replace("_", letra)
                     break
                 }
 
@@ -310,13 +303,13 @@ function Fallo(){
                     Reiniciar()
                 }
 
-                if (valor == 'medio'){
-                    palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
-                    palabras = palabras_m
-                    //alert("Original: " + palabras)
-                    document.getElementById("btnIniciar").innerHTML = "Empezar"
-                    Reiniciar()
-                }
+                // if (valor == 'medio'){
+                //     palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+                //     palabras = palabras_m
+                //     //alert("Original: " + palabras)
+                //     document.getElementById("btnIniciar").innerHTML = "Empezar"
+                //     Reiniciar()
+                // }
 
                 else{
                     swal({
