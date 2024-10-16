@@ -23,55 +23,63 @@
 
 
 <body background="Visual/Fondos/FondoJuegos.jpg">
-        <!-- Barra de progreso, atributos -->
-        <div style="margin-left: 790px; margin-top: 20px">
-            <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
-        </div>
-    <!-- Vidas -->
-    <div>
-        <div class="vidas" id="vida"></div>
-    </div>
-
-    <img  class="semaforo" id="semaforo" alt=""  width="100">
-    <div class="botones">
+<!-- Inicio de barra lateral -->
+<div class="barraM">
+    <div class="mini-barra"  style="z-index: 0;">
         <font face="Century Gothic">
-            <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
-            <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-        </font>
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'JuegosLetras.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Menú de letras</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'DificultadLectura.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span>Dificultad</span>
+        </button>
+        
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+            <span>Ayuda</span>
+        </button>
     </div>
+</font>
+</div>
+
+<!-- Barra de progreso, atributos -->
+ <div style="margin-left: 790px; margin-top: -280px">
+    <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+</div>
+<!-- Vidas -->
+<div>
+    <div class="vidas" id="vida"></div>
+</div>
+
+<img  class="semaforo" id="semaforo" alt=""  width="100">
+
+<div class="botones">
+    <font face="Century Gothic">
+        <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
+        <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+    </font>
+</div>
+
+<nav>
     
-
-    <nav class="titulo">
-        <Font face="Century Gothic">
-            <h1>Lee la lectura y contesta la preguntas</h1>
-        </Font>
-
-        <!-- Inicio de barra lateral -->
-        <div class="barra-lateral">
-			<div class="nombre-pagina">
-				<img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
-				<span>DiDit</span>
-			</div>
-			<button class="boton" onclick="location.href = 'MenuSeleccion.html'">
-				<img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
-				<span>Inicio</span>
-			</button>
-	
-            <button class="boton" onclick="location.href = 'JuegosLetras.html'">
-                <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
-                <span>Menú de letras</span>
-            </button>
-	
-			<button class="boton" onclick="location.href = 'DificultadLectura.html'">
-				<img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
-				<span>Dificultad</span>
-			</button>
-			
-			<button class="boton" onclick="Ayuda()">
-				<img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
-				<span>Ayuda</span>
-			</button>
-		</div>
+        <div class="titulo" style="z-index: -10;">
+            <Font face="Century Gothic">
+                <p>Lee la lectura y contesta la preguntas<p>
+            </Font>
+        </div>
+        
         <!-- Fin de barra lateral -->
         
         <!-- <div class="btnMenus">
@@ -87,7 +95,7 @@
             <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div> -->
 
-        <img id="cuento" alt="" width="400">
+       
         <!-- <div class="titulo">
             <Font face="Century Gothic">
                 <h1>Lee la siguiente lectura y responde</h1>
@@ -118,11 +126,16 @@
     
         </nav>
         <main>
-            <article>
+            
+            <!-- <div class="pregunta">
+                <font face="Century Gothic">
+                    <span  id="pregunta"></span>
+                </font>
+            </div> -->
 
-                <div class="tituloCuento">
+                <div class="tituloCuento" style="">
                     <font face="Century Gothic">
-                        <span id="titulo"></span>
+                        <b><span id="titulo"></span></b>
                     </font>
                 </div>
 
@@ -136,47 +149,36 @@
                         </font>
                     </div>
                     
-                    <img class="dibujo" id="cuento" alt="" width="200">
+                    <div>
+                        <img class="dibujo" id="cuento" alt="" width="200">
+                    </div>
                 </div>
 
-                <section class="parrafo">
+                <section class="parrafo" style="z-index: 0">
                     <font face="Century Gothic">
                         <p id="parrafo"></p>
                     </font>
                 </section>
-            </article>
         </main>
 
-            <section class="parrafo">
-                <font face="Century Gothic">
-                    <p id="parrafo"></p>
+   
+        <div class="btnOpciones" id="aparecer">
+            <div style="margin-top: 100px;">
+                <font face="MV Boli">
+                    <span id="opcionArriba" class="opcion"></span>
+                    <span id="opcionAbajo" class="opcion"></span>
+                    <span id="opcionIzquierda" class="opcion"></span>
+                    <span id="opcionDerecha" class="opcion"></span>
                 </font>
-            </section>
-        </article>
+            </div>
+            
+        </div>
+        
+        
         
 
-    <aside>
-        <div class="pregunta">
-            <font face="Century Gothic">
-                <span  id="pregunta"></span>
-                <!-- <p class="parrafo" id="parrafo"></p> -->
-            </font>
-        </div>
-  
-        <div class="btnOpciones" id="aparecer">
-            <font face="MV Boli">
-                <span id="opcionArriba" class="opcion"></span>
-                <span id="opcionAbajo" class="opcion"></span>
-                <span id="opcionIzquierda" class="opcion"></span>
-                <span id="opcionDerecha" class="opcion"></span>
-            </font>
-        </div>
-    </aside>
+        
 
-    
-        <footer class="botones">
-            
-        </footer>
     <script src="js/Barra.js"></script>        
     <script src="js/funciones/letras/comprension.js"></script>
 

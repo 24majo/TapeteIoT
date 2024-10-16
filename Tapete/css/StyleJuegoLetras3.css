@@ -8,8 +8,9 @@ body{
 }
 
 .titulo{
-    margin-left: 50px;
-    margin-top: -440px;
+    margin-left: 90px;
+    margin-top: -400px;
+    font-size: 30px;
 }
 #opcionArriba{
     width: 200px;
@@ -105,8 +106,8 @@ body{
 }
 
 .botones{
-    margin-left: 610px;
-    margin-top: 380px;
+    margin-left: 620px;
+    margin-top: 350px;
     font-size: 80px;
 }
 
@@ -156,13 +157,13 @@ body{
 
 
 .tituloCuento{
-    margin-top: -50px;
+    margin-top: -20px;
     margin-left: 100px;
     font-size: 20px;
 }
 
 .parrafo{
-    margin-top: -430px;
+    margin-top: -400px;
     margin-left: 100px;
     font-size: 18px;
     text-align: justify; 
@@ -171,19 +172,19 @@ body{
 }
 
 .semaforo{
-    margin-top: -170px;
+    margin-top: -150px;
     margin-left: 510px;
 }
 
 .pregunta{
     margin-left: 500px;
-    margin-top: 20px;
+    margin-top: -20px;
     font-size: 22px;
     text-align: center;
 }
 .btnOpciones{
-    margin-top: -30px;
-    margin-left: 40px;
+    margin-top: -50px;
+    margin-left: 30px;
     font-size: 25px;
     text-align: center;
     line-height:25px;
@@ -191,9 +192,14 @@ body{
 }
 
 .dibujo{
-    margin-top: -210px;
-    margin-left: 1050px;
+    margin-top: -230px;
+    margin-left: 1100px;
     position: fixed;
     display: flex;
     flex-wrap: wrap;
+}
+
+.barraM{
+    margin-left: -5px;
+    margin-top: 21px;
 }
