@@ -10,10 +10,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/jquery-3.7.1.min.js"></script>
-      <script src="js/funciones/letras/comprension.js"></script>
-      <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/funciones/letras/comprension.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Barra Lateral -->
+		<link rel="stylesheet" href="css/BarraLateral.css">
 
     <title>Comprensión lectora</title>
 </head>
@@ -35,19 +38,47 @@
         <Font face="Century Gothic">
             <h1>Lee la lectura y contesta la preguntas</h1>
         </Font>
+
+        <!-- Inicio de barra lateral -->
+        <div class="barra-lateral">
+			<div class="nombre-pagina">
+				<img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+				<span>DiDit</span>
+			</div>
+			<button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+				<img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+				<span>Inicio</span>
+			</button>
+	
+            <button class="boton" onclick="location.href = 'JuegosLetras.html'">
+                <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+                <span>Menú de letras</span>
+            </button>
+	
+			<button class="boton" onclick="location.href = 'DificultadLectura.html'">
+				<img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
+				<span>Dificultad</span>
+			</button>
+			
+			<button class="boton" onclick="Ayuda()">
+				<img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
+				<span>Ayuda</span>
+			</button>
+		</div>
+        <!-- Fin de barra lateral -->
         
-        <div class="btnMenus">
+        <!-- <div class="btnMenus">
             <a href="MenuSeleccion.html" class="btnInicio">
                 <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
             </a>
             <a href="DificultadLectura.html"  class="btnAtras">
                 <img src="Visual/Material/Iconos/Flecha.png" width="60px">
             </a>
-     </div>
+        </div>
 
         <div style="margin-top: -60px;"> 
             <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
-        </div>
+        </div> -->
 
         <img id="cuento" alt="" width="400">
     
@@ -98,6 +129,8 @@
             </font>
         </div>
     </aside>
+
+    <script src="js/Barra.js"></script>
     <script src="js/funciones/letras/comprension.js"></script>
 
         <!-- <div class="radioDificultad">

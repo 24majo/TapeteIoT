@@ -305,7 +305,7 @@ function Fallo(){
                 if(valor == 'facil'){
                     palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                     palabras = palabras_f
-                    alert("Original: " + palabras_f)
+                    //alert("Original: " + palabras_f)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
                     Reiniciar()
                 }
@@ -313,7 +313,7 @@ function Fallo(){
                 if (valor == 'medio'){
                     palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
                     palabras = palabras_m
-                    alert("Original: " + palabras)
+                    //alert("Original: " + palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
                     Reiniciar()
                 }
