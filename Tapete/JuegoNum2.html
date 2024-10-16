@@ -20,24 +20,41 @@
   <body background="Visual/Fondos/FondoJuegos.jpg">
     
     <!----------------- Barra lateral --------------------------------->
-
-    <!-- <div class="barra-lateral mini-barra">
+<div class="barraM" >
+  <div class="mini-barra" style="position: relative; z-index: 103;">
+      <font face="Century Gothic">
       <div class="nombre-pagina">
-        <img class="menu" id="menu" src="Visual/Material/Iconos/pollo.jpg" width="50px">
-        <span>DiDit</span>
+          <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+          <span>DiDit</span>
       </div>
-      <button class="boton">
-        <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
-        <span>Inicio</span>
+      <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+          <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+          <span>Inicio</span>
       </button>
-    </div> -->
 
+      <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+          <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+          <span>Menú de letras</span>
+      </button>
+
+      <!-- <button class="boton" onclick="location.href = 'DificultadLectura.html'">
+          <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+          <span>Dificultad</span>
+      </button> -->
+      
+      <button class="boton" onclick="Ayuda()">
+          <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+          <span>Ayuda</span>
+      </button>
+  </div>
+</font>
+</div>
 
     <!---------------------- Fin de barra lateral ----------------------------->
 
     <br><br>
-    <div style="margin-left: 800px; margin-top: -30px">
-      <progress style="height: 80px; width:280px;"  id="barra" max="9" value="0"></progress>
+    <div style="margin-left: 800px; margin-top: -280px">
+      <progress style="height: 80px; width:380px;"  id="barra" max="9" value="0"></progress>
     </div>
     
     <nav >
@@ -47,7 +64,7 @@
       </Font>
       </div>
       
-      <div style="margin-top: -130px; margin-left: 330px;">
+      <!-- <div style="margin-top: -130px; margin-left: 330px;">
         <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
       </div>
       
@@ -60,7 +77,8 @@
       </a>
       </div>
  
-      <div class="vidas" div id="vida">
+       -->
+       <div class="vidas" id="vida">
         <script src="js/funciones/numeros/juego2.js"></script>
        </div>
 

@@ -16,49 +16,48 @@
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
-
-    <div style="margin-left: 750px; margin-top: 20px">
-        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
-    </div>
-
-    <div class="vidas" id="vida"></div>
-
-    <div class="mini-barra barra" style="z-index: 1000;">
+<!----------------- Barra lateral --------------------------------->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
         <font face="Century Gothic">
-        <div class="nombre-pagina" >
-            <img class="menu"  id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
-            <span class="barra-lateral"><b>Menú</b></span>
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
         </div>
         <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
-            <span class="barra-lateral">Inicio</span>
+            <span>Inicio</span>
         </button>
-
+  
         <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
             <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
-            <span class="barra-lateral">Selección juegos</span>
+            <span>Menú de letras</span>
         </button>
-
-        <!-- <button class="boton" onclick="location.href = 'JuegosTrabados.html'">
-            <img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
-            <span>Cambiar modo</span>
-        </button> -->
+  
+        <button class="boton" onclick="location.href = 'DificultadDecenas.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span>Dificultad</span>
+        </button>
         
         <button class="boton" onclick="Ayuda()">
-            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
-            <span class="barra-lateral">Ayuda</span>
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+            <span>Ayuda</span>
         </button>
-
-        <button>
-            <img src="Visual/Material/Recursos/Semaforo.png" width="50px">
-            <span class="barra-lateral">Dificultad</span>
-        </button>
-        </font>
-        
     </div>
+  </font>
+  </div>
+<!---------------------- Fin de barra lateral ----------------------------->
+    
+
 
 
     <nav>
+        <div style="margin-left: 750px; margin-top: -280px">
+            <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
+        </div>
+
+        <div class="vidas" id="vida"></div>
+        
         <div class="titulo">
             <Font face="Century Gothic">
                 <p><b>Completa la decena</b></p>
@@ -79,13 +78,6 @@
         </div> -->
 
         <img class="semaforo" id="semaforo" alt=""  width="100">
-
-        <!-- <div class="radioDificultad">
-            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-            <input type="radio" name="dificultad" id="medio" value="medio">Medio
-            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-        </div> -->
-        
         <!--
         Fácil: Números del 1 al 49
         Medio: Números del 50 al 99

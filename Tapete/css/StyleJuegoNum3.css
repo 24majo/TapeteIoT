@@ -10,7 +10,8 @@ body{
 .titulo{
     position: relative;
     margin-left: 110px;
-    margin-top: -10px;
+    margin-top: 10px;
+    z-index: -10;
 }
 #opcionArriba{
     width: 120px;
@@ -112,14 +113,14 @@ body{
 .botones{
     position: relative;
     margin-left: 650px;
-    margin-top: 100px;
+    margin-top: 120px;
     font-size: 80px;
 }
 
 .numSumas{
     position: relative;
     margin-left: 300px;
-    margin-top: 50px;
+    margin-top: -20px;
     font-size: 80px;
 }
 
@@ -159,16 +160,21 @@ body{
 }
 
 .vidas{
-    margin-top: -10px;
-    margin-left: 850px;
+    margin-top: -60px;
+    margin-left: 600px;
 }
 
 .btnOpciones{
-    margin-top: -160px;
+    margin-top: -140px;
     margin-left: 10px;
 }
 
 .semaforo{
-    margin-top: -100px;
-    margin-left: 510px;
+    margin-top: -200px;
+    margin-left: 480px;
+}
+
+.barraM{
+    margin-left: -5px;
+    margin-top: 21px;
 }

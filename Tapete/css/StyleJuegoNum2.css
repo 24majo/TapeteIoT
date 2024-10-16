@@ -9,8 +9,9 @@ body{
 
 .titulo{
     position: relative;
-    right: -100px;
-    top: 10px;
+    margin-left: 100px;
+    margin-top: -10px;
+    z-index: -10;
 }
 
 #opcionArriba{
@@ -112,14 +113,14 @@ body{
 
 .botones{
     margin-left: 100px;
-    margin-top: 380px;
+    margin-top: 440px;
     font-size: 80px;
 }
 
 .numeroCompletar{
     position: relative;
     margin-left: 100px;
-    margin-top: -350px;
+    margin-top: -380px;
     font-size: 50px;
 }
 
@@ -153,8 +154,8 @@ body{
 }
 
 .vidas{
-    margin-top: 10px;
-    margin-left: 900px;
+    margin-top: -110px;
+    margin-left: 650px;
 }
 
 .btnOpciones{
@@ -241,3 +242,8 @@ body{
   .desaparecer {
     display: none;
   }
+
+  .barraM{
+    margin-left: -5px;
+    margin-top: 21px;
+}

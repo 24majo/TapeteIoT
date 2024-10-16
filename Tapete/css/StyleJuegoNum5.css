@@ -11,8 +11,8 @@ body{
 }
 .titulo{
     position: relative;
-    margin-left: 100px;
-    margin-top: -200px;
+    margin-left: 110px;
+    margin-top: 10px;
     font-size: 40px;
     z-index: -10;
 }
@@ -158,8 +158,8 @@ body{
 }
 
 .vidas{
-    margin-top: -10px;
-    margin-left: 850px;
+    margin-top: -60px;
+    margin-left: 600px;
 }
 
 .dibujo{
@@ -170,7 +170,7 @@ body{
 }
 
 .peces{
-    margin-top: 30px;
+    margin-top: -20px;
     margin-left: 220px;
     display: flex;
     flex-wrap: wrap;
@@ -181,6 +181,6 @@ body{
     margin-left: -250px;
 }
 .semaforo{
-    margin-top: -100px;
-    margin-left: 510px;
+    margin-top: -230px;
+    margin-left: 480px;
 }

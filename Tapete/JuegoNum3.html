@@ -6,6 +6,8 @@
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/StyleJuegoNum3.css">
+       <!-- Barra Lateral -->
+       <link rel="stylesheet" href="css/BarraLateral.css">
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -16,29 +18,52 @@
   
   <body background="Visual/Fondos/FondoJuegos.jpg">
 
-    <div style="margin-left: 750px; margin-top: 20px">
-        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
-    </div>
-
-    <div id="vida" class="vidas">
-        
-    </div>
-
-    <!-- <div>
+<!----------------- Barra lateral --------------------------------->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
         <font face="Century Gothic">
-            <p class="dificultad"  id="dificultad"></p>
-        </font>
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+  
+        <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Menú de letras</span>
+        </button>
+  
+        <button class="boton" onclick="location.href = 'DificultadSumas.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span>Dificultad</span>
+        </button>
         
-    </div> -->
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+            <span>Ayuda</span>
+        </button>
+    </div>
+  </font>
+  </div>
+<!---------------------- Fin de barra lateral ----------------------------->
+
     <nav>
-       
+        <div style="margin-left: 750px; margin-top: -300px">
+            <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
+        </div>
+    
+        <div id="vida" class="vidas"></div>
+
         <div class="titulo">
             <Font face="Century Gothic">
                 <h1><b>Realiza las siguientes sumas</b></h1>
           </Font>
           </div>
         
-          <div style="margin-top: -140px; margin-left: 330px;">
+          <!-- <div style="margin-top: -140px; margin-left: 330px;">
             <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
           </div> 
           <div class="btnMenus">
@@ -48,22 +73,9 @@
             <a href="DificultadSumas.html" class="btnAtras">
                 <img src="Visual/Material/Iconos/Flecha.png" width="60px">
             </a>
-          </div>
+          </div> -->
 
           <img class="semaforo" id="semaforo" alt=""  width="100">
-           
-          
-
-        <!-- <div>
-            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-            <input type="radio" name="dificultad" id="medio" value="medio">Medio
-            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-            
-            Fácil: Números del 1 al 49
-            Medio: Números del 50 al 99
-            Difícil: Revuelto
-        
-        </div>-->
         
     </nav>
     
@@ -94,5 +106,6 @@
         </font>
     </div>
     <script src="js/funciones/numeros/juego3.js"></script>
+    <script src="js/Barra.js"></script>
   </body>
 </html>

@@ -18,55 +18,43 @@
 	
 	<body background="Visual/Fondos/FondoJuegos.jpg">
 
-		<div class="mini-barra" style="z-index: 1000;">
-			<font face="Century Gothic">
-			<div class="nombre-pagina" >
-				<img class="menu"  id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
-				<span class="barra-lateral"><b>Menú</b></span>
-			</div>
-			<button class="boton" onclick="location.href = 'MenuSeleccion.html'">
-				<img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
-				<span class="barra-lateral">Inicio</span>
-			</button>
-	
-			<button class="boton" onclick="location.href = 'JuegosNumeros.html'">
-				<img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
-				<span class="barra-lateral">Selección juegos</span>
-			</button>
-	
-			<!-- <button class="boton" onclick="location.href = 'JuegosTrabados.html'">
-				<img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
-				<span>Cambiar modo</span>
-			</button> -->
-			
-			<button class="boton" onclick="Ayuda()">
-				<img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
-				<span class="barra-lateral">Ayuda</span>
-			</button>
-			</font>
-			
-		</div>
+		<!-- Inicio de barra lateral -->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
+        <font face="Century Gothic">
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Menú de letras</span>
+        </button>
+
+        <!-- <button class="boton" onclick="location.href = 'DificultadLectura.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span>Dificultad</span>
+        </button> -->
+        
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+            <span>Ayuda</span>
+        </button>
+    </div>
+</font>
+</div>
 
 		<nav>
-			<div style="margin-left: 850px; margin-top: -200px">
-				<progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
+			<div style="margin-left: 750px; margin-top: -250px">
+				<progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 			  </div>
 			
 			  <div id="vida" class="vidas"></div>	
-
-			  <!-- <div class="btnMenus">
-				
-				<a href="MenuSeleccion.html" class="btnInicio">
-					<img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-				</a>
-				<a href="JuegosNumeros.html" class="btnAtras">
-					<img src="Visual/Material/Iconos/Flecha.png" width="60px">
-				</a>
-			</div> -->
-
-			<!-- <div style="margin-top: -68px; margin-left: 300px;">
-				<button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
-			</div> -->
 
 			<div class="titulo" style="z-index: -10;">
 				<font face="Century Gothic">
