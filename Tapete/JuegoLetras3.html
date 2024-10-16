@@ -24,8 +24,8 @@
 
 <body background="Visual/Fondos/FondoJuegos.jpg">
 <!-- Inicio de barra lateral -->
-<div class="barraM">
-    <div class="mini-barra"  style="z-index: 0;">
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
         <font face="Century Gothic">
         <div class="nombre-pagina">
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
@@ -73,51 +73,12 @@
 </div>
 
 <nav>
-    
-        <div class="titulo" style="z-index: -10;">
+        <div class="titulo">
             <Font face="Century Gothic">
                 <p>Lee la lectura y contesta la preguntas<p>
             </Font>
         </div>
         
-        <!-- Fin de barra lateral -->
-        
-        <!-- <div class="btnMenus">
-            <a href="MenuSeleccion.html" class="btnInicio">
-                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-            </a>
-            <a href="DificultadLectura.html"  class="btnAtras">
-                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-            </a>
-        </div>
-
-        <div style="margin-top: -60px;"> 
-            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
-        </div> -->
-
-       
-        <!-- <div class="titulo">
-            <Font face="Century Gothic">
-                <h1>Lee la siguiente lectura y responde</h1>
-            </Font>
-        </div> -->
-        
-        <!-- <div  class="btnMenus">
-            <a href="MenuSeleccion.html">
-                <img src="Visual/Material/Iconos/MenuInicio.png" class="btnInicio" width="70px">
-            </a>
-            <a href="DificultadLectura.html" >
-                <img src="Visual/Material/Iconos/Flecha.png" class="btnAtras" width="60px">
-            </a>  
-            <button style="margin-top: 10px;" id="btnAyuda" class="btnAyuda" onclick="Ayuda()"><b>?</b></button>  
-        </div> -->
-    
-            <!-- <div class="radioDificultad">
-                <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-                <input type="radio" name="dificultad" id="medio" value="medio">Medio
-                <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-            </div> -->
-
             <div class="pregunta">
                 <font face="Century Gothic">
                     <span  id="pregunta"></span>
@@ -126,14 +87,7 @@
     
         </nav>
         <main>
-            
-            <!-- <div class="pregunta">
-                <font face="Century Gothic">
-                    <span  id="pregunta"></span>
-                </font>
-            </div> -->
-
-                <div class="tituloCuento" style="">
+                <div class="tituloCuento" style="z-index: -1000;">
                     <font face="Century Gothic">
                         <b><span id="titulo"></span></b>
                     </font>
@@ -154,7 +108,7 @@
                     </div>
                 </div>
 
-                <section class="parrafo" style="z-index: 0">
+                <section class="parrafo" style="z-index: -100">
                     <font face="Century Gothic">
                         <p id="parrafo"></p>
                     </font>
@@ -174,18 +128,7 @@
             
         </div>
         
-        
-        
-
-        
-
     <script src="js/Barra.js"></script>        
     <script src="js/funciones/letras/comprension.js"></script>
-
-        <!-- <div class="radioDificultad">
-            <input type="radio" name="dificultad" id="facil" value="facil">Fácil
-            <input type="radio" name="dificultad" id="medio" value="medio">Medio
-            <input type="radio" name="dificultad" id="dificil" value="dificil">Difícil
-        </div> -->
 </body>
 </html>
