@@ -6,12 +6,15 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
+.barra{
+    margin-top: -130px;
+}
 .titulo{
     position: relative;
     margin-left: 100px;
-    margin-top: -40px;
+    margin-top: -200px;
     font-size: 40px;
+    z-index: -10;
 }
 
 #opcionArriba{

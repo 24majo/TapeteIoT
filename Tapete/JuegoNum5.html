@@ -6,6 +6,7 @@
 
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link rel="stylesheet" href="css/StyleJuegoNum5.css">
+      <link rel="stylesheet" href="css/BarraLateral.css">
 
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -20,18 +21,51 @@
         <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
     </div>
 
-    
-    
     <div class="vidas" id="vida"></div>
 
-    <nav >
+    <div class="mini-barra barra" style="z-index: 1000;">
+        <font face="Century Gothic">
+        <div class="nombre-pagina" >
+            <img class="menu"  id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span class="barra-lateral"><b>Menú</b></span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span class="barra-lateral">Inicio</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span class="barra-lateral">Selección juegos</span>
+        </button>
+
+        <!-- <button class="boton" onclick="location.href = 'JuegosTrabados.html'">
+            <img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
+            <span>Cambiar modo</span>
+        </button> -->
+        
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
+            <span class="barra-lateral">Ayuda</span>
+        </button>
+
+        <button>
+            <img src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span class="barra-lateral">Dificultad</span>
+        </button>
+        </font>
+        
+    </div>
+
+
+    <nav>
         <div class="titulo">
             <Font face="Century Gothic">
                 <p><b>Completa la decena</b></p>
             </Font>
         </div>
 
-        <div class="btnMenus">
+        <!-- <div class="btnMenus">
             <a href="MenuSeleccion.html" class="btnInicio">
                 <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
             </a>
@@ -42,7 +76,7 @@
         
         <div style="margin-top: -180px;"> 
             <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
-        </div>
+        </div> -->
 
         <img class="semaforo" id="semaforo" alt=""  width="100">
 
@@ -87,5 +121,6 @@
         </font>
     </div>
     <script src="js/funciones/numeros/juego5.js"></script>
+    <script src="js/Barra.js"></script>
   </body>
 </html>

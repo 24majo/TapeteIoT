@@ -8,14 +8,13 @@ body{
 }
 
 .titulo{
-    margin-left: 100px;
-    margin-top: -10px;
+    margin-left: 50px;
+    margin-top: -440px;
 }
 #opcionArriba{
     width: 200px;
 	height: 70px;
 	border: 5px solid  #752828;
-	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 15px;
 	cursor: pointer;
@@ -33,7 +32,6 @@ body{
     width: 200px;
 	height: 70px;
 	border: 5px solid  #67ab49;
-	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 15px;
 	cursor: pointer;
@@ -51,7 +49,6 @@ body{
     width: 200px;
 	height: 70px;
 	border: 5px solid  #A5942B;
-	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 15px;
 	cursor: pointer;
@@ -69,7 +66,6 @@ body{
     width: 200px;
 	height: 70px;
 	border: 5px solid  #3d7998;
-	font-size: 50px;
 	margin-bottom: 20px;
 	border-radius: 15px;
 	cursor: pointer;
@@ -109,30 +105,22 @@ body{
 }
 
 .botones{
-    position: absolute;
-    margin-left: 80px;
-    margin-top: 300px;
+    margin-left: 610px;
+    margin-top: 380px;
     font-size: 80px;
 }
 
-.pregunta{
-    position: relative;
-    margin-left: 750px;
-    margin-top: -350px;
-    font-size: 28px;
-}
-
-.lecturaFacil{
+/* .lecturaFacil{
     width: 100px;
     height: 100px;
     margin-left: 10px;
     margin-top: 110px;
 
-}
+} */
 
 .btnMenus{
-    margin-top: -130px;
-    margin-left: 100px;
+    margin-top: -110px;
+    margin-left: 20px;
 }
 
 .btnAtras{
@@ -156,7 +144,7 @@ body{
     background: #662483;
     color: white;
     font-size: 40px;
-    margin-left: 300px; 
+    margin-left: 220px; 
        
 }
 
@@ -165,26 +153,47 @@ body{
     margin-left: 900px;
 }
 
-.btnOpciones{
-    margin-top: 80px;
-    margin-left: 40px;
-}
+
 
 .tituloCuento{
-    margin-top: 50px;
+    margin-top: -50px;
     margin-left: 100px;
     font-size: 20px;
 }
 
 .parrafo{
-    margin-top: 10px;
+    margin-top: -430px;
     margin-left: 100px;
-    font-size: 25px;
+    font-size: 18px;
     text-align: justify; 
-    width: 480px; 
+    width: 480px;
+    position: relative; 
 }
 
 .semaforo{
-    margin-top: -100px;
+    margin-top: -170px;
     margin-left: 510px;
+}
+
+.pregunta{
+    margin-left: 500px;
+    margin-top: 20px;
+    font-size: 22px;
+    text-align: center;
+}
+.btnOpciones{
+    margin-top: -30px;
+    margin-left: 40px;
+    font-size: 25px;
+    text-align: center;
+    line-height:25px;
+    
+}
+
+.dibujo{
+    margin-top: -210px;
+    margin-left: 1050px;
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
 }
