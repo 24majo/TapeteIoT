@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styleJuegoLetras1.css">
+    <link rel="stylesheet" href="css/BarraLateral.css">
 
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/query-3.7.1.min.js"></script>
@@ -14,23 +15,56 @@
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
-   
-    <div style="margin-left: 810px; margin-top: 30px">
-        <progress style="height: 80px; width:280px;" id="barra" max="10" value="0"></progress>
-    </div>
 
-    <div class="vidas">
-        <div id="vida"></div>
-        <script src="js/funciones/letras/vocales.js"></script>
-    </div>
+    <!----------------- Barra lateral --------------------------------->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
+        <font face="Century Gothic">
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+  
+        <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Menú de letras</span>
+        </button>
+  
+        <button class="boton" onclick="location.href = 'JuegosComPalab.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/CambioLV.png" width="40px">
+            <span>Dificultad</span>
+        </button>
         
-    <nav >
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
+            <span>Ayuda</span>
+        </button>
+    </div>
+  </font>
+  </div>
+<!---------------------- Fin de barra lateral ----------------------------->
+    
+    <nav>
+
+        <div style="margin-left: 750px; margin-top: -280px">
+            <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
+        </div>
+    
+        <div class="vidas">
+            <div id="vida"></div>
+            <script src="js/funciones/letras/vocales.js"></script>
+        </div>
+
         <div class="titulo">
             <Font face="Century Gothic">
                 <h1><b>Completa la palabra</b></h1>
             </Font>
         </div>
-        
+<!--         
         <div  class="btnMenus">
             <a href="MenuSeleccion.html">
                 <img src="Visual/Material/Iconos/MenuInicio.png" class="btnInicio" width="70px">
@@ -39,7 +73,7 @@
                 <img src="Visual/Material/Iconos/Flecha.png" class="btnAtras" width="60px">
             </a>  
             <button style="margin-top: 10px;" id="btnAyuda" class="btnAyuda" onclick="Ayuda()"><b>?</b></button>  
-        </div>
+        </div> -->
     </nav>
 
     <section>
@@ -70,6 +104,6 @@
             <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
-    
+    <script src="js/Barra.js"></script>
 </body>
 </html>

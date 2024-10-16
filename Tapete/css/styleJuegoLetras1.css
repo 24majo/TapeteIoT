@@ -117,21 +117,21 @@ body{
 .palabraCompletar{
     position: relative;
     right: -200px;
-    margin-top: -355px;
+    margin-top: -380px;
     font-size: 80px;
 }
 
 .letras{
     position: relative;
     right: -200px;
-    margin-top: 210px;
+    margin-top: 200px;
     font-size: 90px;
 }
 
 .dibujo{
     position: relative;
     right: -250px;
-    margin-top: -10px;
+    margin-top:120px;
 }
 
 .btnMenus{
@@ -171,6 +171,11 @@ margin-top: -20px;
 }
 
 .vidas{
-    margin-top: -20px;
-    margin-left: 900px;
+    margin-top: -60px;
+    margin-left: 600px;
+}
+
+.barraM{
+    margin-left: -5px;
+    margin-top: 21px;
 }
