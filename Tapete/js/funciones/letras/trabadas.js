@@ -34,18 +34,27 @@ function ValoresTabla(){
     if(encabezado == "c"){
         document.getElementById("opcion1").textContent = "Cl"
         document.getElementById("opcion2").textContent = "Cr"
+        palabras = ["clavo", "chancla", "bicicleta", "chicle", "eclipse", "clip", "cíclope", "triciclo", "club", "exclusivo",
+            "cráneo", "crayón", "crema", "secreto", "escribir", "cristal", "microbio", "micrófono", "crucero", "crucigrama"
+        ]
         op = ["cl", "cr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'f'){
         document.getElementById("opcion1").textContent = "Fl"
         document.getElementById("opcion2").textContent = "Fr"
+        palabras = ["frasco", "disfraz", "fresa", "cofre", "frijol", "fritura", "frontera", "frotar", "frutas", "disfrutar",
+            "flan", "flauta", "flama", "fleco", "flecha", "chiflido", "flor", "flojo", "flujo", "fluido"
+        ]
         op = ["fl", "fr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'g'){
         document.getElementById("opcion1").textContent = "Gl"
         document.getElementById("opcion2").textContent = "Gr"
+        palabras = ["claciar", "regla", "iglesia", "inglés", "globo", "gloria", "iglú", "glúteos", "glotón", "jeroglífico",
+            "grano", "gratis", "greñas", "cangrejo", "ogro", "logro", "grúa", "gruñón", "grieta", "gripe"
+        ]
         op = ["gl", "gr"]
         OpcionesCirculos(op)
     }
@@ -60,6 +69,9 @@ function ValoresTabla(){
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
+        palabras = ["atleta", "atlántico", "tlacuache", "tlacoyo", "tlaxcala", "atlas", "náhuatl", "chipotle", "atletismo", "tlatelolco",
+            "traje", "maestra", "tren", "estrella", "trineo", "trigo", "trompeta", "trono", "trompo", "trueno"
+        ]
         op = ["tl", "tr"]
         OpcionesCirculos(op)
     }
