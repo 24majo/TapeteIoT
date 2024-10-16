@@ -9,7 +9,7 @@ body{
 
 .titulo{
     margin-left: 90px;
-    margin-top: -400px;
+    margin-top: -350px;
     font-size: 30px;
 }
 #opcionArriba{
@@ -150,8 +150,8 @@ body{
 }
 
 .vidas{
-    margin-top: -10px;
-    margin-left: 900px;
+    margin-top: -60px;
+    margin-left: 650px;
 }
 
 
@@ -172,7 +172,7 @@ body{
 }
 
 .semaforo{
-    margin-top: -150px;
+    margin-top: -50px;
     margin-left: 510px;
 }
 
