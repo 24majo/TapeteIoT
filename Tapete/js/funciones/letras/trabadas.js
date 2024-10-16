@@ -19,8 +19,6 @@ var tabla1 = document.getElementsByClassName("tabla1")
 var tabla2 = document.getElementsByClassName("tabla2")
 var t1 = 0, t2 = 0
 
-//alert(encabezado)
-
 function ValoresTabla(){
     if(encabezado == "b"){
         document.getElementById("opcion1").textContent = "Bl"
@@ -81,20 +79,18 @@ function Empezar(){
     respuesta = palabras[Math.floor(Math.random() * palabras.length)]
     var repetida = palabras.indexOf(respuesta)
     palabras.splice(repetida, 1)
-    // alert(respuesta)
-    // alert(palabras)
     imagen.src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
     document.getElementById("prueba").innerHTML = respuesta
 }
 
 function Comprobar(arreglo){
     if(respuesta.indexOf(arreglo) > -1){
-        if(arreglo == 'bl'){
+        if(arreglo == op[0]){
             tabla1[t1].src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
             t1++
         }
 
-        if(arreglo == 'br'){
+        if(arreglo == op[1]){
             tabla2[t2].src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
             t2++
         }
@@ -232,7 +228,7 @@ function Felicidades(){
     })
 }
 
-//Ayuda()
+Ayuda()
 ValoresTabla()
 
 function Ayuda(){
