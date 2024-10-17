@@ -10,8 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-const palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
-const palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+var palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+var palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
 //const palabras_m = ["víbora"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
@@ -81,16 +81,23 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    if(valor == 'facil')
+        palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+    
+    if(valor == 'medio')
+        palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    imagen = ""
+    imagen.src = ""
     document.getElementById("linea").innerHTML = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
     num_opcion = 0
+    respuesta_m = []
     Empezar()
 }
 
@@ -143,7 +150,6 @@ function Empezar(){
         case 'dificil':
             arr_res = palabras_d[num_ejercicio].valores
             respuesta = arr_res[num_opcion]
-            //alert(respuesta)
 
             if(num_opcion == 0){
                 arr_res.forEach(valor => {
@@ -193,18 +199,6 @@ function Empezar(){
 }
 
 function ComprobarM(letra){
-    //alert("Respuesta: " + respuesta)
-    // var pos = respuesta.indexOf(letra)
-    // if(pos != -1){
-    //     alert(pos)
-    //     if(respuesta_m[pos] == "_"){
-    //         respuesta_m = respuesta_m.replace("_", letra)
-    //         document.getElementById("linea").innerHTML = respuesta_m
-    //     }
-    //     else{
-    //         alert("No ta")
-    //     }
-    // }
     if(respuesta.includes(letra)) {
         for(var i = 0; i < respuesta.length; i++){
             //alert("i: " + i)
@@ -220,16 +214,6 @@ function ComprobarM(letra){
                 }
                 break
             }
-            // if(respuesta[i]==letra){
-            //     alert("Respuesta[i]: " + respuesta[i])
-            //     alert("Respuesta(m)[i]: " + respuesta_m[i])
-            //     respuesta_m = respuesta_m.replace("_", letra)
-            //     break
-            // }
-            // else{
-            //     alert("Fallo")
-            //     Fallo()
-            // }
         }
         document.getElementById("linea").innerHTML = respuesta_m
 
@@ -300,8 +284,45 @@ function Fallo(){
                 location.href = "JuegosLetras.html"
             } 
             else{
-                document.getElementById("btnIniciar").innerHTML = "Empezar"
-                Reiniciar()
+                if(valor == 'facil'){
+                    palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                    palabras = palabras_f
+                    //alert("Original: " + palabras_f)
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                }
+
+                else{
+                    swal({
+                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                        icon: "info",
+                        buttons:  ["Mantener", "Cambiar"] 
+                    })
+                    .then((cambiar) => {
+                        if(cambiar){
+                            if(valor == 'dificil'){
+                                valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+                                palabras = palabras_m
+                            }
+
+                            else if(valor == 'medio'){
+                                valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                                palabras = palabras_f
+                            }
+                            
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
             }
         })
     }
@@ -322,21 +343,74 @@ function Felicidades(){
             document.getElementById("barra").innerHTML = contador
 
             if(contador == 10){
-                swal({
-                    title: "Felicidades",
-                    text: "¿Quieres salir del juego o volver a intentarlo?",
-                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
-                    buttons:  ["Volver a jugar", "Salir"] 
-                })
-                .then((reintento) => {
-                    if (reintento) {
-                        location.href = "JuegosLetras.html"
-                    } 
-                    else{
-                        document.getElementById("btnIniciar").innerHTML = "Empezar"
-                        Reiniciar()
-                    }
-                })
+                if(valor == "dificil"){
+                    swal({
+                        title: "Felicidades",
+                        text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Reintentar todo", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            valor == 'facil'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                            Reiniciar()
+                        }
+                    })
+                }
+
+                else{
+                    swal({
+                        title: "Felicidades",
+                        text: "¿Quieres avanzar al siguiente nivel o salir del juego?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Siguiente nivel", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            if(valor == 'facil'){
+                                valor = 'medio'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                Reiniciar()
+                            }
+
+                            else{
+                                if(valor == 'medio'){
+                                    valor = 'dificil'
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+                                    Reiniciar()
+                                }
+                            }
+                        }
+                    })
+                }
+                // swal({
+                //     title: "Felicidades",
+                //     text: "¿Quieres salir del juego o volver a intentarlo?",
+                //     icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                //     buttons:  ["Volver a jugar", "Salir"] 
+                // })
+                // .then((reintento) => {
+                //     if (reintento) {
+                //         location.href = "JuegosLetras.html"
+                //     } 
+                //     else{
+                //         if (valor == "facil")
+                //             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                        
+                //         if (valor == "medio")
+                //             palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+
+                //         document.getElementById("btnIniciar").innerHTML = "Empezar"
+                //         Reiniciar()
+                //     }
+                // })
             }
             else{
                 Empezar()
