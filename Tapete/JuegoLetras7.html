@@ -10,6 +10,9 @@
 	<script src="js/query-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
+    <!-- Barra Lateral -->
+    <link rel="stylesheet" href="css/BarraLateral.css">
+
     <title>Uso de C, S y Z</title>
 </head>
 
@@ -23,13 +26,44 @@
 
         <img id="semaforo" alt=""  width="100">
         
-        <a href="MenuSeleccion.html" class="btnInicio">
+        <!-- <a href="MenuSeleccion.html" class="btnInicio">
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
         </a>
         <a href="JuegosLetras.html" class="btnAtras">
             <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a>
+        </a> -->
     </nav>
+
+    <div class="barra-lateral">
+        <div class="nombre-pagina">
+            <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+            <span>DiDit</span>
+        </div>
+        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
+            <span>Inicio</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'JuegosLetras.html'">
+            <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
+            <span>Juego de letras</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'JuegosUsoDe.html'">
+            <img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
+            <span>Cambiar modo</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'DificultadCSZ.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
+            <span>Dificultad</span>
+        </button>
+        
+        <button class="boton" onclick="Ayuda()">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
+            <span>Ayuda</span>
+        </button>
+    </div>
 
     <div>
         <div id="vida"></div>
@@ -59,6 +93,7 @@
         </font>
     </div>
     <script src="js/funciones/letras/c-s-z.js"></script>
+    <script src="js/Barra.js"></script>
 
 </body>
 </html>
