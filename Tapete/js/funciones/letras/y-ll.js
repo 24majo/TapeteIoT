@@ -10,8 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-const palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
-const palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
+var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
+var palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -81,22 +81,23 @@ function Reinicio(){
 
 function Reiniciar(){
     document.getElementById("linea").innerHTML = "" 
-    if(valor == 'facil'){
-        palabras = palabras_f
-    }
+    if(valor == 'facil')
+        palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
 
-    if (valor == "medio"){
-        palabras = palabras_m
-    }
-
+    if (valor == "medio")
+        palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
+    
+    palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    imagen = ""
+    imagen.src = ""
+    document.getElementById("linea").innerHTML = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
     num_opcion = 0
+    respuesta_m = []
     Empezar()
 }
 
@@ -124,7 +125,7 @@ function Empezar(){
             break
 
         case 'medio':
-            arreglo = ["l", "y"]
+            arreglo = ["ll", "y"]
             palabras = palabras_m
 
             if(!respuesta_m.includes("_")){
@@ -196,7 +197,6 @@ function Empezar(){
 }
 
 function ComprobarM(letra){
-    //alert(respuesta)
     if(respuesta.includes(letra)) {
         for(var i = 0; i < respuesta.length; i++){
             if(respuesta_m[i] == "_"){
@@ -289,6 +289,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
+                    palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
                     palabras = palabras_f
                     alert(palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -305,14 +306,18 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
                                 palabras = palabras_m
-                                alert(palabras)
+                                //alert(palabras)
                             }
 
                             if(valor == 'medio'){
                                 valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
                                 palabras = palabras_f
-                                alert(palabras)
+                                //alert(palabras)
                             }
                             
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -376,12 +381,14 @@ function Felicidades(){
                         else{
                             if(valor == 'facil'){
                                 valor = 'medio'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
                             }
 
                             else{
                                 if(valor == 'medio'){
-                                    valor = 'dificil'
+                                    valor = 'dificil'                                    
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
                                 }
                             }
@@ -401,7 +408,7 @@ window.addEventListener("keydown",(e)=>{
     switch(tecla){
     case 'ArrowLeft':
         if(valor == 'medio'){
-            ComprobarM(arreglo[0])
+            ComprobarM('l')
         }
         else{
             Comprobar(arreglo[0])
