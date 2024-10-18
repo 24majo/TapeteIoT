@@ -113,7 +113,7 @@ body{
 .botones{
     position: relative;
     margin-left: 640px;
-    margin-top: 100px;
+    margin-top: -80px;
     font-size: 80px;
 }
 
@@ -165,7 +165,7 @@ body{
 }
 
 .btnOpciones{
-    margin-top: -150px;
+    margin-top: -220px;
     margin-left: 10px;
 }
 
@@ -183,3 +183,65 @@ body{
     margin-left: -5px;
     margin-top: 21px;
 }
+
+/* Contiene las propiedades imagen para la animación */
+.polloEspera{
+    position: relative;
+    margin-top: -120px;
+    height: 300px;
+    width: 400px;
+    background-image: url(../Visual/Material/Animaciones/Suma/EsperaSum.png);
+    margin-left: 100px;
+}
+
+/* Aquí toma el inicio de la imagen y el pixel final para realizar la animación */
+@keyframes esperar {
+    from{background-position-x: 0px;}
+    to{background-position-x: -2412px;}
+}
+
+/*Contiene su duración y el tiempo de ejecución además del no.cuadros de la animación */
+#espera {
+    animation: esperar 1s steps(6) 86400;
+  } 
+
+.polloBien{
+    position: relative;
+    margin-top: -120px;
+    height: 300px;
+    width: 400px;
+    background-image: url(../Visual/Material/Animaciones/Suma/AciertoSum.png);
+    margin-left: 100px;
+}
+
+@keyframes bien {
+    from{background-position-x: 0px;}
+    to{background-position-x: -8850px;}
+}
+
+#acierto {
+    animation: bien 2s steps(22) 1;
+  }
+
+.polloMal{
+    position: relative;
+    margin-top: -120px;
+    height: 300px;
+    width: 400px;
+    background-image: url(../Visual/Material/Animaciones/Suma/IncorrectoSum.png);
+    margin-left: 100px;
+}
+
+@keyframes mal {
+    from{background-position-x: 0px;}
+    to{background-position-x: -8044px;}
+}
+
+#incorrecto{
+    animation: mal 2s steps(20) 1;
+  }
+
+/* Esta clase oculta las animaciones */
+  .desaparecer {
+    display: none;
+  }
