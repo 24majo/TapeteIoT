@@ -1,0 +1,73 @@
+/* Contiene las propiedades imagen para la animación */
+.polloEspera{
+    position: relative;
+    margin-top: 10px;
+    height: 300px;
+    width: 400px;
+    background-image: url(./EsperaSum.png);
+    /* animation-name: esperar; 
+    animation-duration: 2s;
+    animation-timing-function: steps(13);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+/* Aquí toma el inicio de la imagen y el pixel final para realizar la animación */
+@keyframes esperar {
+    from{background-position-x: 0px;}
+    to{background-position-x: -2412px;}
+}
+
+/*Contiene su duración y el tiempo de ejecución además del no.cuadros de la animación */
+#espera {
+    animation: esperar 1s steps(6) 86400;
+  } 
+
+.polloBien{
+    position: relative;
+    margin-top: 10px;
+    height: 300px;
+    width: 400px;
+    background-image: url(./AciertoSum.png);
+    /* animation-name: brincar; */
+    /* animation-duration: 2s; */
+    /* animation-timing-function: steps(22);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+@keyframes bien {
+    from{background-position-x: 0px;}
+    to{background-position-x: -8850px;}
+}
+
+#acierto {
+    animation: bien 2s steps(22) 1;
+  }
+
+.polloMal{
+    position: relative;
+    margin-top: 10px;
+    height: 300px;
+    width: 400px;
+    background-image: url(./CorregirSum.png);
+    /* animation-name: caida; */
+    /* animation-duration: 2s;
+    animation-timing-function: steps(31);
+    animation-iteration-count: infinite; */
+    margin-left: 100px;
+}
+
+@keyframes mal {
+    from{background-position-x: 0px;}
+    to{background-position-x: -8044px;}
+}
+
+#corregir{
+    animation: mal 2s steps(20) 1;
+  }
+
+/* Esta clase oculta las animaciones */
+  .desaparecer {
+    display: none;
+  }
