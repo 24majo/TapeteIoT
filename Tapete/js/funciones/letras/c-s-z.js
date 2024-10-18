@@ -79,13 +79,16 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    document.getElementById("linea").innerHTML = "" 
+    for(let i = 0; i < opciones.length; i++){
+        opciones[i].innerHTML = ""
+    }
     if(valor == 'facil')
         palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
 
     if(valor == 'medio')
         palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
 
-    document.getElementById("linea").innerHTML = "" 
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
@@ -374,8 +377,11 @@ function Felicidades(){
                             location.href = "JuegosLetras.html"
                         } 
                         else{
-                            valor == 'facil'
+                            valor = 'facil'
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                            palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                            palabras = palabras_f
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
                         }
                     })

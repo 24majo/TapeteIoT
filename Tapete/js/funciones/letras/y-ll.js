@@ -81,6 +81,9 @@ function Reinicio(){
 
 function Reiniciar(){
     document.getElementById("linea").innerHTML = "" 
+    for(let i = 0; i < opciones.length; i++){
+        opciones[i].innerHTML = ""
+    }
     if(valor == 'facil')
         palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
 
@@ -92,7 +95,6 @@ function Reiniciar(){
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
     imagen.src = ""
-    document.getElementById("linea").innerHTML = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
@@ -291,7 +293,7 @@ function Fallo(){
                 if(valor == 'facil'){
                     palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
                     palabras = palabras_f
-                    alert(palabras)
+                    //alert(palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
                     Reiniciar()
                 }
@@ -361,7 +363,11 @@ function Felicidades(){
                             location.href = "JuegosLetras.html"
                         } 
                         else{
-                            valor == 'facil'
+                            valor = 'facil'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                            palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                            palabras = palabras_f
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
                         }
                     })
