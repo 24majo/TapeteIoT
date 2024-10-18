@@ -34,28 +34,28 @@ var palabras_d =[
         valores: ["sirena", "manzana"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"La pizza tiene mucho queso.",
+        valores: ["pizza", "queso"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"El café tiene un zapato.",
+        valores: ["café", "zapato"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"Los niños saltan a la cuerda.",
+        valores: ["saltan", "cuerda"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"El perro se come la cerca.",
+        valores: ["come", "cerca"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"El gato brinca en el sillón.",
+        valores: ["brinca", "sillón"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"La sopa está en la cazuela.",
+        valores: ["sopa", "cazuela"]
     }
 ]
 
