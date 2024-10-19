@@ -194,46 +194,30 @@ function ComprobarM(letra){
     var r = /r/.test(respuesta);
 
     if (rr && r) {
-
         for(var i = 0; i < respuesta.length; i++) {
             if(respuesta_m[i]=="_" && respuesta_m[i+1] == "_"){
-                respuesta_m = respuesta_m.replace("_", "r")
-                respuesta_m = respuesta_m.replace("_", "r")
+                if(letra == "rr"){
+                    respuesta_m = respuesta_m.replace("_", "r")
+                    respuesta_m = respuesta_m.replace("_", "r")
+                    break
+                }
+                else{
+                    Fallo()
+                }
                 break
             }
 
-            for(var i = 0; i < respuesta.length; i++) {
-                if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
+            else if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
+                if(letra == "r"){
                     respuesta_m = respuesta_m.replace("_", letra)
                     break
                 }
+                else{
+                    Fallo()
+                }
+                break
             }
         }
-
-
-        // if(letra == "rr"){
-        //     for(var i = 0; i < respuesta.length; i++) {
-        //         if(respuesta_m[i]=="_" && respuesta_m[i+1] == "_"){
-        //             respuesta_m = respuesta_m.replace("_", "r")
-        //             respuesta_m = respuesta_m.replace("_", "r")
-        //             break
-        //         }
-        //     }
-           
-        //     // document.getElementById("linea").innerHTML = respuesta_m
-
-        //     // if(!respuesta_m.includes("_")){
-        //     //     Felicidades()
-        //     // }
-        // }
-        // else if (letra == "r"){
-        //     for(var i = 0; i < respuesta.length; i++) {
-        //         if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
-        //             respuesta_m = respuesta_m.replace("_", letra)
-        //             break
-        //         }
-        //     }
-        // }
 
         document.getElementById("linea").innerHTML = respuesta_m
 
@@ -242,7 +226,36 @@ function ComprobarM(letra){
         }
     } 
     else{
-        alert("Solo tiene r o rr")
+        for(var i = 0; i < respuesta.length; i++) {
+            if(respuesta_m[i]=="_" && respuesta_m[i+1] == "_"){
+                if(letra == "rr"){
+                    respuesta_m = respuesta_m.replace("_", "r")
+                    respuesta_m = respuesta_m.replace("_", "r")
+                    break
+                }
+                else{
+                    Fallo()
+                }
+                break
+            }
+
+            else if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
+                if(letra == "r"){
+                    respuesta_m = respuesta_m.replace("_", letra)
+                    break
+                }
+                else{
+                    Fallo()
+                }
+                break
+            }
+        }
+
+        document.getElementById("linea").innerHTML = respuesta_m
+
+        if(!respuesta_m.includes("_")){
+            Felicidades()
+        }
     }
 }
 
