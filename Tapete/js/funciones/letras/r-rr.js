@@ -261,7 +261,7 @@ function ComprobarM(letra){
     }
 }
 
-function Comprobar(letra){
+function ComprobarF(letra){
     var rr = /rr/.test(respuesta);
     
     if (rr) {
@@ -380,7 +380,7 @@ window.addEventListener("keydown",(e)=>{
             ComprobarM(arreglo[1])
         }
         else{
-            Comprobar(arreglo[1])
+            ComprobarF(arreglo[1])
         }
         break;
     default:
