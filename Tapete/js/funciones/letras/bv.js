@@ -10,7 +10,7 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-var palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+var palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
 var palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
 //const palabras_m = ["víbora"]
 var palabras = []
@@ -20,7 +20,7 @@ var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
-        frase: "Las vacas pueden volar.",
+        frase: "Las vacas no pueden volar.",
         valores: ["vacas", "volar"]
     },
     {
@@ -28,8 +28,8 @@ var palabras_d =[
         valores: ["abejas", "bailar"]
     },
     {
-        frase:"Las liebres evolucionan.",
-        valores: ["liebres", "evolucionan"]
+        frase:"Las liebres pueden brincar.",
+        valores: ["liebres", "brincar"]
     },
     {
         frase:"El tiburón es carnívoro.",
@@ -40,23 +40,23 @@ var palabras_d =[
         valores: ["lombríz", "fiebre"]
     },
     {
-        frase:"El búho voltea sus patas.",
-        valores: ["búho", "voltea"]
+        frase:"El búho gira su cabeza.",
+        valores: ["búho", "cabeza"]
     },
     {
         frase:"La ballena quiere viajar.",
         valores: ["ballena", "viajar"]
     },
     {
-        frase:"El venado se está balanceando.",
-        valores: ["venado", "balanceando"]
+        frase:"El venado se está bañando.",
+        valores: ["venado", "bañando"]
     },
     {
         frase:"El cuervo no puede barrer.",
         valores: ["cuervo", "barrer"]
     },
     {
-        frase:"El borrego necesita brillar.",
+        frase:"El borrego quiere brillar.",
         valores: ["borrego", "brillar"]
     }
 ]
@@ -87,10 +87,10 @@ function Reiniciar(){
     }
     
     if(valor == 'facil')
-        palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+        palabras_f = ["Uva", "Vela", "Vaso", "Viento", "Volcán", "Globo", "Lombríz", "Libro", "Árbol", "Cebolla"]
     
     if(valor == 'medio')
-        palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
+        palabras_m = ["Víbora", "Vivir", "Burbuja", "Bebé", "Beber", "Babosa", "Envolver", "Biblioteca", "Bebida", "Sobrevivir"]
 
     palabras = []
     error = 3
@@ -117,7 +117,7 @@ function Empezar(){
             //alert(palabras)
             document.getElementById("linea").innerHTML = respuesta
             imagen = document.getElementById('figura') 
-            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
+            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".jpg"
             
             if(respuesta.includes('b') == true || respuesta.includes('v') == true){
                 document.getElementById("linea").innerHTML = respuesta.replaceAll(/b|v/g, "_")
@@ -290,7 +290,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
-                    palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                    palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
                     palabras = palabras_f
                     //alert("Original: " + palabras_f)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -315,7 +315,7 @@ function Fallo(){
                             else if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                                palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
                                 palabras = palabras_f
                             }
                             
@@ -362,7 +362,7 @@ function Felicidades(){
                         else{
                             valor = "facil"
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                            palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                            palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
                             palabras = palabras_f
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
                             Reiniciar()
@@ -410,7 +410,7 @@ function Felicidades(){
                 //     } 
                 //     else{
                 //         if (valor == "facil")
-                //             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
+                //             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
                         
                 //         if (valor == "medio")
                 //             palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
