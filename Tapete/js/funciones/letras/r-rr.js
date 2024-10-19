@@ -19,16 +19,16 @@ var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
-        frase: ".",
-        valores: ["", ""]
+        frase: "El ratón toca la guitarra.",
+        valores: ["ratón", "guitarra"]
     },
     {
-        frase: ".",
-        valores: ["", ""]
+        frase: "Los perros no comen brócoli.",
+        valores: ["perros", "brócoli"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"La tortuga ganó la carrera.",
+        valores: ["tortuga", "carrera"]
     },
     {
         frase:".",
@@ -154,9 +154,11 @@ function Empezar(){
             }
 
             document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
+            var rr = /rr/.test(respuesta);
+            var r = /r/.test(respuesta);
 
-            if(respuesta.includes("r")){
-                var palabra = respuesta.replace("b", "v");
+            if(rr){
+                var palabra = respuesta.replace("rr", "r");
                 
                 if(arreglo.length == 2){
                     arreglo[0] = palabra
@@ -168,8 +170,8 @@ function Empezar(){
                 }
             }
 
-            else if(respuesta.includes("v")){
-                var palabra = respuesta.replace("v", "b");
+            else{
+                var palabra = respuesta.replace("r", "rr");
                 if(arreglo.length == 2){
                     arreglo[0] = respuesta
                     arreglo[1] = palabra
