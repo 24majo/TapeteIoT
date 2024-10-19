@@ -11,48 +11,13 @@ body{
     margin-left: 100px;
     margin-top: 10px;
 }
-#opcionArriba{
-    width: 200px;
-	height: 70px;
-	border: 5px solid  #752828;
-	font-size: 50px;
-	margin-bottom: 20px;
-	border-radius: 15px;
-	cursor: pointer;
-	background-color: #d35959;
-	color: #ffffff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-    top: -20px;
-    right: -830px;
-}
-
-#opcionAbajo{
-    width: 200px;
-	height: 70px;
-	border: 5px solid  #67ab49;
-	font-size: 50px;
-	margin-bottom: 20px;
-	border-radius: 15px;
-	cursor: pointer;
-	background-color: #95e372;
-	color: #ffffff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-    right: -830px;
-    top: -10px;
-}
 
 #opcionIzquierda{
-    width: 120px;
-	height: 120px;
+    width: 220px;
+	height: 80px;
 	border: 5px solid  #A5942B;
 	font-size: 50px;
-	border-radius: 50%;
+	border-radius: 15px;
 	cursor: pointer;
 	background-color: #E2CD3C;
 	color: #ffffff;
@@ -61,16 +26,16 @@ body{
 	align-items: center;
 	position: relative;
     margin-left: 150px;
-    margin-top: -200px;
+    margin-top: -250px;
 }
 
 #opcionDerecha{
-    width: 120px;
-	height: 120px;
+    width: 220px;
+	height: 80px;
 	border: 5px solid  #3d7998;
 	font-size: 50px;
 	margin-bottom: 20px;
-	border-radius: 50%;
+	border-radius: 15px;
 	cursor: pointer;
 	background-color: #75b6d7;
 	color: #ffffff;
@@ -78,10 +43,9 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    margin-left: 1000px;
-    margin-top: -120px;
+    margin-left: 850px;
+    margin-top: -80px;
 }
-
 #btnIniciar{
     width: 150px;
     height: 45px;
@@ -150,7 +114,7 @@ body{
 }
 
 .btnOpciones{
-    margin-top: 80px;
+    margin-top: -80px;
     margin-left: 40px;
 }
 
