@@ -19,44 +19,44 @@ var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
-        frase: "Las vacas pueden volar.",
-        valores: ["vacas", "volar"]
+        frase: ".",
+        valores: ["", ""]
     },
     {
-        frase: "Las abejas saben bailar.",
-        valores: ["abejas", "bailar"]
+        frase: ".",
+        valores: ["", ""]
     },
     {
-        frase:"Las liebres evolucionan.",
-        valores: ["liebres", "evolucionan"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"El tiburón es carnívoro.",
-        valores: ["tiburón", "carnívoro"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"La lombríz tiene fiebre.",
-        valores: ["lombríz", "fiebre"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"El búho voltea sus patas.",
-        valores: ["búho", "voltea"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"La ballena quiere viajar.",
-        valores: ["ballena", "viajar"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"El venado se está balanceando.",
-        valores: ["venado", "balanceando"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"El cuervo no puede barrer.",
-        valores: ["cuervo", "barrer"]
+        frase:".",
+        valores: ["", ""]
     },
     {
-        frase:"El borrego necesita brillar.",
-        valores: ["borrego", "brillar"]
+        frase:".",
+        valores: ["", ""]
     }
 ]
 
@@ -80,6 +80,10 @@ function Reinicio(){
 }
 
 function Reiniciar(){
+    document.getElementById("linea").innerHTML = "" 
+    for(let i = 0; i < opciones.length; i++){
+        opciones[i].innerHTML = ""
+    }
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -90,6 +94,7 @@ function Reiniciar(){
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
     num_opcion = 0
+    respuesta_m = []
     Empezar()
 }
 
@@ -101,13 +106,12 @@ function Empezar(){
             respuesta = palabras[Math.floor(Math.random() * palabras.length)]
             var repetida = palabras.indexOf(respuesta)
             palabras.splice(repetida, 1)
-            //alert(palabras)
             document.getElementById("linea").innerHTML = respuesta
             imagen = document.getElementById('figura') 
             imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
             
             if(respuesta.includes('r') == true){
-                document.getElementById("linea").innerHTML = respuesta.replaceAll(/r|rr/g, "_")
+                document.getElementById("linea").innerHTML = respuesta.replaceAll(/r/g, "_")
             }
 
             for(let i = 0; i < arreglo.length; i++){
@@ -186,65 +190,94 @@ function Empezar(){
 }
 
 function ComprobarM(letra){
-    if(respuesta.includes(letra)) {
-        for(var i = 0; i < respuesta.length; i++){
-            //alert("i: " + i)
-            if(respuesta_m[i] == "_"){
-                if(respuesta[i] == letra){
+    var rr = /rr/.test(respuesta);
+    var r = /r/.test(respuesta);
+
+    if (rr && r) {
+
+        for(var i = 0; i < respuesta.length; i++) {
+            if(respuesta_m[i]=="_" && respuesta_m[i+1] == "_"){
+                respuesta_m = respuesta_m.replace("_", "r")
+                respuesta_m = respuesta_m.replace("_", "r")
+                break
+            }
+
+            for(var i = 0; i < respuesta.length; i++) {
+                if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
                     respuesta_m = respuesta_m.replace("_", letra)
                     break
                 }
-
-                else{
-                    Fallo()
-                    break
-                }
-                break
             }
         }
+
+
+        // if(letra == "rr"){
+        //     for(var i = 0; i < respuesta.length; i++) {
+        //         if(respuesta_m[i]=="_" && respuesta_m[i+1] == "_"){
+        //             respuesta_m = respuesta_m.replace("_", "r")
+        //             respuesta_m = respuesta_m.replace("_", "r")
+        //             break
+        //         }
+        //     }
+           
+        //     // document.getElementById("linea").innerHTML = respuesta_m
+
+        //     // if(!respuesta_m.includes("_")){
+        //     //     Felicidades()
+        //     // }
+        // }
+        // else if (letra == "r"){
+        //     for(var i = 0; i < respuesta.length; i++) {
+        //         if(respuesta_m[i] == "_" && respuesta_m[i+1] != "_"){
+        //             respuesta_m = respuesta_m.replace("_", letra)
+        //             break
+        //         }
+        //     }
+        // }
+
         document.getElementById("linea").innerHTML = respuesta_m
 
         if(!respuesta_m.includes("_")){
             Felicidades()
         }
-    }
-
+    } 
     else{
-        Fallo()
+        alert("Solo tiene r o rr")
     }
 }
 
 function Comprobar(letra){
-    if(respuesta.includes(letra)) {
-        for(var i = 0; i < respuesta.length; i++) {
-            if(respuesta[i]==letra){
-                respuesta[i] == letra
-                break
-            }
-        }
-
-        switch(valor){
-            case 'facil':
-                document.getElementById("linea").innerHTML = respuesta
-                Felicidades()
-                break
-
-            case 'dificil':
-                palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replace("_______", respuesta)
-                document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
-                num_opcion++
-
-                if(num_opcion > 1 && num_ejercicio < 10){
-                    num_ejercicio++
-                    num_opcion = 0
-                    Felicidades()
-                }
-                break
-        }
-    }
+    var rr = /rr/.test(respuesta);
     
+    if (rr) {
+        if(letra == "rr"){
+            for(var i = 0; i < respuesta.length; i++) {
+                if(respuesta[i]=="r"){
+                    respuesta[i] == "r"
+                    break
+                }
+            }
+            document.getElementById("linea").innerHTML = respuesta
+            Felicidades()
+        }
+        else{
+            Fallo()
+        }
+    } 
     else{
-        Fallo()
+        if(letra == "r"){
+            for(var i = 0; i < respuesta.length; i++) {
+                if(respuesta[i] == letra){
+                    respuesta[i] == letra
+                    break
+                }
+            }
+            document.getElementById("linea").innerHTML = respuesta
+            Felicidades()
+        }
+        else{
+            Fallo()
+        }
     }
 }
 

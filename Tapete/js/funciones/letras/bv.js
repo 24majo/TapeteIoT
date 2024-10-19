@@ -85,6 +85,7 @@ function Reiniciar(){
     for(let i = 0; i < opciones.length; i++){
         opciones[i].innerHTML = ""
     }
+    
     if(valor == 'facil')
         palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
     
