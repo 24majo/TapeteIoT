@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Barra Lateral -->
+     <link rel="stylesheet" href="css/BarraLateral.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/styleJuegoLetras8.css">
 
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/query-3.7.1.min.js"></script>
 
-    <!-- Barra Lateral -->
-    <link rel="stylesheet" href="css/BarraLateral.css">
     <title>Sílabas trabadas</title>
 </head>
 
-<body>
+<body background="Visual/Fondos/FondoJuegos.jpg">
 
-    <div class="barra-lateral">
+   <!----------------- Barra lateral --------------------------------->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
+        <font face="Century Gothic">
         <div class="nombre-pagina">
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
@@ -25,82 +32,110 @@
 
         <button class="boton" onclick="location.href = 'JuegosLetras.html'">
             <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
-            <span>Juego de letras</span>
+            <span>Menú de letras</span>
         </button>
 
         <button class="boton" onclick="location.href = 'JuegosTrabados.html'">
             <img class="modo" id="modo" src="Visual/Material/Letras/Seleccion/ImgSilabasTrabadas.jpg" width="40px">
-            <span>Cambiar modo</span>
+            <span>Dificultad</span>
         </button>
         
         <button class="boton" onclick="Ayuda()">
-            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="50px">
+            <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
             <span>Ayuda</span>
         </button>
     </div>
+</font>
+</div>
+<!---------------------- Fin de barra lateral ----------------------------->
 
-    <h1>¿Cómo se escribe la palabra?</h1>
-    <div id="vida"></div>
-    <progress id="barra" max="20" value="0"></progress>
-    <img class="imagen" id='imagen' width="150px" height="150px">
-
-    <div id="prueba"></div>
-
-    <div class="letras">
-        <font face="Century Gothic">
-            <button id="btnIniciar" onclick="Empezar()"><b>Empezar</b></button>
-            <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
-            <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
-        </font>  
+    
+   
+    <div style="margin-left: 790px; margin-top: -280px">
+        <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
     </div>
+
+    <nav>
+        <div>
+            <div class="vidas" id="vida"></div>
+        </div>
+
+        <div  class="titulo">
+            <font face="Century Gothic">
+                <h1>¿Cómo se escribe la palabra?</h1>
+            </font>
+        </div>
+       
+    </nav>
+
+    <article>
+        <section>
+            <img class="imagen" id='imagen' width="150px" height="150px">
+            <div id="prueba"></div>
+        </section>
+
+        <div class="letras">
+            <font face="Century Gothic">
+                <button id="btnIniciar" onclick="Empezar()"><b>Empezar</b></button>
+                <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+            </font>  
+        </div>
+    </article>
 
     <div id="circulos">
         <font face="MV Boli">
             <span id="opcionIzquierda" class="opcion"></span>
             <span id="opcionDerecha" class="opcion"></span>
         </font>
-    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th colspan="2" id="opcion1">Valor 1</th>
-                <th colspan="2" id="opcion2">Valor 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-            </tr>
-            <tr>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-            </tr>
-            <tr>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-            </tr>
-            <tr></tr>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-            </tr>
-            <tr>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
-            </tr>
-        </tbody>
-    </table>
+            <center>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2" id="opcion1">Valor 1</th>
+                                <th colspan="2" id="opcion2">Valor 2</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                            </tr>
+
+                                <tr></tr>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                            </tr>
+                            <tr>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla1" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                                <td><img class="tabla2" src="" width="50px" height="50px" alt=""></td>
+                            </tr>
+                        </tbody>
+                    
+                    </table>
+                    </div>
+            </center>
+       
 </body>
 
     <script src="js/Barra.js"></script>
