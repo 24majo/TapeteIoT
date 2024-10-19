@@ -12,6 +12,23 @@ body{
     margin-top: 10px;
 }
 
+#opcionArriba{
+    width: 220px;
+	height: 80px;
+	border: 5px solid  #752828;
+	font-size: 50px;
+	margin-bottom: 20px;
+	border-radius: 15px;
+	cursor: pointer;
+	background-color: #d35959;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+    top: -180px;
+    right: -880px;
+}
 
 #opcionIzquierda{
     width: 220px;
@@ -26,7 +43,7 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    margin-left: 150px;
+    margin-left: 750px;
     margin-top: -250px;
 }
 
@@ -44,8 +61,8 @@ body{
 	justify-content: center;
 	align-items: center;
 	position: relative;
-    margin-left: 850px;
-    margin-top: -80px;
+    margin-left: 1000px;
+    margin-top: -180px;
 }
 
 #btnIniciar{
@@ -75,24 +92,13 @@ body{
 
 .botones{
     position: absolute;
-    margin-left: 420px;
-    margin-top: 20px;
+    margin-left: 820px;
+    margin-top: 10px;
     font-size: 80px;
-}
-
-.btnMenus{
-    margin-top: -130px;
-    margin-left: 100px;
 }
 
 .btnAtras{
     margin-left: 30px;
-}
-
-.contador{
-    position: relative;
-    right: -700px;
-    top: -150px;
 }
 
 #aparecer{
@@ -122,7 +128,7 @@ body{
 
 .imagen{
     position: relative;
-    margin-left: 500px;
+    margin-left: 680px;
     margin-top: -10px;
     display: flex;
     flex-wrap: wrap;
@@ -140,4 +146,8 @@ body{
 .barraM{
     margin-left: -5px;
     margin-top: 21px;
+}
+
+.alinear{
+    margin-left: -350px;
 }
