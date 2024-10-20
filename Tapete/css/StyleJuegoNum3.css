@@ -240,3 +240,8 @@ body{
   .desaparecer {
     display: none;
   }
+
+  .swal-icon img{
+    width: 170px;
+    height: 160px;
+  }

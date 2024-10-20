@@ -152,7 +152,7 @@ function Racierto(num){
                 swal({
                     title: "¡Ganador!",
                     text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                     buttons:  ["Continuar", "Salir"],
                     dangerMode: true,
                 })
@@ -173,19 +173,21 @@ function Racierto(num){
                 swal({
                     title: "¡Felicidades!",
                     text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien.gif",
                     buttons: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
                             valor = "medio"
+                            semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             Reiniciar()
                         }
 
                         else{
                             if(valor == 'medio'){
                                 valor = "dificil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                 Reiniciar()
                             }
                         }
@@ -229,7 +231,7 @@ function Racierto(num){
             swal({
                 title: "Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "warning",
+                icon: "Visual/Material/Animaciones/Generales/triste.jpg",
                 buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
@@ -245,7 +247,7 @@ function Racierto(num){
                     else{
                         swal({
                             title: "¿Deseas reintentar el nivel o bajar la dificultad?",
-                            icon: "info",
+                            icon: "Visual/Material/Animaciones/Generales/Chick.gif",
                             buttons:  ["Mantener", "Cambiar"] 
                         })
                         .then((cambiar) => {
@@ -260,10 +262,12 @@ function Racierto(num){
 
                                 if(valor == 'dificil'){
                                     valor = "medio"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 }
 
                                 if(valor == 'medio'){
                                     valor = "facil"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 }
 
                                 document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -294,7 +298,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
       })
@@ -376,7 +380,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Realiza la suma de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
     // $.dialog({
     //     title: 'Tutorial',

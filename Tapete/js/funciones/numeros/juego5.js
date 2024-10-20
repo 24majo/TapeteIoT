@@ -45,7 +45,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
       })
@@ -160,7 +160,7 @@ function Validar(num){
                 swal({
                     title: "¡Ganador!",
                     text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                     buttons:  ["Continuar", "Salir"],
                     dangerMode: true,
                 })
@@ -182,13 +182,14 @@ function Validar(num){
                 swal({
                     title: "¡Felicidades!",
                     text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif",
                     buttons: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
                             valor = 'medio'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             //alert(valor)
                             //valor = document.querySelector('#medio').checked = true
                             Reiniciar()
@@ -197,6 +198,7 @@ function Validar(num){
                         else{
                             if(valor == 'medio'){
                                 valor = 'dificil'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                 //alert(valor)
                                 //valor = document.querySelector('#dificil').checked = true
                                 Reiniciar()
@@ -222,7 +224,7 @@ function Validar(num){
             swal({
                 title: "¡Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "error",
+                icon: "Visual/Material/Animaciones/Generales/triste.jpg",
                 buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
@@ -232,25 +234,19 @@ function Validar(num){
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
+                        icon: "Visual/Material/Animaciones/Generales/Chick.gif",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
                         if(cambiar){
-                            // for(let y = 0; y < 3; y++){
-                            //     radios[y].disabled = false
-                            // }
-                            // for (var i = 0; i < radios.length; i++) {
-                            //     var niveles = radios[i];
-                            //     niveles.checked = false;
-                            // }
-
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             }
 
                             if(valor == 'medio'){
                                 valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             }
 
                             document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -320,6 +316,6 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Identifica la cantidad de peces que se encuentran en la pecera. Deberás sumarlos para identificar cuanto falta para la siguiente decena. \nElige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }

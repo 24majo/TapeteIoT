@@ -139,7 +139,7 @@ function RCorrecto(num){
                 swal({
                     title: "¡Ganador!",
                     text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                     buttons:  ["Continuar", "Salir"],
                     dangerMode: true,
                 })
@@ -161,13 +161,14 @@ function RCorrecto(num){
                 swal({
                     title: "¡Felicidades!",
                     text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (4).gif",
                     buttons: true,
                 })
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
                             valor = 'medio'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             //valor = document.querySelector('#medio').checked = true
                             Reiniciar()
                         }
@@ -175,6 +176,7 @@ function RCorrecto(num){
                         else{
                             if(valor == 'medio'){
                                 valor = 'dificil'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                 //valor = document.querySelector('#dificil').checked = true
                                 Reiniciar()
                             }
@@ -202,7 +204,7 @@ function RCorrecto(num){
             swal({
                 title: "Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "error",
+                icon: "Visual/Material/Animaciones/Generales/error.jpg",
                 buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
@@ -210,37 +212,49 @@ function RCorrecto(num){
                     location.href = "JuegosNumeros.html"
                 } 
                 else{
-                    swal({
-                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
-                        buttons:  ["Mantener", "Cambiar"] 
-                    })
-                    .then((cambiar) => {
-                        if(cambiar){
-                            // for(let y = 0; y < 3; y++){
-                            //     radios[y].disabled = false
-                            // }
-                            // for (var i = 0; i < radios.length; i++) {
-                            //     var niveles = radios[i];
-                            //     niveles.checked = false;
-                            // }
 
-                            if(valor == 'dificil'){
-                                valor = "medio"
-                            }
+                    if(valor == "facil"){
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
 
-                            if(valor == 'medio'){
-                                valor = "facil"
+                    else{
+                        swal({
+                            title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                            icon: "Visual/Material/Animaciones/Generales/Chick.gif",
+                            buttons:  ["Mantener", "Cambiar"] 
+                        })
+                        .then((cambiar) => {
+                            if(cambiar){
+                                // for(let y = 0; y < 3; y++){
+                                //     radios[y].disabled = false
+                                // }
+                                // for (var i = 0; i < radios.length; i++) {
+                                //     var niveles = radios[i];
+                                //     niveles.checked = false;
+                                // }
+
+                                if(valor == 'dificil'){
+                                    valor = "medio"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                }
+
+                                if(valor == 'medio'){
+                                    valor = "facil"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                }
+                                
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-                            
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
+                            else{
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
+                            }
+                        })
+                    }
+
+                    
                 }
             })
         }
@@ -260,7 +274,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
         buttons: true,
         dangerMode: true,
       })
@@ -332,7 +346,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Realiza la resta de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
     // swal("Tutorial", 
     //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");

@@ -169,7 +169,10 @@ body{
     margin-top: 21px;
 }
 
-
+.swal-icon img{
+    width: 170px;
+    height: 160px;
+  }
 
 
 

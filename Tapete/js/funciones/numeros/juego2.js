@@ -19,7 +19,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Elige el número siguiente al anterior de acuerdo con la secuencia presentada por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
 
@@ -38,7 +38,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
         buttons: true,
         dangerMode: true,
     })
@@ -130,9 +130,9 @@ function Opciones(num){
             document.getElementById("barra").innerHTML = contador
 
             swal({
-                title: "¡Bien hecho! :D",
+                title: "¡Bien hecho!",
                 text: "Continuemos al siguiente ejercicio",
-                icon: "success",
+                icon: "Visual/Material/Animaciones/Generales/PolloBien.gif",
                 button: "Continuar",
             })
             .then((Continuar) => {
@@ -149,7 +149,7 @@ function Opciones(num){
                 swal({
                     title: "¡Felicidades! :D",
                     text: "Has completado todas las secuencias. \n ¿Deseas reintentar el juego o salir?",
-                    icon: "success",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                     buttons: ["Reintentar", "Salir"],
                 })
                 .then((Continuar) => {
@@ -183,7 +183,7 @@ function Opciones(num){
             swal({
                 title: "¡Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "error",
+                icon: "Visual/Material/Animaciones/Generales/error.jpg",
                 buttons: ["Reintentar", "Salir"]
             })
             .then((reintento) => {
