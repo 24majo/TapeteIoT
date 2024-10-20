@@ -24,8 +24,8 @@ function ValoresTabla(){
     if(encabezado == "b"){
         document.getElementById("opcion1").textContent = "Bl"
         document.getElementById("opcion2").textContent = "Br"
-        palabras = ["nublado", "mueble", "oblea",  "ombligo", "establo", "blusa", "pueblo",
-            "sombra","cebra", "cobra", "lombriz", "libro", "bruja","embrujado"]
+        palabras = ["nublado", "mueble",  "ombligo", "establo", "blusa", "pueblo",
+            "cebra", "cobra", "lombríz", "libro", "bruja","embrujado"]
         //palabras = ["libro"]
         op = ["bl", "br"]
         OpcionesCirculos(op)
@@ -65,7 +65,7 @@ function ValoresTabla(){
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
-        palabras = ["Atleta", "Atlántico", "Tlacoyo", "Atlas", "Chipotle", "náhuatl",
+        palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle", "tlaxcala",
             "traje", "tren", "estrella", "trompeta", "trueno", "trompo"]
         op = ["tl", "tr"]
         OpcionesCirculos(op)

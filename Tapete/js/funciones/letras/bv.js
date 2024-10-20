@@ -87,10 +87,10 @@ function Reiniciar(){
     }
     
     if(valor == 'facil')
-        palabras_f = ["Uva", "Vela", "Vaso", "Viento", "Volcán", "Globo", "Lombríz", "Libro", "Árbol", "Cebolla"]
+        palabras_f = ["uva", "vela", "vaso", "viento", "Volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
     
     if(valor == 'medio')
-        palabras_m = ["Víbora", "Vivir", "Burbuja", "Bebé", "Beber", "Babosa", "Envolver", "Biblioteca", "Bebida", "Sobrevivir"]
+        palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
 
     palabras = []
     error = 3

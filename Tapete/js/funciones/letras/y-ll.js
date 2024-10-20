@@ -10,7 +10,7 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
+var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
 var palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
@@ -85,7 +85,7 @@ function Reiniciar(){
         opciones[i].innerHTML = ""
     }
     if(valor == 'facil')
-        palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
+        palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
 
     if (valor == "medio")
         palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
@@ -291,7 +291,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
-                    palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
+                    palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                     palabras = palabras_f
                     //alert(palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -317,7 +317,7 @@ function Fallo(){
                             if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "cepillo"]
+                                palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                                 palabras = palabras_f
                                 //alert(palabras)
                             }

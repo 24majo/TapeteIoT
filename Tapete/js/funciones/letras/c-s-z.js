@@ -10,7 +10,7 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-var palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+var palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
 var palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -84,7 +84,7 @@ function Reiniciar(){
         opciones[i].innerHTML = ""
     }
     if(valor == 'facil')
-        palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+        palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
 
     if(valor == 'medio')
         palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
@@ -299,7 +299,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
-                    palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+                    palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                     palabras = palabras_f
                     //alert("Original: " + palabras_f)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -332,7 +332,7 @@ function Fallo(){
                             else if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                palabras_f = ["cepillo", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
+                                palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                                 palabras = palabras_f
                             }
                             
