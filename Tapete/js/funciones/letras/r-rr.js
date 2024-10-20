@@ -10,8 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-const palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
-const palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
+var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
+var palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -31,32 +31,32 @@ var palabras_d =[
         valores: ["tortuga", "carrera"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"El zorro no puede bucear.",
+        valores: ["zorro", "bucear"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"Hay un árbol en la carretera.",
+        valores: ["árbol", "carretera"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"La rata se llevó mi tarea.",
+        valores: ["rata", "tarea"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"Tu perfume huele a fresa.",
+        valores: ["perfume", "fresa"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"Arrastraron algo en la tierra.",
+        valores: ["Arrastraron", "tierra"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"Hicieron cangrejo a la parrilla.",
+        valores: ["cangrejo", "parrilla"]
     },
     {
-        frase:".",
-        valores: ["", ""]
+        frase:"No hay barrera que impida imaginar.",
+        valores: ["barrera", "imaginar"]
     }
 ]
 
@@ -188,6 +188,23 @@ function Empezar(){
 
             document.getElementById('aparecer').style.display='block';
             break
+    }
+}
+
+function ComprobarD(palabra){
+    if(respuesta == palabra){
+        palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replace("_______", respuesta)
+        document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
+        num_opcion++
+
+        if(num_opcion > 1 && num_ejercicio < 10){
+            num_ejercicio++
+            num_opcion = 0
+            Felicidades()
+        }
+    }
+    else{
+        Fallo()
     }
 }
 
@@ -341,21 +358,56 @@ function Felicidades(){
             document.getElementById("barra").innerHTML = contador
 
             if(contador == 10){
-                swal({
-                    title: "Felicidades",
-                    text: "¿Quieres salir del juego o volver a intentarlo?",
-                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
-                    buttons:  ["Volver a jugar", "Salir"] 
-                })
-                .then((reintento) => {
-                    if (reintento) {
-                        location.href = "JuegosLetras.html"
-                    } 
-                    else{
-                        document.getElementById("btnIniciar").innerHTML = "Empezar"
-                        Reiniciar()
-                    }
-                })
+                if(valor == "dificil"){
+                    swal({
+                        title: "Felicidades",
+                        text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Volver a jugar", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            valor = "facil"
+                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                            var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
+                            palabras = palabras_f
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+                
+                else{
+                    swal({
+                        title: "Felicidades",
+                        text: "¿Quieres avanzar al siguiente nivel o salir del juego?",
+                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        buttons:  ["Siguiente nivel", "Salir"] 
+                    })
+                    .then((reintento) => {
+                        if (reintento) {
+                            location.href = "JuegosLetras.html"
+                        } 
+                        else{
+                            if(valor == 'facil'){
+                                valor = 'medio'
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                Reiniciar()
+                            }
+
+                            else{
+                                if(valor == 'medio'){
+                                    valor = 'dificil'                                    
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+                                    Reiniciar()
+                                }
+                            }
+                        }
+                    })
+                }
             }
             else{
                 Empezar()
@@ -368,18 +420,24 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
     case 'ArrowLeft':
-        if(valor == 'medio'){
+        if(valor == "dificil"){
+            ComprobarD(arreglo[0])
+        }
+        else if(valor == 'medio'){
             ComprobarM(arreglo[0])
         }
         else{
-            Comprobar(arreglo[0])
+            ComprobarF(arreglo[0])
         }
         break;
     case 'ArrowRight':
+        if(valor == "dificil"){
+            ComprobarD(arreglo[1])
+        }
         if(valor == 'medio'){
             ComprobarM(arreglo[1])
         }
-        else{
+        else if(valor == 'facil'){
             ComprobarF(arreglo[1])
         }
         break;
