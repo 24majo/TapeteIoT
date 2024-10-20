@@ -1,7 +1,7 @@
 // Vidas
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-var error = 3
+var mal = 3
 // Barra de progreso
 contador = 0
 document.getElementById("barra").value = contador
@@ -138,8 +138,9 @@ function Opcion(arreglo){
     return result
 }
 
-function RCorrecto(num){ 
+function Rbien(num){ 
     if(num == resultado){
+        PolloBueno()
         contador+=1
         //alert("Vas bien", contador)
         document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -211,16 +212,19 @@ function RCorrecto(num){
         }
     }
     else{
-        error--
-        if(error == 2){
+        mal--
+        if(mal == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+            PolloMalo()
         }
 
-        if(error == 1){
+        if(mal == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+            PolloMalo()
         }
 
-        if(error == 0){
+        if(mal == 0){
+            PolloMalo()
             imagen.innerHTML = ""
             swal({
                 title: "Oh no!",
@@ -278,7 +282,7 @@ function RCorrecto(num){
 }
 
 function Reiniciar(){
-    error = 3
+    mal = 3
     contador = 0
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
@@ -324,19 +328,19 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            RCorrecto(op[0])
+            Rbien(op[0])
             break;
 
         case 'ArrowDown':
-            RCorrecto(op[1])
+            Rbien(op[1])
             break;
 
         case 'ArrowLeft':
-            RCorrecto(op[2])
+            Rbien(op[2])
             break;
 
         case 'ArrowRight':
-            RCorrecto(op[3])
+            Rbien(op[3])
             break;
 
         default:
@@ -378,4 +382,44 @@ function Ayuda(){
     //     title: 'Tutorial',
     //     content: 'Realiza la suma de dos números y elige la opción correcta con los botones o las flechas del teclado.',
     // });
+}
+
+function PolloBueno(){
+    const espera = document.getElementById("espera");
+    const bien = document.getElementById("bien");
+  
+    //Ocultar la animación de espera para pasar a la de bien
+    espera.classList.add("desaparecer");
+  
+    //Muestra la aninmación de bien una vez
+    bien.classList.remove("desaparecer");
+    bien.classList.add("bien");
+  
+    //Se usa el evento animationend para indicar que la animación finalizó 
+    //y de nuevo muestre la animación de espera
+    bien.addEventListener("animationend", function() {
+        //Ocultar la animación de bien
+      bien.classList.add("desaparecer");    
+      bien.classList.remove("bien");
+        //Mostrar la animación de espera
+      espera.classList.remove("desaparecer"); 
+      //Ayuda a que la animación se ejecute una vez
+    }, { once: true });
+}
+
+function PolloMalo(){
+    const espera = document.getElementById("espera");
+    const mal = document.getElementById("mal");
+  
+    espera.classList.add("desaparecer");
+  
+    mal.classList.remove("desaparecer");
+    mal.classList.add("mal");
+  
+    mal.addEventListener("animationend", function() {
+        mal.classList.add("desaparecer"); 
+        mal.classList.remove("mal");
+  
+        espera.classList.remove("desaparecer"); 
+    }, { once: true });
 }
