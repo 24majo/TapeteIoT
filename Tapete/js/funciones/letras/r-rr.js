@@ -84,12 +84,17 @@ function Reiniciar(){
     for(let i = 0; i < opciones.length; i++){
         opciones[i].innerHTML = ""
     }
+    if(valor == 'facil')
+        palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
+
+    if (valor == "medio")
+        palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
+    
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    imagen = ""
-    document.getElementById("linea").innerHTML = ""
+    imagen.src = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
@@ -155,7 +160,6 @@ function Empezar(){
 
             document.getElementById("linea").innerHTML = palabras_d[num_ejercicio].frase
             var rr = /rr/.test(respuesta);
-            var r = /r/.test(respuesta);
 
             if(rr){
                 var palabra = respuesta.replace("rr", "r");
@@ -336,8 +340,46 @@ function Fallo(){
                 location.href = "JuegosLetras.html"
             } 
             else{
-                document.getElementById("btnIniciar").innerHTML = "Empezar"
-                Reiniciar()
+                if(valor == 'facil'){
+                    palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
+                    palabras = palabras_f
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                }
+
+                else{
+                    swal({
+                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                        icon: "info",
+                        buttons:  ["Mantener", "Cambiar"] 
+                    })
+                    .then((cambiar) => {
+                        if(cambiar){
+                            if(valor == 'dificil'){
+                                valor = "medio"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
+                                palabras = palabras_m
+                                //alert(palabras)
+                            }
+
+                            if(valor == 'medio'){
+                                valor = "facil"
+                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
+                                palabras = palabras_f
+                                //alert(palabras)
+                            }
+                            
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                        else{
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
             }
         })
     }
