@@ -23,8 +23,8 @@ function ValoresTabla(){
     if(encabezado == "b"){
         document.getElementById("opcion1").textContent = "Bl"
         document.getElementById("opcion2").textContent = "Br"
-        palabras = ["nublado", "oblea", "ombligo", "pueblo", "blusa", 
-            "sombra", "libreta", "lombriz", "libro", "bruja"]
+        palabras = ["Nublado", "Mueble", "Ombligo", "Establo", "Blusa", "Pueblo",
+            "Cebra", "Cobra", "Lombriz", "Libro", "Bruja","Embrujado"]
         //palabras = ["libro"]
         op = ["bl", "br"]
         OpcionesCirculos(op)
@@ -32,40 +32,40 @@ function ValoresTabla(){
     if(encabezado == "c"){
         document.getElementById("opcion1").textContent = "Cl"
         document.getElementById("opcion2").textContent = "Cr"
-        palabras = ["chancla", "chicle", "eclipse", "cíclope", "club",
-            "cráneo", "secreto", "escribir", "microbio", "crucero"]
+        palabras = ["Chancla", "Chicle", "Eclipse", "Cíclope", "Club",
+            "Cráneo", "Secreto", "Escribir", "Microbio", "Crucero"]
         op = ["cl", "cr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'f'){
         document.getElementById("opcion1").textContent = "Fl"
         document.getElementById("opcion2").textContent = "Fr"
-        palabras = ["disfraz", "fresa", "fritura", "frotar", "frutas",
-            "flan", "flauta", "flama", "flecha", "flor"]
+        palabras = ["Disfraz", "Fresa", "Fritura", "Frotar", "Frutas",
+            "Flan", "Flauta", "Flama", "Flecha", "Flor"]
         op = ["fl", "fr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'g'){
         document.getElementById("opcion1").textContent = "Gl"
         document.getElementById("opcion2").textContent = "Gr"
-        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico",
-            "grano", "greñas", "cangrejo", "ogro", "grúa"]
+        palabras = ["Regla", "Iglesia", "Globo", "Iglú", "Jeroglífico",
+            "Grano", "Greñas", "Cangrejo", "Ogro", "Grúa"]
         op = ["gl", "gr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'p'){
         document.getElementById("opcion1").textContent = "Pl"
         document.getElementById("opcion2").textContent = "Pr"
-        palabras = ["planta","cumpleaños", "explorador", "templo", "pluma",
-            "compra", "aprender", "príncipe", "exprimir", "prueba"]
+        palabras = ["Planta","Cumpleaños", "Explorador", "Templo", "Pluma",
+            "Compra", "Aprender", "Príncipe", "Exprimir", "Prueba"]
         op = ["pl", "pr"]
             OpcionesCirculos(op)
     }
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
-        palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle",
-            "traje", "tren", "estrella", "trompeta", "trueno"]
+        palabras = ["Atleta", "Atlántico", "Tlacoyo", "Atlas", "Chipotle",
+            "Traje", "Tren", "Estrella", "Trompeta", "Trueno"]
         op = ["tl", "tr"]
         OpcionesCirculos(op)
     }
@@ -75,18 +75,18 @@ function Empezar(){
     respuesta = palabras[Math.floor(Math.random() * palabras.length)]
     var repetida = palabras.indexOf(respuesta)
     palabras.splice(repetida, 1)
-    imagen.src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
+    imagen.src = "Visual/Material/Letras/Juego8/" + respuesta + ".jpg"
 }
 
 function Comprobar(arreglo){
     if(respuesta.indexOf(arreglo) > -1){
         if(arreglo == op[0]){
-            tabla1[t1].src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
+            tabla1[t1].src = "Visual/Material/Letras/Juego8/" + respuesta + ".jpg"
             t1++
         }
 
         if(arreglo == op[1]){
-            tabla2[t2].src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
+            tabla2[t2].src = "Visual/Material/Letras/Juego8/" + respuesta + ".jpg"
             t2++
         }
         Felicidades()
