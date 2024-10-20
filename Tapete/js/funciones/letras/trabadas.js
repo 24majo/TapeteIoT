@@ -24,8 +24,8 @@ function ValoresTabla(){
     if(encabezado == "b"){
         document.getElementById("opcion1").textContent = "Bl"
         document.getElementById("opcion2").textContent = "Br"
-        palabras = ["nublado", "mueble", "ombligo", "establo", "blusa", "pueblo",
-            "cebra", "cobra", "lombriz", "libro", "bruja","embrujado"]
+        palabras = ["nublado", "mueble", "oblea",  "ombligo", "establo", "blusa", "pueblo",
+            "sombra","cebra", "cobra", "lombriz", "libro", "bruja","embrujado"]
         //palabras = ["libro"]
         op = ["bl", "br"]
         OpcionesCirculos(op)
@@ -33,40 +33,40 @@ function ValoresTabla(){
     if(encabezado == "c"){
         document.getElementById("opcion1").textContent = "Cl"
         document.getElementById("opcion2").textContent = "Cr"
-        palabras = ["chancla", "chicle", "eclipse", "cíclope", "club",
-            "cráneo", "secreto", "escribir", "microbio", "crucero"]
+        palabras = ["chancla", "chicle", "eclipse", "cíclope", "club", "bicicleta", 
+            "cráneo", "secreto", "escribir", "microbio", "crucero", "crayón"]
         op = ["cl", "cr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'f'){
         document.getElementById("opcion1").textContent = "Fl"
         document.getElementById("opcion2").textContent = "Fr"
-        palabras = ["disfraz", "fresa", "fritura", "frotar", "frutas",
-            "flan", "flauta", "flama", "flecha", "flor"]
+        palabras = ["disfraz", "fresa", "fritura", "frotar", "frutas", "frasco",
+            "flan", "flauta", "flama", "flecha", "flor", "flojo"]
         op = ["fl", "fr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'g'){
         document.getElementById("opcion1").textContent = "Gl"
         document.getElementById("opcion2").textContent = "Gr"
-        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico",
-            "grano", "greñas", "cangrejo", "ogro", "grúa"]
+        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico", "globo",
+            "grano", "greñas", "cangrejo", "ogro", "grúa", "logro"]
         op = ["gl", "gr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'p'){
         document.getElementById("opcion1").textContent = "Pl"
         document.getElementById("opcion2").textContent = "Pr"
-        palabras = ["planta","cumpleaños", "explorador", "templo", "pluma",
-            "compra", "aprender", "príncipe", "exprimir", "prueba"]
+        palabras = ["planta","cumpleaños", "explorador", "templo", "pluma", "planeta",
+            "compra", "aprender", "príncipe", "exprimir", "prueba", "temprano"]
         op = ["pl", "pr"]
             OpcionesCirculos(op)
     }
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
-        palabras = ["Atleta", "Atlántico", "Tlacoyo", "Atlas", "Chipotle",
-            "Traje", "Tren", "Estrella", "Trompeta", "Trueno"]
+        palabras = ["Atleta", "Atlántico", "Tlacoyo", "Atlas", "Chipotle", "náhuatl",
+            "traje", "tren", "estrella", "trompeta", "trueno", "trompo"]
         op = ["tl", "tr"]
         OpcionesCirculos(op)
     }
@@ -258,7 +258,7 @@ function Felicidades(){
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
 
-            if(contador == 10){
+            if(contador == 12){
                 swal({
                     title: "Felicidades",
                     text: "¿Quieres salir del juego o volver a intentarlo?",
