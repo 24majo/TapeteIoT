@@ -19,7 +19,7 @@ function apretar(numero){
             swal({
                 title: "¡Ganador!",
                 text: "Has superado la prueba. ¿Deseas salir o reiniciar el juego?",
-                icon: "success",
+                icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif",
                 buttons:  ["Continuar", "Salir"],
             })
             .then((willDelete) => {
@@ -79,7 +79,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning", // En este apartado se puede poner la ruta de las imágenes
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // En este apartado se puede poner la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
       })
@@ -140,7 +140,6 @@ window.addEventListener("keydown",(e)=>{
 
 window.addEventListener("keyup",(e)=>{
     let tecla = e.key
-    let repetir
 
     switch(tecla){
         case 'ArrowUp':
@@ -212,7 +211,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Cuenta la cantidad de peces que se encuentran en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
     // swal("Tutorial", 
     //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
