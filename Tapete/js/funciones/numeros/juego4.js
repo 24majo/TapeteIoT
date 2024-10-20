@@ -212,39 +212,49 @@ function RCorrecto(num){
                     location.href = "JuegosNumeros.html"
                 } 
                 else{
-                    swal({
-                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "Visual/Material/Animaciones/Generales/Chick.gif",
-                        buttons:  ["Mantener", "Cambiar"] 
-                    })
-                    .then((cambiar) => {
-                        if(cambiar){
-                            // for(let y = 0; y < 3; y++){
-                            //     radios[y].disabled = false
-                            // }
-                            // for (var i = 0; i < radios.length; i++) {
-                            //     var niveles = radios[i];
-                            //     niveles.checked = false;
-                            // }
 
-                            if(valor == 'dificil'){
-                                valor = "medio"
-                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                            }
+                    if(valor == "facil"){
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
 
-                            if(valor == 'medio'){
-                                valor = "facil"
-                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                    else{
+                        swal({
+                            title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                            icon: "Visual/Material/Animaciones/Generales/Chick.gif",
+                            buttons:  ["Mantener", "Cambiar"] 
+                        })
+                        .then((cambiar) => {
+                            if(cambiar){
+                                // for(let y = 0; y < 3; y++){
+                                //     radios[y].disabled = false
+                                // }
+                                // for (var i = 0; i < radios.length; i++) {
+                                //     var niveles = radios[i];
+                                //     niveles.checked = false;
+                                // }
+
+                                if(valor == 'dificil'){
+                                    valor = "medio"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                }
+
+                                if(valor == 'medio'){
+                                    valor = "facil"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                }
+                                
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-                            
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
+                            else{
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
+                            }
+                        })
+                    }
+
+                    
                 }
             })
         }
