@@ -11,7 +11,7 @@ document.getElementById("barra").innerHTML = contador
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
 var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
-var palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
+var palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "correo", "ferrocarril"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
