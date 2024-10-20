@@ -129,6 +129,7 @@ function Opcion(arreglo){
 function RCorrecto(num){
     if(num == resultado){
         contador+=1
+        PolloBueno()
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
@@ -187,14 +188,17 @@ function RCorrecto(num){
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+            Polloincorrectoo()
         }
 
         if(error == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+            Polloincorrectoo()
         }
 
         if(error == 0){
             imagen.innerHTML = ""
+            Polloincorrectoo()
             swal({
                 title: "Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
@@ -332,4 +336,44 @@ function Ayuda(){
     })
     // swal("Tutorial", 
     //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
+}
+
+function PolloBueno(){
+    const espera = document.getElementById("espera");
+    const acierto = document.getElementById("acierto");
+  
+    //Ocultar la animación de espera para pasar a la de acierto
+    espera.classList.add("desaparecer");
+  
+    //Muestra la aninmación de acierto una vez
+    acierto.classList.remove("desaparecer");
+    acierto.classList.add("acierto");
+  
+    //Se usa el evento animationend para indicar que la animación finalizó 
+    //y de nuevo muestre la animación de espera
+    acierto.addEventListener("animationend", function() {
+        //Ocultar la animación de acierto
+      acierto.classList.add("desaparecer");    
+      acierto.classList.remove("acierto");
+        //Mostrar la animación de espera
+      espera.classList.remove("desaparecer"); 
+      //Ayuda a que la animación se ejecute una vez
+    }, { once: true });
+}
+
+function Polloincorrectoo(){
+    const espera = document.getElementById("espera");
+    const incorrecto = document.getElementById("incorrecto");
+  
+    espera.classList.add("desaparecer");
+  
+    incorrecto.classList.remove("desaparecer");
+    incorrecto.classList.add("incorrecto");
+  
+    incorrecto.addEventListener("animationend", function() {
+        incorrecto.classList.add("desaparecer"); 
+        incorrecto.classList.remove("incorrecto");
+  
+        espera.classList.remove("desaparecer"); 
+    }, { once: true });
 }
