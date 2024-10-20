@@ -1,7 +1,7 @@
 // Vidas
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-var mal = 3
+var incorrecto = 3
 // Barra de progreso
 contador = 0
 document.getElementById("barra").value = contador
@@ -138,11 +138,11 @@ function Opcion(arreglo){
     return result
 }
 
-function Rbien(num){ 
+function Racierto(num){ 
     if(num == resultado){
         PolloBueno()
         contador+=1
-        //alert("Vas bien", contador)
+        //alert("Vas acierto", contador)
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
@@ -212,19 +212,19 @@ function Rbien(num){
         }
     }
     else{
-        mal--
-        if(mal == 2){
+        incorrecto--
+        if(incorrecto == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
-            PolloMalo()
+            Polloincorrectoo()
         }
 
-        if(mal == 1){
+        if(incorrecto == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
-            PolloMalo()
+            Polloincorrectoo()
         }
 
-        if(mal == 0){
-            PolloMalo()
+        if(incorrecto == 0){
+            Polloincorrectoo()
             imagen.innerHTML = ""
             swal({
                 title: "Oh no!",
@@ -282,7 +282,7 @@ function Rbien(num){
 }
 
 function Reiniciar(){
-    mal = 3
+    incorrecto = 3
     contador = 0
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
@@ -328,19 +328,19 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            Rbien(op[0])
+            Racierto(op[0])
             break;
 
         case 'ArrowDown':
-            Rbien(op[1])
+            Racierto(op[1])
             break;
 
         case 'ArrowLeft':
-            Rbien(op[2])
+            Racierto(op[2])
             break;
 
         case 'ArrowRight':
-            Rbien(op[3])
+            Racierto(op[3])
             break;
 
         default:
@@ -386,39 +386,39 @@ function Ayuda(){
 
 function PolloBueno(){
     const espera = document.getElementById("espera");
-    const bien = document.getElementById("bien");
+    const acierto = document.getElementById("acierto");
   
-    //Ocultar la animación de espera para pasar a la de bien
+    //Ocultar la animación de espera para pasar a la de acierto
     espera.classList.add("desaparecer");
   
-    //Muestra la aninmación de bien una vez
-    bien.classList.remove("desaparecer");
-    bien.classList.add("bien");
+    //Muestra la aninmación de acierto una vez
+    acierto.classList.remove("desaparecer");
+    acierto.classList.add("acierto");
   
     //Se usa el evento animationend para indicar que la animación finalizó 
     //y de nuevo muestre la animación de espera
-    bien.addEventListener("animationend", function() {
-        //Ocultar la animación de bien
-      bien.classList.add("desaparecer");    
-      bien.classList.remove("bien");
+    acierto.addEventListener("animationend", function() {
+        //Ocultar la animación de acierto
+      acierto.classList.add("desaparecer");    
+      acierto.classList.remove("acierto");
         //Mostrar la animación de espera
       espera.classList.remove("desaparecer"); 
       //Ayuda a que la animación se ejecute una vez
     }, { once: true });
 }
 
-function PolloMalo(){
+function Polloincorrectoo(){
     const espera = document.getElementById("espera");
-    const mal = document.getElementById("mal");
+    const incorrecto = document.getElementById("incorrecto");
   
     espera.classList.add("desaparecer");
   
-    mal.classList.remove("desaparecer");
-    mal.classList.add("mal");
+    incorrecto.classList.remove("desaparecer");
+    incorrecto.classList.add("incorrecto");
   
-    mal.addEventListener("animationend", function() {
-        mal.classList.add("desaparecer"); 
-        mal.classList.remove("mal");
+    incorrecto.addEventListener("animationend", function() {
+        incorrecto.classList.add("desaparecer"); 
+        incorrecto.classList.remove("incorrecto");
   
         espera.classList.remove("desaparecer"); 
     }, { once: true });
