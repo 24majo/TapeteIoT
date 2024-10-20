@@ -258,7 +258,7 @@ function Felicidades(){
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
 
-            if(contador == 10){
+            if(contador == 12){
                 swal({
                     title: "Felicidades",
                     text: "¿Quieres salir del juego o volver a intentarlo?",
