@@ -23,8 +23,8 @@ function ValoresTabla(){
     if(encabezado == "b"){
         document.getElementById("opcion1").textContent = "Bl"
         document.getElementById("opcion2").textContent = "Br"
-        palabras = ["hablar", "nublado", "mueble", "oblea", "ombligo", "biblioteca", "pueblo", "establo", "bloque", "blusa", 
-            "sombra", "cebra", "sombrero", "libreta", "lombriz", "colibrí", "libro", "hombro", "bruja", "brújula"]
+        palabras = ["nublado", "oblea", "ombligo", "pueblo", "blusa", 
+            "sombra", "libreta", "lombriz", "libro", "bruja"]
         //palabras = ["libro"]
         op = ["bl", "br"]
         OpcionesCirculos(op)
@@ -32,44 +32,40 @@ function ValoresTabla(){
     if(encabezado == "c"){
         document.getElementById("opcion1").textContent = "Cl"
         document.getElementById("opcion2").textContent = "Cr"
-        palabras = ["clavo", "chancla", "bicicleta", "chicle", "eclipse", "clip", "cíclope", "triciclo", "club", "exclusivo",
-            "cráneo", "crayón", "crema", "secreto", "escribir", "cristal", "microbio", "micrófono", "crucero", "crucigrama"
-        ]
+        palabras = ["chancla", "chicle", "eclipse", "cíclope", "club",
+            "cráneo", "secreto", "escribir", "microbio", "crucero"]
         op = ["cl", "cr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'f'){
         document.getElementById("opcion1").textContent = "Fl"
         document.getElementById("opcion2").textContent = "Fr"
-        palabras = ["frasco", "disfraz", "fresa", "cofre", "frijol", "fritura", "frontera", "frotar", "frutas", "disfrutar",
-            "flan", "flauta", "flama", "fleco", "flecha", "chiflido", "flor", "flojo", "flujo", "fluido"
-        ]
+        palabras = ["disfraz", "fresa", "fritura", "frotar", "frutas",
+            "flan", "flauta", "flama", "flecha", "flor"]
         op = ["fl", "fr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'g'){
         document.getElementById("opcion1").textContent = "Gl"
         document.getElementById("opcion2").textContent = "Gr"
-        palabras = ["claciar", "regla", "iglesia", "inglés", "globo", "gloria", "iglú", "glúteos", "glotón", "jeroglífico",
-            "grano", "gratis", "greñas", "cangrejo", "ogro", "logro", "grúa", "gruñón", "grieta", "gripe"
-        ]
+        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico",
+            "grano", "greñas", "cangrejo", "ogro", "grúa"]
         op = ["gl", "gr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'p'){
         document.getElementById("opcion1").textContent = "Pl"
         document.getElementById("opcion2").textContent = "Pr"
-        palabras = ["planta", "planeta", "empleo", "cumpleaños", "suplicar", "soplido", "explorador", "templo", "pluma", "plutón", 
-            "compra", "temprano", "precio", "aprender", "príncipe", "exprimir", "profesor", "producto", "prueba", "compruebo"]
+        palabras = ["planta","cumpleaños", "explorador", "templo", "pluma",
+            "compra", "aprender", "príncipe", "exprimir", "prueba"]
         op = ["pl", "pr"]
             OpcionesCirculos(op)
     }
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
-        palabras = ["atleta", "atlántico", "tlacuache", "tlacoyo", "tlaxcala", "atlas", "náhuatl", "chipotle", "atletismo", "tlatelolco",
-            "traje", "maestra", "tren", "estrella", "trineo", "trigo", "trompeta", "trono", "trompo", "trueno"
-        ]
+        palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle",
+            "traje", "tren", "estrella", "trompeta", "trueno"]
         op = ["tl", "tr"]
         OpcionesCirculos(op)
     }
@@ -80,7 +76,6 @@ function Empezar(){
     var repetida = palabras.indexOf(respuesta)
     palabras.splice(repetida, 1)
     imagen.src = "Visual/Material/Letras/Juego8/" + respuesta + ".png"
-    document.getElementById("prueba").innerHTML = respuesta
 }
 
 function Comprobar(arreglo){
@@ -144,7 +139,6 @@ function Reiniciar(){
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
     respuesta = ""
-    document.getElementById("prueba").innerHTML = respuesta
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
 
@@ -204,7 +198,7 @@ function Felicidades(){
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
 
-            if(contador == 20){
+            if(contador == 10){
                 swal({
                     title: "Felicidades",
                     text: "¿Quieres salir del juego o volver a intentarlo?",
