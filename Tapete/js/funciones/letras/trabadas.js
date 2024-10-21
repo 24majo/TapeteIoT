@@ -22,8 +22,8 @@ var t1 = 0, t2 = 0
 
 function ValoresTabla(){
     if(encabezado == "b"){
-        document.getElementById("opcion1").textContent = "Bl"
-        document.getElementById("opcion2").textContent = "Br"
+        document.getElementById("opcion1").textContent = "bl"
+        document.getElementById("opcion2").textContent = "br"
         palabras = ["nublado", "mueble",  "ombligo", "establo", "blusa", "pueblo",
             "cebra", "cobra", "lombríz", "libro", "bruja","embrujado"]
         //palabras = ["libro"]
@@ -31,40 +31,40 @@ function ValoresTabla(){
         OpcionesCirculos(op)
     }
     if(encabezado == "c"){
-        document.getElementById("opcion1").textContent = "Cl"
-        document.getElementById("opcion2").textContent = "Cr"
+        document.getElementById("opcion1").textContent = "cl"
+        document.getElementById("opcion2").textContent = "cr"
         palabras = ["chancla", "chicle", "eclipse", "cíclope", "club", "bicicleta", 
             "cráneo", "secreto", "escribir", "microbio", "crucero", "crayón"]
         op = ["cl", "cr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'f'){
-        document.getElementById("opcion1").textContent = "Fl"
-        document.getElementById("opcion2").textContent = "Fr"
+        document.getElementById("opcion1").textContent = "fl"
+        document.getElementById("opcion2").textContent = "fr"
         palabras = ["disfraz", "fresa", "fritura", "frotar", "frutas", "frasco",
             "flan", "flauta", "flama", "flecha", "flor", "flojo"]
         op = ["fl", "fr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'g'){
-        document.getElementById("opcion1").textContent = "Gl"
-        document.getElementById("opcion2").textContent = "Gr"
-        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico", "globo",
+        document.getElementById("opcion1").textContent = "gl"
+        document.getElementById("opcion2").textContent = "gr"
+        palabras = ["regla", "iglesia", "globo", "iglú", "jeroglífico", "glaciar",
             "grano", "greñas", "cangrejo", "ogro", "grúa", "logro"]
         op = ["gl", "gr"]
         OpcionesCirculos(op)
     }
     if(encabezado == 'p'){
-        document.getElementById("opcion1").textContent = "Pl"
-        document.getElementById("opcion2").textContent = "Pr"
+        document.getElementById("opcion1").textContent = "pl"
+        document.getElementById("opcion2").textContent = "pr"
         palabras = ["planta","cumpleaños", "explorador", "templo", "pluma", "planeta",
             "compra", "aprender", "príncipe", "exprimir", "prueba", "temprano"]
         op = ["pl", "pr"]
             OpcionesCirculos(op)
     }
     if(encabezado == 't'){
-        document.getElementById("opcion1").textContent = "Tl"
-        document.getElementById("opcion2").textContent = "Tr"
+        document.getElementById("opcion1").textContent = "tl"
+        document.getElementById("opcion2").textContent = "tr"
         palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle", "tlacuache",
             "traje", "tren", "estrella", "trompeta", "trueno", "trompo"]
         op = ["tl", "tr"]
