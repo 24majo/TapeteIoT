@@ -27,7 +27,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning", // Indicar la ruta de las imágenes
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // Indicar la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
       })
@@ -122,7 +122,7 @@ function validar(vocal){
             swal({
                 title: "¡Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "error",
+                icon: "Visual/Material/Animaciones/Generales/error.jpg",
                 buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
@@ -143,7 +143,7 @@ function validar(vocal){
         swal({
             title: "Felicidades",
             text: "Continuemos. Sigue así",
-            icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+            icon: "Visual/Material/Animaciones/Generales/PolloBien.gif"
         })
 
         .then((continuacion) => {
@@ -157,7 +157,7 @@ function validar(vocal){
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres salir del juego o volver a intentarlo?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                         buttons:  ["Volver a jugar", "Salir"] 
                     })
                     .then((reintento) => {
@@ -338,6 +338,6 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Elige la vocal correcta para completar la palabra. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
