@@ -11,7 +11,7 @@ document.getElementById("barra").innerHTML = contador
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
 var palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
-var palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+var palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
 var arreglo = []
@@ -26,8 +26,8 @@ var palabras_d =[
         valores: ["oso", "cazador"]
     },
     {
-        frase:"Mi cabeza brilla como el sol.",
-        valores: ["cabeza", "sol"]
+        frase:"Mi cabello brilla como el sol.",
+        valores: ["cabello", "sol"]
     },
     {
         frase:"La sirena se comió la manzana envenenada.",
@@ -38,8 +38,8 @@ var palabras_d =[
         valores: ["pizza", "queso"]
     },
     {
-        frase:"El café tiene un zapato.",
-        valores: ["café", "zapato"]
+        frase:"El café tiene azúcar.",
+        valores: ["café", "azúcar"]
     },
     {
         frase:"Los niños saltan a la cuerda.",
@@ -87,7 +87,7 @@ function Reiniciar(){
         palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
 
     if(valor == 'medio')
-        palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+        palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
 
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -307,7 +307,7 @@ function Fallo(){
                 }
 
                 // if (valor == 'medio'){
-                //     palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+                //     palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
                 //     palabras = palabras_m
                 //     //alert("Original: " + palabras)
                 //     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -325,7 +325,7 @@ function Fallo(){
                             if(valor == 'dificil'){
                                 valor = "medio"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                                palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescador"]
+                                palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
                                 palabras = palabras_m
                             }
 

@@ -65,7 +65,7 @@ function ValoresTabla(){
     if(encabezado == 't'){
         document.getElementById("opcion1").textContent = "Tl"
         document.getElementById("opcion2").textContent = "Tr"
-        palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle", "tlaxcala",
+        palabras = ["atleta", "atlántico", "tlacoyo", "atlas", "chipotle", "tlacuache",
             "traje", "tren", "estrella", "trompeta", "trueno", "trompo"]
         op = ["tl", "tr"]
         OpcionesCirculos(op)
