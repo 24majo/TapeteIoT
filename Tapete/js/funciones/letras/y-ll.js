@@ -313,7 +313,7 @@ function Fallo(){
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "Visual/Material/Animaciones/Generales/advertencia (1).jpg",
+                        icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
