@@ -180,7 +180,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
       })
@@ -229,7 +229,7 @@ function Fallo(){
         swal({
             title: "¡Oh no!",
             text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-            icon: "error",
+            icon: "Visual/Material/Animaciones/Generales/triste.jpg",
             buttons:  ["Reintentar", "Salir"] 
         })
         .then((reintento) => {
@@ -248,7 +248,7 @@ function Felicidades(){
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
-        icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        icon: "Visual/Material/Animaciones/Generales/PolloBien.gif"
     })
 
     .then((continuacion) => {
@@ -262,7 +262,7 @@ function Felicidades(){
                 swal({
                     title: "Felicidades",
                     text: "¿Quieres salir del juego o volver a intentarlo?",
-                    icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                    icon: "Visual/Material/Animaciones/Generales/PolloBien (4).gif",
                     buttons:  ["Volver a jugar", "Salir"] 
                 })
                 .then((reintento) => {
@@ -289,6 +289,6 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Determina en qué columna va la imagen. \n Elige la opción correcta por medio de las teclas ← → o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
