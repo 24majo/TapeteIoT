@@ -180,3 +180,8 @@ margin-top: 10px;
     margin-left: -5px;
     margin-top: 21px;
 }
+
+.swal-icon img{
+    width: 170px;
+    height: 160px;
+}

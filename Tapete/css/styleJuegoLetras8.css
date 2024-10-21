@@ -118,3 +118,8 @@ body{
     margin-left: 100px;
     font-size: 40px;
 }
+
+.swal-icon img{
+    width: 170px;
+    height: 160px;
+  }
