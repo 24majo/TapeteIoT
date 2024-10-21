@@ -151,3 +151,8 @@ body{
 .alinear{
     margin-left: -350px;
 }
+
+.swal-icon img{
+    width: 170px;
+    height: 160px;
+  }
