@@ -14,6 +14,7 @@ var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árb
 var palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "correo", "ferrocarril"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
+var imagen = document.getElementById('figura')  
 var respuesta, respuesta_m = []
 var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
@@ -112,8 +113,7 @@ function Empezar(){
             var repetida = palabras.indexOf(respuesta)
             palabras.splice(repetida, 1)
             document.getElementById("linea").innerHTML = respuesta
-            imagen = document.getElementById('figura') 
-            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
+            imagen.src = "Visual/Material/Letras/Juego5/" + respuesta + ".jpg"
             
             if(respuesta.includes('r') == true){
                 document.getElementById("linea").innerHTML = respuesta.replaceAll(/r/g, "_")
@@ -144,7 +144,7 @@ function Empezar(){
             for(let i = 0; i < arreglo.length; i++){
                 opciones[i].innerHTML = arreglo[i]
             }
-            
+            imagen.src = "Visual/Material/Letras/Juego5/" + respuesta + ".jpg"
             document.getElementById('aparecer').style.display='block';
             break
         
