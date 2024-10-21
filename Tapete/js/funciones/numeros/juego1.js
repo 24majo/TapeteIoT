@@ -51,7 +51,7 @@ function apretar(numero){
             swal({
                 title: "Perdiste:(",
                 text: "Has perdido todas tus vidas. ¿Deseas salir o reiniciar?",
-                icon: "Visual/Material/Animaciones/Generales/echeleganas.png",
+                icon: "Visual/Material/Animaciones/Generales/error.jpg",
                 buttons:  ["Reintentar", "Salir"],
                 dangerMode: true,
             })
