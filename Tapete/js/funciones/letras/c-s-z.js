@@ -10,6 +10,7 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
+var imagen = document.getElementById('figura') 
 var palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
 var palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
 var opciones = document.getElementsByClassName("opcion")
@@ -19,43 +20,53 @@ var num_ejercicio = 0, num_opcion = 0, palabras
 var palabras_d =[
     {
         frase: "El príncipe perdió su zapato.",
-        valores: ["príncipe", "zapato"]
+        valores: ["príncipe", "zapato"],
+        ruta: "Visual/Material/Letras/Juego7/PrincipeZapato.jpg"
     },
     {
         frase: "El oso está buscando al cazador.",
-        valores: ["oso", "cazador"]
+        valores: ["oso", "cazador"],
+        ruta: "Visual/Material/Letras/Juego7/OsoCazador.jpg"
     },
     {
         frase:"Mi cabello brilla como el sol.",
-        valores: ["cabello", "sol"]
+        valores: ["cabello", "sol"],
+        ruta: "Visual/Material/Letras/Juego7/CabelloSol.jpg"
     },
     {
         frase:"La sirena se comió la manzana envenenada.",
-        valores: ["sirena", "manzana"]
+        valores: ["sirena", "manzana"],
+        ruta: "Visual/Material/Letras/Juego7/SirenaManzana.jpg"
     },
     {
         frase:"La pizza tiene mucho queso.",
-        valores: ["pizza", "queso"]
+        valores: ["pizza", "queso"],
+        ruta: "Visual/Material/Letras/Juego7/PizzaQueso.jpg"
     },
     {
         frase:"El café tiene azúcar.",
-        valores: ["café", "azúcar"]
+        valores: ["café", "azúcar"],
+        ruta: "Visual/Material/Letras/Juego7/CafeAzucar.jpg"
     },
     {
         frase:"Los niños saltan a la cuerda.",
-        valores: ["saltan", "cuerda"]
+        valores: ["saltan", "cuerda"],
+        ruta: "Visual/Material/Letras/Juego7/SaltanCuerda.jpg"
     },
     {
         frase:"El perro se come la cerca.",
-        valores: ["come", "cerca"]
+        valores: ["come", "cerca"],
+        ruta: "Visual/Material/Letras/Juego7/ComeCerca.jpg"
     },
     {
         frase:"El gato brinca en el sillón.",
-        valores: ["brinca", "sillón"]
+        valores: ["brinca", "sillón"],
+        ruta: "Visual/Material/Letras/Juego7/BrincaSillón.jpg"
     },
     {
         frase:"La sopa está en la cazuela.",
-        valores: ["sopa", "cazuela"]
+        valores: ["sopa", "cazuela"],
+        ruta: "Visual/Material/Letras/Juego7/SopaCazuela.jpg"
     }
 ]
 
@@ -92,7 +103,7 @@ function Reiniciar(){
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
-    imagen = ""
+    imagen.src = ""
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     num_ejercicio = 0
@@ -110,8 +121,7 @@ function Empezar(){
             var repetida = palabras.indexOf(respuesta)
             palabras.splice(repetida, 1)
             document.getElementById("linea").innerHTML = respuesta
-            imagen = document.getElementById('figura') 
-            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
+            imagen.src = "Visual/Material/Letras/Juego7/" + respuesta + ".jpg"
             
             if(respuesta.includes('c') == true || respuesta.includes('s') == true || respuesta.includes('z') == true){
                 document.getElementById("linea").innerHTML = respuesta.replaceAll(/c|s|z/g, "_")
@@ -134,6 +144,7 @@ function Empezar(){
 
                 if(respuesta.includes('c') == true || respuesta.includes('s') == true || respuesta.includes('z') == true){
                     respuesta_m = respuesta.replaceAll(/c|s|z/g, "_")
+                    imagen.src = "Visual/Material/Letras/Juego7/" + respuesta + ".jpg"
                     document.getElementById("linea").innerHTML = respuesta_m
                 }
             }
@@ -152,6 +163,7 @@ function Empezar(){
             if(num_opcion == 0){
                 arr_res.forEach(valor => {
                     palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replaceAll(valor, "_______");
+                    imagen.src = palabras_d[num_ejercicio].ruta
                 });
             }
 
@@ -290,7 +302,7 @@ function Fallo(){
         swal({
             title: "¡Oh no!",
             text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-            icon: "error",
+            icon: "Visual/Material/Animaciones/Generales/error.jpg",
             buttons:  ["Reintentar", "Salir"] 
         })
         .then((reintento) => {
@@ -306,18 +318,10 @@ function Fallo(){
                     Reiniciar()
                 }
 
-                // if (valor == 'medio'){
-                //     palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
-                //     palabras = palabras_m
-                //     //alert("Original: " + palabras)
-                //     document.getElementById("btnIniciar").innerHTML = "Empezar"
-                //     Reiniciar()
-                // }
-
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
+                        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
@@ -354,7 +358,7 @@ function Felicidades(){
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
-        icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        icon: "Visual/Material/Animaciones/Generales/PolloBien.gif"
     })
 
     .then((continuacion) => {
@@ -369,7 +373,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                         buttons:  ["Reintentar todo", "Salir"] 
                     })
                     .then((reintento) => {
@@ -391,7 +395,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres avanzar al siguiente nivel o salir del juego?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
                         buttons:  ["Siguiente nivel", "Salir"] 
                     })
                     .then((reintento) => {
@@ -435,7 +439,7 @@ window.addEventListener("keydown",(e)=>{
         }
         break;
 
-    case 'ArrowDown':
+    case 'ArrowUp':
         if(valor == 'medio'){
             ComprobarM(arreglo[1])
         }
@@ -472,7 +476,7 @@ window.addEventListener("keyup",(e)=>{
             if(valor == 'dificil')
                 Empezar()
             break;
-        case 'ArrowDown':
+        case 'ArrowUp':
             if(valor == 'dificil')
                 Empezar()
             break;
@@ -485,7 +489,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Completa la palabra con la letra correcta.\n Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
 
