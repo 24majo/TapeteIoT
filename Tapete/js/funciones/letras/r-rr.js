@@ -21,43 +21,53 @@ var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
         frase: "El ratón toca la guitarra.",
-        valores: ["ratón", "guitarra"]
+        valores: ["ratón", "guitarra"],
+        ruta: "Visual/Material/Letras/Juego5/RatónGuitarra.jpg"
     },
     {
         frase: "Los perros no comen brócoli.",
-        valores: ["perros", "brócoli"]
+        valores: ["perros", "brócoli"],
+        ruta: "Visual/Material/Letras/Juego5/PerroBrócoli.jpg"
     },
     {
         frase:"La tortuga ganó la carrera.",
-        valores: ["tortuga", "carrera"]
+        valores: ["tortuga", "carrera"],
+        ruta: "Visual/Material/Letras/Juego5/TortugaCarrera.jpg"
     },
     {
         frase:"El zorro no puede bucear.",
-        valores: ["zorro", "bucear"]
+        valores: ["zorro", "bucear"],
+        ruta: "Visual/Material/Letras/Juego5/ZorroBucear.jpg"
     },
     {
         frase:"Hay un árbol en la carretera.",
-        valores: ["árbol", "carretera"]
+        valores: ["árbol", "carretera"],
+        ruta: "Visual/Material/Letras/Juego5/ArbolCarretera.jpg"
     },
     {
         frase:"La rata se llevó mi tarea.",
-        valores: ["rata", "tarea"]
+        valores: ["rata", "tarea"],
+        ruta: "Visual/Material/Letras/Juego5/RatónTarea.jpg"
     },
     {
         frase:"Tu perfume huele a fresa.",
-        valores: ["perfume", "fresa"]
+        valores: ["perfume", "fresa"],
+        ruta: "Visual/Material/Letras/Juego5/PerfumeFresa.jpg"
     },
     {
         frase:"Arrastraron algo en la tierra.",
-        valores: ["Arrastraron", "tierra"]
+        valores: ["Arrastraron", "tierra"],
+        ruta: "Visual/Material/Letras/Juego5/ArrastrarTierra.jpg"
     },
     {
         frase:"Hicieron cangrejo a la parrilla.",
-        valores: ["cangrejo", "parrilla"]
+        valores: ["cangrejo", "parrilla"],
+        ruta: "Visual/Material/Letras/Juego5/CangrejoParrilla.jpg"
     },
     {
         frase:"No hay barrera que impida imaginar.",
-        valores: ["barrera", "imaginar"]
+        valores: ["barrera", "imaginar"],
+        ruta: "Visual/Material/Letras/Juego5/BarreraImaginar.jpg"
     }
 ]
 
@@ -155,6 +165,7 @@ function Empezar(){
             if(num_opcion == 0){
                 arr_res.forEach(valor => {
                     palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replaceAll(valor, "_______");
+                    imagen.src = palabras_d[num_ejercicio].ruta
                 });
             }
 
