@@ -10,7 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-var palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+var imagen = document.getElementById('figura') 
+var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
 var palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
@@ -20,43 +21,53 @@ var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
         frase: "La llama se mojó en la lluvia.",
-        valores: ["llama", "lluvia"]
+        valores: ["llama", "lluvia"],
+        ruta: "Visual/Material/Letras/Juego6/LlamaLluvia.jpg"
     },
     {
         frase: "El caldo de pollo se pone en la olla.",
-        valores: ["pollo", "olla"]
+        valores: ["pollo", "olla"],
+        ruta: "Visual/Material/Letras/Juego6/PolloOlla.jpg"
     },
     {
         frase:"Un rayo cayó sobre una montaña.",
-        valores: ["rayo", "cayó"]
+        valores: ["rayo", "cayó"],
+        ruta: "Visual/Material/Letras/Juego6/RayoCayó.jpg"
     },
     {
         frase:"La gallina se cruzó la calle.",
-        valores: ["gallina", "calle"]
+        valores: ["gallina", "calle"],
+        ruta: "Visual/Material/Letras/Juego6/GallinaCalle.jpg"
     },
     {
         frase:"El coyote mira las estrellas.",
-        valores: ["coyote", "estrellas"]
+        valores: ["coyote", "estrellas"],
+        ruta: "Visual/Material/Letras/Juego6/CoyoteEstrellas.jpg"
     },
     {
         frase:"La botella se llenó con agua.",
-        valores: ["botella", "llenó"]
+        valores: ["botella", "llenó"],
+        ruta: "Visual/Material/Letras/Juego6/BotellaLlenó.jpg"
     },
     {
         frase:"Desde el muelle se observó una ballena.",
-        valores: ["muelle", "ballena"]
+        valores: ["muelle", "ballena"],
+        ruta: "Visual/Material/Letras/Juego6/MuelleBallena.jpg"
     },
     {
         frase:"Las cebollas están llorando.",
-        valores: ["cebollas", "llorando"]
+        valores: ["cebollas", "llorando"],
+        ruta: "Visual/Material/Letras/Juego6/CebollaLlorando.jpg"
     },
     {
         frase:"El caballo se está comiendo mi galleta.",
-        valores: ["caballo", "galleta"]
+        valores: ["caballo", "galleta"],
+        ruta: "Visual/Material/Letras/Juego6/CaballoGalleta.jpg"
     },
     {
         frase:"La yegua tiene una larga cabellera.",
-        valores: ["yegua", "cabellera"]
+        valores: ["yegua", "cabellera"],
+        ruta: "Visual/Material/Letras/Juego6/YeguaCabellera.jpg"
     }
 ]
 
@@ -66,7 +77,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
       })
@@ -85,7 +96,7 @@ function Reiniciar(){
         opciones[i].innerHTML = ""
     }
     if(valor == 'facil')
-        palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+        palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
 
     if (valor == "medio")
         palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
@@ -112,8 +123,7 @@ function Empezar(){
             var repetida = palabras.indexOf(respuesta)
             palabras.splice(repetida, 1)
             document.getElementById("linea").innerHTML = respuesta
-            imagen = document.getElementById('figura') 
-            imagen.src = "Visual/Material/Letras/Juego4/" + respuesta + ".png"
+            imagen.src = "Visual/Material/Letras/Juego6/" + respuesta + ".jpg"
             
             if(respuesta.includes('y') == true || respuesta.includes('l') == true){
                 document.getElementById("linea").innerHTML = respuesta.replaceAll(/l|y/g, "_")
@@ -137,6 +147,7 @@ function Empezar(){
 
                 if(respuesta.includes('y') == true || respuesta.includes('l') == true){
                     respuesta_m = respuesta.replaceAll(/l|y/g, "_")
+                    imagen.src = "Visual/Material/Letras/Juego6/" + respuesta + ".jpg"
                     document.getElementById("linea").innerHTML = respuesta_m
                 }
             }
@@ -156,6 +167,7 @@ function Empezar(){
             if(num_opcion == 0){
                 arr_res.forEach(valor => {
                     palabras_d[num_ejercicio].frase = palabras_d[num_ejercicio].frase.replaceAll(valor, "_______");
+                    imagen.src = palabras_d[num_ejercicio].ruta
                 });
             }
 
@@ -282,7 +294,7 @@ function Fallo(){
         swal({
             title: "¡Oh no!",
             text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-            icon: "error",
+            icon: "Visual/Material/Animaciones/Generales/error.jpg",
             buttons:  ["Reintentar", "Salir"] 
         })
         .then((reintento) => {
@@ -291,7 +303,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
-                    palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+                    palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                     palabras = palabras_f
                     //alert(palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -301,7 +313,7 @@ function Fallo(){
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
+                        icon: "Visual/Material/Animaciones/Generales/advertencia (1).jpg",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
@@ -317,7 +329,7 @@ function Fallo(){
                             if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+                                palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                                 palabras = palabras_f
                                 //alert(palabras)
                             }
@@ -340,7 +352,7 @@ function Felicidades(){
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
-        icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif"
     })
 
     .then((continuacion) => {
@@ -355,7 +367,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                         buttons:  ["Reintentar todo", "Salir"] 
                     })
                     .then((reintento) => {
@@ -377,7 +389,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres avanzar al siguiente nivel o salir del juego?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (4).gif",
                         buttons:  ["Siguiente nivel", "Salir"] 
                     })
                     .then((reintento) => {
@@ -454,7 +466,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Completa la palabra con la letra correcta.\n Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
 
