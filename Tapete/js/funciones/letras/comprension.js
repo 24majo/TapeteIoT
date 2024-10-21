@@ -339,7 +339,7 @@ function Ayuda(){
     swal({
         title: "Tutorial",
         text: "Lee la lectura detenidamente y contesta las preguntas. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
-        icon: "Visual/Material/Animaciones/Generales/teclado.gif"
+        icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
 }
 
@@ -380,7 +380,7 @@ function Fallo(){
         swal({
             title: "¡Oh no!",
             text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-            icon: "error",
+            icon: "Visual/Material/Animaciones/Generales/triste.jpg",
             buttons:  ["Reintentar", "Salir"] 
         })
         .then((reintento) => {
@@ -396,7 +396,7 @@ function Fallo(){
                 else{
                     swal({
                         title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "info",
+                        icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
                         buttons:  ["Mantener", "Cambiar"] 
                     })
                     .then((cambiar) => {
@@ -431,7 +431,7 @@ function Felicidades(){
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
-        icon: "Visual/Material/Animaciones/Generales/echeleganas.png"
+        icon: "Visual/Material/Animaciones/Generales/PolloBien.gif"
     })
 
     .then((continuacion) => {
@@ -446,7 +446,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
                         buttons:  ["Reintentar todo", "Salir"] 
                     })
                     .then((reintento) => {
@@ -464,7 +464,7 @@ function Felicidades(){
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres avanzar al siguiente nivel o salir del juego?",
-                        icon: "Visual/Material/Animaciones/Generales/pollo.gif",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif",
                         buttons:  ["Siguiente nivel", "Salir"] 
                     })
                     .then((reintento) => {
@@ -499,7 +499,7 @@ function Reinicio(){
     swal({
         title: "Reiniciar juego",
         text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-        icon: "warning",
+        icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
       })
