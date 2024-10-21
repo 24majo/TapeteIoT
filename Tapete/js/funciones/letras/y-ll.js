@@ -10,8 +10,8 @@ document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
-var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
-var palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
+var palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+var palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
 var respuesta, respuesta_m = []
@@ -19,32 +19,32 @@ var arreglo = []
 var num_ejercicio = 0, num_opcion = 0
 var palabras_d =[
     {
-        frase: "Mi llama está en llamas.",
-        valores: ["llama", "llamas"]
+        frase: "La llama se mojó en la lluvia.",
+        valores: ["llama", "lluvia"]
     },
     {
-        frase: "Ayuda, me persigue un pollo.",
-        valores: ["Ayuda", "pollo"]
+        frase: "El caldo de pollo se pone en la olla.",
+        valores: ["pollo", "olla"]
     },
     {
-        frase:"Un rayo cayó sobre un pez.",
+        frase:"Un rayo cayó sobre una montaña.",
         valores: ["rayo", "cayó"]
     },
     {
-        frase:"¿Por qué la gallina se cruzó al otro lado de la calle?.",
+        frase:"La gallina se cruzó la calle.",
         valores: ["gallina", "calle"]
     },
     {
-        frase:"El coyote bajo la lluvia.",
-        valores: ["coyote", "lluvia"]
+        frase:"El coyote mira las estrellas.",
+        valores: ["coyote", "estrellas"]
     },
     {
-        frase:"La estrellas no pueden jugar al yoyo.",
-        valores: ["estrellas", "yoyo"]
+        frase:"La botella se llenó con agua.",
+        valores: ["botella", "llenó"]
     },
     {
-        frase:"La ballena se sentó en mi silla.",
-        valores: ["ballena", "silla"]
+        frase:"Desde el muelle se observó una ballena.",
+        valores: ["muelle", "ballena"]
     },
     {
         frase:"Las cebollas están llorando.",
@@ -55,8 +55,8 @@ var palabras_d =[
         valores: ["caballo", "galleta"]
     },
     {
-        frase:"El buey tiene una larga cabellera.",
-        valores: ["buey", "cabellera"]
+        frase:"La yegua tiene una larga cabellera.",
+        valores: ["yegua", "cabellera"]
     }
 ]
 
@@ -85,10 +85,10 @@ function Reiniciar(){
         opciones[i].innerHTML = ""
     }
     if(valor == 'facil')
-        palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+        palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
 
     if (valor == "medio")
-        palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
+        palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
     
     palabras = []
     error = 3
@@ -291,7 +291,7 @@ function Fallo(){
             } 
             else{
                 if(valor == 'facil'){
-                    palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+                    palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                     palabras = palabras_f
                     //alert(palabras)
                     document.getElementById("btnIniciar").innerHTML = "Empezar"
@@ -309,7 +309,7 @@ function Fallo(){
                             if(valor == 'dificil'){
                                 valor = "medio"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                                palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "silla"]
+                                palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
                                 palabras = palabras_m
                                 //alert(palabras)
                             }
@@ -317,7 +317,7 @@ function Fallo(){
                             if(valor == 'medio'){
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
+                                palabras_f = ["ayuda", "rayo", "coyote", "yogurt", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
                                 palabras = palabras_f
                                 //alert(palabras)
                             }
