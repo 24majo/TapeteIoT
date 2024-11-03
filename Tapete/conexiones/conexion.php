@@ -6,7 +6,4 @@ if ($conn->connect_error) {
 } else {
     echo "Conexión exitosa a la base de datos.";
 }
-
-// Cierra la conexión
-$conn->close();
 ?>
