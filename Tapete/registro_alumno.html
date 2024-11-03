@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de alumnos</title>
+</head>
+<body>
+    <form method="POST" action="conexiones/registro_alumno.php">
+        <h1>Ingresar datos del alumno</h1>
+        <span>CURP: </span>
+        <input type="text" id="curp" class="curp" placeholder="18 caracteres" maxlength="18" required> <br>
+        <span>Nombres: </span>
+        <input type="text" id="nombres" class="nombres" placeholder="Mario Hugo" maxlength="50" required> <br>
+        <span>Apellido paterno: </span>
+        <input type="text" id="paterno" class="paterno" placeholder="Pérez" maxlength="50" required> <br>
+        <span>Apellido materno: </span>
+        <input type="text" id="materno" class="materno" placeholder="Hernández" max="50" required> <br>
+        <span>Contraseña: </span>
+        <input type="password" id="pass" class="pass" placeholder="contraseña" maxlength="50" required> <br>
+        <span>Confirmar contraseña: </span>
+        <input type="password" id="conf_pass" class="conf_pass" placeholder="contraseña" max="50" required> <br>
+        <span>En caso de olvido de contraseña: </span><br>
+        <select name="pregunta" id="pregunta">
+            <option value="p1">¿Cuál es tu color favorito?</option>
+            <option value="p2">¿Cuál es el nombre de tu primera mascota?</option>
+            <option value="p3">¿En qué ciudad naciste?</option>
+            <option value="p4">¿Cuál es el nombre de tu mamá/papá?</option>
+            <option value="p5">¿Cuál es tu comida favorita?</option>
+            <option value="p6">¿Qué apodo tienes?</option>
+        </select><br>
+        <span>Respuesta: </span>
+        <input type="text" id="respuesta" class="respuesta" placeholder="Respuesta a la pregunta" max="100" required> <br>
+        <input class="registro_a" id="registro_a" type="submit" value="Registrar">
+    </form>
+</body>
+</html>
