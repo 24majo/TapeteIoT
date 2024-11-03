@@ -7,24 +7,40 @@
         $paterno = $_POST['paterno'];
         $materno = $_POST['materno'];
         $pass = $_POST['pass'];
+        $conf_pass = $_POST['conf_pass'];
         $pregunta = $_POST['pregunta'];
         $respuesta = $_POST['respuesta'];
 
-        $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
-        var_dump($pass_encrypted);
+        $pass_encryp = password_hash($pass, PASSWORD_DEFAULT);
+        $resp_encryp = password_hash($respuesta, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO usuarios (CURP, Nombres, Materno, Paterno, Pass, Pregunta, Respuesta)
-                VALUES ('$curp', '$nombres', '$paterno', '$materno', '$pass_encrypted', '$pregunta', '$respuesta')";
-
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            echo "Usuario registrado correctamente";
-            header("Location: ../registro_alumno.html");
-        } 
-        
-        else {
-            echo "Error al registrar el usuario";
+        if($pass != $conf_pass){
+            echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+            echo 
+            '<script>
+                swal({
+                    title: "Error",
+                    text: "Comprueba que las contraseñas sean iguales",
+                    icon: "error"
+                })
+            </script>';
         }
+
+        else {
+            $sql = "INSERT INTO usuarios (CURP, Nombres, Materno, Paterno, Pass, Pregunta, Respuesta)
+            VALUES ('$curp', '$nombres', '$paterno', '$materno', '$pass_encryp', '$pregunta', '$resp_encryp')";
+
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                echo "Usuario registrado correctamente";
+                header("Location: ../registro_alumno.html");
+            } 
+            
+            else {
+                echo "Error al registrar el usuario";
+            }
+        }
+        
     }
 
     else{
