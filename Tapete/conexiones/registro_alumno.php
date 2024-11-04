@@ -1,6 +1,6 @@
 <?php
     include'conexion.php';
-    
+
     if(isset($_POST['registro_a'])){
         $curp = $_POST['curp'];
         $nombres = $_POST['nombres'];
@@ -23,6 +23,12 @@
                     text: "Comprueba que las contraseñas sean iguales",
                     icon: "error"
                 })
+
+                .then((Okay) => {
+                    if (Okay) {
+                        window.location.href = "../registro_alumno.html";
+                    } 
+                });
             </script>';
         }
 
