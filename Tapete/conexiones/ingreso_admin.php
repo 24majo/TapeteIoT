@@ -16,13 +16,37 @@
     
             if (password_verify($pass, $contra)) {
 
-                if($rol = 'admin'){
-                    header("Location: ../MenuAdmin.html");
+                if($res_rol -> num_rows > 0){
+                    $roles = $res_rol->fetch_assoc();
+                    $rolF = $roles['rol'];
+                    //echo $rolF;
+                    if($rolF == 'admin'){
+                        header("Location: ../MenuAdmin.html");
+                    }
+                    else if ($rolF == 'docente'){
+                        header("Location: ../MenuDocentes.html");
+                    }
+                } 
+
+                else {
+                    echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+                    echo 
+                    '<script>
+                        swal({
+                            title: "Rol no asignado",
+                            text: "Verifica que el usuario ingresado trnga asignado un rol de privilegios.",
+                            icon: "info"
+                        })
+
+                        .then((Okay) => {
+                            if (Okay) {
+                                window.location.href = "../../index.html";
+                            } 
+                        });
+                    </script>';
                 }
-                else{
-                    header("Location: ../MenuDocentes.html");
-                }
-            } 
+            }
+                
             
             else {
                 echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
