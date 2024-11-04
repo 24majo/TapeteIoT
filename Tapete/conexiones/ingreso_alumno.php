@@ -36,7 +36,21 @@
         } 
         
         else {
-            echo "Usuario no encontrado."; 
+            echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+                echo 
+                '<script>
+                    swal({
+                        title: "Usuario incorrecto",
+                        text: "Verifica que la CURP sea correcta o que el alumno esté registrado.",
+                        icon: "error"
+                    })
+
+                    .then((Okay) => {
+                        if (Okay) {
+                            window.location.href = "../../index.html";
+                        } 
+                    });
+                </script>';
         }
     } else {
         echo "Error de ingreso."; 
