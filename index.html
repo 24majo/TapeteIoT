@@ -22,19 +22,19 @@
         <input type="submit" name="ingresar_a" value="Ingresar">
     </form>
 
-    <form id="Ingreso_D"></form>
+    <form method="post" action="Tapete/conexiones/ingreso_admin.php">
         <h2>Ingreso de administrativos</h2>
         <label>Número de empleado</label>
         <br>
-        <input type="text" class="num_empleado" id="num_empleado" placeholder="001AABBCC">
+        <input type="text" name="num_empleado" id="num_empleado" placeholder="001AABBCC">
         <br><br>
         <label for="">Contraseña</label>
         <br>
-        <input type="password" id="pass" class="pass" placeholder="**********">
+        <input type="password" id="pass" name="pass" placeholder="**********">
         <br>
         <a href="#" class="link">¿Olvidaste tu contraseña?</a>
         <br>
-        <input type="submit" value="Ingresar">
+        <input type="submit" name="ingresar_d" value="Ingresar">
     </form>
 </body>
 </html>
