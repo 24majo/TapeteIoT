@@ -37,22 +37,38 @@
         
         else {
             echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
-                echo 
-                '<script>
-                    swal({
-                        title: "Usuario incorrecto",
-                        text: "Verifica que la CURP sea correcta o que el alumno esté registrado.",
-                        icon: "error"
-                    })
+            echo 
+            '<script>
+                swal({
+                    title: "Usuario incorrecto",
+                    text: "Verifica que la CURP sea correcto o que el alumno esté registrado.",
+                    icon: "error"
+                })
 
-                    .then((Okay) => {
-                        if (Okay) {
-                            window.location.href = "../../index.html";
-                        } 
-                    });
-                </script>';
+                .then((Okay) => {
+                    if (Okay) {
+                        window.location.href = "../../index.html";
+                    } 
+                });
+            </script>';
         }
-    } else {
-        echo "Error de ingreso."; 
+    } 
+    
+    else {
+        echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+        echo 
+        '<script>
+            swal({
+                title: "Error de ingreso",
+                text: "Ingresa los datos correspondientes para acceder.",
+                icon: "error"
+            })
+
+            .then((Okay) => {
+                if (Okay) {
+                    window.location.href = "../../index.html";
+                } 
+            });
+        </script>';
     }
 ?>
