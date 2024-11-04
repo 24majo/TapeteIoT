@@ -6,14 +6,22 @@
         $pass = $_POST['pass'];
     
         $sql = "SELECT password FROM docentes WHERE num_empleado = '$num_empleado'";
+        $rol = "SELECT rol FROM docentes where num_empleado = '$num_empleado'";
         $result = $conn->query($sql);
+        $res_rol = $conn->query($rol);
     
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $contra = $row['password'];
     
             if (password_verify($pass, $contra)) {
-                header("Location: ../MenuSeleccion.html");
+
+                if($rol = 'admin'){
+                    header("Location: ../MenuAdmin.html");
+                }
+                else{
+                    header("Location: ../MenuDocentes.html");
+                }
             } 
             
             else {
