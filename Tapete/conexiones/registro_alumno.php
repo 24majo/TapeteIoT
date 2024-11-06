@@ -6,6 +6,8 @@
         $nombres = $_POST['nombres'];
         $paterno = $_POST['paterno'];
         $materno = $_POST['materno'];
+        $grupo = $_POST['grupo'];
+        $generacion = $_POST['generacion'];
         $pass = $_POST['pass'];
         $conf_pass = $_POST['conf_pass'];
         $pregunta = $_POST['pregunta'];
@@ -33,8 +35,10 @@
         }
 
         else {
-            $sql = "INSERT INTO usuarios (CURP, Nombres, Materno, Paterno, Pass, Pregunta, Respuesta)
-            VALUES ('$curp', '$nombres', '$paterno', '$materno', '$pass_encryp', '$pregunta', '$resp_encryp')";
+            $sql = "INSERT INTO usuarios (CURP, Nombres, Materno, Paterno, id_grupo, generacion, Pass, Pregunta, Respuesta)
+            VALUES ('$curp', '$nombres', '$paterno', '$materno', 
+            (SELECT id_grupo FROM grupos WHERE nombre = '1A'),
+            '$generacion','$pass_encryp', '$pregunta', '$resp_encryp')";
 
             $result = mysqli_query($conn, $sql);
             if ($result) {

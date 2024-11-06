@@ -13,9 +13,10 @@ $( function() {
       tips
         .text( t )
         .addClass( "ui-state-highlight" );
-      setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
+
+        setTimeout(function() {
+          tips.removeClass( "ui-state-highlight", 1500 );
+        }, 500 );
     }
  
     function checkLength( o, n, min, max ) {
@@ -24,7 +25,8 @@ $( function() {
         updateTips( "Length of " + n + " must be between " +
           min + " and " + max + "." );
         return false;
-      } else {
+      } 
+      else {
         return true;
       }
     }
@@ -34,7 +36,8 @@ $( function() {
         o.addClass( "ui-state-error" );
         updateTips( n );
         return false;
-      } else {
+      } 
+      else {
         return true;
       }
     }
