@@ -28,6 +28,10 @@
       </font>
     </div>
     
+    <?php 
+      include('conexiones/sesion_alumno.php'); 
+    ?>
+    
     <section>
 
       <div class="card mb-3 card1" style="max-width: 600px;">
@@ -66,5 +70,7 @@
         </div>
       </div>
     </section>
+
+    <a href="conexiones/cerrar_sesion_alumno.php">Cerrar sesión</a>
 </body>
 </html>

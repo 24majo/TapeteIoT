@@ -1,5 +1,6 @@
 <?php
     include'conexion.php';
+    session_start();
 
     if (isset($_POST['ingresar_a'])) {
         $curp = $_POST['curp'];
@@ -13,7 +14,9 @@
             $contra = $row['Pass'];
     
             if (password_verify($pass, $contra)) {
-                header("Location: ../MenuSeleccion.html");
+                $_SESSION['curp'] = $curp;
+                header("Location: ../MenuSeleccion.php");
+                exit;
             } 
             
             else {
@@ -28,7 +31,7 @@
 
                     .then((Okay) => {
                         if (Okay) {
-                            window.location.href = "../../index.html";
+                            window.location.href = "../../index.php";
                         } 
                     });
                 </script>';
@@ -47,7 +50,7 @@
 
                 .then((Okay) => {
                     if (Okay) {
-                        window.location.href = "../../index.html";
+                        window.location.href = "../../index.php";
                     } 
                 });
             </script>';
@@ -66,9 +69,28 @@
 
             .then((Okay) => {
                 if (Okay) {
-                    window.location.href = "../../index.html";
+                    window.location.href = "../../index.php";
                 } 
             });
         </script>';
+    }
+
+    if (isset($_POST['olvidar-a'])) {
+        $curp = $_POST['curp'];
+        $sql = "SELECT Pregunta FROM usuarios WHERE CURP = '$curp'";
+        $result = $conn->query($sql);
+
+        if ($result -> num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $pregunta = $row['pregunta'];
+        } 
+        
+        else {
+            $pregunta = "Error";
+        }
+    }
+
+    else{
+        $pregunta = "Error";
     }
 ?>
