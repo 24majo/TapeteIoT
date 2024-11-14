@@ -21,10 +21,10 @@
                     $rolF = $roles['rol'];
                     //echo $rolF;
                     if($rolF == 'admin'){
-                        header("Location: ../MenuAdmin.html");
+                        header("Location: ../MenuAdmin.php");
                     }
                     else if ($rolF == 'docente'){
-                        header("Location: ../MenuDocentes.html");
+                        header("Location: ../MenuDocentes.php");
                     }
                 } 
 
@@ -40,7 +40,7 @@
 
                         .then((Okay) => {
                             if (Okay) {
-                                window.location.href = "../../index.html";
+                                window.location.href = "../../index.php";
                             } 
                         });
                     </script>';
@@ -60,7 +60,7 @@
 
                     .then((Okay) => {
                         if (Okay) {
-                            window.location.href = "../../index.html";
+                            window.location.href = "../../index.php";
                         } 
                     });
                 </script>';
@@ -79,7 +79,7 @@
 
                 .then((Okay) => {
                     if (Okay) {
-                        window.location.href = "../../index.html";
+                        window.location.href = "../../index.php";
                     } 
                 });
             </script>';
@@ -98,7 +98,7 @@
 
             .then((Okay) => {
                 if (Okay) {
-                    window.location.href = "../../index.html";
+                    window.location.href = "../../index.php";
                 } 
             });
         </script>';

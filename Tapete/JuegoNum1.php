@@ -1,3 +1,34 @@
+<?php
+    session_start();
+    $conn = new mysqli("localhost", "root", "", "tapeteiot");
+
+	if ($conn->connect_error) {
+		die("Error de conexión: " . $conn->connect_error);
+	}
+
+    if (isset($_SESSION['CURP'])) {
+        $curp = $_SESSION['CURP'];
+        $nombre = "SELECT Nombres from usuarios WHERE CURP = '$curp'";
+        $r_nombre = $conn -> query($nombre);
+        $nombreF = $r_nombre->fetch_assoc();
+        $name = $nombreF['Nombres'];
+
+        $sexo = substr($curp, -8, 1);
+
+		if($sexo == "M"){
+			$imagen = "Visual/Material/Recursos/SesionNiña.png";
+		}
+		else if ($sexo == "H"){
+			$imagen = "Visual/Material/Recursos/SesionNiño.png";
+		}
+    } 
+    
+    else {
+        echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.html'>inicia sesión</a>.</h3>";
+        exit; 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -26,7 +57,13 @@
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
         </div>
-        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+
+		<button class="boton" onclick="location.href = 'ProgresoAlumno.php'">
+            <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
+            <span>Usuario</span>
+        </button>
+
+        <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
@@ -103,3 +140,4 @@
 		<script src="js/funciones/numeros/juego1.js"></script>
 	</body>
 </html>
+
