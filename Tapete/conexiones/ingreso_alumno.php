@@ -79,6 +79,41 @@
         exit;
     }
 
+    if(isset($_POST["verificar_a"])){
+        $curp = $_POST['curp'];
+        $respuesta = $_POST['respuesta_a'];
+        $sql = "SELECT Respuesta FROM usuarios WHERE CURP = '$curp'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $res = $row['Respuesta'];
+    
+            if (password_verify($respuesta, $res)) {
+                $_SESSION['CURP'] = $curp;
+                header("Location: ../MenuSeleccion.php");
+                exit;
+            } 
+            else {
+                echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+                echo 
+                '<script>
+                    swal({
+                        title: "Respuesta incorrecta",
+                        text: "Verifica que tu respuesta sea correcta",
+                        icon: "error"
+                    })
+
+                    .then((Okay) => {
+                        if (Okay) {
+                            window.location.href = "../../index.php";
+                        } 
+                    });
+                </script>';
+            }
+        }
+    }
+
     else {
         echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
         echo 

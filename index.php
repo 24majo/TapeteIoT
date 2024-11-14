@@ -56,9 +56,9 @@
       <div id="seguridad">
         <p>Responde la pregunta de seguridad</p>
         <label for="pregunta">Pregunta</label>
-        <input type="text" class="pregunta" id="pregunta" class="text ui-widget-content ui-corner-all" disabled>
+        <input type="text" class="pregunta" id="pregunta" disabled>
         <label for="respuesta">Respuesta</label>
-        <input type="text" class="respuesta" id="respuesta" class="text ui-widget-content ui-corner-all">
+        <input type="text" name="respuesta_a" id="respuesta_a">
         <button id="verificar_a" name="verificar_a">Verificar</button>
       </div>
     </form>
