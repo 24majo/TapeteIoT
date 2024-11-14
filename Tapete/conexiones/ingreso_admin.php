@@ -23,9 +23,11 @@
                     $rolF = $roles['rol'];
                     //echo $rolF;
                     if($rolF == 'admin'){
+                        $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuAdmin.php");
                     }
                     else if ($rolF == 'docente'){
+                        $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuDocentes.php");
                     }
                 } 
@@ -125,11 +127,12 @@
                 if($res_rol -> num_rows > 0){
                     $roles = $res_rol->fetch_assoc();
                     $rolF = $roles['rol'];
-                    //echo $rolF;
                     if($rolF == 'admin'){
+                        $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuAdmin.php");
                     }
                     else if ($rolF == 'docente'){
+                        $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuDocentes.php");
                     }
                 } 

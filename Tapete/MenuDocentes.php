@@ -6,6 +6,8 @@
     <title>Menú Docentes</title>
 </head>
 <body>
-    
+<?php 
+      include('conexiones/sesion_admin.php'); 
+    ?>
 </body>
 </html>
