@@ -73,7 +73,8 @@
             echo $pregunta;
             header("../../index.php");
             exit;
-        } else {
+        } 
+        else {
             $pregunta = 'Pregunta no encontrada';
         }
         exit;
