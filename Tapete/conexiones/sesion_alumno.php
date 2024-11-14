@@ -8,7 +8,7 @@
         $r_nombre = $conn -> query($nombre);
         $nombreF = $r_nombre->fetch_assoc();
         $name = $nombreF['Nombres'];
-        echo "<h2>¡Bienvenido, " . $name . "!</h2>";
+        echo "<h2>¡Hola, " . $name . "! Empecemos a jugar</h2>";
 
         $sexo = substr($curp, -8, 1);
     } 
