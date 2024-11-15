@@ -35,7 +35,6 @@
         }
 
         else {
-            echo $grupo;
             $sql = "INSERT INTO usuarios (CURP, Nombres, Paterno, Materno, id_grupo, generacion, Pass, Pregunta, Respuesta)
             VALUES ('$curp', '$nombres', '$paterno', '$materno', 
             (SELECT id_grupo FROM grupos WHERE nombre = '$grupo'),

@@ -11,7 +11,8 @@
         echo "<h2>¡Bienvenido, " . $name . "!</h2>";
 
         $sql = "SELECT usuarios.Nombres, usuarios.Paterno, usuarios.Materno
-                FROM usuarios join grupos
+                FROM usuarios 
+                join grupos
                 on usuarios.id_grupo = grupos.id_grupo
                 join docentes
                 on grupos.num_empleado = docentes.num_empleado
