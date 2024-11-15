@@ -22,9 +22,7 @@
                 FROM progreso_alumno 
                 JOIN juegos
                 ON progreso_alumno.num_juego = juegos.num_juego
-                JOIN usuarios
-                ON progreso_alumno.CURP = usuarios.CURP
-                WHERE usuarios.CURP = ?";
+                WHERE progreso_alumno.CURP = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $curp);
         $stmt->execute();
