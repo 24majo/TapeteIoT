@@ -35,9 +35,10 @@
         }
 
         else {
-            $sql = "INSERT INTO usuarios (CURP, Nombres, Materno, Paterno, id_grupo, generacion, Pass, Pregunta, Respuesta)
+            echo $grupo;
+            $sql = "INSERT INTO usuarios (CURP, Nombres, Paterno, Materno, id_grupo, generacion, Pass, Pregunta, Respuesta)
             VALUES ('$curp', '$nombres', '$paterno', '$materno', 
-            (SELECT id_grupo FROM grupos WHERE nombre = '1A'),
+            (SELECT id_grupo FROM grupos WHERE nombre = '$grupo'),
             '$generacion','$pass_encryp', '$pregunta', '$resp_encryp')";
 
             $result = mysqli_query($conn, $sql);
