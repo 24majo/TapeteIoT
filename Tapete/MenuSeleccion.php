@@ -71,6 +71,6 @@
       </div>
     </section>
 
-    <a href="conexiones/cerrar_sesion_alumno.php">Cerrar sesión</a>
+    <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
 </body>
 </html>

@@ -13,17 +13,17 @@
     <table>
         <thead>
             <tr>
-                <th>Nombres</th>
                 <th>Apellidos</th>
+                <th>Nombres</th>
             </tr>
         </thead>
         <tbody>
             <?php
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row['Nombres'] . "</td>";
+                    echo '<tr onclick="Progreso(\'' . $row["CURP"] . '\')">';
                     echo "<td>" . $row['Paterno'] ." ". $row['Materno']. "</td>";
+                    echo "<td>" . $row['Nombres'] . "</td>";
                     echo "</tr>";
                 }
             } 
@@ -33,5 +33,13 @@
             ?>
         </tbody>
     </table>
+
+    <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+
+    <script>
+        function Progreso(nombre){
+            alert(nombre)
+        }
+    </script>
 </body>
 </html>

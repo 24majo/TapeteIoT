@@ -10,17 +10,17 @@
         $name = $nombreF['nombre'];
         echo "<h2>¡Bienvenido, " . $name . "!</h2>";
 
-        $sql = "SELECT usuarios.Nombres, usuarios.Paterno, usuarios.Materno
+        $sql = "SELECT usuarios.CURP, usuarios.Nombres, usuarios.Paterno, usuarios.Materno
                 FROM usuarios 
                 join grupos
                 on usuarios.id_grupo = grupos.id_grupo
                 join docentes
                 on grupos.num_empleado = docentes.num_empleado
-                WHERE grupos.num_empleado = ?";
+                WHERE grupos.num_empleado = ?
+                ORDER BY Paterno ASC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $num_e);
         $stmt->execute();
-        
         $result = $stmt->get_result();
     } 
     else {
