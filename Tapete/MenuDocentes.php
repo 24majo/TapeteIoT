@@ -6,8 +6,32 @@
     <title>Menú Docentes</title>
 </head>
 <body>
-<?php 
+    <?php 
       include('conexiones/sesion_admin.php'); 
     ?>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row['Nombres'] . "</td>";
+                    echo "<td>" . $row['Paterno'] ." ". $row['Materno']. "</td>";
+                    echo "</tr>";
+                }
+            } 
+            else {
+                echo "<tr><td colspan='4'>No hay registros disponibles</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 </html>
