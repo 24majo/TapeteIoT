@@ -5,7 +5,6 @@ contador = 0
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
-
 Ayuda()
 
 function apretar(numero){
@@ -118,18 +117,25 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
+            console.log("caca")
             apretar(0)
             break;
 
         case 'ArrowDown':
+            console.log("caca")
+
             apretar(1)
             break;
 
         case 'ArrowLeft':
+            console.log("caca")
+
             apretar(2)
             break;
 
         case 'ArrowRight':
+            console.log("caca")
+
             apretar(3)
             break;
 
@@ -203,14 +209,13 @@ function OpRandom(){ // Asignar 4 números aleatorios a los círculos
     imagen.src = "Visual/Material/Numeros/Juego5/" + resultado + ".jpg"
     arreglo_f = arreglo
     correcta = resultado
-    console.log("Respuesta: ", correcta)
     return arreglo
 }
 
 function Ayuda(){
     swal({
         title: "Tutorial",
-        text: "Cuenta la cantidad de peces que se encuentran en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        text: "Cuenta la cantidad de peces que están en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
         icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
     // swal("Tutorial", 
