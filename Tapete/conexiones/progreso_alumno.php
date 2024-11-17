@@ -30,13 +30,15 @@
 
         // Actualizar el juego 
         $progreso = $_POST['progreso'];
+        $puntaje = $_POST['puntaje'];
         $num_juego = $_POST['num_juego'];
+        
         $sql = "UPDATE progreso_alumno 
-        SET progreso = ? 
+        SET progreso = ?, puntaje = ?
         WHERE CURP = ? AND num_juego = ?";
 
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("isi", $progreso, $curp, $num_juego); // 'd' para double, 's' para string, 'i' para integer
+            $stmt->bind_param("idsi", $progreso, $puntaje, $curp, $num_juego); // 'd' para double, 's' para string, 'i' para integer
             $stmt->execute();
 
             // Verificar si la actualización fue exitosa

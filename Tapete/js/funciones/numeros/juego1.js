@@ -7,12 +7,31 @@ imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
 Ayuda()
 
+function Progreso(progreso){
+    $.ajax({
+        url: 'conexiones/progreso_alumno.php',  // El archivo PHP que actualiza el progreso
+        type: 'POST',
+        data: {
+            progreso: progreso,   // El valor actual del progreso
+            //num_juego: '<?php echo $num_juego; ?>',  // Número del juego
+        },
+        success: function(response) {
+            console.log('Progreso actualizado: ' + response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
+
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
         //opciones[numero].style.backgroundColor = '#f958a5'
         contador++
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
+
+        Progreso(contador)
 
         if(contador == 10){
             swal({
@@ -81,7 +100,7 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // En este apartado se puede poner la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
-      })
+    })
 
     .then((Reinicia) => {
         if (Reinicia) {
@@ -117,25 +136,18 @@ window.addEventListener("keydown",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            console.log("caca")
             apretar(0)
             break;
 
         case 'ArrowDown':
-            console.log("caca")
-
             apretar(1)
             break;
 
         case 'ArrowLeft':
-            console.log("caca")
-
             apretar(2)
             break;
 
         case 'ArrowRight':
-            console.log("caca")
-
             apretar(3)
             break;
 
