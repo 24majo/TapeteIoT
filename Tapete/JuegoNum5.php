@@ -22,7 +22,7 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
 
-		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 4";
+		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 5";
 		$n_juego = $conn->query($juego);
 
 		if ($n_juego && $n_juego->num_rows > 0) {
@@ -76,27 +76,26 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/StyleJuegoNum4.css">
-        <link rel="stylesheet" href="css/BarraLateral.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/StyleJuegoNum5.css">
+      <link rel="stylesheet" href="css/BarraLateral.css">
 
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery-3.7.1.min.js"></script>
-        <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/jquery-3.7.1.min.js"></script>
+      <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-        <title>Restas</title>
-    </head>
+      <title>Completar decenas</title>
+  </head>
   
-    <body background="Visual/Fondos/FondoJuegos.jpg">
-
-    <!----------------- Barra lateral --------------------------------->
-    <div class="barraM" >
-        <div class="mini-barra" style="position: relative; z-index: 103;">
-            <font face="Century Gothic">
+  <body background="Visual/Fondos/FondoJuegos.jpg">
+<!----------------- Barra lateral --------------------------------->
+<div class="barraM" >
+    <div class="mini-barra" style="position: relative; z-index: 103;">
+        <font face="Century Gothic">
         <div class="nombre-pagina">
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
@@ -111,13 +110,13 @@
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
-    
+  
         <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
             <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
             <span>Menú de números</span>
         </button>
-
-        <button class="boton" onclick="location.href = 'DificultadRestas.html'">
+  
+        <button class="boton" onclick="location.href = 'DificultadDecenas.html'">
             <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
             <span>Dificultad</span>
         </button>
@@ -126,20 +125,21 @@
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
             <span>Ayuda</span>
         </button>
-        </div>
-            </font>
     </div>
+  </font>
+  </div>
 <!---------------------- Fin de barra lateral ----------------------------->
-
-    <nav >
+    
+    <nav>
         <div style="margin-left: 750px; margin-top: -280px">
             <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
         </div>
-            <div id="vida" class="vidas"></div>
 
+        <div class="vidas" id="vida"></div>
+        
         <div class="titulo">
             <Font face="Century Gothic">
-                <h1><b>Realiza las siguientes restas</b></h1>
+                <p><b>Completa la decena</b></p>
             </Font>
         </div>
 
@@ -147,37 +147,39 @@
             <a href="MenuSeleccion.html" class="btnInicio">
                 <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
             </a>
-            <a href="DificultadRestas.html" class="btnAtras">
+            <a href="DificultadDecenas.html" class="btnAtras">
                 <img src="Visual/Material/Iconos/Flecha.png" width="60px">
             </a>
         </div>
-
-        <div style="margin-top: -60px; margin-left: 300px;">
+        
+        <div style="margin-top: -180px;"> 
             <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
         </div> -->
 
         <img class="semaforo" id="semaforo" alt=""  width="100">
-
+        <!--
+        Fácil: Números del 1 al 49
+        Medio: Números del 50 al 99
+        Difícil: Revuelto
+        -->
+        <div class="peces">
+            <img src="Visual/Material/Numeros/Juego5/PezUnidad.png" width="80" alt=""> × 1
+            <img src="Visual/Material/Numeros/Juego5/PezDecena.png" width="80" alt=""> × 10
+        </div>
     </nav>
-    
-    <div class="numRestas">
-        <font face="Century Gothic">
-            <span class="linea" id="linea_s"></span>
-            <br>
-            <span class="linea" id="linea_i"></span>
-            <span class="lineaResta" id="linea_l"></span>
-            <br>
-        </font>
-    </div>
-
-    <div id="espera" class="polloEspera"></div>
-    <div id="acierto" class="desaparecer polloBien"></div>
-    <div id="incorrecto" class="desaparecer polloMal"></div>
       
+    <section>
+        <div class="dibujo">
+            <div id="pecera"></div>
+        </div>
+    </section>
+
+
     <div class="botones">   
         <font face="Century Gothic">
             <button id="btnIniciar" class="btn" onclick="Empezar()"><b>Empezar</b></button>
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
+            
         </font>
     </div>
       
@@ -189,8 +191,9 @@
             <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
-    <!-- <script src="js/funciones/numeros/juego4.js"></script> -->
+    <!-- <script src="js/funciones/numeros/juego5.js"></script> -->
     <script src="js/Barra.js"></script>
+
     <script>
         // Vidas
         var imagen = document.getElementById('vida');
@@ -203,13 +206,14 @@
         // Circulos de opciones
         var opciones = document.getElementsByClassName("opcion")
         var op = []
-        var resultado = 0
-        var arreglo = []
+        var pecera = document.getElementById("pecera")
+        var respuesta = ""
+        var ejercicio = 0
         var semaforo = document.getElementById('semaforo')
         contador2 = 0
         puntaje = 10
 
-        Ayuda() // Tutorial al abrir la pestaña por primera vez
+        Ayuda()
 
         function Progreso(progreso,puntaje){
             $.ajax({
@@ -241,75 +245,81 @@
                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
         }
 
+        function Reiniciar(){
+            error = 3
+            contador = 0
+            contador2 = 0
+            puntaje = 10
+            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+            document.getElementById("barra").value = contador
+            document.getElementById("barra").innerHTML = contador
+            Empezar()
+        }
+
+        function Reinicio(){
+            swal({
+                title: "Reiniciar juego",
+                text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
+                icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
+                buttons: true,
+                dangerMode: true,
+            })
+
+            .then((willDelete) => {
+                if (willDelete) {
+                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                    Reiniciar()
+                } 
+            });
+        }
+
         function Empezar(){
             document.getElementById('aparecer').style.display='block';
-
+            
             switch(valor){
                 case 'facil':
-                    num1 = Math.floor(Math.random() * (50-1)+1)
-                    num2 = Math.floor(Math.random() * (num1-1)+1)
-                    Random(num1, num2)  
+                    num = Math.floor(Math.random() * (50-1)+1)
+                    pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+                    Completar(num)  
                     break
 
                 case 'medio':
-                    num1 = Math.floor(Math.random() * (100-50)+50)
-                    num2 = Math.floor(Math.random() * (num1-50)+50)
-                    Random(num1, num2)  
+                    num = Math.floor(Math.random() * (99-51)+51)
+                    pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+                    Completar(num)  
                     break
                 
                 case 'dificil':
-                    num1 = Math.floor(Math.random() * (100-1)+1)
-                    num2 = Math.floor(Math.random() * (num1-1)+1)
-                    Random(num1, num2) 
+                    num = Math.floor(Math.random() * (99-1)+1)
+                    pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
+                    Completar(num) 
                     break
             }
         }
 
-        function Random(num1, num2){
-            resultado = num1 - num2
-            if(num1<=9){
-                document.getElementById("linea_l").innerHTML = "-"
-                document.getElementById("linea_s").innerHTML = "0"+num1
-            }else{
-                document.getElementById("linea_l").innerHTML = "-"
-                document.getElementById("linea_s").innerHTML = num1
-            }if(num2<=9){
-                document.getElementById("linea_i").innerHTML = "0"+num2
-                document.getElementById("linea_l").innerHTML = "-"
-            }else{
-                document.getElementById("linea_l").innerHTML = "-"
-                document.getElementById("linea_i").innerHTML =  num2
-            }if(num1<=9 && num2<=9){
-                document.getElementById("linea_s").innerHTML = "0"+num1
-                document.getElementById("linea_l").innerHTML = "-"
-                document.getElementById("linea_i").innerHTML = "0"+num2
-            }if(num1>9 && num2<=9){
-                document.getElementById("linea_s").innerHTML = num1
-                document.getElementById("linea_i").innerHTML = "0"+num2
-            }if(num2>9 && num1<=9){
-                document.getElementById("linea_s").innerHTML = "0"+num1
-                document.getElementById("linea_l").innerHTML = "-"
-                document.getElementById("linea_i").innerHTML = num2
-            }
-
+        function Completar(num){
+            decena = num - (num % 10) + 10
+            respuesta = decena - num
+            
             op = Opcion(arreglo = [])
 
             for(let i = 0; i < opciones.length; i++){
                 opciones[i].innerHTML = op[i]
             }
+
         }
 
         function Opcion(arreglo){
             if(arreglo.length == 4){
-                var res = arreglo.indexOf(resultado)
+                var res = arreglo.indexOf(respuesta)
                 if(res == -1){
                     var r = Math.floor(Math.random() * arreglo.length) 
-                    arreglo.splice(r, 1, resultado)
+                    arreglo.splice(r, 1, respuesta)
                 }
             }
 
             else{
-                var r = Math.floor(Math.random() * ((100-1)+1))
+                var r = Math.floor(Math.random() * ((10-1)+1))
                 arreglo.push(r)
                         
                 result = arreglo.filter((item,index)=>{
@@ -321,10 +331,9 @@
             return result
         }
 
-        function RCorrecto(num){
-            if(num == resultado){
-                contador+=1
-                PolloBueno()
+        function Validar(num){
+            if(num == respuesta){
+                contador += 1
                 document.getElementById("btnIniciar").innerHTML = "Continuar"
                 document.getElementById("barra").value = contador
                 document.getElementById("barra").innerHTML = contador
@@ -355,7 +364,7 @@
                         swal({
                             title: "¡Felicidades!",
                             text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                            icon: "Visual/Material/Animaciones/Generales/PolloBien (4).gif",
+                            icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif",
                             buttons: true,
                         })
                         .then((willDelete) => {
@@ -365,7 +374,6 @@
                                     Progreso(contador2, puntaje)
                                     valor = 'medio'
                                     semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                                    //valor = document.querySelector('#medio').checked = true
                                     Reiniciar()
                                 }
 
@@ -375,7 +383,6 @@
                                         Progreso(contador2, puntaje)
                                         valor = 'dificil'
                                         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
-                                        //valor = document.querySelector('#dificil').checked = true
                                         Reiniciar()
                                     }
                                 }
@@ -387,28 +394,25 @@
             else{
                 error--
                 if(error == 2){
-                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
-                    Polloincorrectoo()
+                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
                 }
 
                 if(error == 1){
-                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
-                    Polloincorrectoo()
+                    imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
                 }
 
                 if(error == 0){
-                    imagen.innerHTML = ""
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
-                    Polloincorrectoo()
+                    imagen.innerHTML = ""
                     swal({
-                        title: "Oh no!",
+                        title: "¡Oh no!",
                         text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                        icon: "Visual/Material/Animaciones/Generales/error.jpg",
+                        icon: "Visual/Material/Animaciones/Generales/triste.jpg",
                         buttons:  ["Reintentar", "Salir"] 
                     })
                     .then((reintento) => {
@@ -416,90 +420,55 @@
                             location.href = "JuegosNumeros.html"
                         } 
                         else{
-
-                            if(valor == "facil"){
-                                document.getElementById("btnIniciar").innerHTML = "Empezar"
-                                Reiniciar()
-                            }
-
-                            else{
-                                swal({
-                                    title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                                    icon: "Visual/Material/Animaciones/Generales/Chick.gif",
-                                    buttons:  ["Mantener", "Cambiar"] 
-                                })
-                                .then((cambiar) => {
-                                    if(cambiar){
-                                        if(valor == 'dificil'){
-                                            valor = "medio"
-                                            semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                                        }
-
-                                        if(valor == 'medio'){
-                                            valor = "facil"
-                                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
-                                        }
-                                        
-                                        document.getElementById("btnIniciar").innerHTML = "Empezar"
-                                        Reiniciar()
+                            swal({
+                                title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                                icon: "Visual/Material/Animaciones/Generales/Chick.gif",
+                                buttons:  ["Mantener", "Cambiar"] 
+                            })
+                            .then((cambiar) => {
+                                if(cambiar){
+                                    if(valor == 'dificil'){
+                                        valor = "medio"
+                                        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                     }
-                                    else{
-                                        document.getElementById("btnIniciar").innerHTML = "Empezar"
-                                        Reiniciar()
+
+                                    if(valor == 'medio'){
+                                        valor = "facil"
+                                        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                     }
-                                })
-                            }
+
+                                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                    Reiniciar()
+                                }
+
+                                else{
+                                    document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                    Reiniciar()
+                                }
+                            })
                         }
                     })
                 }
             }
         }
 
-        function Reiniciar(){
-            error = 3
-            contador = 0
-            contador2 = 0
-            puntaje = 10
-            imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-            document.getElementById("barra").value = contador
-            document.getElementById("barra").innerHTML = contador
-            Empezar()
-        }
-
-        function Reinicio(){
-            swal({
-                title: "Reiniciar juego",
-                text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-                icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
-                buttons: true,
-                dangerMode: true,
-            })
-
-            .then((willDelete) => {
-                if (willDelete) {
-                    document.getElementById("btnIniciar").innerHTML = "Empezar"
-                    Reiniciar()
-                } 
-            });
-        }
-
         window.addEventListener("keydown",(e)=>{
             let tecla = e.key
             switch(tecla){
                 case 'ArrowUp':
-                    RCorrecto(op[0])
-                    break;
-
-                case 'ArrowDown':
-                    RCorrecto(op[1])
+                    Validar(op[0])
                     break;
 
                 case 'ArrowLeft':
-                    RCorrecto(op[2])
+                    Validar(op[1])
+                    break;
+
+                case 'ArrowDown':
+                    Validar(op[2])
                     break;
 
                 case 'ArrowRight':
-                    RCorrecto(op[3])
+                    Validar(op[3])
                     break;
 
                 default:
@@ -525,49 +494,9 @@
         function Ayuda(){
             swal({
                 title: "Tutorial",
-                text: "Realiza la resta de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+                text: "Identifica la cantidad de peces que se encuentran en la pecera. Deberás sumarlos para identificar cuanto falta para la siguiente decena. \nElige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
                 icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
             })
-        }
-
-        function PolloBueno(){
-            const espera = document.getElementById("espera");
-            const acierto = document.getElementById("acierto");
-        
-            //Ocultar la animación de espera para pasar a la de acierto
-            espera.classList.add("desaparecer");
-        
-            //Muestra la aninmación de acierto una vez
-            acierto.classList.remove("desaparecer");
-            acierto.classList.add("acierto");
-        
-            //Se usa el evento animationend para indicar que la animación finalizó 
-            //y de nuevo muestre la animación de espera
-            acierto.addEventListener("animationend", function() {
-                //Ocultar la animación de acierto
-            acierto.classList.add("desaparecer");    
-            acierto.classList.remove("acierto");
-                //Mostrar la animación de espera
-            espera.classList.remove("desaparecer"); 
-            //Ayuda a que la animación se ejecute una vez
-            }, { once: true });
-        }
-
-        function Polloincorrectoo(){
-            const espera = document.getElementById("espera");
-            const incorrecto = document.getElementById("incorrecto");
-        
-            espera.classList.add("desaparecer");
-        
-            incorrecto.classList.remove("desaparecer");
-            incorrecto.classList.add("incorrecto");
-        
-            incorrecto.addEventListener("animationend", function() {
-                incorrecto.classList.add("desaparecer"); 
-                incorrecto.classList.remove("incorrecto");
-        
-                espera.classList.remove("desaparecer"); 
-            }, { once: true });
         }
     </script>
   </body>
