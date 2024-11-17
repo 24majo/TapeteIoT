@@ -22,7 +22,7 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
 
-		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 1";
+		$juego = "SELECT num_juego FROM juegos WHERE num_juego = 1";
 		$n_juego = $conn->query($juego);
 		if ($n_juego && $n_juego->num_rows > 0) {
             $juego1 = $n_juego->fetch_assoc();
