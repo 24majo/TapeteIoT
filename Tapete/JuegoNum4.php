@@ -22,7 +22,7 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
 
-		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 3";
+		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 4";
 		$n_juego = $conn->query($juego);
 
 		if ($n_juego && $n_juego->num_rows > 0) {
@@ -76,28 +76,27 @@
 
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/StyleJuegoNum3.css">
-       <!-- Barra Lateral -->
-       <link rel="stylesheet" href="css/BarraLateral.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/StyleJuegoNum4.css">
+        <link rel="stylesheet" href="css/BarraLateral.css">
 
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/jquery-3.7.1.min.js"></script>
-      <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-      <title>Suma</title>
-  </head>
+        <title>Restas</title>
+    </head>
   
-  <body background="Visual/Fondos/FondoJuegos.jpg">
+    <body background="Visual/Fondos/FondoJuegos.jpg">
 
-<!----------------- Barra lateral --------------------------------->
-<div class="barraM" >
-    <div class="mini-barra" style="position: relative; z-index: 103;">
-        <font face="Century Gothic">
+    <!----------------- Barra lateral --------------------------------->
+    <div class="barraM" >
+        <div class="mini-barra" style="position: relative; z-index: 103;">
+            <font face="Century Gothic">
         <div class="nombre-pagina">
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
@@ -112,13 +111,13 @@
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
-  
+    
         <button class="boton" onclick="location.href = 'JuegosNumeros.html'">
             <img class="regresar" id="regresar" src="Visual/Material/Iconos/Flecha.png" width="40px">
             <span>Menú de números</span>
         </button>
-  
-        <button class="boton" onclick="location.href = 'DificultadSumas.html'">
+
+        <button class="boton" onclick="location.href = 'DificultadRestas.html'">
             <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
             <span>Dificultad</span>
         </button>
@@ -127,45 +126,46 @@
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
             <span>Ayuda</span>
         </button>
+        </div>
+            </font>
     </div>
-  </font>
-  </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-    <nav>
-        <div style="margin-left: 750px; margin-top: -300px">
+    <nav >
+        <div style="margin-left: 750px; margin-top: -280px">
             <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
         </div>
-    
-        <div id="vida" class="vidas"></div>
+            <div id="vida" class="vidas"></div>
 
         <div class="titulo">
             <Font face="Century Gothic">
-                <h1><b>Realiza las siguientes sumas</b></h1>
-          </Font>
-          </div>
-        
-          <!-- <div style="margin-top: -140px; margin-left: 330px;">
-            <button class="btnAyuda" id="Ayuda" onclick="Ayuda()"><b>?</b></button>
-          </div> 
-          <div class="btnMenus">
+                <h1><b>Realiza las siguientes restas</b></h1>
+            </Font>
+        </div>
+
+        <!-- <div class="btnMenus">
             <a href="MenuSeleccion.html" class="btnInicio">
                 <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
             </a>
-            <a href="DificultadSumas.html" class="btnAtras">
+            <a href="DificultadRestas.html" class="btnAtras">
                 <img src="Visual/Material/Iconos/Flecha.png" width="60px">
             </a>
-          </div> -->
+        </div>
 
-          <img class="semaforo" id="semaforo" alt=""  width="100">
-        
+        <div style="margin-top: -60px; margin-left: 300px;">
+            <button class="btnAyuda" id="btnAyuda" onclick="Ayuda()"><b>?</b></button>
+        </div> -->
+
+        <img class="semaforo" id="semaforo" alt=""  width="100">
+
     </nav>
     
-    <div class="numSumas">
+    <div class="numRestas">
         <font face="Century Gothic">
             <span class="linea" id="linea_s"></span>
             <br>
-            <span class="linea" id="linea_i" style="margin: -40px;"></span>
+            <span class="linea" id="linea_i"></span>
+            <span class="lineaResta" id="linea_l"></span>
             <br>
         </font>
     </div>
@@ -180,8 +180,6 @@
             <button id="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
         </font>
     </div>
-
-    
       
     <div class="btnOpciones" id="aparecer">
         <font face="MV Boli">
@@ -191,28 +189,25 @@
             <span id="opcionDerecha" class="opcion"></span>
         </font>
     </div>
-    <!-- <script src="js/funciones/numeros/juego3.js"></script> -->
+    <!-- <script src="js/funciones/numeros/juego4.js"></script> -->
     <script src="js/Barra.js"></script>
     <script>
         // Vidas
         var imagen = document.getElementById('vida');
         imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-        var incorrecto = 3
+        var error = 3
         // Barra de progreso
-        var contador2 = 0
         contador = 0
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
         // Circulos de opciones
         var opciones = document.getElementsByClassName("opcion")
         var op = []
-        //Opciones de dificultad
-        var valorBoton
-        // Elementos generales
         var resultado = 0
         var arreglo = []
         var semaforo = document.getElementById('semaforo')
-        var puntaje = 10
+        contador2 = 0
+        puntaje = 10
 
         Ayuda() // Tutorial al abrir la pestaña por primera vez
 
@@ -236,7 +231,6 @@
 
         window.onload = function() {
             valor = localStorage.getItem('valorBoton');
-
             if(valor == 'facil')
                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
 
@@ -249,49 +243,55 @@
 
         function Empezar(){
             document.getElementById('aparecer').style.display='block';
-            
+
             switch(valor){
                 case 'facil':
                     num1 = Math.floor(Math.random() * (50-1)+1)
-                    num2 = Math.floor(Math.random() * (50-1)+1)
+                    num2 = Math.floor(Math.random() * (num1-1)+1)
                     Random(num1, num2)  
                     break
 
                 case 'medio':
                     num1 = Math.floor(Math.random() * (100-50)+50)
-                    num2 = Math.floor(Math.random() * (100-50)+50)
+                    num2 = Math.floor(Math.random() * (num1-50)+50)
                     Random(num1, num2)  
                     break
                 
                 case 'dificil':
                     num1 = Math.floor(Math.random() * (100-1)+1)
-                    num2 = Math.floor(Math.random() * (100-1)+1)
+                    num2 = Math.floor(Math.random() * (num1-1)+1)
                     Random(num1, num2) 
                     break
             }
         }
 
         function Random(num1, num2){
-            resultado = num1 + num2
+            resultado = num1 - num2
             if(num1<=9){
+                document.getElementById("linea_l").innerHTML = "-"
                 document.getElementById("linea_s").innerHTML = "0"+num1
             }else{
+                document.getElementById("linea_l").innerHTML = "-"
                 document.getElementById("linea_s").innerHTML = num1
             }if(num2<=9){
                 document.getElementById("linea_i").innerHTML = "0"+num2
+                document.getElementById("linea_l").innerHTML = "-"
             }else{
-                document.getElementById("linea_i").innerHTML = "+" + num2
+                document.getElementById("linea_l").innerHTML = "-"
+                document.getElementById("linea_i").innerHTML =  num2
             }if(num1<=9 && num2<=9){
                 document.getElementById("linea_s").innerHTML = "0"+num1
-                document.getElementById("linea_i").innerHTML = "+"+"0"+num2
+                document.getElementById("linea_l").innerHTML = "-"
+                document.getElementById("linea_i").innerHTML = "0"+num2
             }if(num1>9 && num2<=9){
                 document.getElementById("linea_s").innerHTML = num1
-                document.getElementById("linea_i").innerHTML = "+"+"0"+num2
+                document.getElementById("linea_i").innerHTML = "0"+num2
             }if(num2>9 && num1<=9){
                 document.getElementById("linea_s").innerHTML = "0"+num1
-                document.getElementById("linea_i").innerHTML = "+"+num2
+                document.getElementById("linea_l").innerHTML = "-"
+                document.getElementById("linea_i").innerHTML = num2
             }
-            
+
             op = Opcion(arreglo = [])
 
             for(let i = 0; i < opciones.length; i++){
@@ -309,20 +309,10 @@
             }
 
             else{
-                if(valor == 'facil'){
-                    var r = Math.floor(Math.random() * (100-10)+10)
-                }
-                else{
-                    if(valor == "medio") {
-                        var r = Math.floor(Math.random() * (199-100)+100)
-                    }
-                    else {
-                        var r = Math.floor(Math.random() * (199-10)+10)
-                    }
-                }
+                var r = Math.floor(Math.random() * ((100-1)+1))
                 arreglo.push(r)
                         
-                result = arreglo.filter((item,index)=>{ 
+                result = arreglo.filter((item,index)=>{
                     return arreglo.indexOf(item) === index;
                 })
                 
@@ -331,14 +321,14 @@
             return result
         }
 
-        function Racierto(num){ 
+        function RCorrecto(num){
             if(num == resultado){
-                PolloBueno()
                 contador+=1
+                PolloBueno()
                 document.getElementById("btnIniciar").innerHTML = "Continuar"
                 document.getElementById("barra").value = contador
                 document.getElementById("barra").innerHTML = contador
-                
+
                 if(contador == 10){
                     if(valor == "dificil"){
                         contador2 = 10
@@ -355,19 +345,17 @@
                                 location.href = "JuegosNumeros.html"
                             } 
                             else{
-                                for(let y = 0; y < 3; y++){
-                                    radios[y].disabled = false
-                                }
                                 document.getElementById("btnIniciar").innerHTML = "Empezar"
                                 Reiniciar()
                             }
                         })
                     }
+
                     else{
                         swal({
                             title: "¡Felicidades!",
                             text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
-                            icon: "Visual/Material/Animaciones/Generales/PolloBien.gif",
+                            icon: "Visual/Material/Animaciones/Generales/PolloBien (4).gif",
                             buttons: true,
                         })
                         .then((willDelete) => {
@@ -375,17 +363,19 @@
                                 if(valor == 'facil'){
                                     contador2 = 3.5
                                     Progreso(contador2, puntaje)
-                                    valor = "medio"
+                                    valor = 'medio'
                                     semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                    //valor = document.querySelector('#medio').checked = true
                                     Reiniciar()
                                 }
 
                                 else{
                                     if(valor == 'medio'){
-                                        contador2 = 7
+                                        contador2 =7
                                         Progreso(contador2, puntaje)
-                                        valor = "dificil"
+                                        valor = 'dificil'
                                         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+                                        //valor = document.querySelector('#dificil').checked = true
                                         Reiniciar()
                                     }
                                 }
@@ -395,30 +385,30 @@
                 }
             }
             else{
-                incorrecto--
-                if(incorrecto == 2){
+                error--
+                if(error == 2){
                     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
                     Polloincorrectoo()
                 }
 
-                if(incorrecto == 1){
+                if(error == 1){
                     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
                     Polloincorrectoo()
                 }
 
-                if(incorrecto == 0){
+                if(error == 0){
+                    imagen.innerHTML = ""
                     puntaje -= 0.3
                     Progreso(contador2, puntaje)
                     Polloincorrectoo()
-                    imagen.innerHTML = ""
                     swal({
                         title: "Oh no!",
                         text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                        icon: "Visual/Material/Animaciones/Generales/triste.jpg",
+                        icon: "Visual/Material/Animaciones/Generales/error.jpg",
                         buttons:  ["Reintentar", "Salir"] 
                     })
                     .then((reintento) => {
@@ -426,6 +416,7 @@
                             location.href = "JuegosNumeros.html"
                         } 
                         else{
+
                             if(valor == "facil"){
                                 document.getElementById("btnIniciar").innerHTML = "Empezar"
                                 Reiniciar()
@@ -433,13 +424,12 @@
 
                             else{
                                 swal({
-                                    title: "¿Deseas reintentar el nivel o bajar la dificultad?",
+                                    title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
                                     icon: "Visual/Material/Animaciones/Generales/Chick.gif",
                                     buttons:  ["Mantener", "Cambiar"] 
                                 })
                                 .then((cambiar) => {
                                     if(cambiar){
-
                                         if(valor == 'dificil'){
                                             valor = "medio"
                                             semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
@@ -449,7 +439,7 @@
                                             valor = "facil"
                                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                         }
-
+                                        
                                         document.getElementById("btnIniciar").innerHTML = "Empezar"
                                         Reiniciar()
                                     }
@@ -466,10 +456,10 @@
         }
 
         function Reiniciar(){
-            incorrecto = 3
+            error = 3
             contador = 0
-            puntaje = 10
             contador2 = 0
+            puntaje = 10
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
@@ -480,7 +470,7 @@
             swal({
                 title: "Reiniciar juego",
                 text: "Si reinicias ahora, el progreso se perderá. ¿Deseas continuar?",
-                icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
+                icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
                 buttons: true,
                 dangerMode: true,
             })
@@ -497,19 +487,19 @@
             let tecla = e.key
             switch(tecla){
                 case 'ArrowUp':
-                    Racierto(op[0])
+                    RCorrecto(op[0])
                     break;
 
                 case 'ArrowDown':
-                    Racierto(op[1])
+                    RCorrecto(op[1])
                     break;
 
                 case 'ArrowLeft':
-                    Racierto(op[2])
+                    RCorrecto(op[2])
                     break;
 
                 case 'ArrowRight':
-                    Racierto(op[3])
+                    RCorrecto(op[3])
                     break;
 
                 default:
@@ -521,17 +511,8 @@
             let tecla = e.key
             switch(tecla){
                 case 'ArrowUp':
-                    Empezar()
-                    break;
-
                 case 'ArrowDown':
-                    Empezar()
-                    break;
-
                 case 'ArrowLeft':
-                    Empezar()
-                    break;
-
                 case 'ArrowRight':
                     Empezar()
                     break;
@@ -544,7 +525,7 @@
         function Ayuda(){
             swal({
                 title: "Tutorial",
-                text: "Realiza la suma de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+                text: "Realiza la resta de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
                 icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
             })
         }
