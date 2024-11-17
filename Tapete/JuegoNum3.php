@@ -108,7 +108,7 @@
             <span>Usuario</span>
         </button>
 
-        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+        <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
