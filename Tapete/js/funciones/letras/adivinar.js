@@ -13,8 +13,31 @@ vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
+var puntaje = 0
+
+var script = document.createElement('script');
+script.src = '../jquery-3.7.1.min.js';
+document.head.appendChild(script);
 
 Ayuda()
+
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: '<?php echo $num_juego; ?>',
+        },
+        success: function(response) {
+            console.log('Progreso actualizado');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
 
 function Reinicio(){
     swal({
@@ -39,6 +62,7 @@ function Reiniciar(){
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
     guion = []
+    puntaje = 0
     imagen = ""
     document.getElementById("linea").innerHTML = guion
     document.getElementById("barra").value = contador

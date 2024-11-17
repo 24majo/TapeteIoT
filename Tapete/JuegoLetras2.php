@@ -84,7 +84,7 @@
     <link rel="stylesheet" href="css/BarraLateral.css">
     
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/query-3.7.1.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
     
     <title>Palabras</title>
@@ -124,8 +124,8 @@
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
             <span>Ayuda</span>
         </button>
+        </font>
     </div>
-  </font>
   </div>
 <!---------------------- Fin de barra lateral ----------------------------->
     

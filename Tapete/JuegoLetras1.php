@@ -84,7 +84,7 @@
     <link rel="stylesheet" href="css/BarraLateral.css">
 
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/query-3.7.1.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>Vocales</title>
