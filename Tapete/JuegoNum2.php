@@ -95,18 +95,18 @@
   <body background="Visual/Fondos/FondoJuegos.jpg">
     
     <!----------------- Barra lateral --------------------------------->
-<div class="barraM" >
+  <div class="barraM" >
   <div class="mini-barra" style="position: relative; z-index: 103;">
-      <font face="Century Gothic">
+    <font face="Century Gothic">
       <div class="nombre-pagina">
-          <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
-          <span>DiDit</span>
+        <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
+        <span>DiDit</span>
       </div>
 
       <button class="boton" onclick="location.href = 'ProgresoAlumno.php'">
-						<img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
-						<span>Usuario</span>
-					</button>
+        <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
+        <span>Usuario</span>
+      </button>
 
       <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
           <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
@@ -127,8 +127,8 @@
           <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
           <span>Ayuda</span>
       </button>
-  </div>
-</font>
+    </div>
+  </font>
 </div>
 
     <!---------------------- Fin de barra lateral ----------------------------->
@@ -366,9 +366,6 @@
                               Empezar()
                           }
                       })
-                      //alert("Ganaste")
-                      //document.getElementById("contador").innerHTML = "Aciertos: " + contador
-                      
 
                       if(contador==9){
                           Progreso(contador, puntaje)

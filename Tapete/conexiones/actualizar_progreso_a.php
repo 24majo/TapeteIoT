@@ -38,24 +38,21 @@
         WHERE CURP = ? AND num_juego = ?";
 
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("idsi", $progreso, $puntaje, $curp, $num_juego); // 'd' para double, 's' para string, 'i' para integer
+            $stmt->bind_param("ddsi", $progreso, $puntaje, $curp, $num_juego); // d double, s string, i int
             $stmt->execute();
 
-            // Verificar si la actualización fue exitosa
             if ($stmt->affected_rows > 0) {
                 echo "Progreso actualizado correctamente.";
             } else {
                 echo "No se pudo actualizar el progreso.";
             }
 
-            // Cerrar la consulta
             $stmt->close();
         } 
         
         else {
             echo "Error en la consulta SQL: " . $conn->error;
         }
-
 
     } 
     else {

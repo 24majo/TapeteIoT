@@ -45,7 +45,7 @@
             <tr>
                 <th>Nombre del juego</th>
                 <th>Progreso</th>
-                <th>Puntaje</th>
+                <th>Calificación</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +54,7 @@
                 while($row = $result->fetch_assoc()) {
                     echo '<tr>';
                     echo "<td>" . $row['nombre'] . "</td>";
-                    echo "<td>" . $row['progreso'] . "</td>";
+                    echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
                     echo "<td>" . $row['puntaje'] . "</td>";
                     echo "</tr>";
                 }
