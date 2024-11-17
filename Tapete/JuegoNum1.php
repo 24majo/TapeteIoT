@@ -196,7 +196,7 @@
 
 			function Progreso(progreso,puntaje){
 			    $.ajax({
-			        url: 'conexiones/progreso_alumno.php',  
+			        url: 'conexiones/actualizar_progreso_a.php',  
 			        type: 'POST',
 			        data: {
 			            progreso: progreso, 

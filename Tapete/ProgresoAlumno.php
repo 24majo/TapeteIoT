@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php 
-      include('conexiones/progreso_alumno.php'); 
+        include'conexiones/progreso_alumno.php';
     ?>
     <img class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="40px">
     <h2><?php echo $name; ?></h2>
