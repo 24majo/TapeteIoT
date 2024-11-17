@@ -10,6 +10,7 @@ contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 var error = 3
+var puntaje = 10
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
@@ -21,6 +22,24 @@ function Ayuda(){
         text: "Elige el número siguiente al anterior de acuerdo con la secuencia presentada por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
         icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
+}
+
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: '<?php echo $num_juego; ?>',
+        },
+        success: function(response) {
+            console.log('Progreso actualizado');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
 }
 
 function Reiniciar(){
@@ -128,6 +147,7 @@ function Opciones(num){
             contador++
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
+            Progreso(contador, puntaje)
 
             swal({
                 title: "¡Bien hecho!",
@@ -146,6 +166,7 @@ function Opciones(num){
             
 
             if(contador==9){
+                Progreso(contador, puntaje)
                 swal({
                     title: "¡Felicidades! :D",
                     text: "Has completado todas las secuencias. \n ¿Deseas reintentar el juego o salir?",
@@ -167,16 +188,19 @@ function Opciones(num){
     else{
         error--
         if(error == 2){
+            puntaje = 6.6
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 1){
+            puntaje = 3.3
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 0){
+            puntaje = 0
             imagen.innerHTML = ""
             CaidaPollo()
 
