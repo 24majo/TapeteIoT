@@ -36,6 +36,10 @@
             $stmt->execute();
             $result = $stmt->get_result();
         }
+        else {
+            echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
+            exit; 
+        }
     ?>
     <img class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="40px">
     <h2><?php echo $name; ?></h2>

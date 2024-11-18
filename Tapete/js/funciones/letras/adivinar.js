@@ -15,10 +15,6 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 var puntaje = 0
 
-var script = document.createElement('script');
-script.src = '../jquery-3.7.1.min.js';
-document.head.appendChild(script);
-
 Ayuda()
 
 function Progreso(progreso,puntaje){
@@ -134,14 +130,17 @@ function validar(letra){
     else{ // Evaluacion de fallos y disminución de vidas
         error-- 
         if(error == 2){
+            puntaje = 6.6
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
         if(error == 1){
+            puntaje = 3.3
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
         if(error == 0){
+            puntaje = 0
             vida.innerHTML = ""
             swal({
                 title: "¡Oh no!",
@@ -182,8 +181,10 @@ function validar(letra){
                 contador++
                 document.getElementById("barra").value = contador
                 document.getElementById("barra").innerHTML = contador
+                Progreso(contador, puntaje)
 
                 if(contador == 10){
+                    Progreso(contador, puntaje)
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres salir del juego o volver a intentarlo?",
@@ -233,14 +234,8 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
-            opcion(op = [])
-            break;
         case 'ArrowDown':
-            opcion(op = [])
-            break;
         case 'ArrowLeft':
-            opcion(op = [])
-            break;
         case 'ArrowRight':
             opcion(op = [])
             break;
