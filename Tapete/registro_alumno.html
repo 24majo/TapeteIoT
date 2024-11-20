@@ -3,44 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleRegistro.css">
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
     <title>Registro de alumnos</title>
 </head>
-<body>
-    <form method="POST" action="conexiones/registro_alumno.php">
-        <h1>Ingresar datos del alumno</h1>
-        <span>CURP: </span>
-        <input type="text" id="curp" name="curp" placeholder="18 caracteres" maxlength="18" required> <br>
-        <span>Nombres: </span>
-        <input type="text" id="nombres" name="nombres" placeholder="Mario Hugo" maxlength="50" required> <br>
-        <span>Apellido paterno: </span>
-        <input type="text" id="paterno" name="paterno" placeholder="Pérez" maxlength="50" required> <br>
-        <span>Apellido materno: </span>
-        <input type="text" id="materno" name="materno" placeholder="Hernández" maxlength="50" required> <br>
-        <span>Grupo: </span>
-        <select name="grupo" id="grupo">
-            <option value="1A">1A</option>
-            <option value="1B">1B</option>
-            <option value="1C">1C</option>
-        </select><br>
-        <span>Generación: </span>
-        <input type="text" name="generacion" id="generacion" placeholder="2024" maxlength="4" required> <br>
-        <span>Contraseña: </span>
-        <input type="password" id="pass" name="pass" placeholder="********" minlength="8" maxlength="50" required> <br>
-        <span>Confirmar contraseña: </span>
-        <input type="password" id="conf_pass" name="conf_pass" placeholder="********" minlength="8" maxlength="50" required> <br>
-        <span>En caso de olvido de contraseña: </span><br>
-        <select name="pregunta" id="pregunta">
-            <option value="¿Cuál es tu color favorito?">¿Cuál es tu color favorito?</option>
-            <option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</option>
-            <option value="¿En qué ciudad naciste?">¿En qué ciudad naciste?</option>
-            <option value="¿Cuál es el nombre de tu mamá/papá?">¿Cuál es el nombre de tu mamá/papá?</option>
-            <option value="¿Cuál es tu comida favorita?">¿Cuál es tu comida favorita?</option>
-            <option value="¿Qué apodo tienes?">¿Qué apodo tienes?</option>
-        </select><br>
-        <span>Respuesta: </span>
-        <input type="text" id="respuesta" name="respuesta" placeholder="Respuesta a la pregunta" max="100" required> <br><br>
-        <input name="registro_a" class="registro_a" id="registro_a" type="submit" value="Registrar">
-    </form>
+<body background="Visual/Fondos/FondoRegistro.jpg">
+     <div class="container">
+       
+        <form  class="formulario" method="POST" action="conexiones/registro_alumno.php">
+            <center>
+                <font face="century gothic">
+                    <h3><b>Ingresa los datos del alumno</b></h3>
+                </font>
+            </center>
+
+        <font face="century gothic">
+            <span>CURP: </span>
+            <input type="text" id="curp" name="curp" placeholder="18 caracteres" maxlength="18" required> <br>
+            <span>Nombres: </span>
+            <input type="text" id="nombres" name="nombres" placeholder="Nombres" maxlength="50" required> <br>
+            <span>Apellido paterno: </span>
+            <input type="text" id="paterno" name="paterno" placeholder="Apellido" maxlength="50" required> <br>
+            <span>Apellido materno: </span>
+            <input type="text" id="materno" name="materno" placeholder="Apellido" maxlength="50" required> <br>
+            <span>Grupo: </span>
+            <select name="grupo" id="grupo">
+                <option value="1A">1A</option>
+                <option value="1B">1B</option>
+                <option value="1C">1C</option>
+            </select><br>
+            <span>Generación: </span>
+            <input type="text" name="generacion" id="generacion" placeholder="Año" maxlength="4" required> <br>
+            <span>Contraseña: </span>
+            <input type="password" id="pass" name="pass" placeholder="********" minlength="8" maxlength="50" required> <br>
+            <span>Confirmar contraseña: </span>
+            <input type="password" id="conf_pass" name="conf_pass" placeholder="********" minlength="8" maxlength="50" required> <br>
+            <span>En caso de olvido de contraseña: </span><br>
+            <select name="pregunta" id="pregunta">
+                <option value="¿Cuál es tu color favorito?">¿Cuál es tu color favorito?</option>
+                <option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</option>
+                <option value="¿En qué ciudad naciste?">¿En qué ciudad naciste?</option>
+                <option value="¿Cuál es el nombre de tu mamá/papá?">¿Cuál es el nombre de tu mamá/papá?</option>
+                <option value="¿Cuál es tu comida favorita?">¿Cuál es tu comida favorita?</option>
+                <option value="¿Qué apodo tienes?">¿Qué apodo tienes?</option>
+            </select><br>
+            <span>Respuesta: </span>
+            <input type="text" id="respuesta" name="respuesta" placeholder="Respuesta a la pregunta" max="100" required> <br><br>
+        </font>
+                <center>
+                    <font face="century gothic">
+                        <input name="registro_a" class="registro_a botonRegistrar" id="registro_a" type="submit" value="Registrar">
+                    </font>
+                 </center>
+        </form>
+   
+    </div>
 </body>
 </html>

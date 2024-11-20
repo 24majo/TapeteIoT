@@ -1,0 +1,69 @@
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .container {
+    margin-top: 40px;
+    margin-left: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .formulario {
+    background:white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+  }
+  
+ .formulario h2 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .formulario h3 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .formulario input {
+    width: 50%;
+    padding: 1px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: flex-end;
+    /* font-size: 14px; */
+  }
+
+  .formulario select {
+    width: 100%;
+    padding: 1px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .formulario span{
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .botonRegistrar{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #00b4d8;
+
+  }

@@ -3,40 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleRegistro.css">
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    
     <title>Registro de administradores y docentes</title>
 </head>
-<body>
-    <form action="conexiones/registro_admin.php" method="post">
-        <h1>Ingresar datos</h1>
-        <span>Nombres: </span>
-        <input type="text" name="nombres" id="nombres" placeholder="María" required> <br>
-        <span>Apellido paterno: </span>
-        <input type="text" name="paterno" id="paterno" placeholder="Martínez" required> <br>
-        <span>Apellido materno: </span>
-        <input type="text" name="materno" id="materno" placeholder="González" required> <br>
-        <span>Correo: </span>
-        <input type="text" name="correo" id="correo" placeholder="alguien@dominio.com" required> <br>
-        <span>Contraseña: </span>
-        <input type="password" id="pass" name="pass" placeholder="contraseña" maxlength="50" required> <br>
-        <span>Confirmar contraseña: </span>
-        <input type="password" id="conf_pass" name="conf_pass" placeholder="contraseña" max="50" required> <br>
-        <span>En caso de olvido de contraseña: </span><br>
-        <select name="pregunta" id="pregunta">
-            <option value="¿Cuál es tu color favorito?">¿Cuál es tu color favorito?</option>
-            <option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</option>
-            <option value="¿En qué ciudad naciste?">¿En qué ciudad naciste?</option>
-            <option value="¿Cuál es el nombre de tu mamá/papá?">¿Cuál es el nombre de tu mamá/papá?</option>
-            <option value="¿Cuál es tu comida favorita?">¿Cuál es tu comida favorita?</option>
-            <option value="¿Qué apodo tienes?">¿Qué apodo tienes?</option>
-        </select><br>
-        <span>Respuesta: </span>
-        <input type="text" id="respuesta" name="respuesta" placeholder="Respuesta a la pregunta" max="100" required> <br>
-        <span>Cargo: </span>
-        <select name="rol" id="rol">
-            <option value="admin">Administrador</option>
-            <option value="docente">Docente</option>
-        </select><br><br>
-        <input name="registro_a" class="registro_a" id="registro_a" type="submit" value="Registrar">
+<body background="Visual/Fondos/FondoRegistro2.jpg">
+    <div class="container">
+    <form  class="formulario" action="conexiones/registro_admin.php" method="post">
+        <center>
+            <font face="century gothic">
+                <h3><b>Ingresa los datos</b></h3>
+            </font>
+        </center>
+        <font face="century gothic">
+            <span>Nombres: </span>
+            <input type="text" name="nombres" id="nombres" placeholder="Nombres" required> <br>
+            <span>Apellido paterno: </span>
+            <input type="text" name="paterno" id="paterno" placeholder="Apellido" required> <br>
+            <span>Apellido materno: </span>
+            <input type="text" name="materno" id="materno" placeholder="Apellido" required> <br>
+            <span>Correo: </span>
+            <input type="text" name="correo" id="correo" placeholder="alguien@dominio.com" required> <br>
+            <span>Contraseña: </span>
+            <input type="password" id="pass" name="pass" placeholder="********" maxlength="50" required> <br>
+            <span>Confirmar contraseña: </span>
+            <input type="password" id="conf_pass" name="conf_pass" placeholder="********" max="50" required> <br>
+            <span>En caso de olvido de contraseña: </span><br>
+            <select name="pregunta" id="pregunta">
+                <option value="¿Cuál es tu color favorito?">¿Cuál es tu color favorito?</option>
+                <option value="¿Cuál es el nombre de tu primera mascota?">¿Cuál es el nombre de tu primera mascota?</option>
+                <option value="¿En qué ciudad naciste?">¿En qué ciudad naciste?</option>
+                <option value="¿Cuál es el nombre de tu mamá/papá?">¿Cuál es el nombre de tu mamá/papá?</option>
+                <option value="¿Cuál es tu comida favorita?">¿Cuál es tu comida favorita?</option>
+                <option value="¿Qué apodo tienes?">¿Qué apodo tienes?</option>
+            </select><br>
+            <span>Respuesta: </span>
+            <input type="text" id="respuesta" name="respuesta" placeholder="Respuesta a la pregunta" max="100" required> <br>
+            <span>Cargo: </span>
+            <select name="rol" id="rol">
+                <option value="admin">Administrador</option>
+                <option value="docente">Docente</option>
+            </select><br><br>
+        </font>
+        <center>
+            <font face="century gothic">
+                <input name="registro_a" class="registro_a botonRegistrar" id="registro_a" type="submit" value="Registrar">
+            </font>
+         </center>
     </form>
+
+</div>
 </body>
 </html>
