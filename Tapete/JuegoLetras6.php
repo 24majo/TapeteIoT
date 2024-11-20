@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleJuegoLetras4.css">
+    <link rel="stylesheet" href="css/styleJuegoLetras6.css">
 
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/query-3.7.1.min.js"></script>
@@ -13,7 +13,7 @@
     <!-- Barra Lateral -->
     <link rel="stylesheet" href="css/BarraLateral.css">
 
-    <title>Uso de B y V</title>
+    <title>Uso de LL y Y</title>
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
@@ -25,7 +25,7 @@
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
         </div>
-        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+        <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
@@ -35,13 +35,13 @@
             <span>Menú de letras</span>
         </button>
 
-        <button class="boton" onclick="location.href = 'DificultadUsoBV.html'">
+        <button class="boton" onclick="location.href = 'DificultadUsodeYLL.html'">
             <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
             <span>Dificultad</span>
         </button>
 
         <button class="boton" onclick="location.href = 'JuegosUsoDe.html'">
-            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="50px">
+            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="40px">
             <span>Modo de juego</span>
         </button>
         
@@ -66,7 +66,7 @@
 
         <div class="titulo">
             <Font face="Century Gothic">
-                <h1><b>Uso de B y V</b></h1>
+                <h1><b>Uso de LL y Y</b></h1>
             </Font>
         </div>
         
@@ -109,8 +109,7 @@
             </font>
         </div>
     </div>
-    
-    <script src="js/funciones/letras/bv.js"></script>
+    <script src="js/funciones/letras/y-ll.js"></script>
     <script src="js/Barra.js"></script>
 </body>
 </html>

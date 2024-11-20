@@ -11,7 +11,6 @@ var opciones = document.getElementsByClassName("opcion")
 var op = []
 //Opciones de dificultad
 var valorBoton
-    //var radios = document.getElementsByName("dificultad")
 // Elementos generales
 var resultado = 0
 var arreglo = []

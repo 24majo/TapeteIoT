@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleJuegoLetras7.css">
+    <link rel="stylesheet" href="css/styleJuegoLetras4.css">
 
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/query-3.7.1.min.js"></script>
@@ -13,11 +13,11 @@
     <!-- Barra Lateral -->
     <link rel="stylesheet" href="css/BarraLateral.css">
 
-    <title>Uso de C, S y Z</title>
+    <title>Uso de B y V</title>
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
-   <!----------------- Barra lateral --------------------------------->
+<!----------------- Barra lateral --------------------------------->
 <div class="barraM" >
     <div class="mini-barra" style="position: relative; z-index: 103;">
         <font face="Century Gothic">
@@ -25,7 +25,7 @@
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
         </div>
-        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+        <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
@@ -35,13 +35,13 @@
             <span>Menú de letras</span>
         </button>
 
-        <button class="boton" onclick="location.href = 'DificultadCSZ.html'">
-            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="40px">
+        <button class="boton" onclick="location.href = 'DificultadUsoBV.html'">
+            <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
             <span>Dificultad</span>
         </button>
 
         <button class="boton" onclick="location.href = 'JuegosUsoDe.html'">
-            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="40px">
+            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="50px">
             <span>Modo de juego</span>
         </button>
         
@@ -66,7 +66,7 @@
 
         <div class="titulo">
             <Font face="Century Gothic">
-                <h1><b>Uso de C, S y Z</b></h1>
+                <h1><b>Uso de B y V</b></h1>
             </Font>
         </div>
         
@@ -84,7 +84,7 @@
   
 
     <section>
-        <article class="alinear">
+        <article>
             <img class="imagen" id='figura' width="250px" height="250px">
             <center>
                 <div class="palabra" id="linea"></div>
@@ -105,14 +105,12 @@
         <div id="circulos" >
             <font face="MV Boli">
                 <span id="opcionIzquierda" class="opcion"></span>
-                <span id="opcionArriba" class="opcion"></span>
                 <span id="opcionDerecha" class="opcion"></span>
             </font>
         </div>
     </div>
     
-    <script src="js/funciones/letras/c-s-z.js"></script>
+    <script src="js/funciones/letras/bv.js"></script>
     <script src="js/Barra.js"></script>
-
 </body>
 </html>

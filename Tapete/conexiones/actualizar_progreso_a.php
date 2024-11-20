@@ -27,6 +27,33 @@
         $stmt->bind_param("s", $curp);
         $stmt->execute();
         $result = $stmt->get_result();
+
+        // Actualizar el juego 
+        $progreso = $_POST['progreso'];
+        $puntaje = $_POST['puntaje'];
+        $num_juego = $_POST['num_juego'];
+        
+        $sql = "UPDATE progreso_alumno 
+        SET progreso = ?, puntaje = ?
+        WHERE CURP = ? AND num_juego = ?";
+
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("ddsi", $progreso, $puntaje, $curp, $num_juego); // d double, s string, i int
+            $stmt->execute();
+
+            if ($stmt->affected_rows > 0) {
+                echo "Progreso actualizado correctamente.";
+            } else {
+                echo "No se pudo actualizar el progreso.";
+            }
+
+            $stmt->close();
+        } 
+        
+        else {
+            echo "Error en la consulta SQL: " . $conn->error;
+        }
+
     } 
     else {
         echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";

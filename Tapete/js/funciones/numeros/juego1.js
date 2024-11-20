@@ -5,8 +5,24 @@ contador = 0
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
-
 Ayuda()
+
+function Progreso(progreso){
+    $.ajax({
+        url: 'conexiones/progreso_alumno.php',  // El archivo PHP que actualiza el progreso
+        type: 'POST',
+        data: {
+            progreso: progreso,   // El valor actual del progreso
+            //num_juego: '<?php echo $num_juego; ?>',  // Número del juego
+        },
+        success: function(response) {
+            console.log('Progreso actualizado: ' + response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
 
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
@@ -14,6 +30,8 @@ function apretar(numero){
         contador++
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
+
+        Progreso(contador)
 
         if(contador == 10){
             swal({
@@ -82,7 +100,7 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // En este apartado se puede poner la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
-      })
+    })
 
     .then((Reinicia) => {
         if (Reinicia) {
@@ -203,14 +221,13 @@ function OpRandom(){ // Asignar 4 números aleatorios a los círculos
     imagen.src = "Visual/Material/Numeros/Juego5/" + resultado + ".jpg"
     arreglo_f = arreglo
     correcta = resultado
-    console.log("Respuesta: ", correcta)
     return arreglo
 }
 
 function Ayuda(){
     swal({
         title: "Tutorial",
-        text: "Cuenta la cantidad de peces que se encuentran en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
+        text: "Cuenta la cantidad de peces que están en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
         icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
     // swal("Tutorial", 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styleJuegoLetras6.css">
+    <link rel="stylesheet" href="css/styleJuegoLetras5.css">
 
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/query-3.7.1.min.js"></script>
@@ -12,12 +12,11 @@
 
     <!-- Barra Lateral -->
     <link rel="stylesheet" href="css/BarraLateral.css">
-
-    <title>Uso de LL y Y</title>
+    <title>Uso de R y RR</title>
 </head>
 
 <body background="Visual/Fondos/FondoJuegos.jpg"> 
-<!----------------- Barra lateral --------------------------------->
+    <!----------------- Barra lateral --------------------------------->
 <div class="barraM" >
     <div class="mini-barra" style="position: relative; z-index: 103;">
         <font face="Century Gothic">
@@ -25,7 +24,7 @@
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
         </div>
-        <button class="boton" onclick="location.href = 'MenuSeleccion.html'">
+        <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
         </button>
@@ -35,13 +34,13 @@
             <span>Menú de letras</span>
         </button>
 
-        <button class="boton" onclick="location.href = 'DificultadUsodeYLL.html'">
+        <button class="boton" onclick="location.href = 'DificultadUsoR.html'">
             <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
             <span>Dificultad</span>
         </button>
 
         <button class="boton" onclick="location.href = 'JuegosUsoDe.html'">
-            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="40px">
+            <img class="tipo" id="tipo" src="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" width="50px">
             <span>Modo de juego</span>
         </button>
         
@@ -57,39 +56,36 @@
 <div style="margin-left: 790px; margin-top: -350px">
     <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 </div>
-   
-    <nav >
+<img  class="semaforo" id="semaforo" alt=""  width="100">
 
-        <div>
-            <div class="vidas" id="vida"></div>
-        </div>
+<div>
+    <div  class="vidas" id="vida"></div>
+</div>
 
-        <div class="titulo">
-            <Font face="Century Gothic">
-                <h1><b>Uso de LL y Y</b></h1>
-            </Font>
-        </div>
-        
-
-        <img class="semaforo" id="semaforo" alt=""  width="100">
-        
+    <nav class="titulo">
+        <Font face="Century Gothic">
+            <h1><b>Uso de R y RR</b></h1>
+        </Font>
         <!-- <a href="MenuSeleccion.html" class="btnInicio">
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
         </a>
         <a href="JuegosLetras.html" class="btnAtras">
             <img src="Visual/Material/Iconos/Flecha.png" width="60px">
         </a> -->
+        <!-- <button id="btnAyuda" onclick="Ayuda()"><b>?</b></button> -->
     </nav>
-
-  
+    
 
     <section>
         <article>
             <img class="imagen" id='figura' width="250px" height="250px">
-            <center>
-                <div class="palabra" id="linea"></div>
-            </center>
-            
+            <font face="Century Gothic">
+                <center>
+                    <div class="palabra" id="linea"></div>
+                </center>
+                
+            </font>
+        
         </article>
     </section>
 
@@ -109,7 +105,8 @@
             </font>
         </div>
     </div>
-    <script src="js/funciones/letras/y-ll.js"></script>
+    <script src="js/funciones/letras/r-rr.js"></script>
     <script src="js/Barra.js"></script>
+
 </body>
 </html>
