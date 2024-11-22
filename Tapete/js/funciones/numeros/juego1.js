@@ -5,18 +5,21 @@ contador = 0
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
+var puntaje = 10
+
 Ayuda()
 
-function Progreso(progreso){
+function Progreso(progreso,puntaje){
     $.ajax({
-        url: 'conexiones/progreso_alumno.php',  // El archivo PHP que actualiza el progreso
+        url: 'conexiones/actualizar_progreso_a.php',  
         type: 'POST',
         data: {
-            progreso: progreso,   // El valor actual del progreso
-            //num_juego: '<?php echo $num_juego; ?>',  // Número del juego
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 1,
         },
         success: function(response) {
-            console.log('Progreso actualizado: ' + response);
+            console.log('Progreso actualizado', response);
         },
         error: function(xhr, status, error) {
             console.error('Error al actualizar el progreso: ' + error);
@@ -31,9 +34,10 @@ function apretar(numero){
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
 
-        Progreso(contador)
+        Progreso(contador, puntaje)
 
         if(contador == 10){
+            Progreso(contador, puntaje)
             swal({
                 title: "¡Ganador!",
                 text: "Has superado la prueba. ¿Deseas salir o reiniciar el juego?",
@@ -57,14 +61,17 @@ function apretar(numero){
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+            puntaje = 6.6
         }
 
         if(error == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+            puntaje = 3.3
         }
 
         if(error == 0){
             imagen.innerHTML = ""
+            puntaje = 0
 
             swal({
                 title: "Perdiste:(",
