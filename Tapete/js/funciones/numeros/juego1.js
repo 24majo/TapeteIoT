@@ -13,7 +13,7 @@ function Progreso(progreso,puntaje){
     $.ajax({
         url: 'conexiones/actualizar_progreso_a.php',  
         type: 'POST',
-        data: {
+        data: { 
             progreso: progreso, 
             puntaje: puntaje,
             num_juego: 1,

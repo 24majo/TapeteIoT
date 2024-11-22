@@ -50,7 +50,7 @@
                 $insertar = "INSERT INTO progreso_alumno (CURP, num_juego, progreso, puntaje) 
                             VALUES (?, ?, ?, ?)";
                 $stmt = $conn->prepare($insertar);
-                $stmt->bind_param("siii", $curp, $num_juego, $progreso, $puntaje);
+                $stmt->bind_param("sidd", $curp, $num_juego, $progreso, $puntaje);
 
                 if ($stmt->execute()) {
                     echo "Progreso guardado.";
