@@ -14,14 +14,27 @@ var opciones = document.getElementsByClassName("opcion")
 var respuesta = ""
 var guion = ""
 var op_arr = []
-
-// const objetos = {
-//     resp: undefined,
-//     opc_arr: [],
-//     guion: undefined
-// }
+var puntaje = 10
 
 Ayuda()
+
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 7,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
 
 function Reinicio(){
     swal({
@@ -30,7 +43,7 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // Indicar la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
-      })
+    })
 
     .then((Reinicia) => {
         if (Reinicia) {
@@ -45,6 +58,7 @@ function Reiniciar(){
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
+    puntaje = 10
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
     guion = []
@@ -55,7 +69,6 @@ function Reiniciar(){
 function Inicio(){
     guion = []
     respuesta = palabras[Math.floor(Math.random() * palabras2.length)]
-    // alert(respuesta)
     guion = respuesta.replace(/a|e|i|o|u/g, "_") 
     var repetida = palabras2.indexOf(respuesta)
     palabras2.splice(repetida, 1)
@@ -69,13 +82,10 @@ function Inicio(){
 function opcion(op){
     if(op.length == 4){
         if(guion.indexOf("_") != -1) { // Toma el primer guion que encuentre en la palabra
-            //alert(respuesta[guion.indexOf("_")])
-            //alert("Arreglo antes: "+op)
             var e = op.includes(respuesta[guion.indexOf("_")]) // Evaluar si el arreglo incluye letras de la palabra
             if(!e){ // Si no encuentra
                 let r = Math.floor(Math.random() * op.length)
                 op.splice(r, 1, respuesta[guion.indexOf("_")]) // Elegir una posición aleatoria de las opciones para reemplazarla por la nueva letra
-                //alert("Arreglo después: "+op)
             }
             for (let i = 0; i < opciones.length; i++){
                 opciones[i].innerHTML = op[i] // Se muestran las opciones en los círculos
@@ -110,14 +120,17 @@ function validar(vocal){
     else{
         error-- 
         if(error == 2){
+            puntaje = 6.6
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
         if(error == 1){
+            puntaje = 3.3
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
         if(error == 0){
+            puntaje = 0
             vida.innerHTML = ""
             swal({
                 title: "¡Oh no!",
@@ -152,8 +165,9 @@ function validar(vocal){
                 contador++
                 document.getElementById("barra").value = contador
                 document.getElementById("barra").innerHTML = contador
-
+                Progreso(contador, puntaje)
                 if(contador == 10){
+                    Progreso(contador, puntaje)
                     swal({
                         title: "Felicidades",
                         text: "¿Quieres salir del juego o volver a intentarlo?",
@@ -177,116 +191,6 @@ function validar(vocal){
         })
     }
 }
-
-// function Inicio(){
-//     document.getElementById("btnIniciar").innerHTML = "Siguiente"
-//     var respuesta = palabras[Math.floor(Math.random() * palabras.length)] 
-//     var guion = respuesta.replace(/a|e|i|o|u/g, "_") 
-//     var imagen = document.getElementById("figura")
-//     imagen.src = "Visual/Material/Letras/Juego1/" + respuesta + ".png"
-//     objetos.guion = guion
-//     document.getElementById("linea").innerHTML = objetos.guion
-//     opcion(arr_op = [], 0, respuesta)
-//     document.getElementById('circulos').style.display='block';
-// }
-
-// function Reiniciar(){
-//     error = 3
-//     contador = 0
-//     document.getElementById("btnIniciar").innerHTML = "Empezar"
-//     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
-//     document.getElementById("barra").value = contador
-//     document.getElementById("barra").innerHTML = contador
-//     Inicio()
-// }
-
-// function opcion(arr_op, aux, respuesta){ // Función recursiva
-//     if(arr_op.length == 4){ // Si el arreglo llega a 4 opciones
-//         for (let i = 0; i <= respuesta.length; i++){
-//             var a = respuesta.indexOf(vocales[i])
-//             if(a != -1){ // Cuando es diferente de -1 significa que si existe
-//                 var e = arr_op.includes(vocales[i]) // Se evalúa si la vocal existente está entre las opciones
-//                 if(!e){ // Si no existe, se elige una posición aleatoria de las opciones y se agrega
-//                     let r = Math.floor(Math.random() * arr_op.length)
-//                     arr_op.splice(r, 1, vocales[i])
-//                 }
-//             }
-//         }
-
-//         for (let i = 0; i < opciones.length; i++){ // Se muestran las opciones en pantalla
-//             opciones[i].innerHTML = arr_op[i]
-//         }
-//         objetos.resp = respuesta
-//         objetos.opc_arr = arr_op
-//         console.log(objetos.opc_arr)
-//     }
-
-//     else{
-//         let r = Math.floor(Math.random() * vocales.length) // Se eligen vocales aleatorias... 
-//         arr_op.push(vocales[r]) //... para ponerlas como opciones
-//         var result = arr_op.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
-//             return arr_op.indexOf(item) === index;
-//         })
-//         return opcion(result, aux+1, respuesta) // Se retorna a la función para realizarlo hasta llegar a 4 opciones
-//     }
-// }
-
-// const replaceAt = (string, character, index) => {
-//     return string.substring(0, index) + character + string.substring(index + character.length);
-// }
-
-// function validar(valor){
-//     for(var i = 0; i < objetos.resp.length; i++){
-//         if(objetos.resp[i] == objetos.opc_arr[valor]){
-//             objetos.guion = replaceAt(objetos.guion, objetos.opc_arr[valor], i)
-//             break
-//         }
-
-//         else{
-//             if(i == objetos.resp.length - 1){
-//                 //alert("Entra")
-//                 error--
-//                 if(error == 2){
-//                     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
-//                 }
-        
-//                 if(error == 1){
-//                     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
-//                 }
-        
-//                 if(error == 0){
-//                     imagen.innerHTML = ""
-//                     swal({
-//                         title: "Oh no!",
-//                         text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-//                         icon: "error",
-//                         buttons:  ["Reintentar", "Salir"] 
-//                     })
-//                     .then((reintento) => {
-//                         if (reintento) {
-//                             location.href = "JuegosLetras.html"
-//                         } 
-//                         else{
-//                             document.getElementById("btnIniciar").innerHTML = "Empezar"
-//                             Reiniciar()
-//                         }
-//                     })
-//                 }
-//             }
-//         }
-//     }
-
-//     document.getElementById("linea").innerHTML = objetos.guion
-//     var e = objetos.guion.includes('_')
-    
-//     if(!e){
-//         contador++
-//         document.getElementById("btnIniciar").innerHTML = "Continuar"
-//         document.getElementById("barra").value = contador
-//         document.getElementById("barra").innerHTML = contador
-//         //document.getElementById("contador").innerHTML = "Aciertos: " + contador
-//     }
-// }
 
 window.addEventListener("keydown",(e)=>{
     let tecla = e.key
@@ -314,17 +218,8 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
-            opcion(op = [])
-            break;
-
         case 'ArrowDown':
-            opcion(op = [])
-            break;
-
         case 'ArrowLeft':
-            opcion(op = [])
-            break;
-
         case 'ArrowRight':
             opcion(op = [])
             break;
