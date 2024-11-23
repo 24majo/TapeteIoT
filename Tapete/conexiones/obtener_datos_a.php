@@ -27,7 +27,7 @@
         while ($row = $result_numeros->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row['nombre'] . "</td>";
-            echo "<td>" . $row['progreso'] . "</td>";
+            echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
             echo "<td>" . $row['puntaje'] . "</td>";
             echo "</tr>";
         }
@@ -63,7 +63,7 @@
         while ($row = $result_letras->fetch_assoc()) {
             echo "<tr>";
             echo "<td>" . $row['nombre'] . "</td>";
-            echo "<td>" . $row['progreso'] . "</td>";
+            echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
             echo "<td>" . $row['puntaje'] . "</td>";
             echo "</tr>";
         }
