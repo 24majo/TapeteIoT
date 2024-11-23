@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Sonido</title>
+</head>
+
+<style>
+    button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 15px;
+      background-color:burlywood;
+      color: white;
+      border: none;
+    }
+    .icon {
+      width: 100px;
+      cursor: pointer;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+    .rango{
+      margin-left: 10px;
+      width: 100px;
+
+    }
+  </style>
+
+<body>
+    <h1>Prueba de música :D</h1>
+  
+  <!-- Controles para audio -->
+  <div>
+    <button id="iniciar">Activar Audio</button>
+    <img  id="silenciar" class="icon" src="../../Visual/Material/Recursos/ConVolumen.png" alt="">
+    <input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+  </div>
+
+  <!-- Canción -->
+  <audio id="audio" preload="auto" loop >
+    <source src="./audios/audio1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Referencias a los elementos
+    const audio = document.getElementById('audio');
+    const btnIniciar = document.getElementById('iniciar');
+    const debtnIniciar = document.getElementById('deiniciar');
+    const silenciar = document.getElementById('silenciar');
+    const volumen = document.getElementById('volumen');
+
+    // Función para activar el audio
+    btnIniciar.addEventListener('click', () => {
+      audio.play()
+        .then(() => {
+        
+        })
+        .catch(error => {
+          console.error('Error al reproducir el audio:', error);
+          alert('No se pudo reproducir el audio.');
+        });
+    });
+
+    // Función para silenciar o activar el sonido
+    silenciar.addEventListener('click', () => {
+      if (audio.muted) {
+        audio.muted = false;
+        silenciar.src = "../../Visual/Material/Recursos/ConVolumen.png"; // Cambia a la imagen de sonido activado
+      } else {
+        audio.muted = true;
+        silenciar.src = "../../Visual/Material/Recursos/SinVolumen.png"; // Cambia al icono de sonido silenciado
+        }
+    });
+
+    //Ajustar el volumen
+    volumen.addEventListener('input', (event) => {
+      audio.volume = event.target.value;
+    });
+  </script>
+</body>
+</html>
