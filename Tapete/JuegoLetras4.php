@@ -58,30 +58,26 @@
     <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 </div>
    
-    <nav >
+<nav >
+    <div>
+        <div class="vidas" id="vida"></div>
+    </div>
 
-        <div>
-            <div class="vidas" id="vida"></div>
-        </div>
+    <div class="titulo">
+        <Font face="Century Gothic">
+            <h1><b>Uso de B y V</b></h1>
+        </Font>
+    </div>
 
-        <div class="titulo">
-            <Font face="Century Gothic">
-                <h1><b>Uso de B y V</b></h1>
-            </Font>
-        </div>
-        
-
-        <img class="semaforo" id="semaforo" alt=""  width="100">
-        
-        <!-- <a href="MenuSeleccion.html" class="btnInicio">
-            <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
-        </a>
-        <a href="JuegosLetras.html" class="btnAtras">
-            <img src="Visual/Material/Iconos/Flecha.png" width="60px">
-        </a> -->
-    </nav>
-
-  
+    <img class="semaforo" id="semaforo" alt=""  width="100">
+    
+    <!-- <a href="MenuSeleccion.html" class="btnInicio">
+        <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+    </a>
+    <a href="JuegosLetras.html" class="btnAtras">
+        <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+    </a> -->
+</nav>
 
     <section>
         <article>
@@ -110,7 +106,7 @@
         </div>
     </div>
     
-    <script src="js/funciones/letras/bv.js"></script>
     <script src="js/Barra.js"></script>
+    <script src="js/funciones/letras/bv.js"></script>
 </body>
 </html>

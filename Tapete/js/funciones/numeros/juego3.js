@@ -138,11 +138,9 @@ function Racierto(num){
     if(num == resultado){
         PolloBueno()
         contador+=1
-        contador2++
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
         document.getElementById("barra").innerHTML = contador
-        Progreso(contador2, puntaje)
         
         if(contador == 10){
             if(valor == "dificil"){
@@ -187,7 +185,7 @@ function Racierto(num){
 
                         else{
                             if(valor == 'medio'){
-                                contador2 = 7
+                                contador2 = 6.5
                                 Progreso(contador2, puntaje)
                                 valor = "dificil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
