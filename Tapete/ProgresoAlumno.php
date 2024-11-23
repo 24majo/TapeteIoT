@@ -69,6 +69,98 @@
             ?>
         </tbody>
     </table>
+    <span>Promedio general</span>
+    <?php
+        $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $curp);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $puntaje = [];
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $puntaje[] = $row['puntaje'];
+            }
+
+            if (count($puntaje) > 0) {
+                $promedio = array_sum($puntaje) / count($puntaje);
+                echo number_format($promedio, 2); // Mostrar el promedio con 2 decimales
+            } 
+            
+            // Cerrar la conexión
+            $stmt->close();
+        } 
+        else {
+            echo "<span>Sin datos de este alumno</span>";
+        }
+    ?>
+    <br>
+    <span>Números</span>
+    <?php
+        $sql = "SELECT progreso_alumno.puntaje
+                FROM progreso_alumno
+                JOIN juegos
+                ON progreso_alumno.num_juego = juegos.num_juego
+                WHERE progreso_alumno.CURP = ? 
+                AND juegos.categoria = 'Números'";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $curp);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $puntaje = [];
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $puntaje[] = $row['puntaje'];
+            }
+
+            if (count($puntaje) > 0) {
+                $promedio = array_sum($puntaje) / count($puntaje);
+                echo number_format($promedio, 2); // Mostrar el promedio con 2 decimales
+            } 
+            
+            // Cerrar la conexión
+            $stmt->close();
+        } 
+        else {
+            echo "<span>Sin datos de este alumno</span>";
+        }
+    ?>
+    <br>
+    <span>Letras</span>
+    <?php
+        $sql = "SELECT progreso_alumno.puntaje
+                FROM progreso_alumno
+                JOIN juegos
+                ON progreso_alumno.num_juego = juegos.num_juego
+                WHERE progreso_alumno.CURP = ? 
+                AND juegos.categoria = 'Letras'";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $curp);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $puntaje = [];
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $puntaje[] = $row['puntaje'];
+            }
+
+            if (count($puntaje) > 0) {
+                $promedio = array_sum($puntaje) / count($puntaje);
+                echo number_format($promedio, 2); // Mostrar el promedio con 2 decimales
+            } 
+            
+            // Cerrar la conexión
+            $stmt->close();
+        } 
+        else {
+            echo "<span>Sin datos de este alumno</span>";
+        }
+    ?>
 </body>
 </html>
 
