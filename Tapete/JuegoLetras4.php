@@ -1,3 +1,87 @@
+<?php
+    session_start();
+    $conn = new mysqli("localhost", "root", "", "tapeteiot");
+
+	if ($conn->connect_error) {
+		die("Error de conexión: " . $conn->connect_error);
+	}
+
+    if (isset($_SESSION['CURP'])) {
+        $curp = $_SESSION['CURP'];
+        $nombre = "SELECT Nombres from usuarios WHERE CURP = '$curp'";
+        $r_nombre = $conn -> query($nombre);
+        $nombreF = $r_nombre->fetch_assoc();
+        $name = $nombreF['Nombres'];
+
+        $sexo = substr($curp, -8, 1);
+
+		if($sexo == "M"){
+			$imagen = "Visual/Material/Recursos/SesionNiña.png";
+		}
+		else if ($sexo == "H"){
+			$imagen = "Visual/Material/Recursos/SesionNiño.png";
+		}
+
+		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 10";
+		$n_juego = $conn->query($juego);
+		if ($n_juego && $n_juego->num_rows > 0) {
+            $juego1 = $n_juego->fetch_assoc();
+            $num_juego = $juego1['num_juego'];
+        } 
+		
+		else {
+            $num_juego = null;
+        }
+
+		if ($num_juego != null) {
+            // Verificar si el registro ya existe en la tabla 'registro_juegos'
+            $consulta = "SELECT COUNT(*) FROM progreso_alumno WHERE CURP = ? AND num_juego = ?";
+            $stmt = $conn->prepare($consulta);
+            $stmt->bind_param("si", $curp, $num_juego);
+            $stmt->execute();
+            $stmt->bind_result($exists);
+            $stmt->fetch();
+            $stmt->close();
+
+            if ($exists == 0) {
+                $progreso = 0; 
+                $puntaje = 0; 
+
+                $insertar = "INSERT INTO progreso_alumno (CURP, num_juego, progreso, puntaje) 
+                            VALUES (?, ?, ?, ?)";
+                $stmt = $conn->prepare($insertar);
+                $stmt->bind_param("siii", $curp, $num_juego, $progreso, $puntaje);
+
+                if ($stmt->execute()) {
+                    echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+                    echo 
+                    '<script>
+                        swal({
+                            title: "success",
+                            text: "Juego guardado",
+                            icon: "Ahora este alumno tiene un nuevo objetivo."
+                        })
+                    </script>';
+                } 
+				else {
+                    echo "Error al registrar los datos del juego: " . $stmt->error;
+                }
+
+                $stmt->close();
+            } 
+        } 
+		
+		else {
+            echo "No se ha encontrado un juego para este usuario.";
+        }
+    } 
+    
+    else {
+        echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
+        exit; 
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +91,7 @@
     <link rel="stylesheet" href="css/styleJuegoLetras4.css">
 
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/query-3.7.1.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Barra Lateral -->
@@ -25,6 +109,12 @@
             <img class="menu" id="menu" src="Visual/Material/Iconos/barra-menu.png" width="50px">
             <span>DiDit</span>
         </div>
+
+        <button class="boton" onclick="location.href = 'ProgresoAlumno.php'">
+            <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
+            <span>Usuario</span>
+        </button>
+
         <button class="boton" onclick="location.href = 'MenuSeleccion.php'">
             <img class="inicio" id="inicio" src="Visual/Material/Iconos/MenuInicio.png" width="50px">
             <span>Inicio</span>
