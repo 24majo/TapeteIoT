@@ -19,7 +19,7 @@
             $n_grupo = $row['nombre']; 
         } 
         else {
-            echo "<span>Sin datos de este alumno</span>";
+            echo "Desconocido";
         }
     ?>
 
@@ -66,14 +66,12 @@
     <?php
         // Promedio general
         $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                            FROM progreso_alumno 
-                            JOIN usuarios
-                            ON progreso_alumno.CURP = usuarios.CURP
-                            JOIN generaciones
-                            ON usuarios.generacion = generaciones.generacion
-                            JOIN grupos
-                            ON generaciones.generacion = grupos.generacion
-                            WHERE grupos.nombre = '$n_grupo'";
+                        FROM progreso_alumno 
+                        JOIN usuarios
+                        ON progreso_alumno.CURP = usuarios.CURP
+                        INNER JOIN grupos
+                        ON usuarios.id_grupo = grupos.id_grupo
+                        WHERE grupos.nombre = '$n_grupo'";
 
         $promedio_g = $conn -> query($promedio_gen);
 
@@ -87,16 +85,14 @@
 
         // Promedio números
         $promedio_num = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                            FROM progreso_alumno 
-                            JOIN usuarios
-                            ON progreso_alumno.CURP = usuarios.CURP
-                            JOIN generaciones
-                            ON usuarios.generacion = generaciones.generacion
-                            JOIN grupos
-                            ON generaciones.generacion = grupos.generacion
-                            JOIN juegos
-                            ON progreso_alumno.num_juego = juegos.num_juego
-                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
+                        FROM progreso_alumno 
+                        JOIN usuarios
+                        ON progreso_alumno.CURP = usuarios.CURP
+                        INNER JOIN grupos
+                        ON usuarios.id_grupo = grupos.id_grupo
+                        JOIN juegos
+                        ON progreso_alumno.num_juego = juegos.num_juego
+                        WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
 
         $promedio_n = $conn -> query($promedio_num);
 
@@ -110,16 +106,16 @@
 
         // Promedio letras
         $promedio_let = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                            FROM progreso_alumno 
-                            JOIN usuarios
-                            ON progreso_alumno.CURP = usuarios.CURP
-                            JOIN generaciones
-                            ON usuarios.generacion = generaciones.generacion
-                            JOIN grupos
-                            ON generaciones.generacion = grupos.generacion
-                            JOIN juegos
-                            ON progreso_alumno.num_juego = juegos.num_juego
-                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
+                        FROM progreso_alumno 
+                        JOIN usuarios
+                        ON progreso_alumno.CURP = usuarios.CURP
+                        JOIN generaciones
+                        ON usuarios.generacion = generaciones.generacion
+                        INNER JOIN grupos
+                        ON usuarios.id_grupo = grupos.id_grupo
+                        JOIN juegos
+                        ON progreso_alumno.num_juego = juegos.num_juego
+                        WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
 
         $promedio_l = $conn -> query($promedio_let);
 
