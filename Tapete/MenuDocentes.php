@@ -17,12 +17,14 @@
 
         if ($row = $grupo->fetch_assoc()) {
             $n_grupo = $row['nombre']; 
-            echo "<span>Grupo: ".$n_grupo."</span>";
         } 
         else {
             echo "<span>Sin datos de este alumno</span>";
         }
     ?>
+
+    <span>Grupo: <?php echo $n_grupo; ?></span>
+    <br><br>
     <table>
         <thead>
             <tr>
@@ -129,7 +131,7 @@
             echo "No existe un promedio";
         }
     ?>
-
+    <br><br>
     <span>Promedio general: <?php echo $pro_gen; ?></span><br>
     <span>Promedio juego números: <?php echo $pro_num; ?></span><br>
     <span>Promedio juego letras: <?php echo $pro_let; ?></span><br>
