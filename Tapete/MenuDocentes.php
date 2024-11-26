@@ -15,11 +15,9 @@
         $stmt->execute();
         $grupo = $stmt->get_result();
 
-        if ($grupo->num_rows > 0) {
-            while($ngrupo = $grupo->fetch_assoc()) {
-                echo "<span>Grupo: ".$ngrupo['nombre']."</span>";
-            }
-            $stmt->close();
+        if ($row = $grupo->fetch_assoc()) {
+            $n_grupo = $row['nombre']; 
+            echo "<span>Grupo: ".$n_grupo."</span>";
         } 
         else {
             echo "<span>Sin datos de este alumno</span>";
@@ -62,6 +60,80 @@
             ?>
         </tbody>
     </table>
+
+    <?php
+        // Promedio general
+        $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            JOIN generaciones
+                            ON usuarios.generacion = generaciones.generacion
+                            JOIN grupos
+                            ON generaciones.generacion = grupos.generacion
+                            WHERE grupos.nombre = '$n_grupo'";
+
+        $promedio_g = $conn -> query($promedio_gen);
+
+        if ($promedio_g->num_rows > 0) {
+            $promediog = $promedio_g->fetch_assoc();
+            $pro_gen = number_format($promediog['promedio'], 1);
+        }
+        else{
+            echo "No existe un promedio";
+        }
+
+        // Promedio números
+        $promedio_num = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            JOIN generaciones
+                            ON usuarios.generacion = generaciones.generacion
+                            JOIN grupos
+                            ON generaciones.generacion = grupos.generacion
+                            JOIN juegos
+                            ON progreso_alumno.num_juego = juegos.num_juego
+                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
+
+        $promedio_n = $conn -> query($promedio_num);
+
+        if ($promedio_n->num_rows > 0) {
+            $promedio = $promedio_n->fetch_assoc();
+            $pro_num = number_format($promedio['promedio'], 1);
+        }
+        else{
+            echo "No existe un promedio";
+        }
+
+        // Promedio letras
+        $promedio_let = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            JOIN generaciones
+                            ON usuarios.generacion = generaciones.generacion
+                            JOIN grupos
+                            ON generaciones.generacion = grupos.generacion
+                            JOIN juegos
+                            ON progreso_alumno.num_juego = juegos.num_juego
+                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
+
+        $promedio_l = $conn -> query($promedio_let);
+
+        if ($promedio_l->num_rows > 0) {
+            $promediol = $promedio_l->fetch_assoc();
+            $pro_let = number_format($promediol['promedio'], 1);
+        }
+        else{
+            echo "No existe un promedio";
+        }
+    ?>
+
+    <span>Promedio general: <?php echo $pro_gen; ?></span><br>
+    <span>Promedio juego números: <?php echo $pro_num; ?></span><br>
+    <span>Promedio juego letras: <?php echo $pro_let; ?></span><br>
+
     <div id="detalle-alumno"></div>
     <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
 </body>
