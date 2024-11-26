@@ -109,8 +109,6 @@
                         FROM progreso_alumno 
                         JOIN usuarios
                         ON progreso_alumno.CURP = usuarios.CURP
-                        JOIN generaciones
-                        ON usuarios.generacion = generaciones.generacion
                         INNER JOIN grupos
                         ON usuarios.id_grupo = grupos.id_grupo
                         JOIN juegos
