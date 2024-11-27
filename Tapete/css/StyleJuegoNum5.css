@@ -12,7 +12,7 @@ body{
 .titulo{
     position: relative;
     margin-left: 110px;
-    margin-top: 10px;
+    margin-top: -20px;
     font-size: 40px;
     z-index: -10;
 }
@@ -159,7 +159,7 @@ body{
 
 .vidas{
     margin-top: -60px;
-    margin-left: 600px;
+    margin-left: 570px;
 }
 
 .dibujo{
@@ -181,11 +181,24 @@ body{
     margin-left: -250px;
 }
 .semaforo{
-    margin-top: -230px;
-    margin-left: 480px;
+    margin-top: -210px;
+    margin-left: 450px;
 }
 
 .swal-icon img{
     width: 170px;
     height: 160px;
+  }
+
+  .imgVolumen {
+    width: 80px;
+    cursor: pointer;
+    margin-left:80%;
+    margin-top: -80px;
+  }
+  .rango{
+    margin-left: 10px;
+    margin-top: -200px;
+    width: 100px;
+
   }

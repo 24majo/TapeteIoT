@@ -15,6 +15,8 @@ var ejercicio = 0
 var semaforo = document.getElementById('semaforo')
 contador2 = 0
 puntaje = 10
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 Ayuda()
 
@@ -136,6 +138,7 @@ function Opcion(arreglo){
 
 function Validar(num){
     if(num == respuesta){
+        audioCorrecto.play(); // Iniciar audio correcto :D
         contador += 1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
@@ -195,6 +198,7 @@ function Validar(num){
         }
     }
     else{
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error--
         if(error == 2){
             puntaje -= 0.3
