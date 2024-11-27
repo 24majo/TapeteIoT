@@ -14,6 +14,8 @@ var opciones = document.getElementsByClassName("opcion")
 var respuesta = ""
 var guion = ""
 var op_arr = []
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 // const objetos = {
 //     resp: undefined,

@@ -199,6 +199,7 @@
         </font>
     </div>
     <script src="js/Barra.js"></script>
+    <script src="js/audio.js"></script>
     <script>
         // Vidas
         var imagen = document.getElementById('vida');
@@ -217,6 +218,8 @@
         var guion = ""
         var op_arr = []
         var puntaje = 10
+        const audioCorrecto = document.getElementById('audioCorrecto');
+        const audioIncorrecto = document.getElementById('audioIncorrecto');
 
         Ayuda()
 
@@ -311,6 +314,7 @@
 
         function validar(vocal){
             if(respuesta.indexOf(vocal) != -1) {
+                audioCorrecto.play(); // Iniciar audio correcto :D
                 for(var i = 0; i < respuesta.length; i++) {
                     if(respuesta[i]==vocal){
                         guion = replaceAt(guion, vocal, i)
@@ -320,6 +324,7 @@
             }
 
             else{
+                audioIncorrecto.play()  // Iniciar audio incorrecto :c
                 error-- 
                 if(error == 2){
                     puntaje = 6.6
