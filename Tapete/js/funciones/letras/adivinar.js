@@ -14,6 +14,8 @@ contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 var puntaje = 0
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 Ayuda()
 
@@ -114,6 +116,7 @@ const replaceAt = (string, character, index) => {
 
 function validar(letra){
     if(respuesta.indexOf(letra) != -1) {
+        audioCorrecto.play(); // Iniciar audio correcto :D
         for(var i = 0; i < respuesta.length; i++) {
             if(respuesta[i]==letra){
                 guion[i] = letra;
@@ -123,6 +126,7 @@ function validar(letra){
     }
 
     else{ // Evaluacion de fallos y disminución de vidas
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error-- 
         if(error == 2){
             puntaje = 6.6
