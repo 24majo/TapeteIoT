@@ -6,6 +6,8 @@ var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 var error = 3
 var puntaje = 10
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 Ayuda()
 
@@ -29,6 +31,7 @@ function Progreso(progreso,puntaje){
 
 function apretar(numero){
     if(arreglo_f[numero]== correcta){
+        audioCorrecto.play(); // Iniciar audio correcto :D
         //opciones[numero].style.backgroundColor = '#f958a5'
         contador++
         document.getElementById("barra").value = contador
@@ -37,6 +40,7 @@ function apretar(numero){
         Progreso(contador, puntaje)
 
         if(contador == 10){
+           
             Progreso(contador, puntaje)
             swal({
                 title: "¡Ganador!",
@@ -58,6 +62,7 @@ function apretar(numero){
     }
 
     else{
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
