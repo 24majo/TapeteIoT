@@ -14,6 +14,9 @@ var opciones = document.getElementsByClassName("opcion")
 var respuesta = ""
 var guion = ""
 var op_arr = []
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
+
 
 // const objetos = {
 //     resp: undefined,
@@ -97,8 +100,11 @@ const replaceAt = (string, character, index) => {
     return string.substring(0, index) + character + string.substring(index + character.length);
 }
 
+
+
 function validar(vocal){
     if(respuesta.indexOf(vocal) != -1) {
+        audioCorrecto.play(); // Iniciar audio correcto :D
         for(var i = 0; i < respuesta.length; i++) {
             if(respuesta[i]==vocal){
                 guion = replaceAt(guion, vocal, i)
@@ -108,6 +114,7 @@ function validar(vocal){
     }
 
     else{
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error-- 
         if(error == 2){
             vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'

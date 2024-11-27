@@ -132,13 +132,29 @@
     
     <nav>
 
-        <div style="margin-left: 750px; margin-top: -280px">
+        <div style="margin-left: 700px; margin-top: -350px">
             <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
         </div>
     
         <div class="vidas">
             <div id="vida"></div>
             <!-- <script src="js/funciones/letras/vocales.js"></script> -->
+        </div>
+
+        <audio id="audio" preload="auto" loop >
+            <source src="audio/audio1.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="audioCorrecto" preload="auto">
+            <source src="audio/correcto.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="audioIncorrecto" preload="auto">
+            <source src="audio/incorrecto.mp3" type="audio/mpeg">
+        </audio>
+
+        <div>
+            <img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+            <input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
         </div>
 
         <div class="titulo">
@@ -158,6 +174,7 @@
         </div> -->
     </nav>
 
+   
     <section>
         <article class="dibujo">
             <img class="imagen" id='figura' width="250px" height="250px">
@@ -187,6 +204,8 @@
         </font>
     </div>
     <script src="js/Barra.js"></script>
+
+    <script src="js/audio.js"></script>
     <script>
         // Vidas
         var imagen = document.getElementById('vida');
@@ -205,6 +224,8 @@
         var guion = ""
         var op_arr = []
         var puntaje = 10
+        const audioCorrecto = document.getElementById('audioCorrecto');
+        const audioIncorrecto = document.getElementById('audioIncorrecto');
 
         Ayuda()
 
@@ -299,6 +320,7 @@
 
         function validar(vocal){
             if(respuesta.indexOf(vocal) != -1) {
+                audioCorrecto.play(); // Iniciar audio correcto :D
                 for(var i = 0; i < respuesta.length; i++) {
                     if(respuesta[i]==vocal){
                         guion = replaceAt(guion, vocal, i)
@@ -308,6 +330,7 @@
             }
 
             else{
+                audioIncorrecto.play(); // Iniciar audio incorrecto :c
                 error-- 
                 if(error == 2){
                     puntaje = 6.6
