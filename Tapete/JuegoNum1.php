@@ -1,10 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "tapeteiot");
-
-	if ($conn->connect_error) {
-		die("Error de conexión: " . $conn->connect_error);
-	}
+    include'conexiones/conexion.php';
 
     if (isset($_SESSION['CURP'])) {
         $curp = $_SESSION['CURP'];
@@ -53,7 +49,7 @@
                 $stmt->bind_param("sidd", $curp, $num_juego, $progreso, $puntaje);
 
                 if ($stmt->execute()) {
-                    echo "Progreso guardado.";
+                    include'conexiones/mensaje_progreso.php';
                 } 
 				else {
                     echo "Error al registrar los datos del juego: " . $stmt->error;
