@@ -128,11 +128,27 @@
 		</div>
 
 		<nav>
-			<div style="margin-left: 750px; margin-top: -250px">
+			<div style="margin-left: 700px; margin-top: -300px">
 				<progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 			</div>
 			
 			<div id="vida" class="vidas"></div>	
+
+			<audio id="audio" preload="auto" loop >
+				<source src="audio/audio1.mp3" type="audio/mpeg">
+			</audio>
+
+			<audio id="audioCorrecto" preload="auto">
+				<source src="audio/correcto.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="audioIncorrecto" preload="auto">
+				<source src="audio/incorrecto.mp3" type="audio/mpeg">
+			</audio>
+
+			<div>
+				<img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+				<input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+			</div>
 
 			<div class="titulo" style="z-index: -10;">
 				<font face="Century Gothic">
@@ -149,7 +165,7 @@
 		<article>
 			<section class="botones">
 				<font face="Century Gothic">
-					<button class="btnIniciar" onclick="Random()"><b>Empezar</b></button>
+					<button  id="btnIniciar" class="btnIniciar" onclick="Random()"><b>Empezar</b></button>
 					<button class="btnReiniciar" onclick="Reinicio()"><b>Reiniciar</b></button>
 				</font>
 			</section>
@@ -178,6 +194,7 @@
 		
 		<script src="js/funciones/numeros/juego1.js"></script>
 		<script src="js/Barra.js"></script>
+		<script src="js/audio.js"></script>
 	</body>
 </html>
 
