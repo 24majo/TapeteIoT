@@ -231,7 +231,7 @@
             echo "<span>Sin datos de este alumno</span>";
         }
     ?>
-
+    <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
     
     <!-- <div class='porcentajes' style="--porcentaje: 75; --color: forestgreen">
         <svg width="150" height="150">
