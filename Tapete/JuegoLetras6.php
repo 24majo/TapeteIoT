@@ -327,7 +327,7 @@ function Progreso(progreso,puntaje){
         data: {
             progreso: progreso, 
             puntaje: puntaje,
-            num_juego: 11,
+            num_juego: 12,
         },
         success: function(response) {
             console.log('Progreso actualizado. ', response);
@@ -689,9 +689,6 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            if(valor == 'dificil')
-                Empezar()
-            break;
         case 'ArrowLeft':
             if(valor == 'dificil')
                 Empezar()
