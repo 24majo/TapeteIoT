@@ -91,7 +91,7 @@
     <link rel="stylesheet" href="css/styleJuegoLetras5.css">
 
     <script src="js/bootstrap.min.js"></script>
-	<script src="js/query-3.7.1.min.js"></script>
+	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Barra Lateral -->
@@ -204,7 +204,7 @@ var vida = document.getElementById('vida');
 vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 // Barra de progreso
-var puntaje = 0
+var puntaje = 10
 var contador2 = 0
 contador = 0
 document.getElementById("barra").value = contador
@@ -320,9 +320,7 @@ function Reiniciar(){
 
     if (valor == "medio")
         palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
-    
-    puntaje = 0
-    contador2 = 0
+
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -339,7 +337,6 @@ function Reiniciar(){
 function Empezar(){
     switch(valor){
         case 'facil':
-            contador2 = 0
             arreglo = ["r", "rr"]
             palabras = palabras_f
             respuesta = palabras[Math.floor(Math.random() * palabras.length)]
@@ -627,6 +624,7 @@ function Fallo(){
 
 function Felicidades(){
     contador2 += 0.3
+    console.log(contador2)
     Progreso(contador2, puntaje)
     swal({
         title: "¡Muy bien!",
@@ -777,6 +775,7 @@ window.onload = function() {
         contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
     }
+    console.log("carga: " + contador2)
 }
     </script>
 </body>
