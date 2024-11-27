@@ -24,10 +24,10 @@ function Progreso(progreso,puntaje){
         data: {
             progreso: progreso, 
             puntaje: puntaje,
-            num_juego: '<?php echo $num_juego; ?>',
+            num_juego: 8,
         },
         success: function(response) {
-            console.log('Progreso actualizado');
+            console.log('Progreso actualizado', response);
         },
         error: function(xhr, status, error) {
             console.error('Error al actualizar el progreso: ' + error);
@@ -42,7 +42,7 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg", // En este apartado se puede poner la ruta de las imágenes
         buttons: true, // Como si fuera arreglo, se pueden agregar más botones con texto 
         dangerMode: true, // Botón rojo
-      })
+    })
 
     .then((Reinicia) => {
         if (Reinicia) {
@@ -80,8 +80,6 @@ function Inicio(){
     }
 
     document.getElementById("linea").innerHTML = guion.join(" ") // Se dibuja un espacio entre cada guion
-    // guion = respuesta.replace(/./g, "_ ")
-    // document.getElementById("linea").innerHTML = guion
     opcion(op = []) // Función de opciones para colocarlos en los círculos
     document.getElementById('circulos').style.display='block'
 }
@@ -89,13 +87,10 @@ function Inicio(){
 function opcion(op){ // Función recursiva para rellenar el arreglo hasta llegar a 4
     if(op.length == 4){
         if(guion.indexOf("_") != -1) { // Toma el primer guion que encuentre en la palabra
-            //alert(respuesta[guion.indexOf("_")])
-            //alert("Arreglo antes: "+op)
             var e = op.includes(respuesta[guion.indexOf("_")]) // Evaluar si el arreglo incluye letras de la palabra
             if(!e){ // Si no encuentra
                 let r = Math.floor(Math.random() * op.length)
                 op.splice(r, 1, respuesta[guion.indexOf("_")]) // Elegir una posición aleatoria de las opciones para reemplazarla por la nueva letra
-                //alert("Arreglo después: "+op)
             }
             for (let i = 0; i < opciones.length; i++){
                 opciones[i].innerHTML = op[i] // Se muestran las opciones en los círculos
@@ -159,13 +154,7 @@ function validar(letra){
             })
         }
     }
-    // for(let i = 0; i < respuesta.length; i++){
-    //     if(respuesta[i] == letra){
-    //         guion = replaceAt(guion, letra, i)
-    //     }
-    // }
 
-    // document.getElementById("linea").innerHTML = guion
     var e = guion.includes('_') // Validar que la palabra se haya completado
 
     if(!e){ // Si la palabra ya no tiene guiones, significa que ha ganado

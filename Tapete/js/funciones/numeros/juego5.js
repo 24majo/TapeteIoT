@@ -9,19 +9,35 @@ document.getElementById("barra").innerHTML = contador
 // Circulos de opciones
 var opciones = document.getElementsByClassName("opcion")
 var op = []
-//Opciones de dificultad
-//var radios = document.getElementsByName("dificultad")
-// Elementos generales
 var pecera = document.getElementById("pecera")
 var respuesta = ""
 var ejercicio = 0
 var semaforo = document.getElementById('semaforo')
+contador2 = 0
+puntaje = 10
 
 Ayuda()
 
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 5,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
+
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    //alert(valor)
     if(valor == 'facil')
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
 
@@ -35,6 +51,8 @@ window.onload = function() {
 function Reiniciar(){
     error = 3
     contador = 0
+    contador2 = 0
+    puntaje = 10
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
@@ -48,17 +66,10 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
-      })
+    })
 
-      .then((willDelete) => {
+    .then((willDelete) => {
         if (willDelete) {
-            // for(let y = 0; y < 3; y++){
-            //     radios[y].disabled = false
-            // }
-            // for (var i = 0; i < radios.length; i++) {
-            //     var niveles = radios[i];
-            //     niveles.checked = false;
-            // }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -66,55 +77,32 @@ function Reinicio(){
 }
 
 function Empezar(){
-    // if(!document.querySelector('input[name="dificultad"]:checked')){
-    //     swal({
-    //         title: "Advertencia",
-    //         text: "Elige una dificultad para iniciar el juego",
-    //         icon: "Visual/Material/Iconos/jake.gif", 
-    //     })
-    // }
-
-    // else{
-    //     for(let y = 0; y < 3; y++){
-    //         radios[y].disabled = true
-    //     }
-    //     valor = document.querySelector('input[name="dificultad"]:checked').value
     document.getElementById('aparecer').style.display='block';
     
     switch(valor){
         case 'facil':
             num = Math.floor(Math.random() * (50-1)+1)
-            // decena = num - (num % 10) + 10
-            // alert("Decena: " + decena)
             pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
-            //alert("num: " + num)
             Completar(num)  
             break
 
         case 'medio':
             num = Math.floor(Math.random() * (99-51)+51)
-            // decena = num - (num % 10) + 10
-            // alert("Decena: " + decena)
             pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
             Completar(num)  
             break
         
         case 'dificil':
             num = Math.floor(Math.random() * (99-1)+1)
-            // decena = num - (num % 10) + 10
-            // alert("Decena: " + decena)
             pecera.innerHTML = '<img src="Visual/Material/Numeros/Juego5/'+ num +'.jpg" width="400">'
             Completar(num) 
             break
     }
-    //}
 }
 
 function Completar(num){
     decena = num - (num % 10) + 10
-    //alert("Decena: "+decena)
     respuesta = decena - num
-    //alert("Respuesta: " + respuesta)
     
     op = Opcion(arreglo = [])
 
@@ -126,7 +114,6 @@ function Completar(num){
 
 function Opcion(arreglo){
     if(arreglo.length == 4){
-        //alert("respuesta en opciones: " + respuesta)
         var res = arreglo.indexOf(respuesta)
         if(res == -1){
             var r = Math.floor(Math.random() * arreglo.length) 
@@ -148,7 +135,6 @@ function Opcion(arreglo){
 }
 
 function Validar(num){
-    //alert("Numero de respuesta: " + num)
     if(num == respuesta){
         contador += 1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -157,6 +143,8 @@ function Validar(num){
 
         if(contador == 10){
             if(valor == "dificil"){
+                contador2 = 10
+                Progreso(contador2, puntaje)
                 swal({
                     title: "¡Ganador!",
                     text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
@@ -169,9 +157,6 @@ function Validar(num){
                         location.href = "JuegosNumeros.html"
                     } 
                     else{
-                        // for(let y = 0; y < 3; y++){
-                        //     radios[y].disabled = false
-                        // }
                         document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
@@ -188,19 +173,19 @@ function Validar(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
+                            contador2 = 3.5
+                            Progreso(contador2, puntaje)
                             valor = 'medio'
                             semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
-                            //alert(valor)
-                            //valor = document.querySelector('#medio').checked = true
                             Reiniciar()
                         }
 
                         else{
                             if(valor == 'medio'){
+                                contador2 = 6.5
+                                Progreso(contador2, puntaje)
                                 valor = 'dificil'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
-                                //alert(valor)
-                                //valor = document.querySelector('#dificil').checked = true
                                 Reiniciar()
                             }
                         }
@@ -212,14 +197,20 @@ function Validar(num){
     else{
         error--
         if(error == 2){
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
         }
 
         if(error == 1){
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
         }
 
         if(error == 0){
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             imagen.innerHTML = ""
             swal({
                 title: "¡Oh no!",
@@ -292,17 +283,8 @@ window.addEventListener("keyup",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            Empezar()
-            break;
-
         case 'ArrowDown':
-            Empezar()
-            break;
-
         case 'ArrowLeft':
-            Empezar()
-            break;
-
         case 'ArrowRight':
             Empezar()
             break;

@@ -9,18 +9,34 @@ document.getElementById("barra").innerHTML = contador
 // Circulos de opciones
 var opciones = document.getElementsByClassName("opcion")
 var op = []
-//Opciones de dificultad
-//var radios = document.getElementsByName("dificultad")
-// Elementos generales
 var resultado = 0
 var arreglo = []
 var semaforo = document.getElementById('semaforo')
+contador2 = 0
+puntaje = 10
 
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 4,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
+
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    //alert(valor)
     if(valor == 'facil')
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
 
@@ -32,19 +48,6 @@ window.onload = function() {
 }
 
 function Empezar(){
-    // if(!document.querySelector('input[name="dificultad"]:checked')){
-    //     swal({
-    //         title: "Advertencia",
-    //         text: "Elige una dificultad para iniciar el juego",
-    //         icon: "warning", 
-    //     })
-    // }
-
-    // else{
-    //     for(let y = 0; y < 3; y++){
-    //         radios[y].disabled = true
-    //     }
-    //     valor = document.querySelector('input[name="dificultad"]:checked').value
     document.getElementById('aparecer').style.display='block';
 
     switch(valor){
@@ -63,11 +66,9 @@ function Empezar(){
         case 'dificil':
             num1 = Math.floor(Math.random() * (100-1)+1)
             num2 = Math.floor(Math.random() * (num1-1)+1)
-            //alert("Num1: " + num1 + " num2: " + num2)
             Random(num1, num2) 
             break
     }
-    // }
 }
 
 function Random(num1, num2){
@@ -136,6 +137,8 @@ function RCorrecto(num){
 
         if(contador == 10){
             if(valor == "dificil"){
+                contador2 = 10
+                Progreso(contador2, puntaje)
                 swal({
                     title: "¡Ganador!",
                     text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
@@ -148,9 +151,6 @@ function RCorrecto(num){
                         location.href = "JuegosNumeros.html"
                     } 
                     else{
-                        for(let y = 0; y < 3; y++){
-                            radios[y].disabled = false
-                        }
                         document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
@@ -167,6 +167,8 @@ function RCorrecto(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
+                            contador2 = 3.5
+                            Progreso(contador2, puntaje)
                             valor = 'medio'
                             semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             //valor = document.querySelector('#medio').checked = true
@@ -175,6 +177,8 @@ function RCorrecto(num){
 
                         else{
                             if(valor == 'medio'){
+                                contador2 = 6.5
+                                Progreso(contador2, puntaje)
                                 valor = 'dificil'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                 //valor = document.querySelector('#dificil').checked = true
@@ -190,16 +194,22 @@ function RCorrecto(num){
         error--
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             Polloincorrectoo()
         }
 
         if(error == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             Polloincorrectoo()
         }
 
         if(error == 0){
             imagen.innerHTML = ""
+            puntaje -= 0.3
+            Progreso(contador2, puntaje)
             Polloincorrectoo()
             swal({
                 title: "Oh no!",
@@ -226,14 +236,6 @@ function RCorrecto(num){
                         })
                         .then((cambiar) => {
                             if(cambiar){
-                                // for(let y = 0; y < 3; y++){
-                                //     radios[y].disabled = false
-                                // }
-                                // for (var i = 0; i < radios.length; i++) {
-                                //     var niveles = radios[i];
-                                //     niveles.checked = false;
-                                // }
-
                                 if(valor == 'dificil'){
                                     valor = "medio"
                                     semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
@@ -253,8 +255,6 @@ function RCorrecto(num){
                             }
                         })
                     }
-
-                    
                 }
             })
         }
@@ -264,6 +264,8 @@ function RCorrecto(num){
 function Reiniciar(){
     error = 3
     contador = 0
+    contador2 = 0
+    puntaje = 10
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
@@ -277,17 +279,10 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia(1).jpg",
         buttons: true,
         dangerMode: true,
-      })
+    })
 
-      .then((willDelete) => {
+    .then((willDelete) => {
         if (willDelete) {
-            // for(let y = 0; y < 3; y++){
-            //     radios[y].disabled = false
-            // }
-            // for (var i = 0; i < radios.length; i++) {
-            //     var niveles = radios[i];
-            //     niveles.checked = false;
-            // }
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
         } 
@@ -322,17 +317,8 @@ window.addEventListener("keyup",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            Empezar()
-            break;
-
         case 'ArrowDown':
-            Empezar()
-            break;
-
         case 'ArrowLeft':
-            Empezar()
-            break;
-
         case 'ArrowRight':
             Empezar()
             break;
@@ -348,46 +334,44 @@ function Ayuda(){
         text: "Realiza la resta de dos números. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
         icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
-    // swal("Tutorial", 
-    //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
 }
 
 function PolloBueno(){
     const espera = document.getElementById("espera");
     const acierto = document.getElementById("acierto");
-  
+
     //Ocultar la animación de espera para pasar a la de acierto
     espera.classList.add("desaparecer");
-  
+
     //Muestra la aninmación de acierto una vez
     acierto.classList.remove("desaparecer");
     acierto.classList.add("acierto");
-  
+
     //Se usa el evento animationend para indicar que la animación finalizó 
     //y de nuevo muestre la animación de espera
     acierto.addEventListener("animationend", function() {
         //Ocultar la animación de acierto
-      acierto.classList.add("desaparecer");    
-      acierto.classList.remove("acierto");
+    acierto.classList.add("desaparecer");    
+    acierto.classList.remove("acierto");
         //Mostrar la animación de espera
-      espera.classList.remove("desaparecer"); 
-      //Ayuda a que la animación se ejecute una vez
+    espera.classList.remove("desaparecer"); 
+    //Ayuda a que la animación se ejecute una vez
     }, { once: true });
 }
 
 function Polloincorrectoo(){
     const espera = document.getElementById("espera");
     const incorrecto = document.getElementById("incorrecto");
-  
+
     espera.classList.add("desaparecer");
-  
+
     incorrecto.classList.remove("desaparecer");
     incorrecto.classList.add("incorrecto");
-  
+
     incorrecto.addEventListener("animationend", function() {
         incorrecto.classList.add("desaparecer"); 
         incorrecto.classList.remove("incorrecto");
-  
+
         espera.classList.remove("desaparecer"); 
     }, { once: true });
 }

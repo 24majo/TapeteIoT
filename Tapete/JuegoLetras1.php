@@ -1,10 +1,6 @@
 <?php
     session_start();
-    $conn = new mysqli("localhost", "root", "", "tapeteiot");
-
-	if ($conn->connect_error) {
-		die("Error de conexión: " . $conn->connect_error);
-	}
+    include'conexiones/conexion.php';
 
     if (isset($_SESSION['CURP'])) {
         $curp = $_SESSION['CURP'];
@@ -53,7 +49,7 @@
                 $stmt->bind_param("siii", $curp, $num_juego, $progreso, $puntaje);
 
                 if ($stmt->execute()) {
-                    echo "Progreso guardado.";
+                    include'conexiones/mensaje_progreso.php';
                 } 
 				else {
                     echo "Error al registrar los datos del juego: " . $stmt->error;
@@ -138,7 +134,6 @@
     
         <div class="vidas">
             <div id="vida"></div>
-            <!-- <script src="js/funciones/letras/vocales.js"></script> -->
         </div>
 
         <audio id="audio" preload="auto" loop >
@@ -204,8 +199,6 @@
         </font>
     </div>
     <script src="js/Barra.js"></script>
-
-    <script src="js/audio.js"></script>
     <script>
         // Vidas
         var imagen = document.getElementById('vida');
@@ -224,8 +217,6 @@
         var guion = ""
         var op_arr = []
         var puntaje = 10
-        const audioCorrecto = document.getElementById('audioCorrecto');
-        const audioIncorrecto = document.getElementById('audioIncorrecto');
 
         Ayuda()
 
@@ -320,7 +311,6 @@
 
         function validar(vocal){
             if(respuesta.indexOf(vocal) != -1) {
-                audioCorrecto.play(); // Iniciar audio correcto :D
                 for(var i = 0; i < respuesta.length; i++) {
                     if(respuesta[i]==vocal){
                         guion = replaceAt(guion, vocal, i)
@@ -330,7 +320,6 @@
             }
 
             else{
-                audioIncorrecto.play(); // Iniciar audio incorrecto :c
                 error-- 
                 if(error == 2){
                     puntaje = 6.6
