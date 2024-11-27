@@ -66,12 +66,12 @@
     <?php
         // Promedio general
         $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                        FROM progreso_alumno 
-                        JOIN usuarios
-                        ON progreso_alumno.CURP = usuarios.CURP
-                        INNER JOIN grupos
-                        ON usuarios.id_grupo = grupos.id_grupo
-                        WHERE grupos.nombre = '$n_grupo'";
+                         FROM progreso_alumno 
+                         JOIN usuarios
+                         ON progreso_alumno.CURP = usuarios.CURP
+                         INNER JOIN grupos
+                         ON usuarios.id_grupo = grupos.id_grupo
+                         WHERE grupos.nombre = '$n_grupo'";
 
         $promedio_g = $conn -> query($promedio_gen);
 
