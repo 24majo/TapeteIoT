@@ -16,6 +16,8 @@ var resultado = 0
 var arreglo = []
 var semaforo = document.getElementById('semaforo')
 var puntaje = 10
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 Ayuda() // Tutorial al abrir la pestaña por primera vez
 
@@ -135,7 +137,9 @@ function Opcion(arreglo){
 }
 
 function Racierto(num){ 
+    
     if(num == resultado){
+        audioCorrecto.play(); // Iniciar audio correcto :D
         PolloBueno()
         contador+=1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -198,6 +202,7 @@ function Racierto(num){
         }
     }
     else{
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         incorrecto--
         if(incorrecto == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
