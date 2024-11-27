@@ -50,9 +50,9 @@
         function valor(dato, juego) {
             localStorage.setItem('valor', dato)
             localStorage.setItem('juego', juego)
-            window.location.href = './JuegoLetras8.php'
             document.getElementById('juego').value = juego;
             document.getElementById('form_juego').submit();
+            window.location.href = './JuegoLetras8.php'
         }
     </script>
 </body>
