@@ -134,13 +134,30 @@
 <!---------------------- Fin de barra lateral ----------------------------->
 
 <!-- Barra de progreso, atributos -->
- <div style="margin-left: 790px; margin-top: -280px">
+ <div style="margin-left: 700px; margin-top: -350px">
     <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 </div>
 <!-- Vidas -->
 <div>
     <div class="vidas" id="vida"></div>
 </div>
+
+<audio id="audio" preload="auto" loop >
+				<source src="audio/audio1.mp3" type="audio/mpeg">
+			</audio>
+
+			<audio id="audioCorrecto" preload="auto">
+				<source src="audio/correcto.mp3" type="audio/mpeg">
+			</audio>
+			<audio id="audioIncorrecto" preload="auto">
+				<source src="audio/incorrecto.mp3" type="audio/mpeg">
+			</audio>
+
+			<div>
+				<img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+				<input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+			</div>
+
 
 <img  class="semaforo" id="semaforo" alt=""  width="100">
 
@@ -207,7 +224,8 @@
             
         </div>
         
-    <script src="js/Barra.js"></script>        
+    <script src="js/Barra.js"></script>
+    <script src="js/audio.js"></script>        
     <!-- <script src="js/funciones/letras/comprension.js"></script> -->
     <script>
         // Vidas
@@ -234,6 +252,8 @@ var semaforo = document.getElementById('semaforo')
 var img_cuento = document.getElementById('cuento')
 var aux_res = 0, resp1 = "", resp2 = "", arr_datos1, arr_datos2, arr_opciones = []
 var num_parrafo = 0, aux = 0
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 // Variables de lectura
 var preguntas = []
@@ -519,6 +539,7 @@ function Pregunta(){
 function validar(respuesta){
     if(aux == 0){
         if(respuesta == resp1){
+            audioCorrecto.play(); // Iniciar audio correcto :D
             contador2 += 0.3
             Progreso(contador2, puntaje)
             aux++
@@ -530,6 +551,7 @@ function validar(respuesta){
             Pregunta()
         }
         else{
+            audioIncorrecto.play(); // Iniciar audio incorrecto :c
             Fallo()
         }
     }

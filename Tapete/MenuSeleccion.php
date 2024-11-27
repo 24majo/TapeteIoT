@@ -27,11 +27,17 @@
         <p><b>Inicia a jugar</b></p>
       </font>
     </div>
-    
+
+    <div class="cerrarSesion">
+    <a style="color: black;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+    </div>
+    <br><br>
+    <div  style="margin-left:5%;">
     <?php 
       include('conexiones/sesion_alumno.php'); 
     ?>
-    
+    </div>
+    <br>
     <section>
 
       <div class="card mb-3 card1" style="max-width: 600px;">
@@ -71,6 +77,6 @@
       </div>
     </section>
 
-    <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+    
 </body>
 </html>

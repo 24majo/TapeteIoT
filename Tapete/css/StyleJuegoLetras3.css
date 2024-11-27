@@ -9,7 +9,7 @@ body{
 
 .titulo{
     margin-left: 90px;
-    margin-top: -350px;
+    margin-top: -380px;
     font-size: 30px;
 }
 #opcionArriba{
@@ -151,7 +151,7 @@ body{
 
 .vidas{
     margin-top: -60px;
-    margin-left: 650px;
+    margin-left: 580px;
 }
 
 
@@ -172,8 +172,8 @@ body{
 }
 
 .semaforo{
-    margin-top: -50px;
-    margin-left: 510px;
+    margin-top: -100px;
+    margin-left: 450px;
 }
 
 .pregunta{
@@ -208,3 +208,16 @@ body{
     width: 170px;
     height: 160px;
 }
+
+.imgVolumen {
+    width: 80px;
+    cursor: pointer;
+    margin-left:80%;
+    margin-top: -80px;
+  }
+  .rango{
+    margin-left: 10px;
+    margin-top: -200px;
+    width: 100px;
+
+  }

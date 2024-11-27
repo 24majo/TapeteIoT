@@ -1,0 +1,124 @@
+body{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.container {
+    margin-top: 30px;
+    margin-left: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-color: black;
+  }
+  /* .tramite{
+    margin-left: 400%;
+} */
+  
+  .formulario {
+    background:white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 40%;
+  }
+
+  .formulario h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+
+  .formulario h3 {
+    /* text-align: center; */
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+  
+  
+  .formulario input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    align-items: flex-end;
+    font-size: 14px;
+    border-color: black;
+  }
+
+  .formulario span{
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .formulario button{
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #f6d100;
+    border: none;
+    border-radius: 15px;
+    align-items: center;
+  }
+
+  .container2 {
+    margin-top: -680px;
+    margin-left: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-color: black;
+  }
+  /* .tramite{
+    margin-left: 400%;
+} */
+  
+  .formulario2 {
+    background:white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 30%;
+  }
+
+  .formulario2 h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 30px;
+  }
+
+  .formulario2 h3 {
+    /* text-align: center; */
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 20px;
+  }
+  
+  
+  .formulario2 input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    align-items: flex-end;
+    font-size: 14px;
+    border-color: black;
+  }
+
+  .formulario2 span{
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .formulario2 button{
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #f6d100;
+    border: none;
+    border-radius: 15px;
+    align-items: center;
+  }
