@@ -144,7 +144,6 @@ function Empezar(){
     puntaje = 10
     switch(valor){
         case 'facil':
-            contador2 = 0
             arreglo = ["b", "v"]
             palabras = palabras_f
             respuesta = palabras[Math.floor(Math.random() * palabras.length)]
@@ -166,7 +165,6 @@ function Empezar(){
             break
 
         case 'medio':
-            contador2 = 3.3
             arreglo = ["b", "v"]
             palabras = palabras_m
 
@@ -190,7 +188,6 @@ function Empezar(){
             break
         
         case 'dificil':
-            contador2 = 6.6
             arr_res = palabras_d[num_ejercicio].valores
             respuesta = arr_res[num_opcion]
 
