@@ -22,6 +22,11 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
 
+        if (isset($_POST['juego'])) {
+            $juego = $_POST['juego'];
+            echo "num_juego: " . $juego;
+        }
+
 		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 14";
 		$n_juego = $conn->query($juego);
 		if ($n_juego && $n_juego->num_rows > 0) {
@@ -139,8 +144,6 @@
 </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-    
-   
     <div style="margin-left: 800px; margin-top: -280px">
         <progress style="height: 80px; width:380px;" id="barra" max="12" value="0"></progress>
     </div>
@@ -256,6 +259,8 @@ var imagen = document.getElementById('imagen')
 var tabla1 = document.getElementsByClassName("tabla1")
 var tabla2 = document.getElementsByClassName("tabla2")
 var t1 = 0, t2 = 0
+
+
 
 function ValoresTabla(){
     if(encabezado == "b"){
