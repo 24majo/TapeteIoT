@@ -13,6 +13,8 @@ var error = 3
 var puntaje = 10
 var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 Ayuda()
 
@@ -144,6 +146,7 @@ function Opciones(num){
         var e = adivinar.includes('_')
 
         if(!e){
+           
             contador++
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
@@ -163,6 +166,7 @@ function Opciones(num){
             })
 
             if(contador==9){
+                
                 Progreso(contador, puntaje)
                 swal({
                     title: "¡Felicidades! :D",
@@ -181,8 +185,10 @@ function Opciones(num){
             }
         }
         SaltoPollo()
+        audioCorrecto.play(); // Iniciar audio correcto :D
     }
     else{
+        audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error--
         if(error == 2){
             puntaje = 6.6
