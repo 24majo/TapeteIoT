@@ -22,8 +22,8 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
 
-        if (isset($_POST['juego'])) {
-            $juego = $_POST['juego'];
+        if (isset($_POST['jugar'])) {
+            $juego = $_POST['jugar'];
             echo "num_juego: " . $juego;
         }
 
