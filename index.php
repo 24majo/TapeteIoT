@@ -68,8 +68,8 @@
     </script>
 
   </head>
-  <body background="./Tapete/Visual/Fondos/FondoInicioSesion.jpg">
-      <div class="container">
+  <body background="./Tapete/Visual/Fondos/FondoInicioSesion2.jpg">
+      <div  class="container">
           <form class="formulario" method="post" action="Tapete/conexiones/ingreso_alumno.php">
             <h1>¡Bienvenido(a)!</h1>
             <h3>Ingreso de alumnos</h3>
@@ -98,7 +98,7 @@
       </div>
     
 
-<div  class="container2">
+<div class="container2">
 <form class="formulario2" method="post" action="Tapete/conexiones/ingreso_admin.php">
       <h2>Ingreso de administrativos</h2>
       <label>Número de empleado</label>
@@ -109,16 +109,20 @@
       <br>
       <input type="password" id="pass" name="pass" placeholder="**********">
       <br>
-      <input type="submit" name="ingresar_d" value="Ingresar">
-      <button type="submit" id="pregunta-d" onclick="Pregunta_d(event)">¿Olvidaste tu contraseña?</button>
-      <button type="button" id="cancelar_d" name="cancelar_d" onclick="Cancelar_d()">Cancelar</button>
+      <input style="background-color: #f6d100; color:white; border: none; font-weight: bold; font-size: 16px;" type="submit" name="ingresar_d" value="Ingresar">
+      <center>
+        <button type="submit" id="pregunta-d" onclick="Pregunta_d(event)">¿Olvidaste tu contraseña?</button>
+        <button type="button" id="cancelar_d" name="cancelar_d" onclick="Cancelar_d()">Cancelar</button>
+      </center>
       <div id="seguridad_d">
         <p>Responde la pregunta de seguridad</p>
         <label for="pregunta_d">Pregunta</label>
         <input type="text" class="pregunta_d" id="pregunta_d" disabled>
         <label for="respuesta_d">Respuesta</label>
         <input type="text" name="respuesta_d" id="respuesta_d">
-        <button id="verificar_d" name="verificar_d">Verificar</button>
+        <center>
+          <button id="verificar_d" name="verificar_d">Verificar</button>
+        </center>
       </div>
   </form>
 </div>

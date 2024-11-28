@@ -12,16 +12,20 @@ body{
     display: flex;
     align-items: center;
     border-color: black;
+   
   }
   /* .tramite{
     margin-left: 400%;
 } */
   
   .formulario {
-    background:white;
+    background:rgb(242, 242, 242);
     border-radius: 20px;
     padding: 10px;
     width: 40%;
+    border-color: black;
+    border-width: 40px;
+    
   }
 
   .formulario h1 {
@@ -65,8 +69,8 @@ body{
   }
 
   .container2 {
-    margin-top: -680px;
-    margin-left: 60%;
+    margin-top: -700px;
+    margin-left: 55%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -77,10 +81,11 @@ body{
 } */
   
   .formulario2 {
-    background:white;
+    background:rgb(242, 242, 242);
     border-radius: 20px;
     padding: 10px;
-    width: 30%;
+    width: 35%;
+    border-color: black;
   }
 
   .formulario2 h1 {
