@@ -140,7 +140,7 @@
         <div id="vida" class="vidas"></div>
 
         <audio id="audio" preload="auto" loop >
-				<source src="audio/audio3.mp3" type="audio/mpeg">
+				<source src="audio/sumas.mp3" type="audio/mpeg">
 			</audio>
 
 			<audio id="audioCorrecto" preload="auto">

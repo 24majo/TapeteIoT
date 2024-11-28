@@ -144,7 +144,7 @@
 </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-<div style="margin-left: 790px; margin-top: -350px">
+<div style="margin-left: 720px; margin-top: -400px">
     <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
 </div>
    
@@ -153,6 +153,20 @@
         <div>
             <div class="vidas" id="vida"></div>
         </div>
+
+    <audio id="audio" preload="auto" loop >
+		<source src="audio/audio3.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audioCorrecto" preload="auto">
+		<source src="audio/correcto.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audioIncorrecto" preload="auto">
+		<source src="audio/incorrecto.mp3" type="audio/mpeg">
+	</audio>
+	<div>
+		<img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+		<input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+	</div>
 
         <div class="titulo">
             <Font face="Century Gothic">
@@ -201,6 +215,7 @@
     </div>
     <!-- <script src="js/funciones/letras/y-ll.js"></script> -->
     <script src="js/Barra.js"></script>
+    <script src="js/audio.js"></script>
     <script>
         // Vidas
 var error = 3
@@ -215,6 +230,8 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 var semaforo = document.getElementById('semaforo')
 var imagen = document.getElementById('figura') 
 var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
@@ -504,6 +521,7 @@ function Comprobar(letra){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
         puntaje -= 0.3
@@ -579,6 +597,7 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
     contador2 += 0.3
     console.log(contador2)
     Progreso(contador2, puntaje)

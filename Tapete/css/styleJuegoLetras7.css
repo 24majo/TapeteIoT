@@ -9,7 +9,7 @@ body{
 
 .titulo{
     margin-left: 100px;
-    margin-top: 10px;
+    margin-top: -20px;
 }
 
 #opcionArriba{
@@ -155,4 +155,16 @@ body{
 .swal-icon img{
     width: 170px;
     height: 160px;
+  }
+  .imgVolumen {
+    width: 80px;
+    cursor: pointer;
+    margin-left:80%;
+    margin-top: -80px;
+  }
+  .rango{
+    margin-left: 10px;
+    margin-top: -200px;
+    width: 100px;
+
   }

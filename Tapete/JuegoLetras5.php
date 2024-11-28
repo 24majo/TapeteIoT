@@ -143,14 +143,29 @@
 </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-<div style="margin-left: 790px; margin-top: -350px">
-    <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
-</div>
-<img  class="semaforo" id="semaforo" alt=""  width="100">
+    <div style="margin-left: 680px; margin-top: -400px">
+        <progress style="height: 80px; width:380px;" id="barra" max="10" value="0"></progress>
+    </div>
+    <img  class="semaforo" id="semaforo" alt=""  width="100">
 
-<div>
-    <div  class="vidas" id="vida"></div>
-</div>
+    <div>
+        <div  class="vidas" id="vida"></div>
+    </div>
+
+    <audio id="audio" preload="auto" loop >
+		<source src="audio/audio1.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audioCorrecto" preload="auto">
+		<source src="audio/correcto.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="audioIncorrecto" preload="auto">
+		<source src="audio/incorrecto.mp3" type="audio/mpeg">
+	</audio>
+	<div>
+		<img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+		<input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
+	</div>
+
 
     <nav class="titulo">
         <Font face="Century Gothic">
@@ -197,6 +212,7 @@
     </div>
     <!-- <script src="js/funciones/letras/r-rr.js"></script> -->
     <script src="js/Barra.js"></script>
+    <script src="js/audio.js"></script> 
     <script>
         // Vidas
 var error = 3
@@ -209,6 +225,8 @@ var contador2 = 0
 contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
@@ -549,6 +567,7 @@ function ComprobarF(letra){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
         puntaje -= 0.3
@@ -623,6 +642,7 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
     contador2 += 0.3
     console.log(contador2)
     Progreso(contador2, puntaje)

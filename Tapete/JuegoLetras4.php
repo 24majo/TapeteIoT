@@ -154,7 +154,7 @@
     </div>
 
     <audio id="audio" preload="auto" loop >
-				<source src="audio/audio1.mp3" type="audio/mpeg">
+				<source src="audio/audio2.mp3" type="audio/mpeg">
 			</audio>
 
 			<audio id="audioCorrecto" preload="auto">
@@ -493,7 +493,6 @@ function Comprobar(letra){
         for(var i = 0; i < respuesta.length; i++) {
             if(respuesta[i]==letra){
                 respuesta[i] == letra
-                audioCorrecto.play(); // Iniciar audio correcto :D
                 break
             }
         }
@@ -598,7 +597,7 @@ function Fallo(){
 }
 
 function Felicidades(){
-    
+    audioCorrecto.play(); // Iniciar audio correcto :D
     contador2 += 0.3
     Progreso(contador2, puntaje)
     swal({

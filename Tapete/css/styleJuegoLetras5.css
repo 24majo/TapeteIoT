@@ -9,7 +9,7 @@ body{
 
 .titulo{
     margin-left: 100px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 
@@ -112,7 +112,7 @@ body{
 
 .vidas{
     margin-top: -90px;
-    margin-left: 650px;
+    margin-left: 550px;
 }
 
 .btnOpciones{
@@ -134,7 +134,7 @@ body{
 }
 .semaforo{
     margin-top: -120px;
-    margin-left: 510px;
+    margin-left: 420px;
 }
 
 .barraM{
@@ -145,4 +145,17 @@ body{
 .swal-icon img{
     width: 170px;
     height: 160px;
+  }
+
+  .imgVolumen {
+    width: 80px;
+    cursor: pointer;
+    margin-left:80%;
+    margin-top: -80px;
+  }
+  .rango{
+    margin-left: 10px;
+    margin-top: -200px;
+    width: 100px;
+
   }

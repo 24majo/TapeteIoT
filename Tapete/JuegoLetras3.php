@@ -143,7 +143,7 @@
 </div>
 
 <audio id="audio" preload="auto" loop >
-				<source src="audio/audio1.mp3" type="audio/mpeg">
+				<source src="audio/lectura.mp3" type="audio/mpeg">
 			</audio>
 
 			<audio id="audioCorrecto" preload="auto">
@@ -539,7 +539,7 @@ function Pregunta(){
 function validar(respuesta){
     if(aux == 0){
         if(respuesta == resp1){
-            audioCorrecto.play(); // Iniciar audio correcto :D
+           
             contador2 += 0.3
             Progreso(contador2, puntaje)
             aux++
@@ -551,7 +551,7 @@ function validar(respuesta){
             Pregunta()
         }
         else{
-            audioIncorrecto.play(); // Iniciar audio incorrecto :c
+            
             Fallo()
         }
     }
@@ -626,6 +626,7 @@ window.onload = function() {
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
         puntaje -= 0.3
@@ -694,6 +695,7 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",

@@ -144,13 +144,27 @@
 </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-    <div style="margin-left: 800px; margin-top: -280px">
+    <div style="margin-left: 700px; margin-top: -380px">
         <progress style="height: 80px; width:380px;" id="barra" max="12" value="0"></progress>
     </div>
 
     <nav>
         <div>
             <div class="vidas" id="vida"></div>
+        </div>
+
+        <audio id="audio" preload="auto" loop >
+            <source src="audio/audio5.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="audioCorrecto" preload="auto">
+            <source src="audio/correcto.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="audioIncorrecto" preload="auto">
+            <source src="audio/incorrecto.mp3" type="audio/mpeg">
+        </audio>
+        <div>
+            <img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
+            <input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
         </div>
 
         <div  class="titulo">
@@ -164,14 +178,11 @@
     <article>
         <section>
             <center>
-                <img class="imagen" id='imagen' width="150px" height="150px">
+                <img style="z-index:-1;" class="imagen" id='imagen' width="150px" height="150px">
                 <font>
                     <div class="palabra" id="linea"></div>
-                </font>
-                
+                </font>     
             </center>
-            
-            
         </section>
 
         <div class="botones">
@@ -235,6 +246,7 @@
 </body>
 
     <script src="js/Barra.js"></script>
+    <script src="js/audio.js"></script>
     <!-- <script src="js/funciones/letras/trabadas.js"></script> -->
      <script>
         // Vidas
@@ -249,6 +261,8 @@ document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 var encabezado = localStorage.getItem("valor") // Envío de valor de acuerdo con el modo de juego
 var palabras = []
 var opciones = document.getElementsByClassName("opcion")
@@ -457,6 +471,7 @@ function Reiniciar(){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
         puntaje = 6.6
@@ -490,6 +505,7 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
