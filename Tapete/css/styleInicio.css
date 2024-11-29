@@ -1,0 +1,118 @@
+/* .iniciaSesion{
+    color: white;
+    padding: 20px;
+ } */
+ 
+ /* .tramite{
+     margin-left: 700%;
+ } */
+ 
+ .botonCrear{
+     border-radius: 20px;
+     background-color:white;
+     border: none;
+     height: 40px;
+     width: 50%;
+     color: #215485;
+     transition: transform 0.5s ease;
+ 
+ }
+ .botonCrear:hover{
+     background-color: #00386c;
+     color: white;
+     transform: scale(1.1);
+ }
+ 
+ /* .busqueda{
+     border-radius: 20px;
+     border: none;
+     height: 30px;
+ } */
+ 
+ .tituloArt{
+     margin-left: 6%;
+ }
+ .imagen{
+     transition: transform 0.5s ease;
+ }
+ .btnPrincipal{
+     background:  #FFDC78;
+     color: white;
+     transition: transform 0.5s ease;
+ }
+ .btnPrincipal:hover{
+     /*  background-color: rgba(0, 9, 59, 0.467); */
+     background:#FCBE00;
+     color: white;
+     transform: scale(1.1);
+ }
+ .imagen:hover{
+     transform: scale(1.1);
+ }
+ .card{
+     transition: transform 0.5s ease;
+ }
+ .card:hover{
+     transform: scale(1.1);
+     background-color: rgba(200, 200, 200, 0.486);
+ }
+ 
+   .container{
+     margin: 0;
+     padding: 0;
+     position: relative;
+     max-width: 100%;
+    
+ }
+ 
+ .principal {
+     text-align: center;
+     padding: 5%;
+     background-image: url('../Visual/Material/Recursos/banner.jpg');
+     width: 125.5%;
+     max-width: 150%;
+     margin-left: -15%;
+     background-size: cover;
+ }
+ 
+ .containerBanner{
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    text-align: justify;
+    padding: 20px;
+ }
+ .titulo {
+     color:#FBB03B;
+     font-size: 50px;
+     font-weight: bold;
+ }
+ 
+ .texto {
+     color: rgb(0, 0, 0);
+     font-size: 25px;
+ }
+ 
+ .info {
+     text-align: left;
+     margin-left: 10%;
+     margin-right: 10%;
+     max-width: 40%;
+ }
+ 
+ .imagen {
+     border-radius: 20px;
+     margin-top: -30%;
+     margin-left: 50%;
+     width: 25%;
+     height: 25%;
+ }
+ 
+ .btnPrincipal{
+     border-radius: 20px;
+     border: none;
+     height: 40px;
+     width: 40%;
+     align-items: center;
+     color: wheat;
+ }
