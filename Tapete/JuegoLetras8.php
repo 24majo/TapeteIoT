@@ -178,7 +178,7 @@
     <article>
         <section>
             <center>
-                <img style="z-index:-1;" class="imagen" id='imagen' width="150px" height="150px">
+                <img style="z-index:-1;" class="imagen ocultar" id='imagen' width="150px" height="150px">
                 <font>
                     <div class="palabra" id="linea"></div>
                 </font>     
@@ -194,7 +194,7 @@
     </article>
 
             <center>
-                <div class="tabla">
+                <div class="tabla ocultar">
                     <table>
                         <thead>
                             <tr>
@@ -205,25 +205,25 @@
                         
                         <tbody>
                             <tr>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
                             </tr>
                             <tr>
                             </tr>
                             <tr>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
                             </tr>
 
                             <tr>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla1" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
-                                <td><img class="tabla2" src="" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla1" src="Visual/Material/Letras/Juego8/Trabadas1.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
+                                <td><img class="tabla2" src="Visual/Material/Letras/Juego8/Trabadas2.jpg" width="100px" height="100px" alt=""></td>
                             </tr>
 
                             <tr>
@@ -329,6 +329,11 @@ function ValoresTabla(){
 }
 
 function Empezar(){
+    const tabla = document.querySelector('.tabla');
+    const imagen = document.getElementById('imagen');
+    tabla.classList.remove('ocultar');
+    imagen.classList.remove('ocultar');
+
     respuesta = palabras[Math.floor(Math.random() * palabras.length)]
     var repetida = palabras.indexOf(respuesta)
     palabras.splice(repetida, 1)
