@@ -176,6 +176,7 @@ var vida = document.getElementById('vida');
 vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 // Barra de progreso
+var n_juego = <?php echo $num_juego; ?>;
 contador = 0
 var puntaje = 10
 document.getElementById("barra").value = contador
@@ -195,7 +196,23 @@ var tabla1 = document.getElementsByClassName("tabla1")
 var tabla2 = document.getElementsByClassName("tabla2")
 var t1 = 0, t2 = 0
 
-
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: n_juego,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado. ', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
 
 function ValoresTabla(){
     if(encabezado == "b"){
@@ -444,6 +461,7 @@ function Felicidades(){
             contador++
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
+            Progreso(contador, puntaje)
 
             if(contador == 12){
                 swal({
