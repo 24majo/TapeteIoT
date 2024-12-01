@@ -5,10 +5,14 @@ vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 // Barra de progreso
 contador = 0
+var puntaje = 10
+var contador2 = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 
 // Elementos generales
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 var semaforo = document.getElementById('semaforo')
 var imagen = document.getElementById('figura') 
 var palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
@@ -112,6 +116,24 @@ function Reiniciar(){
     num_opcion = 0
     respuesta_m = []
     Empezar()
+}
+
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 12,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado. ', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
 }
 
 function Empezar(){
@@ -280,16 +302,23 @@ function Comprobar(letra){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
     }
 
     if(error == 1){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
     }
 
     if(error == 0){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = ""
         swal({
             title: "¡Oh no!",
@@ -320,6 +349,8 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                puntaje = 3.3
+                                Progreso(contador, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 palabras_m = ["yoyo", "llanta", "yate", "olla", "muelle", "yema", "collar", "calle", "botella", "sillón"]
                                 palabras = palabras_m
@@ -327,6 +358,8 @@ function Fallo(){
                             }
 
                             if(valor == 'medio'){
+                                puntaje = 0
+                                Progreso(contador, puntaje)
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 palabras_f = ["ayuda", "rayo", "coyote", "yogur", "yegua", "llave", "llama", "lluvia", "pollo", "estrella"]
@@ -349,6 +382,10 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
+    contador2 += 0.3
+    console.log(contador2)
+    Progreso(contador2, puntaje)
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
@@ -364,6 +401,8 @@ function Felicidades(){
 
             if(contador == 10){
                 if(valor == "dificil"){
+                    contador2 = 10
+                    Progreso(contador2, puntaje)
                     swal({
                         title: "Felicidades",
                         text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
@@ -376,6 +415,8 @@ function Felicidades(){
                         } 
                         else{
                             valor = 'facil'
+                            puntaje = 0
+                            Progreso(contador, puntaje)
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
                             palabras = palabras_f
@@ -398,6 +439,8 @@ function Felicidades(){
                         } 
                         else{
                             if(valor == 'facil'){
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 valor = 'medio'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
@@ -405,6 +448,8 @@ function Felicidades(){
 
                             else{
                                 if(valor == 'medio'){
+                                    contador2 = 6.6
+                                    Progreso(contador2, puntaje)
                                     valor = 'dificil'                                    
                                     semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
@@ -450,9 +495,6 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            if(valor == 'dificil')
-                Empezar()
-            break;
         case 'ArrowLeft':
             if(valor == 'dificil')
                 Empezar()
@@ -472,12 +514,19 @@ function Ayuda(){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    if(valor == 'facil')
+    if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
+    console.log("carga: " + contador2)
 }

@@ -217,14 +217,20 @@ function Reiniciar(){
 function Fallo(){
     error-- 
     if(error == 2){
+        puntaje = 6.6
+        Progreso(contador, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
     }
 
     if(error == 1){
+        puntaje = 3.3
+        Progreso(contador, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
     }
 
     if(error == 0){
+        puntaje = 0
+        Progreso(contador, puntaje)
         vida.innerHTML = ""
         swal({
             title: "¡Oh no!",

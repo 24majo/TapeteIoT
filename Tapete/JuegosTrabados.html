@@ -17,7 +17,7 @@
 
     <br><br><br>
     <nav>
-        <a href="MenuSeleccion.html" class="btnInicio">
+        <a href="MenuSeleccion.php" class="btnInicio">
             <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
         </a>
 
@@ -33,26 +33,20 @@
     </div>
     
     <article>
-        <form id="form_juego" method="POST" action="JuegoLetras8.php"></form>
-            <font face="Century Gothic">
-                <button class="btnB" onclick="valor('b', 14)"><b>bl | br</b></button>
-                <button class="btnC" onclick="valor('c', 15)"><b>cl | cr</b></button>
-                <button class="btnF" onclick="valor('f', 16)"><b>fl | fr</b></button>
-                <button class="btnG" onclick="valor('g', 17)"><b>gl | gr</b></button>
-                <button class="btnP" onclick="valor('p', 18)"><b>pl | pr</b></button>
-                <button class="btnT" onclick="valor('t', 19)"><b>tl | tr</b></button>
-            </font>
-            <input type="hidden" name="jugar" id="jugar">
-        </form>
+        <font face="Century Gothic">
+            <button class="btnB" onclick="valor('b', 14)"><b>bl | br</b></button>
+            <button class="btnC" onclick="valor('c', 15)"><b>cl | cr</b></button>
+            <button class="btnF" onclick="valor('f', 16)"><b>fl | fr</b></button>
+            <button class="btnG" onclick="valor('g', 17)"><b>gl | gr</b></button>
+            <button class="btnP" onclick="valor('p', 18)"><b>pl | pr</b></button>
+            <button class="btnT" onclick="valor('t', 19)"><b>tl | tr</b></button>
+        </font>
     </article>
         
     <script>
         function valor(dato, juego) {
             localStorage.setItem('valor', dato)
-            localStorage.setItem('juego', juego)
-            document.getElementById('jugar').value = juego;
-            document.getElementById('form_juego').submit();
-            //window.location.href = './JuegoLetras8.php'
+            window.location.href = './JuegoLetras8.php?num_juego='+juego
         }
     </script>
 </body>

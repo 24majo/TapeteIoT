@@ -62,16 +62,6 @@
             else if ($sexo == "H"){
                 $imagen = "Visual/Material/Recursos/SesionNiño.png";
             }
-    
-            $sql = "SELECT juegos.nombre, progreso_alumno.progreso, progreso_alumno.puntaje
-                    FROM progreso_alumno 
-                    JOIN juegos
-                    ON progreso_alumno.num_juego = juegos.num_juego
-                    WHERE progreso_alumno.CURP = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $curp);
-            $stmt->execute();
-            $result = $stmt->get_result();
         }
         else {
             echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
@@ -80,7 +70,8 @@
     ?>
     <img class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="40px">
     <h2><?php echo $name; ?></h2>
-
+    
+    <span>Juego de números</span>
     <table>
         <thead>
             <tr>
@@ -91,22 +82,71 @@
         </thead>
         <tbody>
             <?php
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo "<td>" . $row['nombre'] . "</td>";
-                    echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
-                    echo "<td>" . $row['puntaje'] . "</td>";
-                    echo "</tr>";
+                $sql = "SELECT juegos.nombre, progreso_alumno.progreso, progreso_alumno.puntaje
+                FROM progreso_alumno 
+                JOIN juegos
+                ON progreso_alumno.num_juego = juegos.num_juego
+                WHERE progreso_alumno.CURP = ? AND juegos.categoria = 'Números'";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $curp);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<tr>';
+                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
+                        echo "<td>" . $row['puntaje'] . "</td>";
+                        echo "</tr>";
+                    }
+                } 
+                else {
+                    echo "<tr><td colspan='4'>Aún no has jugado</td></tr>";
                 }
-            } 
-            else {
-                echo "<tr><td colspan='4'>Aún no has jugado</td></tr>";
-            }
             ?>
         </tbody>
     </table>
-    <span>Promedio general</span>
+
+    <span>Juego de Letras</span>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre del juego</th>
+                <th>Progreso</th>
+                <th>Calificación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                $letras = "SELECT juegos.nombre, progreso_alumno.progreso, progreso_alumno.puntaje
+                FROM progreso_alumno 
+                JOIN juegos
+                ON progreso_alumno.num_juego = juegos.num_juego
+                WHERE progreso_alumno.CURP = ? AND juegos.categoria = 'Letras'";
+                $stmt = $conn->prepare($letras);
+                $stmt->bind_param("s", $curp);
+                $stmt->execute();
+                $r_letras = $stmt->get_result();
+
+                if ($r_letras->num_rows > 0) {
+                    while($row = $r_letras->fetch_assoc()) {
+                        echo '<tr>';
+                        echo "<td>" . $row['nombre'] . "</td>";
+                        echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
+                        echo "<td>" . $row['puntaje'] . "</td>";
+                        echo "</tr>";
+                    }
+                } 
+                else {
+                    echo "<tr><td colspan='4'>Aún no has jugado</td></tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+
+    <span>Promedios</span><br>
+    <span>General:</span>
     <?php
         $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
         $stmt = $conn->prepare($sql);
@@ -231,15 +271,8 @@
             echo "<span>Sin datos de este alumno</span>";
         }
     ?>
+    <button onclick="window.history.back()">Regresar</button><br>
     <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
-    
-    <!-- <div class='porcentajes' style="--porcentaje: 75; --color: forestgreen">
-        <svg width="150" height="150">
-            <circle r="65" cx="50%" cy="50%" pathlength="100" />
-            <circle r="65" cx="50%" cy="50%" pathlength="100" />
-        </svg>
-        <span>75%</span>
-    </div> -->
 </body>
 </html>
 

@@ -4,9 +4,13 @@ var vida = document.getElementById('vida');
 vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 // Barra de progreso
+var puntaje = 10
+var contador2 = 0
 contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
@@ -73,6 +77,24 @@ var palabras_d =[
 
 Ayuda()
 
+function Progreso(progreso,puntaje){
+    $.ajax({
+        url: 'conexiones/actualizar_progreso_a.php',  
+        type: 'POST',
+        data: {
+            progreso: progreso, 
+            puntaje: puntaje,
+            num_juego: 11,
+        },
+        success: function(response) {
+            console.log('Progreso actualizado. ', response);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error al actualizar el progreso: ' + error);
+        }
+    });
+}
+
 function Reinicio(){
     swal({
         title: "Reiniciar juego",
@@ -100,7 +122,7 @@ function Reiniciar(){
 
     if (valor == "medio")
         palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
-    
+
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -329,16 +351,23 @@ function ComprobarF(letra){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
     }
 
     if(error == 1){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
     }
 
     if(error == 0){
+        puntaje -= 0.3
+        Progreso(contador2, puntaje)
         vida.innerHTML = ""
         swal({
             title: "¡Oh no!",
@@ -368,6 +397,8 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
                                 palabras = palabras_m
@@ -376,6 +407,8 @@ function Fallo(){
 
                             if(valor == 'medio'){
                                 valor = "facil"
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
                                 palabras = palabras_f
@@ -397,6 +430,10 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
+    contador2 += 0.3
+    console.log(contador2)
+    Progreso(contador2, puntaje)
     swal({
         title: "¡Muy bien!",
         text: "Continuemos. Sigue así",
@@ -412,6 +449,8 @@ function Felicidades(){
 
             if(contador == 10){
                 if(valor == "dificil"){
+                    contador2 = 10
+                    Progreso(contador2, puntaje)
                     swal({
                         title: "Felicidades",
                         text: "Has completado todos los niveles. ¿Quieres reiniciar todo o salir?",
@@ -424,6 +463,8 @@ function Felicidades(){
                         } 
                         else{
                             valor = "facil"
+                            contador2 = 0
+                            Progreso(contador2, puntaje)
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
                             palabras = palabras_f
@@ -446,6 +487,8 @@ function Felicidades(){
                         } 
                         else{
                             if(valor == 'facil'){
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 valor = 'medio'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
@@ -453,6 +496,8 @@ function Felicidades(){
 
                             else{
                                 if(valor == 'medio'){
+                                    contador2 = 6.6
+                                    Progreso(contador2, puntaje)
                                     valor = 'dificil'                                    
                                     semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
@@ -504,9 +549,6 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            if(valor == 'dificil')
-                Empezar()
-            break;
         case 'ArrowLeft':
             if(valor == 'dificil')
                 Empezar()
@@ -526,12 +568,19 @@ function Ayuda(){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    if(valor == 'facil')
+    if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
+    console.log("carga: " + contador2)
 }

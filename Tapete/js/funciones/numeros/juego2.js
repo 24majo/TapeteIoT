@@ -47,6 +47,8 @@ function Progreso(progreso,puntaje){
 function Reiniciar(){
     numeros = [1,2,3,4,5,6,7,8,9]
     contador = 0
+    puntaje = 10
+    Progreso(contador, puntaje)
     error = 3
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
@@ -166,8 +168,7 @@ function Opciones(num){
             })
 
             if(contador==9){
-                
-                Progreso(contador, puntaje)
+                Progreso(10, puntaje)
                 swal({
                     title: "¡Felicidades! :D",
                     text: "Has completado todas las secuencias. \n ¿Deseas reintentar el juego o salir?",
@@ -192,18 +193,21 @@ function Opciones(num){
         error--
         if(error == 2){
             puntaje = 6.6
+            Progreso(contador, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 1){
             puntaje = 3.3
+            Progreso(contador, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 0){
             puntaje = 0
+            Progreso(contador, puntaje)
             imagen.innerHTML = ""
             CaidaPollo()
 
@@ -252,17 +256,8 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
-            Acciones()
-            break;
-
         case 'ArrowDown':
-            Acciones()
-            break;
-
         case 'ArrowLeft':
-            Acciones()
-            break;
-
         case 'ArrowRight':
             Acciones()
             break;
