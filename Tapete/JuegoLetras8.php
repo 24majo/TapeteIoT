@@ -1,90 +1,11 @@
 <?php
-    session_start();
-    $conn = new mysqli("localhost", "root", "", "tapeteiot");
-
-	if ($conn->connect_error) {
-		die("Error de conexión: " . $conn->connect_error);
-	}
-
-    if (isset($_SESSION['CURP'])) {
-        $curp = $_SESSION['CURP'];
-        $nombre = "SELECT Nombres from usuarios WHERE CURP = '$curp'";
-        $r_nombre = $conn -> query($nombre);
-        $nombreF = $r_nombre->fetch_assoc();
-        $name = $nombreF['Nombres'];
-
-        $sexo = substr($curp, -8, 1);
-
-		if($sexo == "M"){
-			$imagen = "Visual/Material/Recursos/SesionNiña.png";
-		}
-		else if ($sexo == "H"){
-			$imagen = "Visual/Material/Recursos/SesionNiño.png";
-		}
-
-        if (isset($_POST['jugar'])) {
-            $juego = $_POST['jugar'];
-            echo "num_juego: " . $juego;
-        }
-
-		$juego = "SELECT num_juego FROM JUEGOS WHERE num_juego = 14";
-		$n_juego = $conn->query($juego);
-		if ($n_juego && $n_juego->num_rows > 0) {
-            $juego1 = $n_juego->fetch_assoc();
-            $num_juego = $juego1['num_juego'];
-        } 
-		
-		else {
-            $num_juego = null;
-        }
-
-		if ($num_juego != null) {
-            // Verificar si el registro ya existe en la tabla 'registro_juegos'
-            $consulta = "SELECT COUNT(*) FROM progreso_alumno WHERE CURP = ? AND num_juego = ?";
-            $stmt = $conn->prepare($consulta);
-            $stmt->bind_param("si", $curp, $num_juego);
-            $stmt->execute();
-            $stmt->bind_result($exists);
-            $stmt->fetch();
-            $stmt->close();
-
-            if ($exists == 0) {
-                $progreso = 0; 
-                $puntaje = 0; 
-
-                $insertar = "INSERT INTO progreso_alumno (CURP, num_juego, progreso, puntaje) 
-                            VALUES (?, ?, ?, ?)";
-                $stmt = $conn->prepare($insertar);
-                $stmt->bind_param("siii", $curp, $num_juego, $progreso, $puntaje);
-
-                if ($stmt->execute()) {
-                    echo '<script src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>';
-                    echo 
-                    '<script>
-                        swal({
-                            title: "success",
-                            text: "Juego guardado",
-                            icon: "Ahora este alumno tiene un nuevo objetivo."
-                        })
-                    </script>';
-                } 
-				else {
-                    echo "Error al registrar los datos del juego: " . $stmt->error;
-                }
-
-                $stmt->close();
-            } 
-        } 
-		
-		else {
-            echo "No se ha encontrado un juego para este usuario.";
-        }
+    if (isset($_GET['num_juego'])) {
+        $num_juego = $_GET['num_juego'];
     } 
-    
     else {
-        echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
-        exit; 
+        $num_juego = null;
     }
+	include'conexiones/agregar_juego.php';
 ?>
 
 <!DOCTYPE html>
