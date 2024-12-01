@@ -41,10 +41,9 @@
         event.preventDefault();
       }
     </script>
-<body>
+<body  background="./Tapete/Visual/Fondos/FondoInicioSesion2.jpg">
 
 <div class="container2">
-    
 <form class="formulario2" method="post" action="Tapete/conexiones/ingreso_admin.php">
       <h2>Ingreso de administrativos</h2>
       <label>Número de empleado</label>
@@ -72,6 +71,6 @@
       </div>
   </form>
 </div>
-</center>
+
 </body>
 </html>

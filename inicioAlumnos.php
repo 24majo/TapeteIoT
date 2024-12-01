@@ -44,9 +44,9 @@
       }
     </script>
 
-<body>
-    <center>
-<div  class="container">
+<body background="./Tapete/Visual/Fondos/FondoInicioSesion.jpg">
+   
+    <div  class="container">
           <form class="formulario" method="post" action="Tapete/conexiones/ingreso_alumno.php">
             <h1>¡Bienvenido(a)!</h1>
             <h3>Ingreso de alumnos</h3>
@@ -74,6 +74,5 @@
         </form>
       </div>
 </div>
-s</center>
 </body>
 </html>
