@@ -258,11 +258,15 @@ function Racierto(num){
 
                                 if(valor == 'dificil'){
                                     valor = "medio"
+                                    contador2 = 3.3
+                                    Progreso(contador2, puntaje)
                                     semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 }
 
                                 if(valor == 'medio'){
                                     valor = "facil"
+                                    contador2 = 0
+                                    Progreso(contador2, puntaje)
                                     semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 }
 
@@ -335,17 +339,8 @@ window.addEventListener("keyup",(e)=>{
     let tecla = e.key
     switch(tecla){
         case 'ArrowUp':
-            Empezar()
-            break;
-
         case 'ArrowDown':
-            Empezar()
-            break;
-
         case 'ArrowLeft':
-            Empezar()
-            break;
-
         case 'ArrowRight':
             Empezar()
             break;
