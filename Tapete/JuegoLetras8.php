@@ -402,8 +402,8 @@
             document.getElementById("barra").innerHTML = contador
 
             for(var i = 0; i < tabla1.length; i++){
-                tabla1[i].src = ""
-                tabla2[i].src = ""
+                tabla1[i].src = "Visual/Material/Letras/Juego8/Trabadas1.jpg"
+                tabla2[i].src = "Visual/Material/Letras/Juego8/Trabadas2.jpg"
             }
             
             t1 = 0
