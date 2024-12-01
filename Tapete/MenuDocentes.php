@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Docentes</title>
+    <style>
+        @keyframes rellenar{
+            to{
+                stroke-dasharray: var(--porcentaje) 100;
+            }
+        }
+
+        .porcentajes{
+            position:relative;
+        }
+        .porcentajes span{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            bottom: 0%;
+            right: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: 25px/1em Verdana;
+        }
+
+        circle{
+            fill: none;
+            stroke-width: 20;
+            transform: rotate(-90deg);
+            transform-origin: 50%;
+            stroke-dasharray: 100 100;
+            stroke: #AAA;
+        }
+        circle:nth-child(2){ /* el segundo círculo, es el que se ve por encima del anterior y debe tener el color mas intenso y el area del porcentaje */
+            stroke: var(--color);
+            stroke-dasharray: 0 100;
+            animation: rellenar .35s linear forwards;
+        }
+    </style>
 </head>
 <body>
     <?php 
@@ -78,6 +114,14 @@
         if ($promedio_g->num_rows > 0) {
             $promediog = $promedio_g->fetch_assoc();
             $pro_gen = number_format($promediog['promedio'], 1);
+
+            if ($pro_gen < 6) {
+                $color = 'red';
+            } elseif ($pro_gen >= 6.1 && $pro_gen <= 8) {
+                $color = 'green'; 
+            } else {
+                $color = 'blue';
+            }
         }
         else{
             echo "No existe un promedio";
@@ -99,6 +143,14 @@
         if ($promedio_n->num_rows > 0) {
             $promedio = $promedio_n->fetch_assoc();
             $pro_num = number_format($promedio['promedio'], 1);
+
+            if ($pro_num < 6) {
+                $color = 'red';
+            } elseif ($pro_num >= 6.1 && $pro_num <= 8) {
+                $color = 'green'; 
+            } else {
+                $color = 'blue';
+            }
         }
         else{
             echo "No existe un promedio";
@@ -120,6 +172,14 @@
         if ($promedio_l->num_rows > 0) {
             $promediol = $promedio_l->fetch_assoc();
             $pro_let = number_format($promediol['promedio'], 1);
+            
+            if ($pro_let < 6) {
+                $color = 'red';
+            } elseif ($pro_let >= 6.1 && $pro_let <= 8) {
+                $color = 'green'; 
+            } else {
+                $color = 'blue';
+            }
         }
         else{
             echo "No existe un promedio";
@@ -127,8 +187,26 @@
     ?>
     <br><br>
     <span>Promedio general: <?php echo $pro_gen; ?></span><br>
+    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_gen; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+        <svg width="150" height="150">
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+        </svg>
+    </div>
     <span>Promedio juego números: <?php echo $pro_num; ?></span><br>
+    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_num; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+        <svg width="150" height="150">
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+        </svg>
+    </div>
     <span>Promedio juego letras: <?php echo $pro_let; ?></span><br>
+    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_let; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+        <svg width="150" height="150">
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+        </svg>
+    </div>
 
     <div id="detalle-alumno"></div>
     <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
