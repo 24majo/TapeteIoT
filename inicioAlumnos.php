@@ -21,11 +21,6 @@
         document.getElementById("pass_a").value = ""
       }
 
-      function Cancelar_d(){
-        document.getElementById("num_empleado").value = ""
-        document.getElementById("pass").value = ""
-      }
-
       function Pregunta(event) {
         var curp = $('#curp').val(); // Obtener el valor del CURP
 
@@ -47,29 +42,6 @@
             }
           });
         } 
-        event.preventDefault();
-      }
-
-      function Pregunta_d(event){
-        var num_e = $('#num_empleado').val();
-        if(num_e.trim() !== ""){
-          $.ajax({
-            url:'Tapete/conexiones/ingreso_admin.php',
-            type:'GET',
-            data: {num_e: num_e},
-            success: function(response){
-              if(response){
-                $('#pregunta_d').val(response);
-              }
-              else{
-                alert('Este empleado no tiene pregunta de seguridad');
-              }
-            },
-            error:function(){
-              alert('Error de consulta');
-            }
-          })
-        }
         event.preventDefault();
       }
     </script>
@@ -103,9 +75,7 @@
             </div>
         </form>
       </div>
-
 </div>
-
-</center>
+s</center>
 </body>
 </html>

@@ -15,38 +15,9 @@
 </head>
 
 <script>
-      function Cancelar_a(){
-        document.getElementById("curp").value = ""
-        document.getElementById("pass_a").value = ""
-      }
-
       function Cancelar_d(){
         document.getElementById("num_empleado").value = ""
         document.getElementById("pass").value = ""
-      }
-
-      function Pregunta(event) {
-        var curp = $('#curp').val(); // Obtener el valor del CURP
-
-        if (curp.trim() !== "") {
-          $.ajax({
-            url: 'Tapete/conexiones/ingreso_alumno.php', // Archivo que consultará la base de datos
-            type: 'GET',
-            data: { curp: curp }, // Enviamos el CURP como parámetro
-            success: function(response) {
-              if (response) {
-                $('#pregunta').val(response);
-              } 
-              else {
-                alert('No se encontró una pregunta para este CURP.');
-              }
-            },
-            error: function() {
-              alert('Hubo un error al intentar consultar la pregunta.');
-            }
-          });
-        } 
-        event.preventDefault();
       }
 
       function Pregunta_d(event){
