@@ -44,7 +44,7 @@
 
                         .then((Okay) => {
                             if (Okay) {
-                                window.location.href = "../../index.php";
+                                window.location.href = "../../index.html";
                             } 
                         });
                     </script>';
@@ -64,7 +64,7 @@
 
                     .then((Okay) => {
                         if (Okay) {
-                            window.location.href = "../../index.php";
+                            window.location.href = "../../index.html";
                         } 
                     });
                 </script>';
@@ -83,7 +83,7 @@
 
                 .then((Okay) => {
                     if (Okay) {
-                        window.location.href = "../../index.php";
+                        window.location.href = "../../index.html";
                     } 
                 });
             </script>';
@@ -150,7 +150,7 @@
 
                     .then((Okay) => {
                         if (Okay) {
-                            window.location.href = "../../index.php";
+                            window.location.href = "../../index.html";
                         } 
                     });
                 </script>';
@@ -170,7 +170,7 @@
 
             .then((Okay) => {
                 if (Okay) {
-                    window.location.href = "../../index.php";
+                    window.location.href = "../../index.html";
                 } 
             });
         </script>';

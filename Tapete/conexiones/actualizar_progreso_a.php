@@ -56,7 +56,7 @@
 
     } 
     else {
-        echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
+        echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.html'>inicia sesión</a>.</h3>";
         exit; 
     }
 ?>
