@@ -4,12 +4,13 @@ var vida = document.getElementById('vida');
 vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 
 // Barra de progreso
-var puntaje = 0
+var puntaje = 10
 var contador2 = 0
 contador = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
-
+const audioCorrecto = document.getElementById('audioCorrecto');
+const audioIncorrecto = document.getElementById('audioIncorrecto');
 // Elementos generales
 var semaforo = document.getElementById('semaforo')
 var imagen = document.getElementById('figura') 
@@ -101,9 +102,9 @@ function Reinicio(){
         icon: "Visual/Material/Animaciones/Generales/advertencia.jpg",
         buttons: true,
         dangerMode: true,
-      })
+        })
 
-      .then((willDelete) => {
+        .then((willDelete) => {
         if (willDelete) {
             document.getElementById("btnIniciar").innerHTML = "Empezar"
             Reiniciar()
@@ -123,9 +124,6 @@ function Reiniciar(){
     if(valor == 'medio')
         palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
 
-    puntaje = 0
-    contador2 = 0
-    Progreso(contador2, puntaje)
     palabras = []
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
@@ -141,7 +139,6 @@ function Reiniciar(){
 }
 
 function Empezar(){
-    puntaje = 10
     switch(valor){
         case 'facil':
             arreglo = ["b", "v"]
@@ -246,10 +243,12 @@ function ComprobarM(letra){
             if(respuesta_m[i] == "_"){
                 if(respuesta[i] == letra){
                     respuesta_m = respuesta_m.replace("_", letra)
+                    audioCorrecto.play(); // Iniciar audio correcto :D
                     break
                 }
 
                 else{
+                    
                     Fallo()
                     break
                 }
@@ -303,6 +302,7 @@ function Comprobar(letra){
 }
 
 function Fallo(){
+    audioIncorrecto.play(); // Iniciar audio incorrecto :c
     error-- 
     if(error == 2){
         puntaje -= 0.3
@@ -376,6 +376,7 @@ function Fallo(){
 }
 
 function Felicidades(){
+    audioCorrecto.play(); // Iniciar audio correcto :D
     contador2 += 0.3
     Progreso(contador2, puntaje)
     swal({
@@ -429,6 +430,8 @@ function Felicidades(){
                         } 
                         else{
                             if(valor == 'facil'){
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 valor = 'medio'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 Reiniciar()
@@ -436,6 +439,8 @@ function Felicidades(){
 
                             else{
                                 if(valor == 'medio'){
+                                    contador2 = 6.6
+                                    Progreso(contador2, puntaje)
                                     valor = 'dificil'
                                     semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     Reiniciar()
@@ -526,12 +531,18 @@ function Ayuda(){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    if(valor == 'facil')
+    if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
 }
