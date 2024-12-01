@@ -40,7 +40,6 @@ function apretar(numero){
         Progreso(contador, puntaje)
 
         if(contador == 10){
-           
             Progreso(contador, puntaje)
             swal({
                 title: "¡Ganador!",
@@ -67,16 +66,19 @@ function apretar(numero){
         if(error == 2){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
             puntaje = 6.6
+            Progreso(contador, puntaje)
         }
 
         if(error == 1){
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
             puntaje = 3.3
+            Progreso(contador, puntaje)
         }
 
         if(error == 0){
             imagen.innerHTML = ""
             puntaje = 0
+            Progreso(contador, puntaje)
 
             swal({
                 title: "Perdiste:(",
@@ -123,6 +125,8 @@ function Reinicio(){
 
 function Reiniciar(){
     contador = 0
+    puntaje = 10
+    Progreso(contador, puntaje)
     error = 3
     //document.getElementById("cont").innerHTML = "Aciertos: " + 
     document.getElementById("barra").value = contador
@@ -173,17 +177,8 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowUp':
-            repetir = Random()
-            break;
-
         case 'ArrowDown':
-            repetir = Random()
-            break;
-
         case 'ArrowLeft':
-            repetir = Random()
-            break;
-
         case 'ArrowRight':
             repetir = Random()
             break;
@@ -242,6 +237,4 @@ function Ayuda(){
         text: "Cuenta la cantidad de peces que están en la pecera. Elige la opción correcta por medio de las teclas ↑ ↓ → ← o los botones del tablero.",
         icon: "Visual/Material/Animaciones/Generales/teclas.jpg"
     })
-    // swal("Tutorial", 
-    //     "Realiza la resta de dos números y elige la opción correcta con los botones o las flechas del teclado.");
 }
