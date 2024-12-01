@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="./Tapete/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Tapete/css/styleIndex.css">
     
-    <script src=".Tapete/js/bootstrap.min.js"></script>
-    <script src="./Tapete/js/query-3.7.1.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+    <script src="./Tapete/js/bootstrap.min.js"></script>
+    <script src="./Tapete/js/jquery-3.7.1.min.js"></script>
 
     <title>Inicio sesión alumnos</title>
 </head>
