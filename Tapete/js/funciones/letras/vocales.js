@@ -14,14 +14,9 @@ var opciones = document.getElementsByClassName("opcion")
 var respuesta = ""
 var guion = ""
 var op_arr = []
+var puntaje = 10
 const audioCorrecto = document.getElementById('audioCorrecto');
 const audioIncorrecto = document.getElementById('audioIncorrecto');
-
-// const objetos = {
-//     resp: undefined,
-//     opc_arr: [],
-//     guion: undefined
-// }
 
 Ayuda()
 
@@ -35,7 +30,7 @@ function Progreso(progreso,puntaje){
             num_juego: 7,
         },
         success: function(response) {
-            console.log('Progreso actualizado', response);
+            console.log('Progreso actualizado');
         },
         error: function(xhr, status, error) {
             console.error('Error al actualizar el progreso: ' + error);
@@ -114,8 +109,6 @@ const replaceAt = (string, character, index) => {
     return string.substring(0, index) + character + string.substring(index + character.length);
 }
 
-
-
 function validar(vocal){
     if(respuesta.indexOf(vocal) != -1) {
         audioCorrecto.play(); // Iniciar audio correcto :D
@@ -128,7 +121,7 @@ function validar(vocal){
     }
 
     else{
-        audioIncorrecto.play(); // Iniciar audio incorrecto :c
+        audioIncorrecto.play()  // Iniciar audio incorrecto :c
         error-- 
         if(error == 2){
             puntaje = 6.6
