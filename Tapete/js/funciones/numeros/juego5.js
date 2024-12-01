@@ -40,21 +40,26 @@ function Progreso(progreso,puntaje){
 
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
-    if(valor == 'facil')
+    if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
+    console.log("carga: " + contador2)
 }
 
 function Reiniciar(){
     error = 3
     contador = 0
-    contador2 = 0
-    puntaje = 10
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
@@ -139,6 +144,9 @@ function Opcion(arreglo){
 function Validar(num){
     if(num == respuesta){
         audioCorrecto.play(); // Iniciar audio correcto :D
+        contador2 += 0.3
+        console.log(contador2)
+        Progreso(contador2, puntaje)
         contador += 1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
         document.getElementById("barra").value = contador
@@ -176,7 +184,7 @@ function Validar(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
-                            contador2 = 3.5
+                            contador2 = 3.3
                             Progreso(contador2, puntaje)
                             valor = 'medio'
                             semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
@@ -185,7 +193,7 @@ function Validar(num){
 
                         else{
                             if(valor == 'medio'){
-                                contador2 = 6.5
+                                contador2 = 6.6
                                 Progreso(contador2, puntaje)
                                 valor = 'dificil'
                                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
@@ -235,11 +243,15 @@ function Validar(num){
                     .then((cambiar) => {
                         if(cambiar){
                             if(valor == 'dificil'){
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 valor = "medio"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                             }
 
                             if(valor == 'medio'){
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 valor = "facil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             }
