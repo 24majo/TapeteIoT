@@ -284,8 +284,6 @@ function Racierto(num){
 function Reiniciar(){
     incorrecto = 3
     contador = 0
-    puntaje = 10
-    contador2 = 0
     imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
