@@ -42,14 +42,20 @@ function Progreso(progreso,puntaje){
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
 
-    if(valor == 'facil')
+    if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
 
-    if(valor == 'medio')
+    if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
 
-    if(valor == 'dificil')
+    if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
 }
 
 function Empezar(){
@@ -137,9 +143,11 @@ function Opcion(arreglo){
 }
 
 function Racierto(num){ 
-    
     if(num == resultado){
         audioCorrecto.play(); // Iniciar audio correcto :D
+        contador2 += 0.3
+        console.log(contador2)
+        Progreso(contador2, puntaje)
         PolloBueno()
         contador+=1
         document.getElementById("btnIniciar").innerHTML = "Continuar"
@@ -180,7 +188,7 @@ function Racierto(num){
                 .then((willDelete) => {
                     if (willDelete) {
                         if(valor == 'facil'){
-                            contador2 = 3.5
+                            contador2 = 3.3
                             Progreso(contador2, puntaje)
                             valor = "medio"
                             semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
@@ -189,7 +197,7 @@ function Racierto(num){
 
                         else{
                             if(valor == 'medio'){
-                                contador2 = 6.5
+                                contador2 = 6.6
                                 Progreso(contador2, puntaje)
                                 valor = "dificil"
                                 semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
