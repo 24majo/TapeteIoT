@@ -357,6 +357,8 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 palabras_m = ["cereza", "cabeza", "pizza", "cisne", "cascada", "escalera", "cazador", "avestruz", "cocodrilo", "pescado"]
                                 palabras = palabras_m
@@ -364,6 +366,8 @@ function Fallo(){
 
                             else if(valor == 'medio'){
                                 valor = "facil"
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 palabras_f = ["carta", "príncipe", "sirena", "zapato", "zanahoria", "manzana", "zorro", "sol", "oso", "mariposa"]
                                 palabras = palabras_f
@@ -417,6 +421,8 @@ function Felicidades(){
                         } 
                         else{
                             valor = 'facil'
+                            contador2 = 0
+                            Progreso(contador2, puntaje)
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "balón", "barco"]
                             palabras = palabras_f

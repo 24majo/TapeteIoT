@@ -397,6 +397,8 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 palabras_m = ["carretera", "barrera", "corredor", "arrastrar", "ferretería", "territorio", "aterrizar", "corrector", "rincón", "ferrocarril"]
                                 palabras = palabras_m
@@ -405,6 +407,8 @@ function Fallo(){
 
                             if(valor == 'medio'){
                                 valor = "facil"
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
                                 palabras = palabras_f
@@ -459,6 +463,8 @@ function Felicidades(){
                         } 
                         else{
                             valor = "facil"
+                            contador2 = 0
+                            Progreso(contador2, puntaje)
                             semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                             var palabras_f = ["pera", "perro", "ratón", "carro", "tierra", "tortuga", "árbol", "torre", "zorro", "guitarra"]
                             palabras = palabras_f
@@ -543,9 +549,6 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            if(valor == 'dificil')
-                Empezar()
-            break;
         case 'ArrowLeft':
             if(valor == 'dificil')
                 Empezar()

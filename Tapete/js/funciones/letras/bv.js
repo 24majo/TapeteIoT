@@ -349,6 +349,8 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
                                 palabras = palabras_m
@@ -356,6 +358,8 @@ function Fallo(){
 
                             else if(valor == 'medio'){
                                 valor = "facil"
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
                                 palabras = palabras_f
@@ -449,27 +453,6 @@ function Felicidades(){
                         }
                     })
                 }
-                // swal({
-                //     title: "Felicidades",
-                //     text: "¿Quieres salir del juego o volver a intentarlo?",
-                //     icon: "Visual/Material/Animaciones/Generales/pollo.gif",
-                //     buttons:  ["Volver a jugar", "Salir"] 
-                // })
-                // .then((reintento) => {
-                //     if (reintento) {
-                //         location.href = "JuegosLetras.html"
-                //     } 
-                //     else{
-                //         if (valor == "facil")
-                //             palabras_f = ["uva", "vela", "vaso", "viento", "volcán", "globo", "lombríz", "libro", "árbol", "cebolla"]
-                        
-                //         if (valor == "medio")
-                //             palabras_m = ["víbora", "vivir", "burbuja", "bebé", "beber", "babosa", "envolver", "biblioteca", "bebida", "sobrevivir"]
-
-                //         document.getElementById("btnIniciar").innerHTML = "Empezar"
-                //         Reiniciar()
-                //     }
-                // })
             }
             else{
                 Empezar()
@@ -509,9 +492,6 @@ window.addEventListener("keyup",(e)=>{
 
     switch(tecla){
         case 'ArrowRight':
-            if(valor == 'dificil')
-                Empezar()
-            break;
         case 'ArrowLeft':
             if(valor == 'dificil')
                 Empezar()

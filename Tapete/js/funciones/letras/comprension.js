@@ -378,18 +378,21 @@ Ayuda() // Tutorial al abrir la pestaña por primera vez
 window.onload = function() {
     valor = localStorage.getItem('valorBoton');
     if(valor == 'facil'){
+        contador2 = 0
         semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
         img_cuento.src = "Visual/Material/Letras/Juego3/GatoConBotas.png"
     }
         
 
     if(valor == 'medio'){
+        contador2 = 3.3
         semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
         img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
     }
         
 
     if(valor == 'dificil'){
+        contador2 = 6.6
         semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
         img_cuento.src = "Visual/Material/Letras/Juego3/PatitoFeo.png"
     }
@@ -440,12 +443,16 @@ function Fallo(){
                         if(cambiar){
                             if(valor == 'dificil'){
                                 valor = "medio"
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
                             }
 
                             else if(valor == 'medio'){
                                 valor = "facil"
+                                contador2 = 0
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 img_cuento.src = "Visual/Material/Letras/Juego3/GatoConBotas.png"
                             }
@@ -514,6 +521,8 @@ function Felicidades(){
                         else{
                             if(valor == 'facil'){
                                 valor = 'medio'
+                                contador2 = 3.3
+                                Progreso(contador2, puntaje)
                                 semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 img_cuento.src = "Visual/Material/Letras/Juego3/SoldaditoDePlomo.png"
                                 Reiniciar()
@@ -521,6 +530,8 @@ function Felicidades(){
 
                             else{
                                 if(valor == 'medio'){
+                                    contador2 = 6.6
+                                    Progreso(contador2, puntaje)
                                     valor = 'dificil'
                                     semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
                                     img_cuento.src = "Visual/Material/Letras/Juego3/PatitoFeo.png"
@@ -553,9 +564,6 @@ function Reinicio(){
 }
 
 function Reiniciar(){
-    puntaje = 0
-    contador2 = 0
-    Progreso(contador2, puntaje)
     error = 3
     vida.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
     contador = 0
