@@ -7,17 +7,13 @@ body{
 
 .container {
     margin-top: 30px;
-    margin-left: 10%;
+    /* margin-left: 10%; */
     width: 100%;
     display: flex;
     align-items: center;
-    border-color: black;
+    border-color: rgb(226, 226, 226);
    
   }
-  /* .tramite{
-    margin-left: 400%;
-} */
-  
   .formulario {
     background:rgb(242, 242, 242);
     border-radius: 20px;
@@ -69,16 +65,13 @@ body{
   }
 
   .container2 {
-    margin-top: -700px;
-    margin-left: 55%;
+    margin-top: 100px;
+    /* margin-left: 50%; */
     width: 100%;
     display: flex;
     align-items: center;
     border-color: black;
   }
-  /* .tramite{
-    margin-left: 400%;
-} */
   
   .formulario2 {
     background:rgb(242, 242, 242);
@@ -96,7 +89,6 @@ body{
   }
 
   .formulario2 h3 {
-    /* text-align: center; */
     margin-top: 10px;
     margin-bottom: 30px;
     font-size: 20px;
