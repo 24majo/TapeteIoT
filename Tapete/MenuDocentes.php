@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Docentes</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/StyleMenuDocente.css">
+    <link rel="stylesheet" href="css/BarraLateral.css">
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Menú docentes</title>
     <style>
         @keyframes rellenar{
             to{
@@ -41,10 +50,14 @@
         }
     </style>
 </head>
-<body>
-    <?php 
+
+<body background="Visual/Fondos/FondoDocente.jpg">
+
+<div style="margin-left:20%">
+<nav>
+<?php 
         include('conexiones/sesion_admin.php'); 
-        echo "<h2>¡Bienvenido, " . $name . "!</h2>";
+        echo "<h1>¡Bienvenido, " . $name . "!</h1>";
         $sql = "SELECT nombre FROM grupos WHERE num_empleado = ? ";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $num_e);
@@ -58,158 +71,205 @@
             echo "Desconocido";
         }
     ?>
+    <!-- ESCRITO GRUPO -->
+    <div class="grupo">
+        <span>Grupo: <?php echo $n_grupo; ?></span>
+    </div>
+</nav>
 
-    <span>Grupo: <?php echo $n_grupo; ?></span>
+ <Section>
+    <article>
+    <!-- TABLA ALUMNOS -->
     <br><br>
-    <table>
-        <thead>
-            <tr>
-                <th>Apellidos</th>
-                <th>Nombres</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $sql = "SELECT usuarios.CURP, usuarios.Nombres, usuarios.Paterno, usuarios.Materno
-            FROM usuarios 
-            join grupos
-            on usuarios.id_grupo = grupos.id_grupo
-            join docentes
-            on grupos.num_empleado = docentes.num_empleado
-            WHERE grupos.num_empleado = ?
-            ORDER BY Paterno ASC";
-            
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $num_e);
-            $stmt->execute();
-            $result = $stmt->get_result();
+    <div class="table-container tablaAlumnos"> 
+        <table class="table table-bordered text-center">
+            <thead style="background-color: #EAA724; color: white;">
+                <tr>
+                    <th>Apellidos</th>
+                    <th>Nombres</th>
+                </tr>
+            </thead>
+            <tbody>
+        <div>
+                <?php
+                $sql = "SELECT usuarios.CURP, usuarios.Nombres, usuarios.Paterno, usuarios.Materno
+                FROM usuarios 
+                join grupos
+                on usuarios.id_grupo = grupos.id_grupo
+                join docentes
+                on grupos.num_empleado = docentes.num_empleado
+                WHERE grupos.num_empleado = ?
+                ORDER BY Paterno ASC";
+                
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $num_e);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '<tr onclick="Progreso(\'' . $row["CURP"] . '\')">';
-                    echo "<td>" . $row['Paterno'] ." ". $row['Materno']. "</td>";
-                    echo "<td>" . $row['Nombres'] . "</td>";
-                    echo "</tr>";
+                if ($result->num_rows > 0) {
+                    while($row = $result->fetch_assoc()) {
+                        echo '<tr onclick="Progreso(\'' . $row["CURP"] . '\')">';
+                        echo "<td>" . $row['Paterno'] ." ". $row['Materno']. "</td>";
+                        echo "<td>" . $row['Nombres'] . "</td>";
+                        echo "</tr>";
+                    }
+                } 
+                else {
+                    echo "<tr><td colspan='4'>No hay registros disponibles</td></tr>";
                 }
-            } 
-            else {
-                echo "<tr><td colspan='4'>No hay registros disponibles</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-
-    <?php
-        // Promedio general
-        $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                         FROM progreso_alumno 
-                         JOIN usuarios
-                         ON progreso_alumno.CURP = usuarios.CURP
-                         INNER JOIN grupos
-                         ON usuarios.id_grupo = grupos.id_grupo
-                         WHERE grupos.nombre = '$n_grupo'";
-
-        $promedio_g = $conn -> query($promedio_gen);
-
-        if ($promedio_g->num_rows > 0) {
-            $promediog = $promedio_g->fetch_assoc();
-            $pro_gen = number_format($promediog['promedio'], 1);
-
-            if ($pro_gen < 6) {
-                $color = 'red';
-            } elseif ($pro_gen >= 6.1 && $pro_gen <= 8) {
-                $color = 'green'; 
-            } else {
-                $color = 'blue';
-            }
-        }
-        else{
-            echo "No existe un promedio";
-        }
-
-        // Promedio números
-        $promedio_num = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                        FROM progreso_alumno 
-                        JOIN usuarios
-                        ON progreso_alumno.CURP = usuarios.CURP
-                        INNER JOIN grupos
-                        ON usuarios.id_grupo = grupos.id_grupo
-                        JOIN juegos
-                        ON progreso_alumno.num_juego = juegos.num_juego
-                        WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
-
-        $promedio_n = $conn -> query($promedio_num);
-
-        if ($promedio_n->num_rows > 0) {
-            $promedio = $promedio_n->fetch_assoc();
-            $pro_num = number_format($promedio['promedio'], 1);
-
-            if ($pro_num < 6) {
-                $color = 'red';
-            } elseif ($pro_num >= 6.1 && $pro_num <= 8) {
-                $color = 'green'; 
-            } else {
-                $color = 'blue';
-            }
-        }
-        else{
-            echo "No existe un promedio";
-        }
-
-        // Promedio letras
-        $promedio_let = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
-                        FROM progreso_alumno 
-                        JOIN usuarios
-                        ON progreso_alumno.CURP = usuarios.CURP
-                        INNER JOIN grupos
-                        ON usuarios.id_grupo = grupos.id_grupo
-                        JOIN juegos
-                        ON progreso_alumno.num_juego = juegos.num_juego
-                        WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
-
-        $promedio_l = $conn -> query($promedio_let);
-
-        if ($promedio_l->num_rows > 0) {
-            $promediol = $promedio_l->fetch_assoc();
-            $pro_let = number_format($promediol['promedio'], 1);
-            
-            if ($pro_let < 6) {
-                $color = 'red';
-            } elseif ($pro_let >= 6.1 && $pro_let <= 8) {
-                $color = 'green'; 
-            } else {
-                $color = 'blue';
-            }
-        }
-        else{
-            echo "No existe un promedio";
-        }
-    ?>
-    <br><br>
-    <span>Promedio general: <?php echo $pro_gen; ?></span><br>
-    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_gen; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
-        <svg width="150" height="150">
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-        </svg>
-    </div>
-    <span>Promedio juego números: <?php echo $pro_num; ?></span><br>
-    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_num; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
-        <svg width="150" height="150">
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-        </svg>
-    </div>
-    <span>Promedio juego letras: <?php echo $pro_let; ?></span><br>
-    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_let; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
-        <svg width="150" height="150">
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-        </svg>
+                ?>
+                </div>
+               
+            </tbody>
+        </table>
     </div>
 
-    <div id="detalle-alumno"></div>
+    <!--FIN TABLA ALUMNOS -->
+    </article>
+
+    <aside>
+    <!-- PHP código promedios -->
+        <?php
+            // Promedio general
+            $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            INNER JOIN grupos
+                            ON usuarios.id_grupo = grupos.id_grupo
+                            WHERE grupos.nombre = '$n_grupo'";
+
+            $promedio_g = $conn -> query($promedio_gen);
+
+            if ($promedio_g->num_rows > 0) {
+                $promediog = $promedio_g->fetch_assoc();
+                $pro_gen = number_format($promediog['promedio'], 1);
+
+                if ($pro_gen < 6) {
+                    $color = 'red';
+                } elseif ($pro_gen >= 6.1 && $pro_gen <= 8) {
+                    $color = 'green'; 
+                } else {
+                    $color = 'blue';
+                }
+            }
+            else{
+                echo "No existe un promedio";
+            }
+
+            // Promedio números
+            $promedio_num = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            INNER JOIN grupos
+                            ON usuarios.id_grupo = grupos.id_grupo
+                            JOIN juegos
+                            ON progreso_alumno.num_juego = juegos.num_juego
+                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
+
+            $promedio_n = $conn -> query($promedio_num);
+
+            if ($promedio_n->num_rows > 0) {
+                $promedio = $promedio_n->fetch_assoc();
+                $pro_num = number_format($promedio['promedio'], 1);
+
+                if ($pro_num < 6) {
+                    $color = 'red';
+                } elseif ($pro_num >= 6.1 && $pro_num <= 8) {
+                    $color = 'green'; 
+                } else {
+                    $color = 'blue';
+                }
+            }
+            else{
+                echo "No existe un promedio";
+            }
+
+            // Promedio letras
+            $promedio_let = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
+                            FROM progreso_alumno 
+                            JOIN usuarios
+                            ON progreso_alumno.CURP = usuarios.CURP
+                            INNER JOIN grupos
+                            ON usuarios.id_grupo = grupos.id_grupo
+                            JOIN juegos
+                            ON progreso_alumno.num_juego = juegos.num_juego
+                            WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
+
+            $promedio_l = $conn -> query($promedio_let);
+
+            if ($promedio_l->num_rows > 0) {
+                $promediol = $promedio_l->fetch_assoc();
+                $pro_let = number_format($promediol['promedio'], 1);
+                
+                if ($pro_let < 6) {
+                    $color = 'red';
+                } elseif ($pro_let >= 6.1 && $pro_let <= 8) {
+                    $color = 'green'; 
+                } else {
+                    $color = 'blue';
+                }
+            }
+            else{
+                echo "No existe un promedio";
+            }
+        ?>
+    <!--FIN PHP código promedios -->   
+
+    <!-- Circulos promedios -->
+    <div class="promCirculos">
+    <div class="container text-center">
+        <div class="row justify-content-md-center">
+            <!-- PROMEDIO GENERAL -->
+            <div class="col-md-auto promedioGeneral">
+            <span>Promedio general: <?php echo $pro_gen; ?></span><br>
+                <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_gen; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+                    <svg width="150" height="150">
+                        <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                        <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                    </svg>
+                </div>
+            </div>
+            <!-- PROMEDIO NUMEROS -->
+            <div class="col-md-auto promedioNum">
+                <span>Promedio juego números: <?php echo $pro_num; ?></span><br>
+                    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_num; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+                        <svg width="150" height="150">
+                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                        </svg>
+                    </div>
+            </div>
+
+            <!-- PROMEDIO LETRAS -->
+            <div class="col-md-auto promedioLetras">
+                <span>Promedio juego letras: <?php echo $pro_let; ?></span><br>
+                    <div class="porcentajes" style="--porcentaje: '.number_format(<?php echo $pro_let; ?>, 1).'; --color: '.<?php echo $color; ?>.'">
+                        <svg width="150" height="150">
+                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                        </svg>
+                    </div>
+            </div>
+
+        </div>
+        </div>
+     </div>
+
+ <!--Fin Circulos promedios -->
+        </aside>
+    </Section>
+
+    <div class="identificar" >
+        <div  id="detalle-alumno"></div>
+    </div>
+  
+    </div>
+    <div class="cerrar">
     <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+    </div> 
+    
 </body>
 <script>
     function Progreso(curp) {
