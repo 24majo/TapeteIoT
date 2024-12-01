@@ -252,11 +252,15 @@ function RCorrecto(num){
                             if(cambiar){
                                 if(valor == 'dificil'){
                                     valor = "medio"
+                                    contador2 = 3.3
+                                    Progreso(contador2, puntaje)
                                     semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
                                 }
 
                                 if(valor == 'medio'){
                                     valor = "facil"
+                                    contador2 = 0
+                                    Progreso(contador2, puntaje)
                                     semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
                                 }
                                 
