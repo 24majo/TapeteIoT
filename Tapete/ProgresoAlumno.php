@@ -106,7 +106,8 @@
             ?>
         </tbody>
     </table>
-    <span>Promedio general</span>
+    <span>Promedios</span><br>
+    <span>General:</span>
     <?php
         $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
         $stmt = $conn->prepare($sql);
@@ -231,15 +232,8 @@
             echo "<span>Sin datos de este alumno</span>";
         }
     ?>
+    <button onclick="window.history.back()">Regresar</button><br>
     <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
-    
-    <!-- <div class='porcentajes' style="--porcentaje: 75; --color: forestgreen">
-        <svg width="150" height="150">
-            <circle r="65" cx="50%" cy="50%" pathlength="100" />
-            <circle r="65" cx="50%" cy="50%" pathlength="100" />
-        </svg>
-        <span>75%</span>
-    </div> -->
 </body>
 </html>
 
