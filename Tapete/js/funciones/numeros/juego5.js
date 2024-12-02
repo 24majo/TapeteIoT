@@ -235,36 +235,43 @@ function Validar(num){
                     location.href = "JuegosNumeros.html"
                 } 
                 else{
-                    swal({
-                        title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
-                        icon: "Visual/Material/Animaciones/Generales/Chick.gif",
-                        buttons:  ["Mantener", "Cambiar"] 
-                    })
-                    .then((cambiar) => {
-                        if(cambiar){
-                            if(valor == 'dificil'){
-                                contador2 = 3.3
-                                Progreso(contador2, puntaje)
-                                valor = "medio"
-                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                    if(valor == "facil"){
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
+
+                    else{
+                        swal({
+                            title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                            icon: "Visual/Material/Animaciones/Generales/Chick.gif",
+                            buttons:  ["Mantener", "Cambiar"] 
+                        })
+                        .then((cambiar) => {
+                            if(cambiar){
+                                if(valor == 'dificil'){
+                                    contador2 = 3.3
+                                    Progreso(contador2, puntaje)
+                                    valor = "medio"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                }
+    
+                                if(valor == 'medio'){
+                                    contador2 = 0
+                                    Progreso(contador2, puntaje)
+                                    valor = "facil"
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                }
+    
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-
-                            if(valor == 'medio'){
-                                contador2 = 0
-                                Progreso(contador2, puntaje)
-                                valor = "facil"
-                                semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    
+                            else{
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
                             }
-
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-
-                        else{
-                            document.getElementById("btnIniciar").innerHTML = "Empezar"
-                            Reiniciar()
-                        }
-                    })
+                        })
+                    }
                 }
             })
         }
