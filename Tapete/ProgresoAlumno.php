@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styleProgresoAlum.css">
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
     <title>Progreso</title>
 
     <style>
@@ -42,7 +49,7 @@
     }
   </style>
 </head>
-<body>
+<body background="Visual/Fondos/FondoPerfilUsuario.jpg">
     <?php 
         include'conexiones/conexion.php';
         session_start();
@@ -64,11 +71,29 @@
             }
         }
         else {
-            echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.php'>inicia sesión</a>.</h3>";
+            echo "<h3>No has iniciado sesión. Por favor, <a href= '../index.html'>inicia sesión</a>.</h3>";
             exit; 
         }
     ?>
-    <img class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="40px">
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div style="background-color:#FF931E; height:80px; margin-top:-6px;" class="container-fluid">
+            <img style="margin-left:5%;" class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="60px">&nbsp;&nbsp;    
+            <span  style="color:white;" class="navbar-brand">Mi perfil</span>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a  style="color:white;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+            </div>
+            </div>
+        </div>
+    </nav>
+
+
+
     <h2><?php echo $name; ?></h2>
     
     <span>Juego de números</span>
@@ -272,7 +297,7 @@
         }
     ?>
     <button onclick="window.history.back()">Regresar</button><br>
-    <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+   
 </body>
 </html>
 
