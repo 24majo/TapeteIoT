@@ -1,12 +1,13 @@
 var opciones = document.getElementsByClassName("opcion")
 var secuencia = []
 var adivinar = []
-var numeros = [1,2,3,4,5,6,7,8,9]
+var numeros = []
 var respuesta
 var result
 var op = []
 // Barra de progreso
 contador = 0
+contador2 = 0
 document.getElementById("barra").value = contador
 document.getElementById("barra").innerHTML = contador
 var error = 3
@@ -15,8 +16,42 @@ var imagen = document.getElementById('vida');
 imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon3.png" width="100">'
 const audioCorrecto = document.getElementById('audioCorrecto');
 const audioIncorrecto = document.getElementById('audioIncorrecto');
+var semaforo = document.getElementById('semaforo')
 
-Ayuda()
+// Ayuda()
+
+window.onload = function() {
+    valor = localStorage.getItem('valorBoton');
+    if(valor == 'facil'){
+        semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+    }
+
+    if(valor == 'medio'){
+        semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+    }
+
+    if(valor == 'dificil'){
+        semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+    }
+    console.log("Valor: " + valor)
+    Arr_numeros()
+}
+
+function Arr_numeros(){
+    switch(valor){
+        case 'facil':
+            numeros = [1,2]
+            break
+
+        case 'medio':
+            numeros = [3,4]
+            break
+
+        case 'dificil':
+            numeros = [1,2,3,4,5]
+            break
+    }
+}
 
 function Ayuda(){
     swal({
@@ -45,10 +80,11 @@ function Progreso(progreso,puntaje){
 }
 
 function Reiniciar(){
-    numeros = [1,2,3,4,5,6,7,8,9]
+    console.log(valor)
+    Arr_numeros()
     contador = 0
     puntaje = 10
-    Progreso(contador, puntaje)
+    Progreso(contador2, puntaje)
     error = 3
     document.getElementById("barra").value = contador
     document.getElementById("barra").innerHTML = contador
@@ -75,8 +111,8 @@ function Reinicio(){
 
 function Empezar(){
     document.getElementById('aparecer').style.display='block';
+    console.log("Arreglo: " + numeros)
     var num1 = numeros[Math.floor(Math.random() * numeros.length)]
-    // alert("Numero: "+num1)
     var repetida = numeros.indexOf(num1)
     if(repetida != -1){
         numeros.splice(repetida, 1)
@@ -84,7 +120,7 @@ function Empezar(){
     else{
         Empezar()
     }
-    // alert("Nuevo: " + numeros)
+    console.log("Nuevo: " + numeros)
     
     for(let i = 0; i < 10; i++){
         secuencia[i] = num1 * (i+1)
@@ -97,7 +133,6 @@ function Empezar(){
     }
     document.getElementById("linea").innerHTML = adivinar
     Acciones()
-    
 }
 
 function Acciones(){
@@ -127,7 +162,7 @@ function Opcion(arreglo){
         let r = Math.floor(Math.random() * secuencia.length) 
         arreglo.push(secuencia[r])
     
-        result = arreglo.filter((item,index)=>{ // Se evita que las vocales aleatorias se repitan
+        result = arreglo.filter((item,index)=>{ 
             return arreglo.indexOf(item) === index;
         })
         Opcion(result)
@@ -148,11 +183,22 @@ function Opciones(num){
         var e = adivinar.includes('_')
 
         if(!e){
-           
-            contador++
+            switch(valor){
+                case 'facil':
+                case 'medio':
+                    contador+=5
+                    break
+
+                case 'dificil':
+                    contador+=2
+                    break
+            }
+
             document.getElementById("barra").value = contador
             document.getElementById("barra").innerHTML = contador
-            Progreso(contador, puntaje)
+            contador2++
+            console.log(contador2)
+            Progreso(contador2, puntaje)
 
             swal({
                 title: "¡Bien hecho!",
@@ -167,22 +213,58 @@ function Opciones(num){
                 }
             })
 
-            if(contador==9){
-                Progreso(10, puntaje)
-                swal({
-                    title: "¡Felicidades! :D",
-                    text: "Has completado todas las secuencias. \n ¿Deseas reintentar el juego o salir?",
-                    icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
-                    buttons: ["Reintentar", "Salir"],
-                })
-                .then((Continuar) => {
-                    if(Continuar){
-                        location.href = "JuegosNumeros.html"
-                    }
-                    else{
-                        Reiniciar() 
-                    }
-                })
+            if(contador==10){
+                if(valor == "dificil"){
+                    numeros = []
+                    contador2 = 10
+                    Progreso(contador2, puntaje)
+                    swal({
+                        title: "¡Ganador!",
+                        text: "Completaste todos los niveles. ¿Deseas salir o reiniciar?",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (3).gif",
+                        buttons:  ["Reiniciar todo", "Salir"],
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            location.href = "JuegosNumeros.html"
+                        } 
+                        else{
+                            valor = 'facil'
+                            semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                            document.getElementById("btnIniciar").innerHTML = "Empezar"
+                            Reiniciar()
+                        }
+                    })
+                }
+    
+                else{
+                    swal({
+                        title: "¡Felicidades!",
+                        text: "Completaste el nivel " + valor + ". ¿Deseas avanzar al siguiente nivel?",
+                        icon: "Visual/Material/Animaciones/Generales/PolloBien (2).gif",
+                        buttons: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            if(valor == 'facil'){
+                                valor = 'medio'
+                                Arr_numeros()
+                                semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                Reiniciar()
+                            }
+    
+                            else{
+                                if(valor == 'medio'){
+                                    valor = 'dificil'
+                                    Arr_numeros()
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoDificil.png"
+                                    Reiniciar()
+                                }
+                            }
+                        } 
+                    })
+                }
             }
         }
         SaltoPollo()
@@ -192,21 +274,21 @@ function Opciones(num){
         audioIncorrecto.play(); // Iniciar audio incorrecto :c
         error--
         if(error == 2){
-            puntaje = 6.6
+            puntaje -= 1
             Progreso(contador, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon2.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 1){
-            puntaje = 3.3
+            puntaje -=1
             Progreso(contador, puntaje)
             imagen.innerHTML = '<img src="Visual/Material/Iconos/corazon1.png" width="100">'
             CaidaPollo()
         }
 
         if(error == 0){
-            puntaje = 0
+            puntaje -= 1
             Progreso(contador, puntaje)
             imagen.innerHTML = ""
             CaidaPollo()
@@ -214,16 +296,56 @@ function Opciones(num){
             swal({
                 title: "¡Oh no!",
                 text: "No te quedan más vidas. ¿Deseas salir o reintentar?",
-                icon: "Visual/Material/Animaciones/Generales/error.jpg",
-                buttons: ["Reintentar", "Salir"]
+                icon: "Visual/Material/Animaciones/Generales/triste.jpg",
+                buttons:  ["Reintentar", "Salir"] 
             })
             .then((reintento) => {
-                if(reintento){
+                if (reintento) {
                     location.href = "JuegosNumeros.html"
-                }
+                } 
                 else{
-                    document.getElementById("btnIniciar").innerHTML = "Empezar"
-                    Reiniciar()
+                    if(valor == "facil"){
+                        contador2 = 0
+                        puntaje = 10
+                        Progreso(contador2, puntaje)
+                        document.getElementById("btnIniciar").innerHTML = "Empezar"
+                        Reiniciar()
+                    }
+
+                    else{
+                        swal({
+                            title: "¿Deseas reintentar el nivel o elegir otra dificultad?",
+                            icon: "Visual/Material/Animaciones/Generales/Chick.gif",
+                            buttons:  ["Mantener", "Cambiar"] 
+                        })
+                        .then((cambiar) => {
+                            if(cambiar){
+                                if(valor == 'dificil'){
+                                    contador2 = 4
+                                    Progreso(contador2, puntaje)
+                                    valor = "medio"
+                                    Arr_numeros()
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoMedio.png"
+                                }
+    
+                                if(valor == 'medio'){
+                                    contador2 = 2
+                                    Progreso(contador2, puntaje)
+                                    valor = "facil"
+                                    Arr_numeros()
+                                    semaforo.src = "Visual/Material/Recursos/SemaforoFacil.png"
+                                }
+    
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
+                            }
+    
+                            else{
+                                document.getElementById("btnIniciar").innerHTML = "Empezar"
+                                Reiniciar()
+                            }
+                        })
+                    }
                 }
             })
         }
