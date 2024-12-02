@@ -5,5 +5,33 @@ body {
   background-size: 100% 100%;
   }
 
+  .titulo{
+    margin-left: 8%;
+  }
+
+  .tituloProm{
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .tituloJuegos{
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .tablaNum{
+    margin-left: 8%;
+    /**/
+  }
+
+  .tablaPNum{
+    text-align: center; 
+  }
+
+  .tablaLet{
+    margin-left: 50%;
+    margin-top: -535px;
+    /**/
+  }
 
   

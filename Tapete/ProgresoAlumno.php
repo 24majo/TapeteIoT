@@ -79,25 +79,169 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div style="background-color:#FF931E; height:80px; margin-top:-6px;" class="container-fluid">
             <img style="margin-left:5%;" class="sexo" id="sexo" src="<?php echo $imagen; ?>" width="60px">&nbsp;&nbsp;    
-            <span  style="color:white;" class="navbar-brand">Mi perfil</span>
+            <span  style="color:white; font-size: 28px;" class="navbar-brand">Mi perfil</span>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a  style="color:white;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+            
             </div>
+                <a style="color:white; font-size: 20px; margin-left:80%;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
             </div>
         </div>
     </nav>
 
+    <section>
+        <div class="titulo">
+            <h1 style="font-size: 50px;"><?php echo $name; ?></h1>
+        </div>
 
+       <!-- PROMEDIOS CIRCULOS: -->
+       <div class="container text-center">
+        <span class="tituloProm">Promedios</span><br><br>
+        <div  class="row justify-content-md-center">
+        <span><b>General:</b></span>&nbsp;
+        <?php
+            $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $curp);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $puntaje = [];
 
-    <h2><?php echo $name; ?></h2>
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $puntaje[] = $row['puntaje'];
+                }
+
+                if (count($puntaje) > 0) {
+                    $promedio = array_sum($puntaje) / count($puntaje);
+                    echo number_format($promedio, 1);
+                    if ($promedio < 6) {
+                        $color = 'red';
+                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
+                        $color = 'green'; 
+                    } else {
+                        $color = 'blue';
+                    }
+                    echo
+                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
+                            <svg width="150" height="150">
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                            </svg>
+                        </div>';
+                } 
+            } 
+            else {
+                echo "<span>Sin datos de este alumno</span>";
+            }
+        ?>
+        <br>
+        <span><b>Números:</b></span>&nbsp;
+        <?php
+            $sql = "SELECT progreso_alumno.puntaje
+                    FROM progreso_alumno
+                    JOIN juegos
+                    ON progreso_alumno.num_juego = juegos.num_juego
+                    WHERE progreso_alumno.CURP = ? 
+                    AND juegos.categoria = 'Números'";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $curp);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $puntaje = [];
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $puntaje[] = $row['puntaje'];
+                }
+
+                if (count($puntaje) > 0) {
+                    $promedio = array_sum($puntaje) / count($puntaje);
+                    echo number_format($promedio, 1); 
+                    if ($promedio < 6) {
+                        $color = 'red';
+                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
+                        $color = 'green'; 
+                    } else {
+                        $color = 'blue';
+                    }
+                    echo
+                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
+                            <svg width="150" height="150">
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                            </svg>
+                        </div>';
+                } 
+            } 
+            else {
+                echo "<span>Sin datos de este alumno</span>";
+            }
+        ?>
+        <br>
+        <span><b>Letras:</b></span>&nbsp;
+        <?php
+            $sql = "SELECT progreso_alumno.puntaje
+                    FROM progreso_alumno
+                    JOIN juegos
+                    ON progreso_alumno.num_juego = juegos.num_juego
+                    WHERE progreso_alumno.CURP = ? 
+                    AND juegos.categoria = 'Letras'";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $curp);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $puntaje = [];
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $puntaje[] = $row['puntaje'];
+                }
+
+                if (count($puntaje) > 0) {
+                    $promedio = array_sum($puntaje) / count($puntaje);
+                    echo number_format($promedio, 1); 
+                    if ($promedio < 6) {
+                        $color = 'red';
+                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
+                        $color = 'green'; 
+                    } else {
+                        $color = 'blue';
+                    }
+                    echo
+                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
+                            <svg width="150" height="150">
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
+                            </svg>
+                        </div>';
+                } 
+            } 
+            else {
+                echo "<span>Sin datos de este alumno</span>";
+            }
+        ?>
+        </div>
+     </div>
+     <!-- FIN PROMEDIO CIRCULOS -->
     
-    <span>Juego de números</span>
-    <table>
+        
+
+    <!-- INICIO TABLA NUMEROS-->
+     <br><br><br>
+     <div class="tablaNum">
+        <div class="tituloJuegos">
+            <span>Juego de números</span>
+        </div>
+        <br>
+    <div class="tablaPNum">
+   <table >
         <thead>
             <tr>
                 <th>Nombre del juego</th>
@@ -121,7 +265,7 @@
                     while($row = $result->fetch_assoc()) {
                         echo '<tr>';
                         echo "<td>" . $row['nombre'] . "</td>";
-                        echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
+                        echo '<td> <progress style="height: 80px; width:320px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
                         echo "<td>" . $row['puntaje'] . "</td>";
                         echo "</tr>";
                     }
@@ -132,8 +276,17 @@
             ?>
         </tbody>
     </table>
+   </div>
+   </div>
+    <!-- FIN TABLA NUMEROS -->
 
-    <span>Juego de Letras</span>
+    <!-- INICIO TABLA LETRAS -->
+     <div class="tablaLet">
+    <div class="tituloJuegos"> 
+        <span>Juego de Letras</span>
+    </div>
+    <br>
+    <div class="tablaPNum">
     <table>
         <thead>
             <tr>
@@ -158,7 +311,7 @@
                     while($row = $r_letras->fetch_assoc()) {
                         echo '<tr>';
                         echo "<td>" . $row['nombre'] . "</td>";
-                        echo '<td> <progress style="height: 80px; width:380px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
+                        echo '<td> <progress style="height: 80px; width:320px;"  id="barra" max="10" value="'.$row['progreso'].'"></progress></td>';
                         echo "<td>" . $row['puntaje'] . "</td>";
                         echo "</tr>";
                     }
@@ -169,133 +322,17 @@
             ?>
         </tbody>
     </table>
-
-    <span>Promedios</span><br>
-    <span>General:</span>
-    <?php
-        $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $curp);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $puntaje = [];
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $puntaje[] = $row['puntaje'];
-            }
-
-            if (count($puntaje) > 0) {
-                $promedio = array_sum($puntaje) / count($puntaje);
-                echo number_format($promedio, 1);
-                if ($promedio < 6) {
-                    $color = 'red';
-                } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                    $color = 'green'; 
-                } else {
-                    $color = 'blue';
-                }
-                echo
-                    '<div class="porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                        <svg width="150" height="150">
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                        </svg>
-                    </div>';
-            } 
-        } 
-        else {
-            echo "<span>Sin datos de este alumno</span>";
-        }
-    ?>
-    <br>
-    <span>Números</span>
-    <?php
-        $sql = "SELECT progreso_alumno.puntaje
-                FROM progreso_alumno
-                JOIN juegos
-                ON progreso_alumno.num_juego = juegos.num_juego
-                WHERE progreso_alumno.CURP = ? 
-                AND juegos.categoria = 'Números'";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $curp);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $puntaje = [];
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $puntaje[] = $row['puntaje'];
-            }
-
-            if (count($puntaje) > 0) {
-                $promedio = array_sum($puntaje) / count($puntaje);
-                echo number_format($promedio, 1); 
-                if ($promedio < 6) {
-                    $color = 'red';
-                } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                    $color = 'green'; 
-                } else {
-                    $color = 'blue';
-                }
-                echo
-                    '<div class="porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                        <svg width="150" height="150">
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                        </svg>
-                    </div>';
-            } 
-        } 
-        else {
-            echo "<span>Sin datos de este alumno</span>";
-        }
-    ?>
-    <br>
-    <span>Letras:</span>
-    <?php
-        $sql = "SELECT progreso_alumno.puntaje
-                FROM progreso_alumno
-                JOIN juegos
-                ON progreso_alumno.num_juego = juegos.num_juego
-                WHERE progreso_alumno.CURP = ? 
-                AND juegos.categoria = 'Letras'";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $curp);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $puntaje = [];
-
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                $puntaje[] = $row['puntaje'];
-            }
-
-            if (count($puntaje) > 0) {
-                $promedio = array_sum($puntaje) / count($puntaje);
-                echo number_format($promedio, 1); 
-                if ($promedio < 6) {
-                    $color = 'red';
-                } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                    $color = 'green'; 
-                } else {
-                    $color = 'blue';
-                }
-                echo
-                    '<div class="porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                        <svg width="150" height="150">
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                        </svg>
-                    </div>';
-            } 
-        } 
-        else {
-            echo "<span>Sin datos de este alumno</span>";
-        }
-    ?>
+    </div>
+    </div>
+    <!-- FIN TABLA LETRAS -->
+    </section>
+        
+   
+    
+    
+    
+ 
+    
     <button onclick="window.history.back()">Regresar</button><br>
    
 </body>
