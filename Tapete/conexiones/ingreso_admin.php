@@ -101,7 +101,7 @@
         if ($row = $result->fetch_assoc()) {
             $pregunta = $row['pregunta'];
             echo $pregunta;
-            header("../../index.php");
+            header("../../index.html");
             exit;
         } 
         else {
@@ -131,7 +131,7 @@
                         $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuAdmin.php");
                     }
-                    else if ($rolF == 'docente'){
+                    if ($rolF == 'docente'){
                         $_SESSION['num_empleado'] = $num_empleado;
                         header("Location: ../MenuDocentes.php");
                     }
