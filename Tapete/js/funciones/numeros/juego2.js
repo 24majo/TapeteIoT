@@ -305,6 +305,9 @@ function Opciones(num){
                 } 
                 else{
                     if(valor == "facil"){
+                        contador2 = 0
+                        puntaje = 10
+                        Progreso(contador2, puntaje)
                         document.getElementById("btnIniciar").innerHTML = "Empezar"
                         Reiniciar()
                     }
