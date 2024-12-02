@@ -17,8 +17,8 @@
             <thead>
                 <tr>
                     <th>Juego</th>
-                    <th>Progreso</th>
-                    <th>Puntaje</th>
+                    <th style='text-align: center;'>Progreso</th>
+                    <th style='text-align: center;'>Puntaje</th>
                 </tr>
             </thead>
         <tbody>";
