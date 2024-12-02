@@ -120,11 +120,11 @@
                     $promedio = array_sum($puntaje) / count($puntaje);
                     echo number_format($promedio, 1);
                     if ($promedio < 6) {
-                        $color = 'red';
+                        $color = '#FF0060';
                     } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = 'green'; 
+                        $color = '#37b83d'; 
                     } else {
-                        $color = 'blue';
+                        $color = '#6C9BCF';
                     }
                     echo
                         '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
@@ -164,11 +164,11 @@
                     $promedio = array_sum($puntaje) / count($puntaje);
                     echo number_format($promedio, 1); 
                     if ($promedio < 6) {
-                        $color = 'red';
+                        $color = '#FF0060';
                     } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = 'green'; 
+                        $color = '#37b83d'; 
                     } else {
-                        $color = 'blue';
+                        $color = '#6C9BCF';
                     }
                     echo
                         '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
@@ -208,11 +208,11 @@
                     $promedio = array_sum($puntaje) / count($puntaje);
                     echo number_format($promedio, 1); 
                     if ($promedio < 6) {
-                        $color = 'red';
+                        $color = '#FF0060';
                     } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = 'green'; 
+                        $color = '#37b83d'; 
                     } else {
-                        $color = 'blue';
+                        $color = '#6C9BCF';
                     }
                     echo
                         '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
