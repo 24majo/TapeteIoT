@@ -123,16 +123,16 @@
             $res = $row['respuesta'];
     
             if (password_verify($respuesta, $res)) {
-                $_SESSION['num_empleado'] = $num_empleado;
+                $_SESSION['num_empleado'] = $num_e;
                 if($res_rol -> num_rows > 0){
                     $roles = $res_rol->fetch_assoc();
                     $rolF = $roles['rol'];
                     if($rolF == 'admin'){
-                        $_SESSION['num_empleado'] = $num_empleado;
+                        $_SESSION['num_empleado'] = $num_e;
                         header("Location: ../MenuAdmin.php");
                     }
                     if ($rolF == 'docente'){
-                        $_SESSION['num_empleado'] = $num_empleado;
+                        $_SESSION['num_empleado'] = $num_e;
                         header("Location: ../MenuDocentes.php");
                     }
                 } 
