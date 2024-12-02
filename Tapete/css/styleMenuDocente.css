@@ -125,7 +125,7 @@ h1{
 .cartas .grafica .numero{
     position: absolute;
     top: 8px;
-    left: -2px;
+    left: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
