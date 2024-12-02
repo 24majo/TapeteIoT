@@ -1,9 +1,123 @@
-label, input { display:block; }
-input.text { margin-bottom:12px; width:95%; padding: .4em; }
-fieldset { padding:0; border:0; margin-top:25px; }
-h1 { font-size: 1.2em; margin: .6em 0; }
-div#users-contain { width: 350px; margin: 20px 0; }
-div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-.ui-dialog .ui-state-error { padding: .3em; }
-.validateTips { border: 1px solid transparent; padding: 0.3em; }
+  body {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .barra-superior {
+        background-color: #800080;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+    }
+    .barra-superior a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .botones {
+        margin: 20px;
+        text-align: center;
+    }
+    .botones button {
+        background-color: #4fa3ff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+    }
+    .botones button:hover {
+        background-color: #3d87d1;
+    }
+
+    .selector-generacion {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .selector-generacion select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+    .selector-generacion button {
+        background-color: #ff9e44;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .selector-generacion button:hover {
+        background-color: #d57f37;
+    }
+
+    .porcentajes{
+    position:relative;
+}
+.porcentajes span{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    bottom: 0%;
+    right: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 25px/1em Verdana;
+}
+
+    .contenedor-progreso {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .progreso {
+        text-align: center;
+        margin: 0 15px;
+    }
+    .progreso svg {
+        width: 100px;
+        height: 100px;
+    }
+    .progreso span {
+        display: block;
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    circle {
+        fill: none;
+        stroke-width: 15;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        stroke-dasharray: 100 100;
+        stroke: #aaa;
+    }
+    circle:nth-child(2) {
+        stroke: var(--color, blue);
+        stroke-dasharray: 0 100;
+        animation: rellenar 1s ease-in-out forwards;
+    }
+
+    @keyframes rellenar {
+        to {
+            stroke-dasharray: var(--porcentaje) 100;
+        }
+    }
+
+
