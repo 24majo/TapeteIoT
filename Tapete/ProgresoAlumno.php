@@ -88,7 +88,8 @@
             <div class="navbar-nav">
             
             </div>
-                <a style="color:white; font-size: 20px; margin-left:80%;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+                <button onclick="window.location.href='ContraseñaAlumno.php'">Cambiar contraseña</button>
+                <a style="color:white; font-size: 20px; margin-left:65%;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
             </div>
         </div>
     </nav>
@@ -326,15 +327,6 @@
     </div>
     <!-- FIN TABLA LETRAS -->
     </section>
-        
-   
-    
-    
-    
- 
-    
-    <button onclick="window.history.back()">Regresar</button><br>
-   
 </body>
 </html>
 
