@@ -48,10 +48,10 @@
           <span>Menú de números</span>
       </button>
 
-      <!-- <button class="boton" onclick="location.href = 'DificultadLectura.html'">
+      <button class="boton" onclick="location.href = 'DificultadSecuencias.html'">
           <img class="modo" id="modo" src="Visual/Material/Recursos/Semaforo.png" width="50px">
           <span>Dificultad</span>
-      </button> -->
+      </button>
       
       <button class="boton" onclick="Ayuda()">
           <img class="inicio" id="inicio" src="Visual/Material/Iconos/ayuda.png" width="40px">
@@ -63,9 +63,11 @@
 
     <!---------------------- Fin de barra lateral ----------------------------->
 
+    <img class="semaforo" id="semaforo" alt=""  width="100">
+
     <br><br>
     <div style="margin-left: 700px; margin-top: -340px">
-      <progress style="height: 80px; width:380px;"  id="barra" max="9" value="0"></progress>
+      <progress style="height: 80px; width:380px;"  id="barra" max="10" value="0"></progress>
     </div>
     
     <nav >

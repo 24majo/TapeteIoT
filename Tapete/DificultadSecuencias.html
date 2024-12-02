@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/StyleDificultadMenu.css">
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/query-3.7.1.min.js"></script>
+    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Menú dificultad restas</title>
+</head>
+<body>
+    <body background="Visual/Fondos/FondoDificultad3.jpg"></body>
+
+    <br><br><br>
+        <nav>
+            <a href="MenuSeleccion.php" class="btnInicio">
+                <img src="Visual/Material/Iconos/MenuInicio.png" width="70px">
+            </a>
+    
+            <a href="JuegosNumeros.html" class="btnRegresar">
+                <img src="Visual/Material/Iconos/Flecha.png" width="60px">
+            </a>
+        </nav>
+    
+        <div class="titulo">
+            <font face="Century Gothic">
+              <p><b>Selecciona la dificultad</b></p>
+            </font>
+          </div>
+    
+          <article>
+            <font face="Century Gothic">
+                <button class="btnFacil" value="facil" onclick="valor(this.value)"><b>Fácil</b></button>
+                <button class="btnMedio" value="medio" onclick="valor(this.value)"><b>Medio</b></button>
+                <button class="btnDificil" value="dificil" onclick="valor(this.value)"><b>Difícil</b></button>
+            </font>
+          </article>
+
+          <script>
+            function valor(dato) {
+                localStorage.setItem('valorBoton', dato);
+                window.location.href = './JuegoNum2.php';
+            }
+        </script>
+    
+</body>
+</html>
