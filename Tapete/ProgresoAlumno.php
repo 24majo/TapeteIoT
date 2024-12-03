@@ -88,7 +88,7 @@
             <div class="navbar-nav">
             
             </div>
-                <button onclick="window.location.href='ContraseñaAlumno.php'">Cambiar contraseña</button>
+                <button class="btnPass"  onclick="window.location.href='ContraseñaAlumno.php'">Cambiar contraseña</button>
                 <a style="color:white; font-size: 20px; margin-left:65%;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
             </div>
         </div>

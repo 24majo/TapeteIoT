@@ -26,6 +26,10 @@
 			$imagen = "Visual/Material/Recursos/SesionNiño.png";
 		}
   ?>
+
+<br><br>
+  
+  
   <!-- Animacion personaje -->
   <aside class="personaje">
   </aside>
@@ -37,18 +41,26 @@
       </font>
     </div>
 
+    <div class="bienvenido">
+    <?php
+        echo "<h2>¡Hola, " . $name . "! Empecemos a jugar</h2>";
+      ?>
+    </div> 
+
+    <div style="margin-top:-130px;">
     <div class="cerrarSesion">
-    <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
-    <a style="color: black;" href="ProgresoAlumno.php">Mi perfil</a>
-    <a style="color: black;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+      <a style="color: black;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
     </div>
-    <br><br>
-    <div  style="margin-left:5%;">
+
+    <div  style="margin-left:80%; margin-top:-30px;">
+      <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
+      <a style="color: black;" href="ProgresoAlumno.php"><b>Mi perfil</b></a>
+    </div>
+    </div>
     
-    </div>
     <br>
     <section>
-
+<br><br><br>
       <div class="card mb-3 card1" style="max-width: 600px;">
         <div class="row g-0">
           <div class="col-md-4">

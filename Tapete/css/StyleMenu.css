@@ -37,7 +37,7 @@ body{
     
 }
 
-cambiar ciertos atributos
+/* cambiar ciertos atributos */
 .boton1{
     margin-top: 5px;
     margin-left: 70px;
@@ -47,10 +47,16 @@ cambiar ciertos atributos
     font-size: 25px;
 }
  .titulo{
-    margin-top: -550px;
+    margin-top: -600px;
     margin-left: 150px;
     font-size: 60px;
  }
+
+ .bienvenido{
+    margin-top:-20px;
+    margin-left: 5%;
+}
+
 
 .card2{
     margin-top: -10px;

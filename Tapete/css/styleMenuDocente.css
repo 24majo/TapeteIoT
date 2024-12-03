@@ -132,3 +132,17 @@ h1{
     height: 100%;
     width: 100%;
 }
+
+.btnPass{
+    background-color: #951B81;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    height: 40px;
+}
+
+.btnPass:hover{
+    transform: scale(1.1);
+    background-color: #5B1453;
+}

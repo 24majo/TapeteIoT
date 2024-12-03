@@ -120,4 +120,16 @@
         }
     }
 
-
+    .btnPass{
+        background-color: #E71D73;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 15px;
+        height: 40px;
+    }
+    
+    .btnPass:hover{
+        transform: scale(1.1);
+        background-color: #AF0E5B;
+    }
