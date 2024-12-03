@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/StyleMenu.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/StyleMenu.css">
+  <link rel="shortcut icon" href="Visual/Material/DiDitV2.png" type="image/x-icon">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
-
-    <title>Menú selección</title>
+  <title>Menú selección</title>
 </head>
 
 <body background="Visual/Fondos/FondoMenuInicio2.jpg">

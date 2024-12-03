@@ -10,6 +10,8 @@ include'conexiones/conexion.php';
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/StyleMenuAdmin.css">
 
+    <link rel="shortcut icon" href="Visual/Material/DiDitV2.png" type="image/x-icon">
+
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     
