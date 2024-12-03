@@ -40,7 +40,7 @@
             </div>
 
             <div class="cerrar">
-                <button>Cambiar contraseña</button>
+                <button onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button>
                 <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
             </div> 
         </nav>
