@@ -17,6 +17,15 @@
 </head>
 
 <body background="Visual/Fondos/FondoMenuInicio2.jpg">
+  <?php 
+    include('conexiones/sesion_alumno.php'); 
+    if($sexo == "M"){
+			$imagen = "Visual/Material/Recursos/SesionNiña.png";
+		}
+		else if ($sexo == "H"){
+			$imagen = "Visual/Material/Recursos/SesionNiño.png";
+		}
+  ?>
   <!-- Animacion personaje -->
   <aside class="personaje">
   </aside>
@@ -29,13 +38,13 @@
     </div>
 
     <div class="cerrarSesion">
+    <img class="usuario" id="usuario" src="<?php echo $imagen; ?>" width="40px">
+    <a style="color: black;" href="ProgresoAlumno.php">Mi perfil</a>
     <a style="color: black;" href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
     </div>
     <br><br>
     <div  style="margin-left:5%;">
-    <?php 
-      include('conexiones/sesion_alumno.php'); 
-    ?>
+    
     </div>
     <br>
     <section>
