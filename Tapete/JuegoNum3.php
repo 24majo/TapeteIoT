@@ -13,12 +13,12 @@
       <link rel="stylesheet" href="css/StyleJuegoNum3.css">
        <!-- Barra Lateral -->
        <link rel="stylesheet" href="css/BarraLateral.css">
-
+       <link rel="shortcut icon" href="Visual/Material/Numeros/Seleccion/ImgSumas.jpg" type="image/x-icon">
       <script src="js/bootstrap.min.js"></script>
       <script src="js/jquery-3.7.1.min.js"></script>
       <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
 
-      <title>Suma</title>
+      <title>Sumas</title>
   </head>
   
   <body background="Visual/Fondos/FondoJuegos.jpg">

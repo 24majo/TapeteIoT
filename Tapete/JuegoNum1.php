@@ -13,7 +13,7 @@
 		<!-- Barra Lateral -->
 		<link rel="stylesheet" href="css/BarraLateral.css">
 		<link rel="stylesheet" href="css/StyleJuegoNum1.css">
-		
+		<link rel="shortcut icon" href="Visual/Material/Numeros/Seleccion/ImgAdivinaNum.jpg" type="image/x-icon">
 		
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery-3.7.1.min.js"></script>
