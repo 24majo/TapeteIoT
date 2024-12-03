@@ -103,12 +103,6 @@
                         text: "Verifica que tu contraseña sea correcta",
                         icon: "error"
                     })
-
-                    .then((Okay) => {
-                        if (Okay) {
-                            window.location.href = "../../index.html";
-                        } 
-                    });
                 </script>';
             }
         } 
@@ -122,12 +116,6 @@
                     text: "Verifica que la CURP sea correcto o que el alumno esté registrado.",
                     icon: "error"
                 })
-
-                .then((Okay) => {
-                    if (Okay) {
-                        window.location.href = "../../index.html";
-                    } 
-                });
             </script>';
         }
     } 
@@ -144,7 +132,6 @@
         if ($row = $result->fetch_assoc()) {
             $pregunta = $row['Pregunta']; 
             echo $pregunta;
-            header("../../index.html");
             exit;
         } 
         else {
@@ -177,12 +164,6 @@
                         text: "Verifica que tu respuesta sea correcta",
                         icon: "error"
                     })
-
-                    .then((Okay) => {
-                        if (Okay) {
-                            window.location.href = "../../index.html";
-                        } 
-                    });
                 </script>';
             }
         }
