@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styleJuegoLetras4.css">
-
+    <link rel="shortcut icon" href="Visual/Material/Letras/Seleccion/ImgUsoDe.jpg" type="image/x-icon">
     <script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>

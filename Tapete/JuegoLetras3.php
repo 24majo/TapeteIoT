@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/StyleJuegoLetras3.css">
-
+    <link rel="shortcut icon" href="Visual/Material/Letras/Seleccion/ImgLectura.jpg" type="image/x-icon">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
