@@ -18,6 +18,7 @@ include'conexiones/conexion.php';
 
     <div class="barra-superior">
         <span>Administrador</span>
+        <button onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button>
         <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
     </div>
 
