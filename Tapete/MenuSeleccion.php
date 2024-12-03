@@ -6,7 +6,7 @@
 
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/StyleMenu.css">
-  <link rel="shortcut icon" href="Visual/Material/DiDitV2.png" type="image/x-icon">
+  <link rel="shortcut icon" href="Visual/Material/Didit.png" type="image/x-icon">
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-3.7.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
