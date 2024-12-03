@@ -10,10 +10,24 @@ body{
 .titulo{
     position: relative;
     margin-left: 100px;
-    margin-top: -30px;
+    margin-top: -20px;
     z-index: -10;
 }
 
+.semaforo{
+    margin-top: -140px;
+    margin-left: 390px;
+}
+
+.vidas{
+    margin-top: -100px;
+    margin-left: 550px;
+}
+
+.btnOpciones{
+    margin-top: -300px;
+    margin-left: 40px;
+}
 #opcionArriba{
     width: 120px;
 	height: 120px;
@@ -113,7 +127,7 @@ body{
 
 .botones{
     margin-left: 100px;
-    margin-top: 420px;
+    margin-top: 400px;
     font-size: 80px;
 }
 
@@ -151,16 +165,6 @@ body{
     background: #662483;
     color: white;
     font-size: 40px;    
-}
-
-.vidas{
-    margin-top: -90px;
-    margin-left: 550px;
-}
-
-.btnOpciones{
-    margin-top: -300px;
-    margin-left: 40px;
 }
 
 .imagenPollo{
@@ -265,3 +269,4 @@ body{
     width: 100px;
 
   }
+

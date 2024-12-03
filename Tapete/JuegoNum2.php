@@ -63,10 +63,10 @@
 
     <!---------------------- Fin de barra lateral ----------------------------->
 
-    <img class="semaforo" id="semaforo" alt=""  width="100">
+    
 
     <br><br>
-    <div style="margin-left: 700px; margin-top: -340px">
+    <div style="margin-left: 700px; margin-top: -400px">
       <progress style="height: 80px; width:380px;"  id="barra" max="10" value="0"></progress>
     </div>
     
@@ -106,10 +106,12 @@
 				<source src="audio/incorrecto.mp3" type="audio/mpeg">
 			</audio>
 
-			<div>
+			<div style="margin-top:10px;">
 				<img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
 				<input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
 			</div>
+
+      <img class="semaforo" id="semaforo" alt=""  width="100">
 
        <div class="botones">   
         <font face="Century Gothic">
