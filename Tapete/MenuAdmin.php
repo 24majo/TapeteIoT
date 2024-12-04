@@ -25,6 +25,8 @@ include'conexiones/conexion.php';
     <div class="botones">
         <button onclick="window.location.href = 'registro_admin.html'">Registrar personal</button>
         <button onclick="window.location.href='registro_alumno.html'">Registrar alumno</button>
+        <button onclick="window.location.href = 'registro_admin.html'">Modificar personal</button>
+        <button onclick="window.location.href='modificar_alumno.php'">Modificar alumno</button>
     </div>
 
     <div class="selector-generacion">
