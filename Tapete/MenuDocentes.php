@@ -123,9 +123,9 @@
                             </div>
                             <div class="grafica">
                                 <svg>
-                                    <circle cx="45" cy="38" r="36"
-                                        style="stroke-dasharray: <?php echo (2 * 3.1416) * 36; ?>; 
-                                        stroke-dashoffset: <?php echo (2 * 3.1416) * 36 * (1 - ($pro_gen * 10 / 100)); ?>;">
+                                    <circle cx="-37" cy="47" r="36"
+                                        style="stroke-dasharray: <?php echo 2 * 3.1416 * 36; ?>; 
+                                        stroke-dashoffset: <?php echo 2 * 3.1416 * 36 * (1 - ($pro_gen * 10 / 100)); ?>;">
                                     </circle>
                                 </svg>
                                 <div class="numero">
@@ -141,7 +141,7 @@
                             </div>
                             <div class="grafica">
                                 <svg>
-                                    <circle cx="45" cy="38" r="36"
+                                    <circle cx="-37" cy="47" r="36"
                                         style="stroke-dasharray: <?php echo (2 * 3.1416) * 36; ?>; 
                                         stroke-dashoffset: <?php echo (2 * 3.1416) * 36 * (1 - ($pro_num  * 10 / 100)); ?>;">
                                     </circle>
@@ -159,7 +159,7 @@
                             </div>
                             <div class="grafica">
                                 <svg>
-                                    <circle cx="45" cy="38" r="36"
+                                    <circle cx="-37" cy="47" r="36"
                                         style="stroke-dasharray: <?php echo (2 * 3.1416) * 36; ?>; 
                                         stroke-dashoffset: <?php echo (2 * 3.1416) * 36 * (1 - ($pro_let * 10 / 100)); ?>;">
                                     </circle>

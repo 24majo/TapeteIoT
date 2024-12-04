@@ -107,7 +107,7 @@ h1{
     fill: none;
     stroke-width: 10;
     stroke-linecap: round;
-    transform: translate(5px, 5px);
+    transform: translate(5px, 5px) rotate(-90deg);
 }
 
 .cartas .general svg circle{
