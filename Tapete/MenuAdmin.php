@@ -150,12 +150,7 @@ include'conexiones/conexion.php';
             else {
                 echo "No hay datos disponibles para esta generación.";
             }
-
         } 
-        
-        else {
-            echo "Selecciona una generación para ver los resultados.";
-        }
         ?>
     </div>
 </body>
