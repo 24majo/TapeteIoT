@@ -24,7 +24,7 @@ include'conexiones/conexion.php';
 
     <div class="botones">
         <button onclick="window.location.href = 'registro_admin.html'">Registrar personal</button>
-        <button onclick="window.location.href='registro_alumno.html'">Registrar alumno</button>
+        <button onclick="window.location.href='RegistroAlumno.php'">Registrar alumno</button>
         <button onclick="window.location.href = 'registro_admin.html'">Modificar personal</button>
         <button onclick="window.location.href='modificar_alumno.php'">Modificar alumno</button>
     </div>
@@ -34,16 +34,15 @@ include'conexiones/conexion.php';
             <select name="generacion">
                 <option value="" disabled selected>Generación</option>
                 <?php
-                // Conexión a la BD
-                $generacion = "SELECT * FROM generaciones";
-                $result = $conn->query($generacion);
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo "<option value='" . $row['generacion'] . "'>" . $row['generacion'] . "</option>";
+                    $generacion = "SELECT * FROM generaciones";
+                    $result = $conn->query($generacion);
+                    if ($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['generacion'] . "'>" . $row['generacion'] . "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>Generación no disponible</option>";
                     }
-                } else {
-                    echo "<option value=''>Generación no disponible</option>";
-                }
                 ?>
             </select>
             <button type="submit">Mostrar</button>
