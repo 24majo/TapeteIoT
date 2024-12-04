@@ -51,6 +51,20 @@
             <aside>
             <!-- PHP código promedios -->
                 <?php
+                    // Cálculo de generación 
+                    $mes = date('n'); 
+                    $año = date('Y'); 
+
+                    if ($mes >= 8) {
+                        $generacion = $año;
+                    } 
+                    
+                    else {
+                        $generacion = $año - 1; 
+                    }
+
+                    echo "Generación: " . $generacion . "<br>";
+
                     // Promedio general
                     $promedio_gen = "SELECT AVG(progreso_alumno.puntaje) AS promedio 
                                     FROM progreso_alumno 
@@ -58,7 +72,8 @@
                                     ON progreso_alumno.CURP = usuarios.CURP
                                     INNER JOIN grupos
                                     ON usuarios.id_grupo = grupos.id_grupo
-                                    WHERE grupos.nombre = '$n_grupo'";
+                                    WHERE grupos.nombre = '$n_grupo'
+                                    AND usuarios.generacion = '$generacion'";
 
                     $promedio_g = $conn -> query($promedio_gen);
 
@@ -79,7 +94,9 @@
                                     ON usuarios.id_grupo = grupos.id_grupo
                                     JOIN juegos
                                     ON progreso_alumno.num_juego = juegos.num_juego
-                                    WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Números'";
+                                    WHERE grupos.nombre = '$n_grupo' 
+                                    AND juegos.categoria = 'Números' 
+                                    AND usuarios.generacion = '$generacion'";
 
                     $promedio_n = $conn -> query($promedio_num);
 
@@ -100,7 +117,9 @@
                                     ON usuarios.id_grupo = grupos.id_grupo
                                     JOIN juegos
                                     ON progreso_alumno.num_juego = juegos.num_juego
-                                    WHERE grupos.nombre = '$n_grupo' AND juegos.categoria = 'Letras'";
+                                    WHERE grupos.nombre = '$n_grupo' 
+                                    AND juegos.categoria = 'Letras'
+                                    AND usuarios.generacion = '$generacion'";
 
                     $promedio_l = $conn -> query($promedio_let);
 
@@ -196,6 +215,7 @@
                                 join docentes
                                 on grupos.num_empleado = docentes.num_empleado
                                 WHERE grupos.num_empleado = ?
+                                AND usuarios.generacion = '$generacion'
                                 ORDER BY Paterno ASC";
                                 
                                 $stmt = $conn->prepare($sql);
