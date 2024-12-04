@@ -26,7 +26,7 @@
 
     if (curp.trim() !== "") {
       $.ajax({
-        url: 'Tapete/conexiones/ingreso_alumno.php', // Archivo que consultará la base de datos
+        url: 'Tapete/Conexiones/preguntas.php',
         type: 'GET',
         data: { curp: curp }, // Enviamos el CURP como parámetro
         success: function(response) {
@@ -121,26 +121,6 @@
             </script>';
         }
     } 
-
-    if (isset($_GET['curp'])) {
-        $curp = $_GET['curp'];
-
-        $sql = "SELECT Pregunta FROM usuarios WHERE CURP = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $curp);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($row = $result->fetch_assoc()) {
-            $pregunta = $row['Pregunta']; 
-            echo $pregunta;
-            exit;
-        } 
-        else {
-            $pregunta = 'Pregunta no encontrada';
-        }
-        exit;
-    }
 
     if(isset($_POST["verificar_a"])){
         $curp = $_POST['curp'];

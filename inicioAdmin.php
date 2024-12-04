@@ -24,7 +24,7 @@
     var num_e = $('#num_empleado').val();
     if(num_e.trim() !== ""){
       $.ajax({
-        url:'Tapete/conexiones/ingreso_admin.php',
+        url:'Tapete/conexiones/preguntas.php',
         type:'GET',
         data: {num_e: num_e},
         success: function(response){
@@ -144,24 +144,6 @@
         </script>';
       }
     } 
-
-    if (isset($_GET['num_e'])) {
-      $num_e = $_GET['num_e'];
-      $sql = "SELECT pregunta FROM docentes WHERE num_empleado = ?";
-      $stmt = $conn->prepare($sql);
-      $stmt->bind_param("s", $num_e);
-      $stmt->execute();
-      $result = $stmt->get_result();
-
-      if ($row = $result->fetch_assoc()) {
-        $pregunta = $row['pregunta'];
-        echo $pregunta;
-      } 
-      else {
-        $pregunta = 'Pregunta no encontrada';
-      }
-      exit;
-    }
 
     if(isset($_POST["verificar_d"])){
       $num_e = $_POST['num_empleado'];
