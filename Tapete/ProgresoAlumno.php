@@ -13,42 +13,99 @@
     <title>Progreso</title>
 
     <style>
-    @keyframes rellenar{
-        to{
-            stroke-dasharray: var(--porcentaje) 100;
-        }
-    }
+        :root{
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
 
-    .porcentajes{
-        position:relative;
-    }
-    .porcentajes span{
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        bottom: 0%;
-        right: 0%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font: 25px/1em Verdana;
-    }
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
 
-    circle{
-        fill: none;
-        stroke-width: 20;
-        transform: rotate(-90deg);
-        transform-origin: 50%;
-        stroke-dasharray: 100 100;
-        stroke: #AAA;
-    }
-    circle:nth-child(2){ /* el segundo círculo, es el que se ve por encima del anterior y debe tener el color mas intenso y el area del porcentaje */
-        stroke: var(--color);
-        stroke-dasharray: 0 100;
-        animation: rellenar .35s linear forwards;
-    }
-  </style>
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.cartas{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+.cartas > div{
+    background-color: #fff;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.cartas > div:hover{
+    box-shadow: none;
+}
+
+.cartas > div .status{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartas h3{
+    margin-left: 0.1rem;
+    font-size: 1rem;
+}
+
+.cartas .grafica{
+    position: relative;
+    width: 92px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.cartas svg{
+    width: 35rem;
+    height: 7rem;
+}
+
+.cartas svg circle{
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+    transform: translate(5px, 5px) rotate(-90deg);
+}
+
+.cartas .general svg circle{
+    stroke: var(--color-success);
+}
+
+.cartas .numeros svg circle{
+    stroke: var(--color-danger);
+}
+
+.cartas .letras svg circle{
+    stroke: var(--color-primary);
+}
+
+.cartas .grafica .numero{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+    </style>
 </head>
+
 <body background="Visual/Fondos/FondoPerfilUsuario.jpg">
     <?php 
         include'conexiones/conexion.php';
@@ -103,7 +160,7 @@
        <div class="container text-center">
         <span class="tituloProm">Promedios</span><br><br>
         <div  class="row justify-content-md-center">
-        <span><b>General:</b></span>&nbsp;
+        <!-- <span><b>General:</b></span>&nbsp; -->
         <?php
             $sql = "SELECT puntaje FROM progreso_alumno where CURP = ?";
             $stmt = $conn->prepare($sql);
@@ -118,22 +175,8 @@
                 }
 
                 if (count($puntaje) > 0) {
-                    $promedio = array_sum($puntaje) / count($puntaje);
-                    echo number_format($promedio, 1);
-                    if ($promedio < 6) {
-                        $color = '#FF0060';
-                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = '#37b83d'; 
-                    } else {
-                        $color = '#6C9BCF';
-                    }
-                    echo
-                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                            <svg width="150" height="150">
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            </svg>
-                        </div>';
+                    $pro_gen = array_sum($puntaje) / count($puntaje);
+                    $pro_gen = number_format($pro_gen, 1); 
                 } 
             } 
             else {
@@ -141,7 +184,7 @@
             }
         ?>
         <br>
-        <span><b>Números:</b></span>&nbsp;
+        <!-- <span><b>Números:</b></span>&nbsp; -->
         <?php
             $sql = "SELECT progreso_alumno.puntaje
                     FROM progreso_alumno
@@ -162,22 +205,8 @@
                 }
 
                 if (count($puntaje) > 0) {
-                    $promedio = array_sum($puntaje) / count($puntaje);
-                    echo number_format($promedio, 1); 
-                    if ($promedio < 6) {
-                        $color = '#FF0060';
-                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = '#37b83d'; 
-                    } else {
-                        $color = '#6C9BCF';
-                    }
-                    echo
-                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                            <svg width="150" height="150">
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            </svg>
-                        </div>';
+                    $pro_num = array_sum($puntaje) / count($puntaje);
+                    $pro_num = number_format($pro_num, 1); 
                 } 
             } 
             else {
@@ -185,7 +214,7 @@
             }
         ?>
         <br>
-        <span><b>Letras:</b></span>&nbsp;
+        <!-- <span><b>Letras:</b></span>&nbsp; -->
         <?php
             $sql = "SELECT progreso_alumno.puntaje
                     FROM progreso_alumno
@@ -206,33 +235,76 @@
                 }
 
                 if (count($puntaje) > 0) {
-                    $promedio = array_sum($puntaje) / count($puntaje);
-                    echo number_format($promedio, 1); 
-                    if ($promedio < 6) {
-                        $color = '#FF0060';
-                    } elseif ($promedio >= 6.1 && $promedio <= 8) {
-                        $color = '#37b83d'; 
-                    } else {
-                        $color = '#6C9BCF';
-                    }
-                    echo
-                        '<div class="col-md-auto porcentajes" style="--porcentaje: '.number_format($promedio, 1).'; --color: '.$color.'">
-                            <svg width="150" height="150">
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            </svg>
-                        </div>';
+                    $pro_let = array_sum($puntaje) / count($puntaje);
+                    $pro_let = number_format($pro_let, 1); 
                 } 
             } 
             else {
                 echo "<span>Sin datos de este alumno</span>";
             }
         ?>
+
+        <!-- Circulos promedios -->
+        <div class="cartas">
+                    <div class="general">
+                        <div class="status">
+                            <div class="info">
+                                <h3>General</h3>
+                            </div>
+                            <div class="grafica">
+                                <svg>
+                                    <circle cx="-37" cy="47" r="36"
+                                        style="stroke-dasharray: <?php echo 2 * 3.1416 * 36; ?>; 
+                                        stroke-dashoffset: <?php echo 2 * 3.1416 * 36 * (1 - ($pro_gen * 10 / 100)); ?>;">
+                                    </circle>
+                                </svg>
+                                <div class="numero">
+                                    <p><?php echo $pro_gen ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="numeros">
+                        <div class="status">
+                            <div class="info">
+                                <h3>Números</h3>
+                            </div>
+                            <div class="grafica">
+                                <svg>
+                                    <circle cx="-37" cy="47" r="36"
+                                        style="stroke-dasharray: <?php echo (2 * 3.1416) * 36; ?>; 
+                                        stroke-dashoffset: <?php echo (2 * 3.1416) * 36 * (1 - ($pro_num  * 10 / 100)); ?>;">
+                                    </circle>
+                                </svg>
+                                <div class="numero">
+                                    <p><?php echo $pro_num; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="letras">
+                        <div class="status">
+                            <div class="info">
+                                <h3>Letras</h3>
+                            </div>
+                            <div class="grafica">
+                                <svg>
+                                    <circle cx="-37" cy="47" r="36"
+                                        style="stroke-dasharray: <?php echo (2 * 3.1416) * 36; ?>; 
+                                        stroke-dashoffset: <?php echo (2 * 3.1416) * 36 * (1 - ($pro_let * 10 / 100)); ?>;">
+                                    </circle>
+                                </svg>
+                                <div class="numero">
+                                    <p><?php echo $pro_let ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Fin Circulos promedios -->
         </div>
      </div>
      <!-- FIN PROMEDIO CIRCULOS -->
-    
-        
 
     <!-- INICIO TABLA NUMEROS-->
      <br><br><br>
