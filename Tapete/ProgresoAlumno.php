@@ -177,7 +177,8 @@
                 } 
             } 
             else {
-                echo "<span>Sin datos de este alumno</span>";
+                $pro_gen = 0;
+                // echo "<span>Sin datos de este alumno</span>";
             }
         ?>
         <br>
@@ -207,7 +208,8 @@
                 } 
             } 
             else {
-                echo "<span>Sin datos de este alumno</span>";
+                $pro_num = 0;
+                // echo "<span>Sin datos de este alumnok</span>";
             }
         ?>
         <br>
@@ -237,7 +239,8 @@
                 } 
             } 
             else {
-                echo "<span>Sin datos de este alumno</span>";
+                $pro_let = 0;
+                // echo "<span>Sin datos de este alumno</span>";
             }
         ?>
 
