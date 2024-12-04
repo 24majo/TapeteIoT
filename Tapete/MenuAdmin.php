@@ -9,13 +9,11 @@ include'conexiones/conexion.php';
     <title>Administrador</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/StyleMenuAdmin.css">
-
     <link rel="shortcut icon" href="Visual/Material/Didit.png" type="image/x-icon">
-
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
-    
 </head>
+
 <body background="Visual/Fondos/fondoMenuAdmin.jpg">
 
     <div class="barra-superior">
@@ -50,8 +48,7 @@ include'conexiones/conexion.php';
         </form>
     </div>
 
-    <br>
-        <!--Progreso -->
+    <!--Progreso -->
     <div class="contenedor-progreso">
         <?php
         if (isset($_GET['generacion'])) {
@@ -83,75 +80,70 @@ include'conexiones/conexion.php';
                     $p_general = round($row['promedio_g'], 1);
                     $p_numeros = round($row['promedio_n'], 1);
                     $p_letras = round($row['promedio_l'], 1);
-
-                    if ($p_general < 6) {
-                        $color = 'red';
-                    } elseif ($p_general >= 6.1 && $p_general <= 8) {
-                        $color = 'green'; 
-                    } else {
-                        $color = 'blue';
-                    }
-
-                    echo '<div class="container text-center"> ';
-                    echo "<span><strong>Grupo: " . $row['grupo'] . "</strong></span><br>";
-
-                    echo'
-
+                    $circulo = 2 * M_PI * 36;
+                    $p_g = $circulo * (1 - ($p_general * 10 / 100));
+                    $p_n = $circulo * (1 - ($p_numeros * 10 / 100));
+                    $p_l = $circulo * (1 - ($p_letras * 10 / 100));
                     
-                        <div class="row">
-                            <div class="col">
-                                <span><strong>Promedio general: </strong>'. $p_general . '</span><br>
-                            <div class="porcentajes" style="--porcentaje: '.number_format($p_general, 1).'; --color: '.$color.'">
-                                <svg width="150" height="150">
-                                    <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                    <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                </svg>
+                    echo "<br><br><span class='grupo'><strong>Grupo: " . $row['grupo'] . "</strong></span><br><br>";
+                    echo 
+                    '<div class="cartas">
+                        <div class="general">
+                            <div class="status">
+                                <div class="info">
+                                    <h3>General</h3>
+                                </div>
+                                <div class="grafica">
+                                    <svg>
+                                        <circle cx="-37" cy="47" r="36"
+                                            style="stroke-dasharray: '.$circulo.'; 
+                                            stroke-dashoffset: '.$p_g.'">
+                                        </circle>
+                                    </svg>
+                                    <div class="numero">
+                                        <p>'.$p_general .'</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    ';
-
-                    if ($p_numeros < 6) {
-                        $color = 'red';
-                    } elseif ($p_numeros >= 6.1 && $p_numeros <= 8) {
-                        $color = 'green'; 
-                    } else {
-                        $color = 'blue';
-                    }
-
-                    echo
-                    '
-                    <div class="col">
-                            <span><strong>Promedio números: </strong>'. $p_numeros .'</span><br>
-                        <div class="porcentajes" style="--porcentaje: '.number_format($p_numeros, 1).'; --color: '.$color.'">
-                            <svg width="150" height="150">
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            </svg>
-                    </div>
+                        <div class="numeros">
+                            <div class="status">
+                                <div class="info">
+                                    <h3>Números</h3>
+                                </div>
+                                <div class="grafica">
+                                    <svg>
+                                        <circle cx="-37" cy="47" r="36"
+                                            style="stroke-dasharray: '.$circulo.'; 
+                                            stroke-dashoffset: '.$p_n.'">
+                                        </circle>
+                                    </svg>
+                                    <div class="numero">
+                                        <p>'.$p_numeros.'</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    ';
-
-                    if ($p_letras < 6) {
-                        $color = 'red';
-                    } elseif ($p_letras >= 6.1 && $p_letras <= 8) {
-                        $color = 'green'; 
-                    } else {
-                        $color = 'blue';
-                    }
-
-                    echo
-                    '
-                     <div class="col">
-                        <span><strong>Promedio letras: </strong> '. $p_letras .' </span><br><br>
-                        <div class="porcentajes" style="--porcentaje: '.number_format($p_letras, 1).'; --color: '.$color.'">
-                            <svg width="150" height="150">
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                                <circle r="65" cx="50%" cy="50%" pathlength="10" />
-                            </svg>
+                        <div class="letras">
+                            <div class="status">
+                                <div class="info">
+                                    <h3>Letras</h3>
+                                </div>
+                                <div class="grafica">
+                                
+                                    <svg>
+                                        <circle cx="-37" cy="47" r="36"
+                                            style="stroke-dasharray: ' .$circulo .'; 
+                                            stroke-dashoffset: '.$p_l.'">
+                                        </circle>
+                                    </svg>
+                                    <div class="numero">
+                                        <p>'. $p_letras . '</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                    ';
+                    </div>';
                 }
             } 
             else {
@@ -163,9 +155,7 @@ include'conexiones/conexion.php';
         else {
             echo "Selecciona una generación para ver los resultados.";
         }
-
         ?>
     </div>
-
 </body>
 </html>

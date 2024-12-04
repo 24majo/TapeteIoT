@@ -1,4 +1,4 @@
-  body {
+    body {
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
@@ -65,59 +65,10 @@
         background-color: #d57f37;
     }
 
-    .porcentajes{
-    position:relative;
-}
-.porcentajes span{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    bottom: 0%;
-    right: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font: 25px/1em Verdana;
-}
-
     .contenedor-progreso {
-        display: flex;
+        /* display: flex; */
         justify-content: center;
-        margin-top: 20px;
-    }
-    .progreso {
-        text-align: center;
-        margin: 0 15px;
-    }
-    .progreso svg {
-        width: 100px;
-        height: 100px;
-    }
-    .progreso span {
-        display: block;
-        margin-top: 10px;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    circle {
-        fill: none;
-        stroke-width: 15;
-        transform: rotate(-90deg);
-        transform-origin: 50% 50%;
-        stroke-dasharray: 100 100;
-        stroke: #aaa;
-    }
-    circle:nth-child(2) {
-        stroke: var(--color, blue);
-        stroke-dasharray: 0 100;
-        animation: rellenar 1s ease-in-out forwards;
-    }
-
-    @keyframes rellenar {
-        to {
-            stroke-dasharray: var(--porcentaje) 100;
-        }
+        margin-top: -20px;
     }
 
     .btnPass{
@@ -132,4 +83,99 @@
     .btnPass:hover{
         transform: scale(1.1);
         background-color: #AF0E5B;
+    }
+
+    :root{
+        --color-primary: #6C9BCF;
+        --color-danger: #FF0060;
+        --color-success: #1B9C85;
+        --color-info-dark: #7d8da1;
+        --color-dark: #363949;
+        --color-light: rgba(132, 139, 200, 0.18);
+        --color-dark-variant: #677483;
+        --color-background: #f6f6f9;
+        --card-border-radius: 2rem;
+        --border-radius-1: 0.4rem;
+        --border-radius-2: 1.2rem;
+        --card-padding: 1.8rem;
+        --padding-1: 1.2rem;
+        --box-shadow: 0 2rem 3rem var(--color-light);
+    }
+
+    .grupo {
+        margin-left: 46%;
+        /* background-color: #3d87d1; */
+    }
+
+    .cartas{
+        margin-left: 20%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.6rem;
+        /* background-color: #1B9C85; */
+    }
+
+    .cartas > div{
+        background-color: #fff;
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--box-shadow);
+        transition: all 0.3s ease;
+    }
+
+    .cartas > div:hover{
+        box-shadow: none;
+    }
+
+    .cartas > div .status{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .cartas h3{
+        margin-left: 0.1rem;
+        font-size: 1rem;
+    }
+
+    .cartas .grafica{
+        position: relative;
+        width: 92px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    .cartas svg{
+        width: 20rem;
+        height: 7rem;
+    }
+
+    .cartas svg circle{
+        fill: none;
+        stroke-width: 10;
+        stroke-linecap: round;
+        transform: translate(5px, 5px) rotate(-90deg);
+    }
+
+    .cartas .general svg circle{
+        stroke: var(--color-success);
+    }
+
+    .cartas .numeros svg circle{
+        stroke: var(--color-danger);
+    }
+
+    .cartas .letras svg circle{
+        stroke: var(--color-primary);
+    }
+
+    .cartas .grafica .numero{
+        position: absolute;
+        top: 8px;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
     }
