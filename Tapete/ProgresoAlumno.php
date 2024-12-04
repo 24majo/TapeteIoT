@@ -14,95 +14,92 @@
 
     <style>
         :root{
-    --color-primary: #6C9BCF;
-    --color-danger: #FF0060;
-    --color-success: #1B9C85;
-    --color-info-dark: #7d8da1;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139, 200, 0.18);
-    --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
+            --color-primary: #6C9BCF;
+            --color-danger: #FF0060;
+            --color-success: #1B9C85;
+            --color-info-dark: #7d8da1;
+            --color-dark: #363949;
+            --color-light: rgba(132, 139, 200, 0.18);
+            --color-dark-variant: #677483;
+            --color-background: #f6f6f9;
+            --card-border-radius: 2rem;
+            --border-radius-1: 0.4rem;
+            --border-radius-2: 1.2rem;
+            --card-padding: 1.8rem;
+            --padding-1: 1.2rem;
+            --box-shadow: 0 2rem 3rem var(--color-light);
+        }
 
-    --card-border-radius: 2rem;
-    --border-radius-1: 0.4rem;
-    --border-radius-2: 1.2rem;
+        .cartas{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+        }
 
-    --card-padding: 1.8rem;
-    --padding-1: 1.2rem;
+        .cartas > div{
+            background-color: #fff;
+            padding: var(--card-padding);
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
 
-    --box-shadow: 0 2rem 3rem var(--color-light);
-}
+        .cartas > div:hover{
+            box-shadow: none;
+        }
 
-.cartas{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-}
+        .cartas > div .status{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.cartas > div{
-    background-color: #fff;
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--box-shadow);
-    transition: all 0.3s ease;
-}
+        .cartas h3{
+            margin-left: 0.1rem;
+            font-size: 1rem;
+        }
 
-.cartas > div:hover{
-    box-shadow: none;
-}
+        .cartas .grafica{
+            position: relative;
+            width: 92px;
+            height: 80px;
+            border-radius: 50%;
+        }
 
-.cartas > div .status{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        .cartas svg{
+            width: 35rem;
+            height: 7rem;
+        }
 
-.cartas h3{
-    margin-left: 0.1rem;
-    font-size: 1rem;
-}
+        .cartas svg circle{
+            fill: none;
+            stroke-width: 10;
+            stroke-linecap: round;
+            transform: translate(5px, 5px) rotate(-90deg);
+        }
 
-.cartas .grafica{
-    position: relative;
-    width: 92px;
-    height: 80px;
-    border-radius: 50%;
-}
+        .cartas .general svg circle{
+            stroke: var(--color-success);
+        }
 
-.cartas svg{
-    width: 35rem;
-    height: 7rem;
-}
+        .cartas .numeros svg circle{
+            stroke: var(--color-danger);
+        }
 
-.cartas svg circle{
-    fill: none;
-    stroke-width: 10;
-    stroke-linecap: round;
-    transform: translate(5px, 5px) rotate(-90deg);
-}
+        .cartas .letras svg circle{
+            stroke: var(--color-primary);
+        }
 
-.cartas .general svg circle{
-    stroke: var(--color-success);
-}
-
-.cartas .numeros svg circle{
-    stroke: var(--color-danger);
-}
-
-.cartas .letras svg circle{
-    stroke: var(--color-primary);
-}
-
-.cartas .grafica .numero{
-    position: absolute;
-    top: 8px;
-    left: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
+        .cartas .grafica .numero{
+            position: absolute;
+            top: 8px;
+            left: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 
