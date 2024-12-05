@@ -1,6 +1,7 @@
 <?php
 include'conexiones/conexion.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,10 +24,8 @@ include'conexiones/conexion.php';
     </div>
 
     <div class="botones">
+        <button onclick="window.location.href = 'RegistroGrupo.php'">Registro de grupos</button>
         <button onclick="window.location.href = 'RegistroAdmin.php'">Registrar personal</button>
-        <button onclick="window.location.href='RegistroAlumno.php'">Registrar alumno</button>
-        <button onclick="window.location.href = 'registro_admin.html'">Modificar personal</button>
-        <button onclick="window.location.href='modificar_alumno.php'">Modificar alumno</button>
     </div>
 
     <div class="selector-generacion">
@@ -74,8 +73,11 @@ include'conexiones/conexion.php';
             $general->bind_param("i", $generacion);
             $general->execute();
             $pro_gen = $general->get_result();
-            
-            
+            echo 
+            '<div style="text-align: center;">
+                <span><strong>Generación: '. $generacion . '</strong></span>
+            </div>';
+
             if ($pro_gen->num_rows > 0) {
                 while ($row = $pro_gen->fetch_assoc()) {
                     $p_general = round($row['promedio_g'], 1);
