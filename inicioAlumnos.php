@@ -47,7 +47,6 @@
 </script>
 
 <body background="./Tapete/Visual/Fondos/FondoInicioSesion.jpg">
-   
   <div  class="container">
     <form class="formulario" method="post">
       <h1>¡Bienvenido(a)!</h1>
@@ -80,75 +79,75 @@
     $pregunta = "";
 
     if (isset($_POST['ingresar_a'])) {
-        $curp = $_POST['curp'];
-        $pass = $_POST['pass_a'];
-    
-        $sql = "SELECT Pass FROM usuarios WHERE CURP = '$curp'";
-        $result = $conn->query($sql);
-    
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $contra = $row['Pass'];
-    
-            if (password_verify($pass, $contra)) {
-                $_SESSION['CURP'] = $curp;
-                header("Location: Tapete/MenuSeleccion.php");
-                exit;
-            } 
-            
-            else {
-                echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
-                echo 
-                '<script>
-                    swal({
-                        title: "Contraseña incorrecta",
-                        text: "Verifica que tu contraseña sea correcta",
-                        icon: "error"
-                    })
-                </script>';
-            }
+      $curp = $_POST['curp'];
+      $pass = $_POST['pass_a'];
+  
+      $sql = "SELECT Pass FROM usuarios WHERE CURP = '$curp'";
+      $result = $conn->query($sql);
+  
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $contra = $row['Pass'];
+
+        if (password_verify($pass, $contra)) {
+          $_SESSION['CURP'] = $curp;
+          header("Location: Tapete/MenuSeleccion.php");
+          exit;
         } 
         
         else {
-            echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
-            echo 
-            '<script>
-                swal({
-                    title: "Usuario incorrecto",
-                    text: "Verifica que la CURP sea correcto o que el alumno esté registrado.",
-                    icon: "error"
-                })
-            </script>';
+          echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+          echo 
+          '<script>
+            swal({
+              title: "Contraseña incorrecta",
+              text: "Verifica que tu contraseña sea correcta",
+              icon: "error"
+            })
+          </script>';
         }
+      } 
+      
+      else {
+        echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+        echo 
+        '<script>
+          swal({
+            title: "Usuario incorrecto",
+            text: "Verifica que la CURP sea correcto o que el alumno esté registrado.",
+            icon: "error"
+          })
+        </script>';
+      }
     } 
 
     if(isset($_POST["verificar_a"])){
-        $curp = $_POST['curp'];
-        $respuesta = $_POST['respuesta_a'];
-        $sql = "SELECT Respuesta FROM usuarios WHERE CURP = '$curp'";
-        $result = $conn->query($sql);
+      $curp = $_POST['curp'];
+      $respuesta = $_POST['respuesta_a'];
+      $sql = "SELECT Respuesta FROM usuarios WHERE CURP = '$curp'";
+      $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $res = $row['Respuesta'];
-    
-            if (password_verify($respuesta, $res)) {
-                $_SESSION['CURP'] = $curp;
-                header("Location: Tapete/MenuSeleccion.php");
-                exit;
-            } 
-            else {
-                echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
-                echo 
-                '<script>
-                    swal({
-                        title: "Respuesta incorrecta",
-                        text: "Verifica que tu respuesta sea correcta",
-                        icon: "error"
-                    })
-                </script>';
-            }
+      if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $res = $row['Respuesta'];
+
+        if (password_verify($respuesta, $res)) {
+          $_SESSION['CURP'] = $curp;
+          header("Location: Tapete/MenuSeleccion.php");
+          exit;
+        } 
+        else {
+          echo '<script src="Tapete/node_modules/sweetalert/dist/sweetalert.min.js"></script>';
+          echo 
+          '<script>
+            swal({
+              title: "Respuesta incorrecta",
+              text: "Verifica que tu respuesta sea correcta",
+              icon: "error"
+            })
+          </script>';
         }
+      }
     }
 ?>
 </body>
