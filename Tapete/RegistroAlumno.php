@@ -121,7 +121,7 @@
         else {
             $sql = "INSERT INTO usuarios (CURP, Nombres, Paterno, Materno, id_grupo, generacion, Pass, Pregunta, Respuesta)
             VALUES ('$curp', '$nombres', '$paterno', '$materno', 
-            (SELECT id_grupo FROM grupos WHERE nombre = '$grupo'),
+            (SELECT id_grupo FROM grupos WHERE nombre = '$grupo' AND generacion = '$generacion'),
             '$generacion','$pass_encryp', '$pregunta', '$resp_encryp')";
 
             $result = mysqli_query($conn, $sql);
@@ -135,8 +135,6 @@
                         icon: "success"
                     })
                 </script>';
-                // echo "Usuario registrado correctamente";
-                // header("Location: ../registro_alumno.html");
             } 
             
             else {
