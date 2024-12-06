@@ -178,7 +178,6 @@
             } 
             else {
                 $pro_gen = 0;
-                // echo "<span>Sin datos de este alumno</span>";
             }
         ?>
         <br>
