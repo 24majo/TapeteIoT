@@ -2,7 +2,7 @@
     error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING); // Linea que sirve para ocultar advertencias
     include'conexiones/conexion.php';
 
-    $grupo = "SELECT id_grupo, nombre FROM grupos";
+    $grupo = "SELECT DISTINCT nombre FROM grupos";
     $id_g = [];
     $group = [];
     $r_grupo = $conn->query($grupo);
@@ -52,6 +52,7 @@
     <title>Grupos</title>
 </head>
 <body>
+    <button onclick="window.location.href='MenuAdmin.php';">Regresar</button>
     <button onclick="window.location.href='RegistroAlumno.php'">Registrar alumno</button>
     <br><br>
 
@@ -88,7 +89,7 @@
             ?>
         </select>
         <br><br>
-        <button name = "btn_registrar">Registrar</button>
+        <button name = "btn_registrar">Registrar grupo</button>
         <button name = "btn_ver">Ver grupos</button>
     </form>
 
@@ -154,9 +155,7 @@
                                         })
                                     </script>';
                                 }
-                    
-                                $stmt->close();
-                            } ;
+                            } 
                             '
                         } 
                     });    
@@ -220,7 +219,7 @@
         
             $ver = "SELECT grupos.nombre AS G_nombre, 
                     docentes.paterno, docentes.materno, docentes.nombre, 
-                    usuarios.Paterno, usuarios.Materno, usuarios.Nombres 
+                    usuarios.CURP, usuarios.Paterno, usuarios.Materno, usuarios.Nombres 
                     FROM usuarios
                     JOIN grupos
                     ON usuarios.id_grupo = grupos.id_grupo
@@ -238,6 +237,7 @@
                     $g_grupo = $row['G_nombre'];
                     $n_docente = $row['paterno'] . ' ' . $row['materno'] . ' ' . $row['nombre']; 
                     $alumnos[] = [
+                        'CURP' => $row['CURP'],
                         'Paterno' => $row['Paterno'],
                         'Materno' => $row['Materno'],
                         'Nombre' => $row['Nombres']
@@ -265,16 +265,30 @@
             <tr>
                 <th>Apellidos</th>
                 <th>Nombre</th>
-                <th>Modificar</th>
+                <th>Modificar grupo</th>
             </tr>
         </thead>
         <tbody>
             <?php
                 foreach ($alumnos as $alumno) {
+                    $curp = $alumno['CURP'];
+                    $nombre = $alumno['Nombre'];
+                    $paterno = $alumno['Paterno'];
+                    $materno = $alumno['Materno'];
+
                     echo "<tr>";
-                    echo "<td>" . htmlspecialchars($alumno['Paterno']) . " " . htmlspecialchars($alumno['Materno']) . "</td>";
-                    echo "<td>" . htmlspecialchars($alumno['Nombre']) . "</td>"; 
-                    echo "<td style='text-align: center;'><button onclick=\"window.location.href='ModificarAlumno.php'\">M</button></td>"; 
+                    echo "<td>" . $paterno . " " . $materno . "</td>";
+                    echo "<td>" . $nombre . "</td>"; 
+                    echo "<td style='text-align: center;'>
+                        <form action='ModificarAlumno.php' method='POST'>
+                            <input type='hidden' name='curp' value='$curp'>
+                            <input type='hidden' name='paterno' value='$paterno'>
+                            <input type='hidden' name='materno' value='$materno'>
+                            <input type='hidden' name='nombre' value='$nombre'>
+                            <input type='hidden' name='gen' value='$gen'>
+                            <button type='submit'>M</button>
+                        </form>
+                    </td>"; 
                     echo "</tr>";
                 }
             ?>
