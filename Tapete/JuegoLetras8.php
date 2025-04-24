@@ -65,11 +65,14 @@
 </div>
 <!---------------------- Fin de barra lateral ----------------------------->
 
-    <div style="margin-left: 700px; margin-top: -380px">
-        <progress style="height: 80px; width:380px;" id="barra" max="12" value="0"></progress>
-    </div>
+    
 
     <nav>
+
+    <div style="margin-top:30px">
+        <div style="margin-left: 700px; margin-top: -380px">
+        <progress style="height: 80px; width:380px;" id="barra" max="12" value="0"></progress>
+    </div>
         <div>
             <div class="vidas" id="vida"></div>
         </div>
@@ -87,6 +90,8 @@
             <img  id="silenciar" class="imgVolumen" src="Visual/Material/Recursos/ConVolumen.png" alt="">
             <input class="rango" type="range" id="volumen" min="0" max="1" step="0.1" value="1">
         </div>
+    </div>
+    
 
         <div  class="titulo">
             <font face="Century Gothic">

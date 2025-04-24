@@ -19,12 +19,13 @@ include'conexiones/conexion.php';
 
     <div class="barra-superior">
         <span>Administrador</span>
-        <button class="btnPass" onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button>
+        <!-- <button class="btnPass" onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button> -->
         <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
     </div>
 
     <div class="botones">
-        <button onclick="window.location.href = 'RegistroGrupo.php'">Registro de grupos</button>
+    <!-- <button onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button> -->
+        <!-- <button onclick="window.location.href = 'RegistroGrupo.php'">Registro de grupos</button> -->
         <button onclick="window.location.href = 'RegistroAdmin.php'">Registrar personal</button>
     </div>
 

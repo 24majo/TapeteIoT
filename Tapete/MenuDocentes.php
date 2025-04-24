@@ -42,8 +42,12 @@
             </div>
 
             <div class="cerrar">
-                <button class="btnPass"  onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button>
-                <a href="conexiones/cerrar_sesion.php">Cerrar sesión</a>
+                <!-- <button class="btnPass"  onclick="window.location.href='ContraseñaDocente.php'">Cambiar contraseña</button> -->
+                <!-- <a href="conexiones/cerrar_sesion.php">/a> -->
+                    <a href="conexiones/cerrar_sesion.php">
+                    <button class="btnPass">Cerrar Sesión</button>
+                    </a>
+                
             </div> 
         </nav>
 
